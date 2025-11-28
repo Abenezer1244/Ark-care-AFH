@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ark Care AFH — Our Services</title>
+<!-- Fonts: IBM Plex Serif (Headings) & Inter (Body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+stone: {
+50: '#fafaf9',
+100: '#f5f5f4',
+200: '#e7e5e4',
+300: '#d6d3d1',
+400: '#a8a29e',
+500: '#78716c',
+600: '#57534e',
+700: '#44403c',
+800: '#292524',
+900: '#1c1917',
+},
+},
+fontFamily: {
+serif: ['"IBM Plex Serif"', 'serif'],
+sans: ['"Inter"', 'sans-serif'],
+},
+boxShadow: {
+'xl': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+'3d': '0 25px 50px -12px rgba(0, 0, 0, 0.15)',
+}
+}
+}
+}
+</script>
+<style>
+body {
+background-color: #f5f5f4;
+color: #1c1917;
+overflow-x: hidden;
+-webkit-font-smoothing: antialiased;
+font-family: 'Inter', sans-serif;
+font-size: 16px;
+}
+h1, h2, h3, h4, h5, h6 {
+font-family: 'IBM Plex Serif', serif;
+font-weight: 600;
+letter-spacing: 0.05em;
+}
+/* 3D Animation Utilities */
+.card-perspective { perspective: 1000px; }
+.card-inner { transition: transform 0.6s ease-in; transform-style: preserve-3d; }
+.hover-lift { transition: transform 0.4s ease-out, box-shadow 0.4s ease-out; }
+.hover-lift:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); }
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #d6d3d1; border-radius: 10px; }
+/* Layout Utilities */
+.masonry-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+gap: 1.5rem;
+}
+/* Nav Transition */
+#main-nav { transition: background-color 0.3s, border-color 0.3s, padding 0.3s; }
+#main-nav.scrolled { background-color: rgba(250, 250, 249, 0.9); backdrop-filter: blur(12px); border-bottom: 1px solid #e7e5e4; padding-top: 1rem; padding-bottom: 1rem; }
+#main-nav.scrolled .nav-pill { background-color: transparent; border-color: transparent; box-shadow: none; }
+</style>
+<link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist">.font-geist { font-family: 'Geist', sans-serif !important; }</style><link id="all-fonts-link-font-roboto" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-roboto">.font-roboto { font-family: 'Roboto', sans-serif !important; }</style><link id="all-fonts-link-font-montserrat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-montserrat">.font-montserrat { font-family: 'Montserrat', sans-serif !important; }</style><link id="all-fonts-link-font-poppins" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-poppins">.font-poppins { font-family: 'Poppins', sans-serif !important; }</style><link id="all-fonts-link-font-playfair" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&amp;display=swap"><style id="all-fonts-style-font-playfair">.font-playfair { font-family: 'Playfair Display', serif !important; }</style><link id="all-fonts-link-font-instrument-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-instrument-serif">.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }</style><link id="all-fonts-link-font-merriweather" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap"><style id="all-fonts-style-font-merriweather">.font-merriweather { font-family: 'Merriweather', serif !important; }</style><link id="all-fonts-link-font-bricolage" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-bricolage">.font-bricolage { font-family: 'Bricolage Grotesque', sans-serif !important; }</style><link id="all-fonts-link-font-jakarta" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-jakarta">.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }</style><link id="all-fonts-link-font-manrope" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-manrope">.font-manrope { font-family: 'Manrope', sans-serif !important; }</style><link id="all-fonts-link-font-space-grotesk" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-space-grotesk">.font-space-grotesk { font-family: 'Space Grotesk', sans-serif !important; }</style><link id="all-fonts-link-font-work-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-work-sans">.font-work-sans { font-family: 'Work Sans', sans-serif !important; }</style><link id="all-fonts-link-font-pt-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-pt-serif">.font-pt-serif { font-family: 'PT Serif', serif !important; }</style><link id="all-fonts-link-font-geist-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist-mono">.font-geist-mono { font-family: 'Geist Mono', monospace !important; }</style><link id="all-fonts-link-font-space-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-space-mono">.font-space-mono { font-family: 'Space Mono', monospace !important; }</style><link id="all-fonts-link-font-quicksand" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-quicksand">.font-quicksand { font-family: 'Quicksand', sans-serif !important; }</style><link id="all-fonts-link-font-nunito" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-nunito">.font-nunito { font-family: 'Nunito', sans-serif !important; }</style></head>
+<body class="selection:bg-stone-200 selection:text-stone-900 bg-stone-100">
+
+<!-- Background Component -->
+<div class="fixed top-0 w-full h-screen -z-10" style="mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent);">
+    <div class="absolute w-full h-full left-0 top-0 bg-stone-100 opacity-50"></div>
+</div>
+
+    <!-- Navigation (Redesigned based on Image) -->
+    <nav id="main-nav" class="fixed top-0 w-full z-50 pt-8 pb-4 px-6 md:px-10 transition-all duration-300">
+        <div class="max-w-[1600px] mx-auto flex items-center justify-between relative">
+            
+            <!-- Logo -->
+            <a href="#" class="relative z-10 flex items-center">
+                <a href="index.html" class="cursor-pointer md:text-2xl text-3xl font-bold text-stone-900 tracking-tight font-serif">Ark Care AFH</a>
+            </a>
+
+            <!-- Center Navigation Pill -->
+            <div class="nav-pill hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-10 bg-stone-50/80 backdrop-blur-md border border-stone-200 rounded-full px-10 py-3.5 shadow-sm transition-all duration-300">
+                <a href="index.html" class="text-[11px] font-serif font-bold text-stone-500 hover:text-stone-900 uppercase tracking-[0.15em] transition-colors">Home</a>
+                <a href="about-us.html" class="text-[11px] font-serif font-bold text-stone-500 hover:text-stone-900 uppercase tracking-[0.15em] transition-colors whitespace-nowrap">About Us</a>
+                <a href="services.html" class="text-[11px] font-serif font-bold text-stone-900 hover:text-stone-900 uppercase tracking-[0.15em] transition-colors">Services</a>
+                <a href="gallery.html" class="text-[11px] font-serif font-bold text-stone-500 hover:text-stone-900 uppercase tracking-[0.15em] transition-colors">Gallery</a>
+                <a href="contact.html" class="text-[11px] font-serif font-bold text-stone-500 hover:text-stone-900 uppercase tracking-[0.15em] transition-colors">Contact</a>
+            </div>
+
+            <!-- Right Actions -->
+            <div class="relative z-10 flex items-center gap-4">
+                 <a href="contact.html" class="text-[11px] uppercase hover:scale-105 active:scale-95 transition-all hidden md:block font-bold text-slate-50 tracking-[0.15em] font-serif bg-stone-950 rounded-full px-8 py-3.5 shadow-lg">
+                    Schedule a Tour
+                </a>
+                
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden text-stone-900 p-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu w-8 h-8"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Wrapper -->
+    <main class="w-full max-w-[1600px] mr-auto ml-auto pt-44 pr-6 pb-24 pl-6">
+        
+        <!-- Header Section -->
+        <header class="flex flex-col text-center max-w-5xl mr-auto mb-24 ml-auto items-center">
+            <span class="inline-block px-4 py-1.5 rounded-full border border-stone-200 bg-white text-xs font-semibold uppercase tracking-widest text-stone-500 mb-8 shadow-sm">
+                Our Services
+            </span>
+            <h1 class="text-6xl md:text-[80px] leading-[1.1] font-semibold text-stone-900 tracking-tight mb-8 animate-seq opacity-0 translate-y-10" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+                Our Care Services
+            </h1>
+            <p class="text-2xl md:text-[28px] leading-relaxed text-stone-600 font-sans font-light max-w-3xl mx-auto animate-seq opacity-0 translate-y-10" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+                Comprehensive services designed to support health, safety, and quality of life. Including HCS, DDA Meaningful Day, Expanded Community Services, and specialized behavioral health support.
+            </p>
+        </header>
+
+        <!-- Essential Services Grid -->
+        <section id="essential" class="mb-32">
+            <div class="flex items-center gap-4 mb-12">
+                <h2 class="text-4xl font-semibold text-stone-900 tracking-wide">Essential Care</h2>
+                <div class="h-px flex-grow bg-stone-200"></div>
+            </div>
+
+            <div class="masonry-grid">
+                <!-- Card 1 -->
+                <div class="bg-white border border-stone-200 p-8 rounded-3xl shadow-xl hover-lift card-perspective group animate-seq opacity-0 translate-y-10" style="translate: none; rotate: none; scale: none; transform: translate(0px, 40px); opacity: 1;">
+                    <div class="w-14 h-14 rounded-2xl bg-stone-100 border border-stone-200 flex items-center justify-center mb-6 text-stone-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </div>
+                    <h3 class="text-[28px] font-semibold mb-4 text-stone-900 tracking-tight">24/7 Professional Care</h3>
+                    <p class="text-stone-600 mb-6 font-sans leading-relaxed text-lg">Round-the-clock care and support from trained staff members available at all times.</p>
+                    <ul class="space-y-3 border-t border-stone-100 pt-6">
+                        <li class="flex items-center gap-3 text-sm text-stone-500 font-sans"><div class="w-1.5 h-1.5 rounded-full bg-stone-400"></div>Health monitoring</li>
+                        <li class="flex items-center gap-3 text-sm text-stone-500 font-sans"><div class="w-1.5 h-1.5 rounded-full bg-stone-400"></div>Assistance as needed</li>
+                        <li class="flex items-center gap-3 text-sm text-stone-500 font-sans"><div class="w-1.5 h-1.5 rounded-full bg-stone-400"></div>Emergency response</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white border border-stone-200 p-8 rounded-3xl shadow-xl hover-lift card-perspective group animate-seq opacity-0 translate-y-10" style="translate: none; rotate: none; scale: none; transform: translate(0px, 40px); opacity: 1;">
+                    <div class="w-14 h-14 rounded-2xl bg-stone-100 border border-stone-200 flex items-center justify-center mb-6 text-stone-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pill"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"></path><path d="m8.5 8.5 7 7"></path></svg>
+                    </div>
+                    <h3 class="text-[28px] font-semibold mb-4 text-stone-900 tracking-tight">Medication Management</h3>
+                    <p class="text-stone-600 mb-6 font-sans leading-relaxed text-lg">Professional medication administration and management to ensure proper care.</p>
+                    <ul class="space-y-3 border-t border-stone-100 pt-6">
+                        <li class="flex items-center gap-3 text-sm text-stone-500 font-sans"><div class="w-1.5 h-1.5 rounded-full bg-stone-400"></div>Medication reminders</li>
+                        <li class="flex items-center gap-3 text-sm text-stone-500 font-sans"><div class="w-1.5 h-1.5 rounded-full bg-stone-400"></div>Prescription coordination</li>
+                        <li class="flex items-center gap-3 text-sm text-stone-500 font-sans"><div class="w-1.5 h-1.5 rounded-full bg-stone-400"></div>Health records tracking</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white border border-stone-200 p-8 rounded-3xl shadow-xl hover-lift card-perspective group animate-seq opacity-0 translate-y-10" style="translate: none; rotate: none; scale: none; transform: translate(0px, 40px); opacity: 1;">
+                    <div class="w-14 h-14 rounded-2xl bg-stone-100 border border-stone-200 flex items-center justify-center mb-6 text-stone-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-handshake"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path><path d="M12 5 9.04 2"></path><path d="M6.18 4.14 8 2.18"></path><path d="M17.82 4.14 16 2.18"></path></svg>
+                    </div>
+                    <h3 class="text-[28px] font-semibold mb-4 text-stone-900 tracking-tight">Personal Care &amp; Hygiene</h3>
+                    <p class="text-stone-600 mb-6 font-sans leading-relaxed text-lg">Personalized assistance with daily living activities and personal hygiene.</p>
+                    <ul class="space-y-3 border-t border-stone-100 pt-6">
+                        <li class="flex items-center gap-3 text-sm text-stone-500 font-sans"><div class="w-1.5 h-1.5 rounded-full bg-stone-400"></div>Bathing assistance</li>
+                        <li class="flex items-center gap-3 text-sm text-stone-500 font-sans"><div class="w-1.5 h-1.5 rounded-full bg-stone-400"></div>Dressing help</li>
+                        <li class="flex items-center gap-3 text-sm text-stone-500 font-sans"><div class="w-1.5 h-1.5 rounded-full bg-stone-400"></div>Grooming support</li>
+                    </ul>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white border border-stone-200 p-8 rounded-3xl shadow-xl hover-lift card-perspective group animate-seq opacity-0 translate-y-10" style="translate: none; rotate: none; scale: none; transform: translate(0px, 40px); opacity: 1;">
+                    <div class="w-14 h-14 rounded-2xl bg-stone-100 border border-stone-200 flex items-center justify-center mb-6 text-stone-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-utensils"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path><path d="M7 2v20"></path><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path></svg>
+                    </div>
+                    <h3 class="text-[28px] font-semibold mb-4 text-stone-900 tracking-tight">Meal Preparation</h3>
+                    <p class="text-stone-600 mb-6 font-sans leading-relaxed text-lg">Balanced, nutritious meals prepared daily with dietary preferences considered.</p>
+                    <ul class="space-y-3 border-t border-stone-100 pt-6">
+                        <li class="flex items-center gap-3 text-sm text-stone-500 font-sans"><div class="w-1.5 h-1.5 rounded-full bg-stone-400"></div>Menu planning</li>
+                        <li class="flex items-center gap-3 text-sm text-stone-500 font-sans"><div class="w-1.5 h-1.5 rounded-full bg-stone-400"></div>Dietary accommodations</li>
+                        <li class="flex items-center gap-3 text-sm text-stone-500 font-sans"><div class="w-1.5 h-1.5 rounded-full bg-stone-400"></div>Nutrition monitoring</li>
+                    </ul>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-white border border-stone-200 p-8 rounded-3xl shadow-xl hover-lift card-perspective group animate-seq opacity-0 translate-y-10" style="translate: none; rotate: none; scale: none; transform: translate(0px, 40px); opacity: 1;">
+                    <div class="w-14 h-14 rounded-2xl bg-stone-100 border border-stone-200 flex items-center justify-center mb-6 text-stone-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+                    </div>
+                    <h3 class="text-[28px] font-semibold mb-4 text-stone-900 tracking-tight">Recreational Activities</h3>
+                    <p class="text-stone-600 mb-6 font-sans leading-relaxed text-lg">Engaging activities designed to promote physical and mental well-being.</p>
+                    <ul class="space-y-3 border-t border-stone-100 pt-6">
+                        <li class="flex items-center gap-3 text-sm text-stone-500 font-sans"><div class="w-1.5 h-1.5 rounded-full bg-stone-400"></div>Indoor &amp; outdoor outings</li>
+                        <li class="flex items-center gap-3 text-sm text-stone-500 font-sans"><div class="w-1.5 h-1.5 rounded-full bg-stone-400"></div>Hobbies and interests</li>
+                        <li class="flex items-center gap-3 text-sm text-stone-500 font-sans"><div class="w-1.5 h-1.5 rounded-full bg-stone-400"></div>Social engagement</li>
+                    </ul>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="bg-white border border-stone-200 p-8 rounded-3xl shadow-xl hover-lift card-perspective group animate-seq opacity-0 translate-y-10" style="translate: none; rotate: none; scale: none; transform: translate(0px, 40px); opacity: 1;">
+                    <div class="w-14 h-14 rounded-2xl bg-stone-100 border border-stone-200 flex items-center justify-center mb-6 text-stone-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-car"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path><circle cx="7" cy="17" r="2"></circle><circle cx="17" cy="17" r="2"></circle></svg>
+                    </div>
+                    <h3 class="text-[28px] font-semibold mb-4 text-stone-900 tracking-tight">Transportation</h3>
+                    <p class="text-stone-600 mb-6 font-sans leading-relaxed text-lg">Assistance with transportation to medical appointments and community activities.</p>
+                    <ul class="space-y-3 border-t border-stone-100 pt-6">
+                        <li class="flex items-center gap-3 text-sm text-stone-500 font-sans"><div class="w-1.5 h-1.5 rounded-full bg-stone-400"></div>Medical appointments</li>
+                        <li class="flex items-center gap-3 text-sm text-stone-500 font-sans"><div class="w-1.5 h-1.5 rounded-full bg-stone-400"></div>Community outings</li>
+                        <li class="flex items-center gap-3 text-sm text-stone-500 font-sans"><div class="w-1.5 h-1.5 rounded-full bg-stone-400"></div>Safe transport</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specialized Care -->
+        <section id="specialized" class="mb-32">
+            <div class="flex items-center gap-4 mb-12">
+                <h2 class="text-4xl font-semibold text-stone-900 tracking-wide">Specialized Support</h2>
+                <div class="h-px flex-grow bg-stone-200"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Special 1 -->
+                <div class="bg-stone-900 text-stone-50 p-10 rounded-3xl shadow-xl flex flex-col justify-between group animate-seq opacity-0 translate-y-10 border border-stone-800" style="translate: none; rotate: none; scale: none; transform: translate(0px, 40px); opacity: 1;">
+                    <div>
+                        <div class="w-16 h-16 rounded-full bg-stone-800 flex items-center justify-center mb-8 border border-stone-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brain"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"></path><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"></path><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"></path><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"></path><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"></path><path d="M3.477 10.896a4 4 0 0 1 .585-.396"></path><path d="M19.938 10.5a4 4 0 0 1 .585.396"></path><path d="M6 18a4 4 0 0 1-1.97-1.364"></path><path d="M19.97 16.636A4 4 0 0 1 18 18"></path></svg>
+                        </div>
+                        <h3 class="text-[32px] font-semibold mb-4 tracking-tight">Mental Health Support</h3>
+                        <p class="text-stone-400 font-sans leading-relaxed text-lg mb-8">Specialized behavioral health support and mental health services for individuals with psychiatric or emotional health needs.</p>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-stone-300 font-sans font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Behavior support services</li>
+                        <li class="flex items-center gap-3 text-stone-300 font-sans font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Mental health monitoring</li>
+                    </ul>
+                </div>
+
+                <!-- Special 2 -->
+                <div class="bg-white text-stone-900 p-10 rounded-3xl shadow-xl flex flex-col justify-between group animate-seq opacity-0 translate-y-10 border border-stone-200" style="translate: none; rotate: none; scale: none; transform: translate(0px, 40px); opacity: 1;">
+                    <div>
+                        <div class="w-16 h-16 rounded-full bg-stone-100 flex items-center justify-center mb-8 border border-stone-200">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <h3 class="text-[32px] font-semibold mb-4 tracking-tight">Dementia Care</h3>
+                        <p class="text-stone-600 font-sans leading-relaxed text-lg mb-8">Specialized care and support for individuals living with dementia and cognitive decline.</p>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-stone-600 font-sans font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"></polyline></svg> Memory care support</li>
+                        <li class="flex items-center gap-3 text-stone-600 font-sans font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"></polyline></svg> Safe, supportive environment</li>
+                    </ul>
+                </div>
+
+                <!-- Special 3 -->
+                <div class="bg-white text-stone-900 p-10 rounded-3xl shadow-xl flex flex-col justify-between group animate-seq opacity-0 translate-y-10 border border-stone-200" style="translate: none; rotate: none; scale: none; transform: translate(0px, 40px); opacity: 1;">
+                    <div>
+                        <div class="w-16 h-16 rounded-full bg-stone-100 flex items-center justify-center mb-8 border border-stone-200">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-puzzle"><path d="M19.439 10c.011.332.022.663.051.994.093 1.056.43 2.072 1.01 2.972a.75.75 0 0 1-.65 1.155H15a.75.75 0 0 1-.75-.75v-2a3 3 0 0 0-5.658-1.529.75.75 0 0 1-1.342-.471V8a3 3 0 0 0-4.606-2.534.75.75 0 0 1-1.036-.656 8.5 8.5 0 0 1 8.5-8.5c1.458 0 2.836.376 4.048 1.042.846.465 1.097 1.488.665 2.193A3.003 3.003 0 0 0 16 2.5a3 3 0 0 0 2.827 4.026.75.75 0 0 1 .612.474ZM4.5 15a.75.75 0 0 0 .75.75h2a3 3 0 0 1 5.658 1.529.75.75 0 0 0 1.342.471V20a3 3 0 0 1 4.606 2.534.75.75 0 0 0 1.036.656 8.5 8.5 0 0 0-8.5-8.5c-1.458 0-2.836-.376-4.048-1.042-.846-.465-1.097-1.488-.665-2.193A3.003 3.003 0 0 1 8 13.5a3 3 0 0 1-2.827-4.026.75.75 0 0 0-.612-.474Z"></path></svg>
+                        </div>
+                        <h3 class="text-[32px] font-semibold mb-4 tracking-tight">Developmental Disabilities</h3>
+                        <p class="text-stone-600 font-sans leading-relaxed text-lg mb-8">Comprehensive support for adults with intellectual and developmental disabilities.</p>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-stone-600 font-sans font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"></polyline></svg> Life skills support</li>
+                        <li class="flex items-center gap-3 text-stone-600 font-sans font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"></polyline></svg> Community integration</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Facility & Amenities -->
+        <section id="amenities" class="mb-32">
+            <div class="bg-white rounded-[3rem] p-10 lg:p-16 border border-stone-200 shadow-xl animate-seq opacity-0 translate-y-10" style="translate: none; rotate: none; scale: none; transform: translate(0px, 40px); opacity: 1;">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    <div>
+                        <h2 class="text-4xl lg:text-5xl font-semibold text-stone-900 tracking-wide mb-8">Facility Amenities</h2>
+                        <div class="space-y-8">
+                            <div>
+                                <h4 class="text-xl font-semibold text-stone-900 mb-2">Comfortable Living Spaces</h4>
+                                <p class="text-stone-600 font-sans font-light text-lg">Private bedrooms with comfortable furnishings and personal décor options.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-stone-900 mb-2">Accessible Design</h4>
+                                <p class="text-stone-600 font-sans font-light text-lg">Accessible facilities with grab bars, ramps, and other safety features.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-stone-900 mb-2">Common Areas</h4>
+                                <p class="text-stone-600 font-sans font-light text-lg">Living room, dining area, and outdoor spaces for relaxation and activities.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-stone-900 mb-2">Safety &amp; Technology</h4>
+                                <p class="text-stone-600 font-sans font-light text-lg">Security systems, fire safety, WiFi access, and emergency response protocols.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative h-full min-h-[400px] rounded-3xl overflow-hidden shadow-inner group">
+                        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&amp;w=2000&amp;auto=format&amp;fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Facility Interior">
+                        <div class="absolute inset-0 bg-stone-900/10 mix-blend-multiply"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Approach & Planning -->
+        <section id="approach" class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+            <div class="bg-stone-200/50 p-12 rounded-3xl border border-stone-200 shadow-xl animate-seq opacity-0 translate-y-10" style="translate: none; rotate: none; scale: none; transform: translate(0px, 40px); opacity: 1;">
+                <h2 class="text-3xl font-semibold text-stone-900 tracking-wide mb-6">Our Care Approach</h2>
+                <p class="text-stone-600 font-sans leading-relaxed text-lg mb-6">
+                    At Ark Care AFH, we believe in a person-centered care approach that respects individuality and promotes independence. Our services are designed around each resident's unique needs, preferences, and goals.
+                </p>
+                <p class="text-stone-600 font-sans leading-relaxed text-lg">
+                    We work closely with families, healthcare providers, and residents to develop comprehensive care plans. We accept multiple programs including HCS, DDA Meaningful Day Services, and Specialized Behavior Support.
+                </p>
+            </div>
+            
+            <div class="bg-white p-12 rounded-3xl border border-stone-200 shadow-xl animate-seq opacity-0 translate-y-10" style="translate: none; rotate: none; scale: none; transform: translate(0px, 40px); opacity: 1;">
+                <h2 class="text-3xl font-semibold text-stone-900 tracking-wide mb-6">Personalized Care Plans</h2>
+                <p class="text-stone-600 font-sans font-light mb-8 text-lg">Each resident receives an individualized care plan developed in consultation with family members and healthcare providers.</p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="flex items-center gap-3 p-4 bg-stone-50 rounded-xl border border-stone-100">
+                        <div class="w-2 h-2 rounded-full bg-stone-900"></div>
+                        <span class="text-sm font-semibold text-stone-800 font-sans">Health &amp; Wellness Goals</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-4 bg-stone-50 rounded-xl border border-stone-100">
+                        <div class="w-2 h-2 rounded-full bg-stone-900"></div>
+                        <span class="text-sm font-semibold text-stone-800 font-sans">Personal Preferences</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-4 bg-stone-50 rounded-xl border border-stone-100">
+                        <div class="w-2 h-2 rounded-full bg-stone-900"></div>
+                        <span class="text-sm font-semibold text-stone-800 font-sans">Medication Needs</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-4 bg-stone-50 rounded-xl border border-stone-100">
+                        <div class="w-2 h-2 rounded-full bg-stone-900"></div>
+                        <span class="text-sm font-semibold text-stone-800 font-sans">Social Activities</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-stone-200 pt-16 pb-12 px-6">
+        <div class="max-w-[1400px] mx-auto text-center">
+            <h2 class="text-3xl font-semibold text-stone-900 tracking-wide mb-8">Ark Care AFH</h2>
+            <div class="flex justify-center gap-8 mb-12">
+                <a href="services.html#essential" class="text-stone-500 hover:text-stone-900 font-sans text-sm transition-colors">Services</a>
+                <a href="services.html#specialized" class="text-stone-500 hover:text-stone-900 font-sans text-sm transition-colors">Specialized Care</a>
+                <a href="contact.html" class="text-stone-500 hover:text-stone-900 font-sans text-sm transition-colors">Contact</a>
+            </div>
+            <p class="text-stone-400 font-sans text-xs">© 2025 Ark Care AFH. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Init Lucide
+        lucide.createIcons();
+
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Sequence Animation
+        const items = document.querySelectorAll('.animate-seq');
+        items.forEach((item, index) => {
+            gsap.to(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: "top 90%",
+                    toggleActions: "play none none reverse"
+                },
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: "power2.inOut",
+                delay: index % 3 * 0.1
+            });
+        });
+
+        // 3D Tilt Effect
+        document.querySelectorAll('.card-perspective').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -5;
+                const rotateY = ((x - centerX) / centerX) * 5;
+
+                gsap.to(card, {
+                    rotationX: rotateX,
+                    rotationY: rotateY,
+                    duration: 0.5,
+                    ease: "power2.out",
+                    transformPerspective: 1000
+                });
+            });
+
+            card.addEventListener('mouseleave', () => {
+                gsap.to(card, {
+                    rotationX: 0,
+                    rotationY: 0,
+                    duration: 0.5,
+                    ease: "power2.out"
+                });
+            });
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            if (window.scrollY > 20) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+</body></html>

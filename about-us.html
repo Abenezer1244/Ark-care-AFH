@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ark Care AFH — Compassionate Adult Family Home</title>
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+stone: {
+50: '#fafaf9',
+100: '#f5f5f4',
+200: '#e7e5e4',
+300: '#d6d3d1',
+400: '#a8a29e',
+500: '#78716c',
+600: '#57534e',
+700: '#44403c',
+800: '#292524',
+900: '#1c1917',
+},
+},
+fontFamily: {
+serif: ['"PT Serif"', 'serif'],
+body: ['"Playfair Display"', 'serif'],
+},
+boxShadow: {
+'3d': 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',
+'subtle': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+'glow': '0 0 40px -10px rgba(255, 255, 255, 0.3)',
+}
+}
+}
+}
+</script>
+<style>
+body {
+background-color: #f5f5f4;
+color: #1c1917;
+overflow-x: hidden;
+-webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4, h5, h6 { font-family: 'PT Serif', serif; }
+p, a, span, button, li, input, textarea { font-family: 'Playfair Display', serif; }
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #d6d3d1; border-radius: 10px; }
+/* Utilities */
+.glass-panel {
+background: rgba(255, 255, 255, 0.6);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.flashlight-card {
+position: relative;
+background: rgba(255, 255, 255, 0.5);
+overflow: hidden;
+transition: border-color 0.3s;
+}
+.flashlight-card::before {
+content: "";
+position: absolute;
+top: 0; left: 0; right: 0; bottom: 0;
+background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.8), transparent 40%);
+opacity: 0;
+transition: opacity 0.5s;
+pointer-events: none;
+z-index: 1;
+}
+.flashlight-card:hover::before { opacity: 1; }
+.beam-btn {
+position: relative;
+overflow: hidden;
+background: #1c1917;
+color: #fff;
+z-index: 1;
+}
+.beam-btn::before {
+content: '';
+position: absolute;
+top: 50%; left: 50%;
+width: 150%; height: 300%;
+background: conic-gradient(from 0deg, transparent 0 340deg, #fff 360deg);
+transform: translate(-50%, -50%) rotate(0deg);
+animation: rotate 4s linear infinite;
+opacity: 0;
+transition: opacity 0.3s;
+z-index: -1;
+border-radius: 9999px;
+}
+.beam-btn::after {
+content: '';
+position: absolute;
+inset: 1px;
+background: #000;
+border-radius: 9999px;
+z-index: -1;
+}
+.beam-btn:hover::before { opacity: 1; }
+@keyframes rotate { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(360deg); } }
+.hero-image-mask {
+mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+-webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+.marquee-container { overflow: hidden; white-space: nowrap; }
+.marquee-content { display: inline-block; animation: marquee 30s linear infinite; }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+</style></head>
+<body class="selection:bg-stone-800 selection:text-stone-50">
+
+    <!-- Background Grain/Noise -->
+    <div class="fixed inset-0 -z-10 opacity-30 pointer-events-none" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23a8a29e\' fill-opacity=\'0.2\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+    <div class="fixed top-0 left-0 right-0 h-[50vh] bg-gradient-to-b from-white/80 to-transparent -z-10"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed transition-all duration-300 z-50 w-full border-transparent border-b pt-6 pr-6 pb-6 pl-6 top-0 left-0 backdrop-blur-sm" id="navbar">
+        <div class="max-w-[1400px] mx-auto flex justify-between items-center">
+            <a href="index.html" class="bg-center text-2xl font-semibold text-stone-900 tracking-tight font-serif z-50 relative">Ark Care AFH</a>
+            
+            <div class="hidden md:flex gap-8 bg-stone-200/50 border-stone-200/50 border rounded-full pt-2 pr-6 pb-2 pl-6 shadow-sm backdrop-blur-md gap-x-8 gap-y-8 items-center">
+                <a href="index.html" class="uppercase text-stone-900 transition-colors text-xs font-bold tracking-widest cursor-default">Home</a>
+                <a href="about-us.html" class="text-xs font-medium uppercase tracking-widest text-stone-900 hover:text-stone-900 transition-colors">About Us</a>
+                <a href="services.html" class="text-xs font-medium uppercase tracking-widest text-stone-600 hover:text-stone-900 transition-colors">Services</a>
+                <a href="gallery.html" class="text-xs font-medium uppercase tracking-widest text-stone-600 hover:text-stone-900 transition-colors">Gallery</a>
+                <a href="contact.html" class="text-xs font-medium uppercase tracking-widest text-stone-600 hover:text-stone-900 transition-colors">Contact</a>
+            </div>
+
+            <a href="contact.html" class="beam-btn px-6 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-transform active:scale-95 hidden md:block">
+                Schedule a Tour
+            </a>
+
+            <button class="md:hidden z-50 text-stone-900">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu w-6 h-6 stroke-current"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen pt-32 relative overflow-hidden flex flex-col items-center">
+        <!-- Abstract Decoration -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-stone-200/50 rounded-full blur-[100px] -z-20 opacity-60"></div>
+
+        <div class="max-w-[1400px] w-full px-6 flex flex-col items-center text-center z-10">
+            <div class="mb-6 opacity-0 animate-fade-in-up" style="animation-delay: 0.1s; animation-fill-mode: forwards;">
+                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-stone-300/60 bg-white/40 backdrop-blur-sm text-[10px] uppercase tracking-[0.2em] font-semibold text-stone-600">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Accepting New Residents
+                </span>
+            </div>
+
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-semibold text-stone-900 tracking-tight leading-[1] mb-8 max-w-5xl mx-auto opacity-0 animate-fade-in-up" style="animation-delay: 0.2s; animation-fill-mode: forwards;">
+                A Place to Call Home,<br>
+                <span class="text-stone-500 italic">Care to rely on.</span>
+            </h1>
+
+            <p class="font-body text-lg md:text-xl text-stone-600 max-w-2xl mx-auto mb-10 leading-relaxed font-light opacity-0 animate-fade-in-up" style="animation-delay: 0.3s; animation-fill-mode: forwards;">
+                Providing specialized, compassionate adult family home care in Algona, WA. We honor dignity, independence, and the comfort of home.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 mb-20 opacity-0 animate-fade-in-up" style="animation-delay: 0.4s; animation-fill-mode: forwards;">
+                <a href="contact.html" class="bg-stone-900 text-stone-50 px-8 py-4 rounded-full text-xs font-semibold tracking-widest uppercase hover:bg-stone-800 transition-all hover:shadow-lg hover:-translate-y-1">
+                    Request Info
+                </a>
+                <a href="gallery.html" class="bg-white/50 border border-stone-200 text-stone-900 px-8 py-4 rounded-full text-xs font-semibold tracking-widest uppercase hover:bg-white transition-all hover:shadow-lg hover:-translate-y-1 backdrop-blur-sm">
+                    View Gallery
+                </a>
+            </div>
+
+            <!-- Hero Image with Parallax -->
+            <div class="w-full max-w-6xl mx-auto rounded-t-[3rem] overflow-hidden shadow-2xl relative group aspect-[16/9] md:aspect-[21/9]">
+                <div class="absolute inset-0 bg-stone-900/10 group-hover:bg-stone-900/0 transition-colors duration-700 z-10"></div>
+                <img src="https://images.unsplash.com/photo-1581578731117-104f2a417954?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" alt="Comfortable Living Room" class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-[2s] ease-out parallax-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="py-8 border-y border-stone-200 bg-white/50 backdrop-blur-sm mb-24 overflow-hidden">
+        <div class="marquee-container">
+            <div class="marquee-content text-stone-400 font-serif text-2xl md:text-4xl italic flex gap-12 items-center">
+                <span>Compassionate Care</span> • <span>24/7 Support</span> • <span>Home Cooked Meals</span> • <span>Medication Management</span> • <span>Community Activities</span> • <span>Licensed &amp; Certified</span> • <span>Compassionate Care</span> • <span>24/7 Support</span> • <span>Home Cooked Meals</span> • <span>Medication Management</span> •
+            </div>
+        </div>
+    </div>
+
+    <!-- Bento Grid Services -->
+    <section class="px-6 pb-24" id="services">
+        <div class="max-w-[1400px] mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 scroll-trigger-item">
+                <div class="max-w-xl">
+                    <span class="text-xs font-semibold uppercase tracking-widest text-stone-500 mb-2 block">Our Approach</span>
+                    <h2 class="font-serif text-4xl md:text-5xl font-semibold text-stone-900 tracking-tight leading-tight">
+                        Everything needed for<br>comfortable living.
+                    </h2>
+                </div>
+                <a href="about-us.html" class="hidden md:flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-stone-900 hover:text-stone-600 transition-colors group pb-2">
+                    Learn more about us
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right transition-transform group-hover:translate-x-1"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 grid-rows-2 gap-6 h-auto md:h-[600px]">
+                
+                <!-- Large Card -->
+                <div class="md:col-span-2 md:row-span-2 flashlight-card rounded-[2rem] border border-stone-200 bg-white p-8 md:p-12 flex flex-col justify-between group scroll-trigger-item">
+                    <div class="space-y-4 relative z-10">
+                        <div class="w-12 h-12 rounded-full bg-stone-100 flex items-center justify-center border border-stone-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-handshake text-stone-800"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path><path d="M12 5 9.04 2"></path><path d="M6.18 4.14 8 2.18"></path><path d="M17.82 4.14 16 2.18"></path></svg>
+                        </div>
+                        <h3 class="font-serif text-3xl font-semibold text-stone-900">Personalized Care Plans</h3>
+                        <p class="text-stone-600 leading-relaxed max-w-md">We understand that every resident has a unique story and set of needs. Our care plans are tailored specifically to the individual, ensuring comfort, dignity, and proper medical attention around the clock.</p>
+                    </div>
+                    <div class="h-48 w-full rounded-xl overflow-hidden mt-8 relative">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+
+                <!-- Small Card 1 -->
+                <div class="flashlight-card rounded-[2rem] border border-stone-200 bg-white p-8 flex flex-col justify-between scroll-trigger-item">
+                    <div class="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center border border-stone-200 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-utensils text-stone-800"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path><path d="M7 2v20"></path><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path></svg>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-xl font-semibold text-stone-900 mb-2">Nutritious Meals</h3>
+                        <p class="text-sm text-stone-600">Home-cooked meals prepared daily, accommodating dietary restrictions and preferences.</p>
+                    </div>
+                </div>
+
+                <!-- Small Card 2 -->
+                <div class="flashlight-card rounded-[2rem] border border-stone-200 bg-white p-8 flex flex-col justify-between scroll-trigger-item">
+                    <div class="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center border border-stone-200 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-plus text-stone-800"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path><path d="M8 11h8"></path><path d="M12 7v8"></path></svg>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-xl font-semibold text-stone-900 mb-2">Health Monitoring</h3>
+                        <p class="text-sm text-stone-600">Regular health assessments, medication management, and coordination with healthcare providers.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial / Quote -->
+    <section class="py-24 bg-stone-900 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20" style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E');"></div>
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10 scroll-trigger-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-quote text-stone-600 mx-auto mb-8"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1Z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1Z"></path></svg>
+            <h3 class="font-serif text-3xl md:text-5xl font-medium text-stone-100 leading-tight mb-8">
+                "It’s not just a facility; it’s a family. The care my mother receives at Ark Care is beyond what we could have hoped for."
+            </h3>
+            <div class="flex items-center justify-center gap-4">
+                <div class="h-px w-12 bg-stone-700"></div>
+                <span class="text-stone-400 font-body tracking-widest uppercase text-xs">Family Member of Resident</span>
+                <div class="h-px w-12 bg-stone-700"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Preview -->
+    <section class="py-24 px-6 overflow-hidden" id="gallery">
+        <div class="max-w-[1400px] mx-auto mb-12 flex items-end justify-between scroll-trigger-item">
+            <div>
+                 <span class="text-xs font-semibold uppercase tracking-widest text-stone-500 mb-2 block">Our Home</span>
+                 <h2 class="font-serif text-4xl font-semibold text-stone-900 tracking-tight">Life at Ark Care</h2>
+            </div>
+            <div class="flex gap-2">
+                <button class="w-10 h-10 rounded-full border border-stone-300 flex items-center justify-center hover:bg-stone-100 transition-colors" onclick="document.getElementById('gallery-scroll').scrollBy({left: -300, behavior: 'smooth'})">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
+                </button>
+                <button class="w-10 h-10 rounded-full border border-stone-300 flex items-center justify-center hover:bg-stone-100 transition-colors" onclick="document.getElementById('gallery-scroll').scrollBy({left: 300, behavior: 'smooth'})">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </button>
+            </div>
+        </div>
+        
+        <div class="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory hide-scrollbar" id="gallery-scroll" style="scrollbar-width: none; -ms-overflow-style: none;">
+            <!-- Gallery Item 1 -->
+            <div class="min-w-[300px] md:min-w-[400px] aspect-[3/4] rounded-2xl overflow-hidden relative group snap-center cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1516733968668-dbdce39c4651?q=80&amp;w=1888&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-stone-900/80 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                    <p class="text-white font-serif text-xl">Engaging Activities</p>
+                    <p class="text-stone-300 text-sm">Daily social interaction</p>
+                </div>
+            </div>
+             <!-- Gallery Item 2 -->
+             <div class="min-w-[300px] md:min-w-[400px] aspect-[3/4] rounded-2xl overflow-hidden relative group snap-center cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-stone-900/80 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                    <p class="text-white font-serif text-xl">Nutritious Dining</p>
+                    <p class="text-stone-300 text-sm">Healthy, home-cooked meals</p>
+                </div>
+            </div>
+             <!-- Gallery Item 3 -->
+             <div class="min-w-[300px] md:min-w-[400px] aspect-[3/4] rounded-2xl overflow-hidden relative group snap-center cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-stone-900/80 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                    <p class="text-white font-serif text-xl">Comfortable Spaces</p>
+                    <p class="text-stone-300 text-sm">Light-filled common areas</p>
+                </div>
+            </div>
+             <!-- Gallery Item 4 -->
+             <div class="min-w-[300px] md:min-w-[400px] aspect-[3/4] rounded-2xl overflow-hidden relative group snap-center cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1571624436279-b272aff752b5?q=80&amp;w=2072&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-stone-900/80 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                    <p class="text-white font-serif text-xl">Outdoor Serenity</p>
+                    <p class="text-stone-300 text-sm">Safe, accessible gardens</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Map (Static) -->
+    <section class="py-12 px-6">
+        <div class="max-w-[1400px] mx-auto rounded-[2rem] overflow-hidden relative h-[400px] group border border-stone-200">
+            <div class="absolute inset-0 bg-stone-200 z-0">
+                 <!-- Placeholder for Map Visual -->
+                 <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg" class="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 transition-all duration-700">
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center z-10 p-6">
+                <div class="glass-panel p-8 rounded-2xl max-w-md w-full shadow-3d transform transition-transform group-hover:-translate-y-2">
+                    <div class="flex items-start justify-between mb-4">
+                        <h4 class="font-serif text-2xl font-bold text-stone-900">Visit Us</h4>
+                        <div class="p-2 bg-stone-900 rounded-full text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
+                    </div>
+                    <p class="text-stone-600 mb-6">Located in a quiet, safe neighborhood in Algona, providing easy access for visiting families.</p>
+                    <div class="space-y-2 text-sm font-semibold text-stone-800">
+                        <p>127 4th Ave N</p>
+                        <p>Algona, WA 98001</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24 px-6 border-t border-stone-200 bg-white" id="contact">
+        <div class="max-w-4xl mx-auto text-center scroll-trigger-item">
+            <h2 class="font-serif text-5xl md:text-6xl font-semibold text-stone-900 tracking-tight mb-8">
+                Ready to learn more?
+            </h2>
+            <p class="text-xl text-stone-600 font-light mb-10 max-w-2xl mx-auto">
+                We are currently accepting new residents. Schedule a tour today to see if Ark Care AFH is the right fit for your loved one.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="mailto:contact@arkcare.local" class="beam-btn px-8 py-4 rounded-full text-sm font-semibold tracking-widest uppercase transition-transform active:scale-95 inline-flex items-center justify-center gap-2">
+                    Contact Us
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path></svg>
+                </a>
+                <a href="tel:2064553644" class="px-8 py-4 rounded-full border border-stone-200 text-stone-900 font-semibold tracking-widest uppercase hover:bg-stone-50 transition-colors inline-flex items-center justify-center gap-2">
+                    (206) 455-3644
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-stone-400 bg-stone-900 border-stone-800 border-t pt-16 pb-16">
+        <div class="max-w-[1400px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+            <!-- Brand -->
+            <div class="space-y-6">
+                <a href="index.html" class="font-serif text-3xl text-stone-100 block hover:text-white transition-colors">Ark Care AFH</a>
+                <p class="text-sm leading-relaxed text-stone-500 max-w-xs">
+                    Providing compassionate, personalized adult family home care in Algona, Washington. Licensed &amp; Certified.
+                </p>
+            </div>
+            <!-- Links -->
+            <div>
+                <h4 class="text-stone-100 font-serif text-lg mb-6">Quick Links</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="index.html" class="text-white font-bold cursor-default">Home</a></li>
+                    <li><a href="about-us.html" class="hover:text-white transition-colors">About Us</a></li>
+                    <li><a href="services.html" class="hover:text-white transition-colors">Services</a></li>
+                    <li><a href="gallery.html" class="hover:text-white transition-colors">Gallery</a></li>
+                </ul>
+            </div>
+            <!-- Contact -->
+            <div class="lg:col-span-2">
+                <h4 class="text-stone-100 font-serif text-lg mb-6">Contact Us</h4>
+                <ul class="space-y-4 text-sm">
+                    <li class="flex items-start gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone w-5 h-5 text-stone-500 shrink-0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        <span class="text-stone-300">(206) 455-3644</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin w-5 h-5 text-stone-500 shrink-0"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <span class="text-stone-300">127 4th Ave N, Algona, WA 98001</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-[1400px] mx-auto px-6 pt-8 border-t border-stone-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-stone-600">
+            <p>© 2025 Ark Care AFH. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- 1. Flashlight Effect ---
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.flashlight-card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // --- 2. GSAP Animations ---
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Simple fade in up animation logic applied via style classes in this version
+        // But for scroll triggers lower down:
+        const triggerItems = document.querySelectorAll('.scroll-trigger-item');
+        triggerItems.forEach(item => {
+            gsap.fromTo(item, 
+                { opacity: 0, y: 40 },
+                {
+                    opacity: 1, 
+                    y: 0, 
+                    duration: 1,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: item,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+        });
+
+        // Initialize Icons
+        lucide.createIcons();
+    </script>
+    <style>
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fade-in-up 1s ease-out forwards;
+        }
+    </style>
+
+</body></html>

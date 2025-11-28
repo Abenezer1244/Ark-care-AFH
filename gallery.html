@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ark Care AFH — Visual Narratives</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<style>
+/* Typography Maps */
+:root {
+--font-display: 'Playfair Display', serif;
+--font-body: 'Manrope', sans-serif;
+}
+body {
+font-family: var(--font-body);
+color: #4a4a4a;
+background-color: #fafaf9; /* Warm light grey/stone */
+overflow-x: hidden;
+}
+h1, h2, h3 { font-family: var(--font-display); }
+/* Custom Keyframes */
+@keyframes scaleSequence {
+0% { transform: scale(0.95); opacity: 0; }
+50% { transform: scale(1.02); opacity: 1; }
+100% { transform: scale(1); opacity: 1; }
+}
+@keyframes aurora-light {
+0% { transform: translateX(-50%) translateY(0) scale(1); opacity: 0.5; }
+50% { transform: translateX(0%) translateY(-20px) scale(1.1); opacity: 0.8; }
+100% { transform: translateX(50%) translateY(0) scale(1); opacity: 0.5; }
+}
+.animate-scale-sequence {
+animation: scaleSequence 2s ease-in alternate forwards;
+}
+/* 3D Gallery Core */
+.gallery-container {
+perspective: 1200px;
+transform-style: preserve-3d;
+}
+.gallery-cylinder {
+transform-style: preserve-3d;
+transition: transform 0.1s cubic-bezier(0.2, 0.8, 0.2, 1);
+cursor: grab;
+}
+.gallery-cylinder:active { cursor: grabbing; }
+/* Ensure faces are preserved in 3D space */
+.gallery-face {
+backface-visibility: hidden;
+backface-visibility: visible; /* Better for glass effect */
+}
+/* Auto Spin Animation */
+.gallery-spinning { animation: spin 60s linear infinite; }
+@keyframes spin {
+from { transform: rotateX(0deg); }
+to { transform: rotateX(-360deg); }
+}
+/* Light Mode Glass Style */
+.glass-frame {
+border: 1px solid rgba(255, 255, 255, 0.8);
+background: rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(8px);
+-webkit-backdrop-filter: blur(8px);
+box-shadow:
+0 4px 30px rgba(0, 0, 0, 0.05),
+0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+}
+/* Gradients for Light Mode masking */
+.gradient-top-light { background: linear-gradient(to bottom, #fafaf9 0%, rgba(250, 250, 249, 0) 100%); }
+.gradient-bottom-light { background: linear-gradient(to top, #fafaf9 0%, rgba(250, 250, 249, 0) 100%); }
+/* Hide scrollbar */
+::-webkit-scrollbar { display: none; }
+</style>
+<!-- Google Fonts Imports -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;family=Merriweather:wght@300;400;700&amp;display=swap" rel="stylesheet"></head>
+<body class="w-full min-h-screen relative selection:bg-rose-200 selection:text-rose-900">
+
+    <!-- Background: Light Aurora -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+        <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full blur-[80px] opacity-60 animate-[aurora-light_15s_infinite_alternate]" style="background: radial-gradient(circle, #fbcfe8 0%, rgba(255,255,255,0) 70%);"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] rounded-full blur-[100px] opacity-50 animate-[aurora-light_20s_infinite_alternate-reverse]" style="background: radial-gradient(circle, #c7d2fe 0%, rgba(255,255,255,0) 70%);"></div>
+        <div class="absolute top-[30%] left-[40%] w-[40vw] h-[40vw] rounded-full blur-[90px] opacity-40 animate-[aurora-light_25s_infinite_alternate]" style="background: radial-gradient(circle, #fed7aa 0%, rgba(255,255,255,0) 70%);"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full px-6 py-6 md:px-12 md:py-8 z-50 flex justify-center items-center pointer-events-none">
+        <div class="flex pointer-events-auto w-full max-w-[1400px] items-center justify-between">
+            
+            <!-- Brand -->
+            <a href="index.html" class="hover:opacity-70 transition-opacity whitespace-nowrap text-2xl md:text-3xl font-semibold text-stone-900 tracking-tight font-[Playfair Display]">
+                Ark Care AFH
+            </a>
+
+            <!-- Center Menu -->
+            <div class="hidden md:flex items-center gap-8 bg-white/40 backdrop-blur-md shadow-sm border border-white/50 rounded-full px-8 py-3.5">
+                <a href="index.html" class="font-[Merriweather] text-[11px] font-semibold text-stone-600 tracking-[0.1em] hover:text-stone-900 transition-colors uppercase">Home</a>
+                <a href="about-us.html" class="font-[Merriweather] text-[11px] font-semibold text-stone-600 tracking-[0.1em] hover:text-stone-900 transition-colors uppercase whitespace-nowrap">About Us</a>
+                <a href="services.html" class="font-[Merriweather] text-[11px] font-semibold text-stone-600 tracking-[0.1em] hover:text-stone-900 transition-colors uppercase">Services</a>
+                <a href="gallery.html" class="font-[Merriweather] text-[11px] font-semibold text-stone-900 tracking-[0.1em] transition-colors uppercase">Gallery</a>
+                <a href="contact.html" class="font-[Merriweather] text-[11px] font-semibold text-stone-600 tracking-[0.1em] hover:text-stone-900 transition-colors uppercase">Contact</a>
+            </div>
+
+            <!-- CTA Button -->
+            <button onclick="window.location.href='contact.html'" class="group relative bg-stone-900 text-white hover:bg-stone-800 transition-all rounded-full px-6 py-3 uppercase font-[Merriweather] text-[10px] font-semibold tracking-[0.15em] shadow-lg hover:shadow-xl hover:-translate-y-0.5 whitespace-nowrap overflow-hidden">
+                <span class="relative z-10">Schedule a Tour</span>
+            </button>
+
+        </div>
+    </nav>
+
+    <!-- Main Content Layout -->
+    <main class="min-h-screen flex flex-col md:pt-44 overflow-hidden mix-blend-multiply w-full z-10 pt-36 pb-20 relative items-center justify-start">
+        
+        <!-- Header Text - Added significant margin-bottom to prevent overlap -->
+        <div class="relative z-30 text-center px-6 animate-scale-sequence mb-24 md:mb-40">
+            <h1 class="font-[Playfair Display] font-medium text-[48px] md:text-[64px] leading-[1.05] text-stone-900 mb-6 tracking-tight drop-shadow-sm">
+                Eternal Horizons
+            </h1>
+            <p class="font-[Manrope] text-[16px] md:text-[18px] text-stone-500 max-w-lg mx-auto leading-relaxed tracking-wide">
+                Capturing the ephemeral beauty of the natural world, moments suspended in light and time.
+            </p>
+        </div>
+
+        <!-- Rolling Gallery Wrapper - Added top margin for safety -->
+        <div class="relative flex flex-col items-center justify-center w-full max-w-[100vw] h-[600px] md:h-[800px] mt-4 md:mt-10">
+            
+            <!-- Gradients to fade out top/bottom -->
+            <div class="absolute top-0 left-0 w-full h-[150px] z-20 gradient-top-light pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-full h-[150px] z-20 gradient-bottom-light pointer-events-none"></div>
+
+            <!-- 3D Scene Container -->
+            <div class="gallery-container w-full h-full flex items-center justify-center">
+                <div class="gallery-cylinder flex w-full h-full items-center justify-center relative" style="transform: rotateX(0deg)" id="galleryCylinder">
+                    <!-- Javascript will populate faces here -->
+                </div>
+            </div>
+            
+            <!-- Controls / Hint -->
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex items-center gap-4 opacity-50 hover:opacity-100 transition-opacity duration-300">
+                 <div class="h-8 w-px bg-stone-400"></div>
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-vertical w-4 h-4 text-stone-500"><path d="M12 2v20"></path><path d="m8 18 4 4 4-4"></path><path d="m8 6 4-4 4 4"></path></svg>
+                 <span class="font-[Manrope] text-[12px] text-stone-500 uppercase tracking-widest self-center">Drag to scroll</span>
+                 <div class="h-8 w-px bg-stone-400"></div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // Curated peaceful nature images
+        const IMGS = [
+            "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1490750967868-58cb75069ed6?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1501854140884-074cf2724324?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1533240332313-0db49b459ad6?auto=format&fit=crop&w=800&q=80"
+        ];
+
+        class RollingGallery {
+            constructor(options = {}) {
+                this.autoplay = options.autoplay || true;
+                this.images = options.images || IMGS;
+                this.cylinder = document.getElementById('galleryCylinder');
+                this.rotation = 0;
+                this.isDragging = false;
+                this.startY = 0;
+                this.dragFactor = 0.3; // Sensitivity
+                this.isSmallScreen = window.innerWidth <= 640;
+                
+                this.init();
+                this.setupEventListeners();
+            }
+
+            init() {
+                this.updateDimensions();
+                this.createGalleryFaces();
+                if (this.autoplay) {
+                    this.cylinder.classList.add('gallery-spinning');
+                }
+            }
+
+            updateDimensions() {
+                // Determine card dimensions
+                this.cardHeight = this.isSmallScreen ? 200 : 280;
+                this.cardWidth = this.isSmallScreen ? 340 : 550;
+                
+                // Calculate spacing to avoid overlap
+                // 60px gap allows images to "float" independently
+                this.gap = this.isSmallScreen ? 40 : 60; 
+                
+                this.faceCount = this.images.length;
+                
+                // The total circumference required to hold all cards with gaps
+                const circumference = (this.cardHeight + this.gap) * this.faceCount;
+                
+                // Radius r = C / 2π
+                this.radius = circumference / (2 * Math.PI);
+            }
+
+            createGalleryFaces() {
+                this.cylinder.innerHTML = '';
+                const angleStep = 360 / this.faceCount;
+
+                this.images.forEach((url, i) => {
+                    // Create Container Face (invisible anchor)
+                    const face = document.createElement('div');
+                    face.className = 'gallery-face absolute flex items-center justify-center';
+                    
+                    // Position in 3D: Rotate X for vertical cylinder, Translate Z for radius
+                    const angle = angleStep * i;
+                    face.style.transform = `rotateX(${angle}deg) translateZ(${this.radius}px)`;
+                    
+                    // Inner Card (Visual part)
+                    const glassFrame = document.createElement('div');
+                    glassFrame.className = 'glass-frame flex items-center justify-center rounded-[16px] md:rounded-[24px] overflow-hidden relative shadow-lg transform transition-all duration-500 group';
+                    
+                    // Explicit dimensions
+                    glassFrame.style.width = `${this.cardWidth}px`;
+                    glassFrame.style.height = `${this.cardHeight}px`;
+                    
+                    // Image
+                    const img = document.createElement('img');
+                    img.src = url;
+                    img.alt = 'Gallery image';
+                    img.className = 'pointer-events-none h-full w-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-in-out';
+                    img.draggable = false;
+                    
+                    glassFrame.appendChild(img);
+                    face.appendChild(glassFrame);
+                    this.cylinder.appendChild(face);
+                });
+            }
+
+            setupEventListeners() {
+                // Mouse & Touch events for dragging
+                const startDrag = (y) => {
+                    this.isDragging = true;
+                    this.startY = y;
+                    this.cylinder.classList.remove('gallery-spinning');
+                    
+                    // Maintain current rotation
+                    this.cylinder.style.transform = `rotateX(${this.rotation}deg)`;
+                };
+
+                const moveDrag = (y) => {
+                    if (!this.isDragging) return;
+                    const deltaY = y - this.startY;
+                    this.rotation += deltaY * this.dragFactor;
+                    this.cylinder.style.transform = `rotateX(${this.rotation}deg)`;
+                    this.startY = y;
+                };
+
+                const endDrag = () => {
+                    this.isDragging = false;
+                };
+
+                // Mouse
+                this.cylinder.addEventListener('mousedown', (e) => startDrag(e.clientY));
+                window.addEventListener('mousemove', (e) => moveDrag(e.clientY));
+                window.addEventListener('mouseup', endDrag);
+
+                // Touch
+                this.cylinder.addEventListener('touchstart', (e) => startDrag(e.touches[0].clientY));
+                window.addEventListener('touchmove', (e) => moveDrag(e.touches[0].clientY));
+                window.addEventListener('touchend', endDrag);
+
+                // Resize handler
+                window.addEventListener('resize', () => {
+                    const wasSmall = this.isSmallScreen;
+                    this.isSmallScreen = window.innerWidth <= 640;
+                    if (wasSmall !== this.isSmallScreen) {
+                        this.updateDimensions();
+                        this.createGalleryFaces();
+                    }
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            new RollingGallery();
+        });
+    </script>
+
+</body></html>
