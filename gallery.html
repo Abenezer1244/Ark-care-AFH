@@ -74,22 +74,22 @@ animation: spin-slow 120s linear infinite;
     <nav class="fixed md:px-8 md:py-8 flex animate-seq-1 transition-all duration-300 w-full max-w-[1600px] z-50 border-0 mr-auto ml-auto pt-4 pr-4 pb-4 pl-4 top-0 right-0 left-0 items-center justify-between">
         <!-- Logo -->
         <div class="flex items-center gap-2 shrink-0">
-            <span class="md:text-2xl leading-none cursor-pointer text-xl font-semibold text-stone-900 tracking-tight font-playfair" onclick="window.location.href='index.html'" role="button">ARK CARE AFH</span>
+            <a href="index.html" class="md:text-2xl leading-none cursor-pointer text-xl font-semibold text-stone-900 tracking-tight font-playfair hover:opacity-80 transition-opacity">ARK CARE AFH</a>
         </div>
         
         <!-- Center Pill Navigation (Desktop Only) -->
         <div class="hidden lg:flex items-center gap-12 bg-[#F5F5F4]/90 backdrop-blur-md px-12 py-4 rounded-full border border-stone-200/40 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)]">
-            <a href="index.html" class="Display] text-[11px] uppercase hover:text-stone-900 transition-colors text-xs font-bold text-stone-900 tracking-widest font-merriweather">Home</a>
-            <a href="about-us.html" class="Display] text-[11px] uppercase hover:text-stone-900 transition-colors text-xs font-bold text-stone-900 tracking-widest font-merriweather">About Us</a>
-            <a href="services.html" class="Display] text-[11px] uppercase hover:text-stone-900 transition-colors text-xs font-bold text-stone-900 tracking-widest font-merriweather">Services</a>
-            <a href="index.html" class="Display] text-[11px] uppercase transition-colors text-xs font-bold text-stone-900 tracking-widest font-merriweather">Gallery</a>
-            <a href="contact.html" class="Display] text-[11px] uppercase hover:text-stone-900 transition-colors text-xs font-bold text-stone-900 tracking-widest font-merriweather">Contact</a>
+            <a href="index.html" class="text-[11px] uppercase hover:text-stone-900 transition-colors text-xs font-bold text-stone-900 tracking-widest font-merriweather">Home</a>
+            <a href="about-us.html" class="text-[11px] uppercase hover:text-stone-900 transition-colors text-xs font-bold text-stone-900 tracking-widest font-merriweather">About Us</a>
+            <a href="services.html" class="text-[11px] uppercase hover:text-stone-900 transition-colors text-xs font-bold text-stone-900 tracking-widest font-merriweather">Services</a>
+            <a href="gallery.html" class="text-[11px] uppercase transition-colors text-xs font-bold text-stone-900 tracking-widest font-merriweather">Gallery</a>
+            <a href="contact.html" class="text-[11px] uppercase hover:text-stone-900 transition-colors text-xs font-bold text-stone-900 tracking-widest font-merriweather">Contact</a>
         </div>
 
         <!-- Right Action Button (Responsive Sizing) -->
-        <button class="shrink-0 md:px-9 md:py-4 Display] text-[10px] md:text-[11px] uppercase hover:bg-stone-800 transition-all hover:shadow-xl hover:-translate-y-0.5 whitespace-nowrap font-bold text-white tracking-[0.15em] font-[Playfair bg-black rounded-full pt-2.5 pr-5 pb-2.5 pl-5 shadow-lg" onclick="window.location.href='contact.html'" role="button">
+        <a href="contact.html" class="shrink-0 md:px-9 md:py-4 text-[10px] md:text-[11px] uppercase hover:bg-stone-800 transition-all hover:shadow-xl hover:-translate-y-0.5 whitespace-nowrap font-bold text-white tracking-[0.15em] font-playfair bg-black rounded-full pt-2.5 pr-5 pb-2.5 pl-5 shadow-lg">
             Schedule a Tour
-        </button>
+        </a>
     </nav>
 
     <!-- Main Content (Fix: justify-start on mobile to prevent overlap) -->
@@ -269,6 +269,73 @@ animation: spin-slow 120s linear infinite;
         </div>
 
     </main>
+
+    <!-- Footer -->
+    <footer class="text-stone-400 bg-stone-900 border-stone-800 border-t pt-12 pb-8 mt-20">
+        <div class="max-w-[1400px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+            <!-- Brand -->
+            <div class="space-y-4">
+                <a href="index.html" class="font-serif text-2xl text-stone-100 block tracking-tight hover:text-white transition-colors">Ark Care AFH</a>
+                <p class="text-[10px] uppercase tracking-widest text-emerald-500 font-bold">Licensed &amp; Certified</p>
+                <p class="text-sm leading-relaxed text-stone-500 max-w-xs">
+                    Providing compassionate, personalized adult family home care in Algona, Washington.
+                </p>
+            </div>
+            
+            <!-- Quick Links -->
+            <div>
+                <h4 class="text-stone-100 font-bold uppercase tracking-wider text-[11px] mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                    <li><a href="about-us.html" class="hover:text-white transition-colors">About Us</a></li>
+                    <li><a href="services.html" class="hover:text-white transition-colors">Services</a></li>
+                    <li><a href="gallery.html" class="hover:text-white transition-colors">Gallery</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Services -->
+            <div>
+                <h4 class="text-stone-100 font-bold uppercase tracking-wider text-[11px] mb-4">Our Services</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="services.html" class="hover:text-white transition-colors">24/7 Professional Care</a></li>
+                    <li><a href="services.html" class="hover:text-white transition-colors">Medication Management</a></li>
+                    <li><a href="services.html" class="hover:text-white transition-colors">Personal Care Assistance</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div>
+                <h4 class="text-stone-100 font-bold uppercase tracking-wider text-[11px] mb-4">Contact Us</h4>
+                <ul class="space-y-3 text-sm">
+                    <li>
+                        <span class="block text-[10px] uppercase text-stone-600 mb-1">Phone</span>
+                        <a href="tel:2064553644" class="text-stone-300 hover:text-white transition-colors">(206) 455-3644</a>
+                    </li>
+                    <li>
+                        <span class="block text-[10px] uppercase text-stone-600 mb-1">Email</span>
+                        <a href="mailto:contact@arkcare.local" class="text-stone-300 hover:text-white transition-colors">contact@arkcare.local</a>
+                    </li>
+                    <li>
+                        <span class="block text-[10px] uppercase text-stone-600 mb-1">Address</span>
+                        <span class="text-stone-300">127 4th Ave N Algona, WA 98001</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="max-w-[1400px] mx-auto px-6 pt-6 border-t border-stone-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-stone-600">
+            <p>© 2025 Ark Care AFH. All rights reserved.</p>
+            <div class="flex items-center gap-6">
+                <span>State-licensed adult family home • Licensed in Washington State</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="#" class="hover:text-stone-400 transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-stone-400 transition-colors">Terms of Service</a>
+                <a href="#" class="hover:text-stone-400 transition-colors">Accessibility</a>
+            </div>
+        </div>
+    </footer>
 
     <script>
         const IMAGES = [
