@@ -2,7 +2,6 @@
 <html lang="en" class="scroll-smooth"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ark Care AFH — Compassionate Care in a Home Environment</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>">
 <!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -72,23 +71,23 @@ transform-style: preserve-3d;
 </style>
 <script>
 tailwind.config = {
-    theme: {
-        extend: {
-            colors: {
-                stone: {
-                    50: '#fafaf9',
-                    100: '#f5f5f4',
-                    200: '#e7e5e4',
-                    300: '#d6d3d1',
-                    900: '#1c1917',
-                }
-            },
-            fontFamily: {
-                serif: ['Playfair Display', 'serif'],
-                sans: ['Inter', 'sans-serif'],
-            }
-        }
-    },
+theme: {
+extend: {
+colors: {
+stone: {
+50: '#fafaf9',
+100: '#f5f5f4',
+200: '#e7e5e4',
+300: '#d6d3d1',
+900: '#1c1917',
+}
+},
+fontFamily: {
+serif: ['"Playfair Display"', 'serif'],
+sans: ['"Inter"', 'sans-serif'],
+}
+}
+},
 plugins: [
 function({ addUtilities }) {
 addUtilities({
@@ -900,69 +899,76 @@ addUtilities({
     </div>
 
     <script>
-      // Init Icons
-      lucide.createIcons();
-    </script>
-
-    <script>
       document.addEventListener('DOMContentLoaded', () => {
-          // Flashlight effect
-          document.addEventListener('mousemove', (e) => {
-              const cards = document.querySelectorAll('.flashlight-card');
-              cards.forEach(card => {
-                  const rect = card.getBoundingClientRect();
-                  const x = e.clientX - rect.left;
-                  const y = e.clientY - rect.top;
-                  card.style.setProperty('--mouse-x', `${x}px`);
-                  card.style.setProperty('--mouse-y', `${y}px`);
-              });
-          });
+        // Init Icons
+        if (typeof lucide !== 'undefined') {
+          lucide.createIcons();
+        }
 
-          // GSAP ScrollTrigger Animations
+        // Flashlight effect
+        document.addEventListener('mousemove', (e) => {
+          const cards = document.querySelectorAll('.flashlight-card');
+          cards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+          });
+        });
+
+        // GSAP ScrollTrigger for any scroll-trigger-item elements
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
           gsap.registerPlugin(ScrollTrigger);
           
           const triggerItems = document.querySelectorAll('.scroll-trigger-item');
           triggerItems.forEach(item => {
-              gsap.fromTo(item, 
-                  { opacity: 0, y: 30 },
-                  {
-                      opacity: 1, 
-                      y: 0, 
-                      duration: 0.8,
-                      ease: "power2.out",
-                      scrollTrigger: {
-                          trigger: item,
-                          start: "top 90%",
-                          toggleActions: "play none none reverse"
-                      }
-                  }
-              );
-          });
-
-          // Mobile Menu Toggle
-          const menuBtn = document.getElementById('mobile-toggle');
-          const closeBtn = document.getElementById('close-menu');
-          const mobileMenu = document.getElementById('mobile-menu');
-          const mobileLinks = document.querySelectorAll('.mobile-link');
-
-          function toggleMenu() {
-              const isClosed = mobileMenu.classList.contains('translate-x-full');
-              if (isClosed) {
-                  mobileMenu.classList.remove('translate-x-full');
-              } else {
-                  mobileMenu.classList.add('translate-x-full');
+            item.style.transform = '';
+            item.style.opacity = '';
+            
+            gsap.fromTo(item,
+              { opacity: 0, y: 30 },
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: "power2.out",
+                scrollTrigger: {
+                  trigger: item,
+                  start: "top 90%",
+                  once: true
+                }
               }
+            );
+          });
+        }
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-toggle');
+        const closeBtn = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        if (menuBtn && closeBtn && mobileMenu) {
+          function toggleMenu() {
+            const isClosed = mobileMenu.classList.contains('translate-x-full');
+            if (isClosed) {
+              mobileMenu.classList.remove('translate-x-full');
+            } else {
+              mobileMenu.classList.add('translate-x-full');
+            }
           }
 
-          if (menuBtn) menuBtn.addEventListener('click', toggleMenu);
-          if (closeBtn) closeBtn.addEventListener('click', toggleMenu);
+          menuBtn.addEventListener('click', toggleMenu);
+          closeBtn.addEventListener('click', toggleMenu);
 
           // Close menu when a link is clicked
           mobileLinks.forEach(link => {
-              link.addEventListener('click', () => {
-                   mobileMenu.classList.add('translate-x-full');
-              });
+            link.addEventListener('click', () => {
+              mobileMenu.classList.add('translate-x-full');
+            });
           });
+        }
       });
     </script>
   

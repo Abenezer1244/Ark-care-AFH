@@ -2,48 +2,47 @@
 <html lang="en" class="scroll-smooth"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ark Care AFH — Compassionate Adult Family Home</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>">
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = {
-    theme: {
-        extend: {
-            colors: {
-                stone: {
-                    50: '#fafaf9',
-                    100: '#f5f5f4',
-                    200: '#e7e5e4',
-                    300: '#d6d3d1',
-                    400: '#a8a29e',
-                    500: '#78716c',
-                    600: '#57534e',
-                    700: '#44403c',
-                    800: '#292524',
-                    900: '#1c1917',
-                },
-            },
-            fontFamily: {
-                serif: ['PT Serif', 'serif'],
-                body: ['Playfair Display', 'serif'],
-            },
-            boxShadow: {
-                '3d': 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',
-                'subtle': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
-                'glow': '0 0 40px -10px rgba(255, 255, 255, 0.3)',
-            }
-        }
-    }
-};
-</script>
 <!-- Icons -->
 <script src="https://unpkg.com/lucide@latest"></script>
 <!-- GSAP -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+stone: {
+50: '#fafaf9',
+100: '#f5f5f4',
+200: '#e7e5e4',
+300: '#d6d3d1',
+400: '#a8a29e',
+500: '#78716c',
+600: '#57534e',
+700: '#44403c',
+800: '#292524',
+900: '#1c1917',
+},
+},
+fontFamily: {
+serif: ['"PT Serif"', 'serif'],
+body: ['"Playfair Display"', 'serif'],
+},
+boxShadow: {
+'3d': 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',
+'subtle': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+'glow': '0 0 40px -10px rgba(255, 255, 255, 0.3)',
+}
+}
+}
+}
+</script>
 <style>
 body {
 background-color: #f5f5f4;
@@ -303,7 +302,7 @@ z-index: -1;
 
     <!-- Testimonial / Quote (Reduced) -->
     <section class="py-12 bg-stone-900 relative overflow-hidden">
-      <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-16 relative z-10 scroll-trigger-item" style="translate: none; rotate: none; scale: none; transform: translate(0px, 30px); opacity: 0;">
+      <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-16 relative z-10 scroll-trigger-item">
         <div class="text-left">
           <span class="text-stone-500 font-bold uppercase tracking-widest text-xs mb-3 block">
             Purpose
@@ -423,7 +422,7 @@ z-index: -1;
         </div>
         <div class="grid md:grid-cols-3 gap-8">
           <!-- Sarah -->
-          <div class="scroll-trigger-item text-center bg-white border-stone-200 border rounded-xl pt-8 pr-8 pb-8 pl-8 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]" style="translate: none; rotate: none; scale: none; transform: translate(0px, 30px); opacity: 0;">
+          <div class="scroll-trigger-item text-center bg-white border-stone-200 border rounded-xl pt-8 pr-8 pb-8 pl-8 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]">
             <div class="w-20 h-20 bg-stone-100 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-serif text-stone-500 border border-stone-200">
               SJ
             </div>
@@ -526,7 +525,7 @@ z-index: -1;
 
     <!-- CTA (Reduced) -->
     <section class="py-12 px-6 border-t border-stone-200 bg-white" id="contact">
-      <div class="max-w-3xl mx-auto text-center scroll-trigger-item" style="translate: none; rotate: none; scale: none; transform: translate(0px, 30px); opacity: 0;">
+      <div class="max-w-3xl mx-auto text-center scroll-trigger-item">
         <h2 class="font-serif text-4xl md:text-5xl font-normal text-stone-900 tracking-tight mb-4">
           Ready to learn more?
         </h2>
@@ -682,41 +681,52 @@ z-index: -1;
     </footer>
 
     <script>
-      // --- 1. Flashlight Effect ---
-      document.addEventListener('mousemove', (e) => {
-          const cards = document.querySelectorAll('.flashlight-card');
-          cards.forEach(card => {
-              const rect = card.getBoundingClientRect();
-              const x = e.clientX - rect.left;
-              const y = e.clientY - rect.top;
-              card.style.setProperty('--mouse-x', `${x}px`);
-              card.style.setProperty('--mouse-y', `${y}px`);
-          });
+      document.addEventListener('DOMContentLoaded', () => {
+        // --- 1. Flashlight Effect ---
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.flashlight-card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // --- 2. GSAP Animations ---
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+
+            const triggerItems = document.querySelectorAll('.scroll-trigger-item');
+            triggerItems.forEach(item => {
+                // Clear any inline transform/opacity styles
+                item.style.transform = '';
+                item.style.opacity = '';
+                
+                gsap.fromTo(item,
+                    { opacity: 0, y: 30 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.8,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: item,
+                            start: "top 90%",
+                            toggleActions: "play none none reverse",
+                            once: true
+                        }
+                    }
+                );
+            });
+        }
+
+        // Initialize Icons
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
       });
-
-      // --- 2. GSAP Animations ---
-      gsap.registerPlugin(ScrollTrigger);
-
-      const triggerItems = document.querySelectorAll('.scroll-trigger-item');
-      triggerItems.forEach(item => {
-          gsap.fromTo(item,
-              { opacity: 0, y: 30 },
-              {
-                  opacity: 1,
-                  y: 0,
-                  duration: 0.8,
-                  ease: "power2.out",
-                  scrollTrigger: {
-                      trigger: item,
-                      start: "top 90%",
-                      toggleActions: "play none none reverse"
-                  }
-              }
-          );
-      });
-
-      // Initialize Icons
-      lucide.createIcons();
     </script>
     <style>
       @keyframes fade-in-up {

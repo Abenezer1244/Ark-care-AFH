@@ -2,7 +2,6 @@
 <html lang="en" class="scroll-smooth"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ark Care AFH — Contact Us</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>">
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -14,39 +13,51 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
-// --- 1. Flashlight Effect ---
-document.addEventListener('mousemove', (e) => {
-const cards = document.querySelectorAll('.flashlight-card');
-cards.forEach(card => {
-const rect = card.getBoundingClientRect();
-const x = e.clientX - rect.left;
-const y = e.clientY - rect.top;
-card.style.setProperty('--mouse-x', `${x}px`);
-card.style.setProperty('--mouse-y', `${y}px`);
+document.addEventListener('DOMContentLoaded', () => {
+  // --- 1. Flashlight Effect ---
+  document.addEventListener('mousemove', (e) => {
+    const cards = document.querySelectorAll('.flashlight-card');
+    cards.forEach(card => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+  });
+  
+  // --- 2. GSAP Animations ---
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+    
+    const triggerItems = document.querySelectorAll('.scroll-trigger-item');
+    triggerItems.forEach((item, index) => {
+      // Clear any inline transform/opacity styles
+      item.style.transform = '';
+      item.style.opacity = '';
+      
+      gsap.fromTo(item,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: "power1.out",
+          scrollTrigger: {
+            trigger: item,
+            start: "top 90%",
+            once: true
+          }
+        }
+      );
+    });
+  }
+  
+  // Initialize Icons
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
 });
-});
-// --- 2. GSAP Animations ---
-gsap.registerPlugin(ScrollTrigger);
-window.addEventListener('load', () => {
-const triggerItems = document.querySelectorAll('.scroll-trigger-item');
-triggerItems.forEach((item, index) => {
-gsap.fromTo(item,
-{ opacity: 0, y: 20 },
-{
-opacity: 1,
-y: 0,
-duration: 0.6,
-ease: "power1.out",
-scrollTrigger: {
-trigger: item,
-start: "top 90%",
-}
-}
-);
-});
-});
-// Initialize Icons
-lucide.createIcons();
 </script>
 <style>
 body {
