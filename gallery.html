@@ -1,289 +1,426 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ark Care AFH — Visual Narratives</title>
+<title>Ark Care AFH — Gallery</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <style>
-/* Typography Maps */
 :root {
 --font-display: 'Playfair Display', serif;
 --font-body: 'Manrope', sans-serif;
 }
 body {
 font-family: var(--font-body);
-color: #4a4a4a;
-background-color: #fafaf9; /* Warm light grey/stone */
-overflow-x: hidden;
 }
-h1, h2, h3 { font-family: var(--font-display); }
-/* Custom Keyframes */
-@keyframes scaleSequence {
-0% { transform: scale(0.95); opacity: 0; }
-50% { transform: scale(1.02); opacity: 1; }
-100% { transform: scale(1); opacity: 1; }
-}
-@keyframes aurora-light {
-0% { transform: translateX(-50%) translateY(0) scale(1); opacity: 0.5; }
-50% { transform: translateX(0%) translateY(-20px) scale(1.1); opacity: 0.8; }
-100% { transform: translateX(50%) translateY(0) scale(1); opacity: 0.5; }
-}
-.animate-scale-sequence {
-animation: scaleSequence 2s ease-in alternate forwards;
-}
-/* 3D Gallery Core */
+/* 3D Gallery Engine */
 .gallery-container {
-perspective: 1200px;
-transform-style: preserve-3d;
+perspective: 2500px;
+overflow: hidden;
 }
 .gallery-cylinder {
 transform-style: preserve-3d;
-transition: transform 0.1s cubic-bezier(0.2, 0.8, 0.2, 1);
-cursor: grab;
+transition: transform 0.05s linear; /* Smooth drag */
+will-change: transform;
 }
-.gallery-cylinder:active { cursor: grabbing; }
-/* Ensure faces are preserved in 3D space */
 .gallery-face {
 backface-visibility: hidden;
-backface-visibility: visible; /* Better for glass effect */
 }
+/* Custom 3D Shadow Class */
+.shadow-3d-heavy {
+box-shadow:
+rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
+rgba(0, 0, 0, 0.06) 0px 2px 1px,
+rgba(0, 0, 0, 0.09) 0px 4px 2px,
+rgba(0, 0, 0, 0.09) 0px 8px 4px,
+rgba(0, 0, 0, 0.09) 0px 16px 8px,
+rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+/* Animation Sequence */
+@keyframes fadeInSlide {
+0% { opacity: 0; transform: translateY(30px); }
+100% { opacity: 1; transform: translateY(0); }
+}
+.animate-seq-1 { animation: fadeInSlide 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+.animate-seq-2 { animation: fadeInSlide 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards; opacity: 0; }
+.animate-seq-3 { animation: fadeInSlide 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards; opacity: 0; }
 /* Auto Spin Animation */
-.gallery-spinning { animation: spin 60s linear infinite; }
-@keyframes spin {
+@keyframes spin-slow {
 from { transform: rotateX(0deg); }
 to { transform: rotateX(-360deg); }
 }
-/* Light Mode Glass Style */
-.glass-frame {
-border: 1px solid rgba(255, 255, 255, 0.8);
-background: rgba(255, 255, 255, 0.4);
-backdrop-filter: blur(8px);
--webkit-backdrop-filter: blur(8px);
-box-shadow:
-0 4px 30px rgba(0, 0, 0, 0.05),
-0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+.auto-spin {
+animation: spin-slow 120s linear infinite;
 }
-/* Gradients for Light Mode masking */
-.gradient-top-light { background: linear-gradient(to bottom, #fafaf9 0%, rgba(250, 250, 249, 0) 100%); }
-.gradient-bottom-light { background: linear-gradient(to top, #fafaf9 0%, rgba(250, 250, 249, 0) 100%); }
-/* Hide scrollbar */
-::-webkit-scrollbar { display: none; }
+/* Hide Scrollbar */
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 </style>
-<!-- Google Fonts Imports -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;family=Merriweather:wght@300;400;700&amp;display=swap" rel="stylesheet"></head>
-<body class="w-full min-h-screen relative selection:bg-rose-200 selection:text-rose-900">
+<link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist">.font-geist { font-family: 'Geist', sans-serif !important; }</style><link id="all-fonts-link-font-roboto" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-roboto">.font-roboto { font-family: 'Roboto', sans-serif !important; }</style><link id="all-fonts-link-font-montserrat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-montserrat">.font-montserrat { font-family: 'Montserrat', sans-serif !important; }</style><link id="all-fonts-link-font-poppins" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-poppins">.font-poppins { font-family: 'Poppins', sans-serif !important; }</style><link id="all-fonts-link-font-playfair" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&amp;display=swap"><style id="all-fonts-style-font-playfair">.font-playfair { font-family: 'Playfair Display', serif !important; }</style><link id="all-fonts-link-font-instrument-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-instrument-serif">.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }</style><link id="all-fonts-link-font-merriweather" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap"><style id="all-fonts-style-font-merriweather">.font-merriweather { font-family: 'Merriweather', serif !important; }</style><link id="all-fonts-link-font-bricolage" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-bricolage">.font-bricolage { font-family: 'Bricolage Grotesque', sans-serif !important; }</style><link id="all-fonts-link-font-jakarta" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-jakarta">.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }</style><link id="all-fonts-link-font-space-grotesk" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-space-grotesk">.font-space-grotesk { font-family: 'Space Grotesk', sans-serif !important; }</style><link id="all-fonts-link-font-work-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-work-sans">.font-work-sans { font-family: 'Work Sans', sans-serif !important; }</style><link id="all-fonts-link-font-pt-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-pt-serif">.font-pt-serif { font-family: 'PT Serif', serif !important; }</style><link id="all-fonts-link-font-geist-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist-mono">.font-geist-mono { font-family: 'Geist Mono', monospace !important; }</style><link id="all-fonts-link-font-space-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-space-mono">.font-space-mono { font-family: 'Space Mono', monospace !important; }</style><link id="all-fonts-link-font-quicksand" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-quicksand">.font-quicksand { font-family: 'Quicksand', sans-serif !important; }</style><link id="all-fonts-link-font-nunito" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-nunito">.font-nunito { font-family: 'Nunito', sans-serif !important; }</style><link id="all-fonts-link-font-manrope" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-manrope">.font-manrope { font-family: 'Manrope', sans-serif !important; }</style></head>
+<body class="w-full min-h-screen bg-stone-50 text-stone-800 overflow-x-hidden relative selection:bg-rose-100 selection:text-rose-900">
 
-    <!-- Background: Light Aurora -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-        <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full blur-[80px] opacity-60 animate-[aurora-light_15s_infinite_alternate]" style="background: radial-gradient(circle, #fbcfe8 0%, rgba(255,255,255,0) 70%);"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] rounded-full blur-[100px] opacity-50 animate-[aurora-light_20s_infinite_alternate-reverse]" style="background: radial-gradient(circle, #c7d2fe 0%, rgba(255,255,255,0) 70%);"></div>
-        <div class="absolute top-[30%] left-[40%] w-[40vw] h-[40vw] rounded-full blur-[90px] opacity-40 animate-[aurora-light_25s_infinite_alternate]" style="background: radial-gradient(circle, #fed7aa 0%, rgba(255,255,255,0) 70%);"></div>
+    <!-- Background Spline -->
+    <div class="fixed inset-0 w-full h-full -z-10 opacity-40 pointer-events-none mix-blend-multiply">
+        <!-- Replaced with a static gradient fallback for performance/cleanliness if iframe fails, but keeping iframe as requested -->
+        <div class="absolute inset-0 bg-gradient-to-tr from-stone-100 to-rose-50/50"></div>
+        <iframe src="https://my.spline.design/flowingribbon-TlkEaNrvCCNZuJBNJN3LXpRF" frameborder="0" width="100%" height="100%" class="absolute inset-0 opacity-60"></iframe>
     </div>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 w-full px-6 py-6 md:px-12 md:py-8 z-50 flex justify-center items-center pointer-events-none">
-        <div class="flex pointer-events-auto w-full max-w-[1400px] items-center justify-between">
-            
-            <!-- Brand -->
-            <a href="index.html" class="hover:opacity-70 transition-opacity whitespace-nowrap text-2xl md:text-3xl font-semibold text-stone-900 tracking-tight font-[Playfair Display]">
-                Ark Care AFH
-            </a>
-
-            <!-- Center Menu -->
-            <div class="hidden md:flex items-center gap-8 bg-white/40 backdrop-blur-md shadow-sm border border-white/50 rounded-full px-8 py-3.5">
-                <a href="index.html" class="font-[Merriweather] text-[11px] font-semibold text-stone-600 tracking-[0.1em] hover:text-stone-900 transition-colors uppercase">Home</a>
-                <a href="about-us.html" class="font-[Merriweather] text-[11px] font-semibold text-stone-600 tracking-[0.1em] hover:text-stone-900 transition-colors uppercase whitespace-nowrap">About Us</a>
-                <a href="services.html" class="font-[Merriweather] text-[11px] font-semibold text-stone-600 tracking-[0.1em] hover:text-stone-900 transition-colors uppercase">Services</a>
-                <a href="gallery.html" class="font-[Merriweather] text-[11px] font-semibold text-stone-900 tracking-[0.1em] transition-colors uppercase">Gallery</a>
-                <a href="contact.html" class="font-[Merriweather] text-[11px] font-semibold text-stone-600 tracking-[0.1em] hover:text-stone-900 transition-colors uppercase">Contact</a>
-            </div>
-
-            <!-- CTA Button -->
-            <button onclick="window.location.href='contact.html'" class="group relative bg-stone-900 text-white hover:bg-stone-800 transition-all rounded-full px-6 py-3 uppercase font-[Merriweather] text-[10px] font-semibold tracking-[0.15em] shadow-lg hover:shadow-xl hover:-translate-y-0.5 whitespace-nowrap overflow-hidden">
-                <span class="relative z-10">Schedule a Tour</span>
-            </button>
-
+    <!-- Navigation (Updated for Mobile Responsiveness) -->
+    <nav class="fixed md:px-8 md:py-8 flex animate-seq-1 transition-all duration-300 w-full max-w-[1600px] z-50 border-0 mr-auto ml-auto pt-4 pr-4 pb-4 pl-4 top-0 right-0 left-0 items-center justify-between">
+        <!-- Logo -->
+        <div class="flex items-center gap-2 shrink-0">
+            <span class="md:text-2xl leading-none cursor-pointer text-xl font-semibold text-stone-900 tracking-tight font-playfair" onclick="window.location.href='index.html'" role="button">ARK CARE AFH</span>
         </div>
+        
+        <!-- Center Pill Navigation (Desktop Only) -->
+        <div class="hidden lg:flex items-center gap-12 bg-[#F5F5F4]/90 backdrop-blur-md px-12 py-4 rounded-full border border-stone-200/40 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)]">
+            <a href="index.html" class="Display] text-[11px] uppercase hover:text-stone-900 transition-colors text-xs font-bold text-stone-900 tracking-widest font-merriweather">Home</a>
+            <a href="about-us.html" class="Display] text-[11px] uppercase hover:text-stone-900 transition-colors text-xs font-bold text-stone-900 tracking-widest font-merriweather">About Us</a>
+            <a href="services.html" class="Display] text-[11px] uppercase hover:text-stone-900 transition-colors text-xs font-bold text-stone-900 tracking-widest font-merriweather">Services</a>
+            <a href="index.html" class="Display] text-[11px] uppercase transition-colors text-xs font-bold text-stone-900 tracking-widest font-merriweather">Gallery</a>
+            <a href="contact.html" class="Display] text-[11px] uppercase hover:text-stone-900 transition-colors text-xs font-bold text-stone-900 tracking-widest font-merriweather">Contact</a>
+        </div>
+
+        <!-- Right Action Button (Responsive Sizing) -->
+        <button class="shrink-0 md:px-9 md:py-4 Display] text-[10px] md:text-[11px] uppercase hover:bg-stone-800 transition-all hover:shadow-xl hover:-translate-y-0.5 whitespace-nowrap font-bold text-white tracking-[0.15em] font-[Playfair bg-black rounded-full pt-2.5 pr-5 pb-2.5 pl-5 shadow-lg" onclick="window.location.href='contact.html'" role="button">
+            Schedule a Tour
+        </button>
     </nav>
 
-    <!-- Main Content Layout -->
-    <main class="min-h-screen flex flex-col md:pt-44 overflow-hidden mix-blend-multiply w-full z-10 pt-36 pb-20 relative items-center justify-start">
+    <!-- Main Content (Fix: justify-start on mobile to prevent overlap) -->
+    <main class="flex flex-col min-h-screen md:pt-32 md:justify-center w-full max-w-[1600px] mr-auto ml-auto pt-28 pb-12 items-center justify-start">
         
-        <!-- Header Text - Added significant margin-bottom to prevent overlap -->
-        <div class="relative z-30 text-center px-6 animate-scale-sequence mb-24 md:mb-40">
-            <h1 class="font-[Playfair Display] font-medium text-[48px] md:text-[64px] leading-[1.05] text-stone-900 mb-6 tracking-tight drop-shadow-sm">
-                Eternal Horizons
+        <!-- Header -->
+        <div class="text-center px-4 mb-8 md:mb-12 animate-seq-2 z-10 pt-4 md:pt-10">
+            <h1 class="font-[Playfair Display] text-4xl sm:text-5xl md:text-7xl font-medium text-stone-900 tracking-tight leading-[1.1] mb-3 md:mb-4">
+                Moments of <span class="italic text-stone-400">Serenity</span>
             </h1>
-            <p class="font-[Manrope] text-[16px] md:text-[18px] text-stone-500 max-w-lg mx-auto leading-relaxed tracking-wide">
-                Capturing the ephemeral beauty of the natural world, moments suspended in light and time.
+            <p class="font-[Manrope] text-lg sm:text-xl md:text-2xl text-stone-500 font-light max-w-2xl mx-auto tracking-tight px-2 leading-relaxed">
+                Experience the warmth, community, and compassionate care that defines daily life at Ark Care.
             </p>
         </div>
 
-        <!-- Rolling Gallery Wrapper - Added top margin for safety -->
-        <div class="relative flex flex-col items-center justify-center w-full max-w-[100vw] h-[600px] md:h-[800px] mt-4 md:mt-10">
-            
-            <!-- Gradients to fade out top/bottom -->
-            <div class="absolute top-0 left-0 w-full h-[150px] z-20 gradient-top-light pointer-events-none"></div>
-            <div class="absolute bottom-0 left-0 w-full h-[150px] z-20 gradient-bottom-light pointer-events-none"></div>
+        <!-- 3D Cylinder Gallery -->
+        <div class="gallery-container md:h-[600px] flex animate-seq-3 md:mb-0 font-merriweather w-full h-[400px] z-0 mb-8 relative items-center justify-center" id="galleryContainer">
+            <!-- Gradients for smooth fade -->
+            <div class="absolute inset-x-0 top-0 h-24 md:h-32 bg-gradient-to-b from-stone-50 to-transparent z-20 pointer-events-none"></div>
+            <div class="absolute inset-x-0 bottom-0 h-24 md:h-32 bg-gradient-to-t from-stone-50 to-transparent z-20 pointer-events-none"></div>
 
-            <!-- 3D Scene Container -->
-            <div class="gallery-container w-full h-full flex items-center justify-center">
-                <div class="gallery-cylinder flex w-full h-full items-center justify-center relative" style="transform: rotateX(0deg)" id="galleryCylinder">
-                    <!-- Javascript will populate faces here -->
+            <div class="gallery-cylinder cursor-grab active:cursor-grabbing auto-spin" id="cylinder" style="transform: rotateX(0deg);"><div class="gallery-face absolute left-1/2 top-1/2 flex items-center justify-center" style="width: 400px; height: 220px; margin-left: -200px; margin-top: -110px; transform: rotateX(0deg) translateZ(994.718px);">
+                        <div class="w-full h-full bg-white rounded-[20px] md:rounded-[24px] p-1.5 md:p-2 shadow-3d-heavy overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp" class="w-full h-full object-cover rounded-[16px] md:rounded-[18px] opacity-90 hover:opacity-100 transition-opacity" loading="lazy" alt="Gallery Image 1">
+                        </div>
+                    </div><div class="gallery-face absolute left-1/2 top-1/2 flex items-center justify-center" style="width: 400px; height: 220px; margin-left: -200px; margin-top: -110px; transform: rotateX(14.4deg) translateZ(994.718px);">
+                        <div class="w-full h-full bg-white rounded-[20px] md:rounded-[24px] p-1.5 md:p-2 shadow-3d-heavy overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp" class="w-full h-full object-cover rounded-[16px] md:rounded-[18px] opacity-90 hover:opacity-100 transition-opacity" loading="lazy" alt="Gallery Image 2">
+                        </div>
+                    </div><div class="gallery-face absolute left-1/2 top-1/2 flex items-center justify-center" style="width: 400px; height: 220px; margin-left: -200px; margin-top: -110px; transform: rotateX(28.8deg) translateZ(994.718px);">
+                        <div class="w-full h-full bg-white rounded-[20px] md:rounded-[24px] p-1.5 md:p-2 shadow-3d-heavy overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp" class="w-full h-full object-cover rounded-[16px] md:rounded-[18px] opacity-90 hover:opacity-100 transition-opacity" loading="lazy" alt="Gallery Image 3">
+                        </div>
+                    </div><div class="gallery-face absolute left-1/2 top-1/2 flex items-center justify-center" style="width: 400px; height: 220px; margin-left: -200px; margin-top: -110px; transform: rotateX(43.2deg) translateZ(994.718px);">
+                        <div class="w-full h-full bg-white rounded-[20px] md:rounded-[24px] p-1.5 md:p-2 shadow-3d-heavy overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp" class="w-full h-full object-cover rounded-[16px] md:rounded-[18px] opacity-90 hover:opacity-100 transition-opacity" loading="lazy" alt="Gallery Image 4">
+                        </div>
+                    </div><div class="gallery-face absolute left-1/2 top-1/2 flex items-center justify-center" style="width: 400px; height: 220px; margin-left: -200px; margin-top: -110px; transform: rotateX(57.6deg) translateZ(994.718px);">
+                        <div class="w-full h-full bg-white rounded-[20px] md:rounded-[24px] p-1.5 md:p-2 shadow-3d-heavy overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp" class="w-full h-full object-cover rounded-[16px] md:rounded-[18px] opacity-90 hover:opacity-100 transition-opacity" loading="lazy" alt="Gallery Image 5">
+                        </div>
+                    </div><div class="gallery-face absolute left-1/2 top-1/2 flex items-center justify-center" style="width: 400px; height: 220px; margin-left: -200px; margin-top: -110px; transform: rotateX(72deg) translateZ(994.718px);">
+                        <div class="w-full h-full bg-white rounded-[20px] md:rounded-[24px] p-1.5 md:p-2 shadow-3d-heavy overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp" class="w-full h-full object-cover rounded-[16px] md:rounded-[18px] opacity-90 hover:opacity-100 transition-opacity" loading="lazy" alt="Gallery Image 6">
+                        </div>
+                    </div><div class="gallery-face absolute left-1/2 top-1/2 flex items-center justify-center" style="width: 400px; height: 220px; margin-left: -200px; margin-top: -110px; transform: rotateX(86.4deg) translateZ(994.718px);">
+                        <div class="w-full h-full bg-white rounded-[20px] md:rounded-[24px] p-1.5 md:p-2 shadow-3d-heavy overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp" class="w-full h-full object-cover rounded-[16px] md:rounded-[18px] opacity-90 hover:opacity-100 transition-opacity" loading="lazy" alt="Gallery Image 7">
+                        </div>
+                    </div><div class="gallery-face absolute left-1/2 top-1/2 flex items-center justify-center" style="width: 400px; height: 220px; margin-left: -200px; margin-top: -110px; transform: rotateX(100.8deg) translateZ(994.718px);">
+                        <div class="w-full h-full bg-white rounded-[20px] md:rounded-[24px] p-1.5 md:p-2 shadow-3d-heavy overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp" class="w-full h-full object-cover rounded-[16px] md:rounded-[18px] opacity-90 hover:opacity-100 transition-opacity" loading="lazy" alt="Gallery Image 8">
+                        </div>
+                    </div><div class="gallery-face absolute left-1/2 top-1/2 flex items-center justify-center" style="width: 400px; height: 220px; margin-left: -200px; margin-top: -110px; transform: rotateX(115.2deg) translateZ(994.718px);">
+                        <div class="w-full h-full bg-white rounded-[20px] md:rounded-[24px] p-1.5 md:p-2 shadow-3d-heavy overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp" class="w-full h-full object-cover rounded-[16px] md:rounded-[18px] opacity-90 hover:opacity-100 transition-opacity" loading="lazy" alt="Gallery Image 9">
+                        </div>
+                    </div><div class="gallery-face absolute left-1/2 top-1/2 flex items-center justify-center" style="width: 400px; height: 220px; margin-left: -200px; margin-top: -110px; transform: rotateX(129.6deg) translateZ(994.718px);">
+                        <div class="w-full h-full bg-white rounded-[20px] md:rounded-[24px] p-1.5 md:p-2 shadow-3d-heavy overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp" class="w-full h-full object-cover rounded-[16px] md:rounded-[18px] opacity-90 hover:opacity-100 transition-opacity" loading="lazy" alt="Gallery Image 10">
+                        </div>
+                    </div><div class="gallery-face absolute left-1/2 top-1/2 flex items-center justify-center" style="width: 400px; height: 220px; margin-left: -200px; margin-top: -110px; transform: rotateX(144deg) translateZ(994.718px);">
+                        <div class="w-full h-full bg-white rounded-[20px] md:rounded-[24px] p-1.5 md:p-2 shadow-3d-heavy overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp" class="w-full h-full object-cover rounded-[16px] md:rounded-[18px] opacity-90 hover:opacity-100 transition-opacity" loading="lazy" alt="Gallery Image 11">
+                        </div>
+                    </div><div class="gallery-face absolute left-1/2 top-1/2 flex items-center justify-center" style="width: 400px; height: 220px; margin-left: -200px; margin-top: -110px; transform: rotateX(158.4deg) translateZ(994.718px);">
+                        <div class="w-full h-full bg-white rounded-[20px] md:rounded-[24px] p-1.5 md:p-2 shadow-3d-heavy overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp" class="w-full h-full object-cover rounded-[16px] md:rounded-[18px] opacity-90 hover:opacity-100 transition-opacity" loading="lazy" alt="Gallery Image 12">
+                        </div>
+                    </div><div class="gallery-face absolute left-1/2 top-1/2 flex items-center justify-center" style="width: 400px; height: 220px; margin-left: -200px; margin-top: -110px; transform: rotateX(172.8deg) translateZ(994.718px);">
+                        <div class="w-full h-full bg-white rounded-[20px] md:rounded-[24px] p-1.5 md:p-2 shadow-3d-heavy overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp" class="w-full h-full object-cover rounded-[16px] md:rounded-[18px] opacity-90 hover:opacity-100 transition-opacity" loading="lazy" alt="Gallery Image 13">
+                        </div>
+                    </div><div class="gallery-face absolute left-1/2 top-1/2 flex items-center justify-center" style="width: 400px; height: 220px; margin-left: -200px; margin-top: -110px; transform: rotateX(187.2deg) translateZ(994.718px);">
+                        <div class="w-full h-full bg-white rounded-[20px] md:rounded-[24px] p-1.5 md:p-2 shadow-3d-heavy overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp" class="w-full h-full object-cover rounded-[16px] md:rounded-[18px] opacity-90 hover:opacity-100 transition-opacity" loading="lazy" alt="Gallery Image 14">
+                        </div>
+                    </div><div class="gallery-face absolute left-1/2 top-1/2 flex items-center justify-center" style="width: 400px; height: 220px; margin-left: -200px; margin-top: -110px; transform: rotateX(201.6deg) translateZ(994.718px);">
+                        <div class="w-full h-full bg-white rounded-[20px] md:rounded-[24px] p-1.5 md:p-2 shadow-3d-heavy overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp" class="w-full h-full object-cover rounded-[16px] md:rounded-[18px] opacity-90 hover:opacity-100 transition-opacity" loading="lazy" alt="Gallery Image 15">
+                        </div>
+                    </div><div class="gallery-face absolute left-1/2 top-1/2 flex items-center justify-center" style="width: 400px; height: 220px; margin-left: -200px; margin-top: -110px; transform: rotateX(216deg) translateZ(994.718px);">
+                        <div class="w-full h-full bg-white rounded-[20px] md:rounded-[24px] p-1.5 md:p-2 shadow-3d-heavy overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp" class="w-full h-full object-cover rounded-[16px] md:rounded-[18px] opacity-90 hover:opacity-100 transition-opacity" loading="lazy" alt="Gallery Image 16">
+                        </div>
+                    </div><div class="gallery-face absolute left-1/2 top-1/2 flex items-center justify-center" style="width: 400px; height: 220px; margin-left: -200px; margin-top: -110px; transform: rotateX(230.4deg) translateZ(994.718px);">
+                        <div class="w-full h-full bg-white rounded-[20px] md:rounded-[24px] p-1.5 md:p-2 shadow-3d-heavy overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp" class="w-full h-full object-cover rounded-[16px] md:rounded-[18px] opacity-90 hover:opacity-100 transition-opacity" loading="lazy" alt="Gallery Image 17">
+                        </div>
+                    </div><div class="gallery-face absolute left-1/2 top-1/2 flex items-center justify-center" style="width: 400px; height: 220px; margin-left: -200px; margin-top: -110px; transform: rotateX(244.8deg) translateZ(994.718px);">
+                        <div class="w-full h-full bg-white rounded-[20px] md:rounded-[24px] p-1.5 md:p-2 shadow-3d-heavy overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp" class="w-full h-full object-cover rounded-[16px] md:rounded-[18px] opacity-90 hover:opacity-100 transition-opacity" loading="lazy" alt="Gallery Image 18">
+                        </div>
+                    </div><div class="gallery-face absolute left-1/2 top-1/2 flex items-center justify-center" style="width: 400px; height: 220px; margin-left: -200px; margin-top: -110px; transform: rotateX(259.2deg) translateZ(994.718px);">
+                        <div class="w-full h-full bg-white rounded-[20px] md:rounded-[24px] p-1.5 md:p-2 shadow-3d-heavy overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp" class="w-full h-full object-cover rounded-[16px] md:rounded-[18px] opacity-90 hover:opacity-100 transition-opacity" loading="lazy" alt="Gallery Image 19">
+                        </div>
+                    </div><div class="gallery-face absolute left-1/2 top-1/2 flex items-center justify-center" style="width: 400px; height: 220px; margin-left: -200px; margin-top: -110px; transform: rotateX(273.6deg) translateZ(994.718px);">
+                        <div class="w-full h-full bg-white rounded-[20px] md:rounded-[24px] p-1.5 md:p-2 shadow-3d-heavy overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp" class="w-full h-full object-cover rounded-[16px] md:rounded-[18px] opacity-90 hover:opacity-100 transition-opacity" loading="lazy" alt="Gallery Image 20">
+                        </div>
+                    </div><div class="gallery-face absolute left-1/2 top-1/2 flex items-center justify-center" style="width: 400px; height: 220px; margin-left: -200px; margin-top: -110px; transform: rotateX(288deg) translateZ(994.718px);">
+                        <div class="w-full h-full bg-white rounded-[20px] md:rounded-[24px] p-1.5 md:p-2 shadow-3d-heavy overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp" class="w-full h-full object-cover rounded-[16px] md:rounded-[18px] opacity-90 hover:opacity-100 transition-opacity" loading="lazy" alt="Gallery Image 21">
+                        </div>
+                    </div><div class="gallery-face absolute left-1/2 top-1/2 flex items-center justify-center" style="width: 400px; height: 220px; margin-left: -200px; margin-top: -110px; transform: rotateX(302.4deg) translateZ(994.718px);">
+                        <div class="w-full h-full bg-white rounded-[20px] md:rounded-[24px] p-1.5 md:p-2 shadow-3d-heavy overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp" class="w-full h-full object-cover rounded-[16px] md:rounded-[18px] opacity-90 hover:opacity-100 transition-opacity" loading="lazy" alt="Gallery Image 22">
+                        </div>
+                    </div><div class="gallery-face absolute left-1/2 top-1/2 flex items-center justify-center" style="width: 400px; height: 220px; margin-left: -200px; margin-top: -110px; transform: rotateX(316.8deg) translateZ(994.718px);">
+                        <div class="w-full h-full bg-white rounded-[20px] md:rounded-[24px] p-1.5 md:p-2 shadow-3d-heavy overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp" class="w-full h-full object-cover rounded-[16px] md:rounded-[18px] opacity-90 hover:opacity-100 transition-opacity" loading="lazy" alt="Gallery Image 23">
+                        </div>
+                    </div><div class="gallery-face absolute left-1/2 top-1/2 flex items-center justify-center" style="width: 400px; height: 220px; margin-left: -200px; margin-top: -110px; transform: rotateX(331.2deg) translateZ(994.718px);">
+                        <div class="w-full h-full bg-white rounded-[20px] md:rounded-[24px] p-1.5 md:p-2 shadow-3d-heavy overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp" class="w-full h-full object-cover rounded-[16px] md:rounded-[18px] opacity-90 hover:opacity-100 transition-opacity" loading="lazy" alt="Gallery Image 24">
+                        </div>
+                    </div><div class="gallery-face absolute left-1/2 top-1/2 flex items-center justify-center" style="width: 400px; height: 220px; margin-left: -200px; margin-top: -110px; transform: rotateX(345.6deg) translateZ(994.718px);">
+                        <div class="w-full h-full bg-white rounded-[20px] md:rounded-[24px] p-1.5 md:p-2 shadow-3d-heavy overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp" class="w-full h-full object-cover rounded-[16px] md:rounded-[18px] opacity-90 hover:opacity-100 transition-opacity" loading="lazy" alt="Gallery Image 25">
+                        </div>
+                    </div></div>
+        </div>
+
+        <!-- Footer / Categories -->
+        <div class="w-full max-w-5xl px-6 mt-4 md:mt-8 animate-seq-3 z-10 pb-10">
+            <div class="flex items-center justify-between border-b border-stone-200 pb-4 mb-6">
+                <h2 class="font-[Playfair Display] text-xl md:text-2xl text-stone-800 font-medium tracking-tight">Life Categories</h2>
+                <div class="flex gap-2">
+                    <button class="p-2 rounded-full hover:bg-stone-100 transition-colors text-stone-400 hover:text-stone-900"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-left" class="lucide lucide-arrow-left w-4 h-4"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg></button>
+                    <button class="p-2 rounded-full hover:bg-stone-100 transition-colors text-stone-400 hover:text-stone-900"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right w-4 h-4"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></button>
                 </div>
             </div>
             
-            <!-- Controls / Hint -->
-            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex items-center gap-4 opacity-50 hover:opacity-100 transition-opacity duration-300">
-                 <div class="h-8 w-px bg-stone-400"></div>
-                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-vertical w-4 h-4 text-stone-500"><path d="M12 2v20"></path><path d="m8 18 4 4 4-4"></path><path d="m8 6 4-4 4 4"></path></svg>
-                 <span class="font-[Manrope] text-[12px] text-stone-500 uppercase tracking-widest self-center">Drag to scroll</span>
-                 <div class="h-8 w-px bg-stone-400"></div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-y-6 gap-x-4">
+                <!-- Category 1 -->
+                <div class="group cursor-pointer">
+                    <div class="h-1 bg-stone-200 w-full mb-3 rounded-full overflow-hidden">
+                        <div class="h-full bg-stone-900 w-0 group-hover:w-full transition-all duration-500"></div>
+                    </div>
+                    <h3 class="font-[Manrope] text-sm font-semibold text-stone-900">Assisted Living</h3>
+                    <p class="font-[Manrope] text-xs text-stone-500 mt-1">24/7 compassionate support</p>
+                </div>
+                <!-- Category 2 -->
+                <div class="group cursor-pointer">
+                    <div class="h-1 bg-stone-200 w-full mb-3 rounded-full overflow-hidden">
+                        <div class="h-full bg-stone-900 w-0 group-hover:w-full transition-all duration-500"></div>
+                    </div>
+                    <h3 class="font-[Manrope] text-sm font-semibold text-stone-900">Dining &amp; Nutrition</h3>
+                    <p class="font-[Manrope] text-xs text-stone-500 mt-1">Chef-prepared healthy meals</p>
+                </div>
+                <!-- Category 3 -->
+                <div class="group cursor-pointer">
+                    <div class="h-1 bg-stone-200 w-full mb-3 rounded-full overflow-hidden">
+                        <div class="h-full bg-stone-900 w-0 group-hover:w-full transition-all duration-500"></div>
+                    </div>
+                    <h3 class="font-[Manrope] text-sm font-semibold text-stone-900">Social Activities</h3>
+                    <p class="font-[Manrope] text-xs text-stone-500 mt-1">Engaging daily events</p>
+                </div>
+                <!-- Category 4 -->
+                <div class="group cursor-pointer">
+                    <div class="h-1 bg-stone-200 w-full mb-3 rounded-full overflow-hidden">
+                        <div class="h-full bg-stone-900 w-0 group-hover:w-full transition-all duration-500"></div>
+                    </div>
+                    <h3 class="font-[Manrope] text-sm font-semibold text-stone-900">Therapy &amp; Wellness</h3>
+                    <p class="font-[Manrope] text-xs text-stone-500 mt-1">Physical &amp; mental health</p>
+                </div>
+                <!-- Category 5 -->
+                <div class="group cursor-pointer">
+                    <div class="h-1 bg-stone-200 w-full mb-3 rounded-full overflow-hidden">
+                        <div class="h-full bg-stone-900 w-0 group-hover:w-full transition-all duration-500"></div>
+                    </div>
+                    <h3 class="font-[Manrope] text-sm font-semibold text-stone-900">Gardens &amp; Grounds</h3>
+                    <p class="font-[Manrope] text-xs text-stone-500 mt-1">Safe outdoor spaces</p>
+                </div>
             </div>
         </div>
 
     </main>
 
     <script>
-        // Curated peaceful nature images
-        const IMGS = [
-            "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1490750967868-58cb75069ed6?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1501854140884-074cf2724324?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1533240332313-0db49b459ad6?auto=format&fit=crop&w=800&q=80"
+        const IMAGES = [
+            "https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=600&q=80", 
+            "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600&q=80", 
+            "https://images.unsplash.com/photo-1526635425908-9484372f12e8?auto=format&fit=crop&w=600&q=80", 
+            "https://images.unsplash.com/photo-1516062423079-7ca13cdc7f5a?auto=format&fit=crop&w=600&q=80", 
+            "https://images.unsplash.com/photo-1555819206-7b30da4f1506?auto=format&fit=crop&w=600&q=80", 
+            "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=600&q=80", 
+            "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=600&q=80", 
+            "https://images.unsplash.com/photo-1564758564527-b97d79cb27c1?auto=format&fit=crop&w=600&q=80", 
+            "https://images.unsplash.com/photo-1606202029562-b1319080616b?auto=format&fit=crop&w=600&q=80", 
+            "https://images.unsplash.com/photo-1557002665-c57c458738b4?auto=format&fit=crop&w=600&q=80", 
+            "https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&w=600&q=80", 
+            "https://images.unsplash.com/photo-1633332755192-727a05c4013d?auto=format&fit=crop&w=600&q=80", 
+            "https://images.unsplash.com/photo-1533613220915-609f661a6fe1?auto=format&fit=crop&w=600&q=80", 
+            "https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&fit=crop&w=600&q=80", 
+            "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=600&q=80", 
+            "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=600&q=80", 
+            "https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?auto=format&fit=crop&w=600&q=80", 
+            "https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?auto=format&fit=crop&w=600&q=80", 
+            "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80", 
+            "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80", 
+            "https://images.unsplash.com/photo-1520206183501-b80df610434f?auto=format&fit=crop&w=600&q=80", 
+            "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&q=80", 
+            "https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?auto=format&fit=crop&w=600&q=80", 
+            "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=600&q=80", 
+            "https://images.unsplash.com/photo-1536640712-4d4c36ff0e4e?auto=format&fit=crop&w=600&q=80" 
         ];
 
-        class RollingGallery {
-            constructor(options = {}) {
-                this.autoplay = options.autoplay || true;
-                this.images = options.images || IMGS;
-                this.cylinder = document.getElementById('galleryCylinder');
+        class CylinderGallery {
+            constructor() {
+                this.el = document.getElementById('cylinder');
+                this.images = IMAGES;
                 this.rotation = 0;
                 this.isDragging = false;
                 this.startY = 0;
-                this.dragFactor = 0.3; // Sensitivity
-                this.isSmallScreen = window.innerWidth <= 640;
-                
+                this.lastY = 0;
+                this.momentum = 0;
+                this.rafId = null;
+
                 this.init();
-                this.setupEventListeners();
             }
 
             init() {
-                this.updateDimensions();
-                this.createGalleryFaces();
-                if (this.autoplay) {
-                    this.cylinder.classList.add('gallery-spinning');
-                }
+                this.buildFaces();
+                this.addEvents();
+                this.startAutoSpin();
             }
 
-            updateDimensions() {
-                // Determine card dimensions
-                this.cardHeight = this.isSmallScreen ? 200 : 280;
-                this.cardWidth = this.isSmallScreen ? 340 : 550;
+            buildFaces() {
+                const count = this.images.length;
+                // Responsive card sizing
+                const isMobile = window.innerWidth < 768;
+                const cardHeight = isMobile ? 180 : 220; 
+                const cardWidth = isMobile ? 300 : 400;
+                const gap = isMobile ? 20 : 30;
                 
-                // Calculate spacing to avoid overlap
-                // 60px gap allows images to "float" independently
-                this.gap = this.isSmallScreen ? 40 : 60; 
-                
-                this.faceCount = this.images.length;
-                
-                // The total circumference required to hold all cards with gaps
-                const circumference = (this.cardHeight + this.gap) * this.faceCount;
-                
-                // Radius r = C / 2π
-                this.radius = circumference / (2 * Math.PI);
-            }
+                const circumference = (cardHeight + gap) * count;
+                const radius = circumference / (2 * Math.PI); 
+                const angleStep = 360 / count;
 
-            createGalleryFaces() {
-                this.cylinder.innerHTML = '';
-                const angleStep = 360 / this.faceCount;
+                this.el.innerHTML = ''; 
 
                 this.images.forEach((url, i) => {
-                    // Create Container Face (invisible anchor)
+                    const angle = i * angleStep;
+                    
                     const face = document.createElement('div');
-                    face.className = 'gallery-face absolute flex items-center justify-center';
+                    face.className = 'gallery-face absolute left-1/2 top-1/2 flex items-center justify-center';
                     
-                    // Position in 3D: Rotate X for vertical cylinder, Translate Z for radius
-                    const angle = angleStep * i;
-                    face.style.transform = `rotateX(${angle}deg) translateZ(${this.radius}px)`;
+                    // Apply responsive dimensions
+                    face.style.width = `${cardWidth}px`;
+                    face.style.height = `${cardHeight}px`;
+                    face.style.marginLeft = `-${cardWidth/2}px`;
+                    face.style.marginTop = `-${cardHeight/2}px`;
                     
-                    // Inner Card (Visual part)
-                    const glassFrame = document.createElement('div');
-                    glassFrame.className = 'glass-frame flex items-center justify-center rounded-[16px] md:rounded-[24px] overflow-hidden relative shadow-lg transform transition-all duration-500 group';
-                    
-                    // Explicit dimensions
-                    glassFrame.style.width = `${this.cardWidth}px`;
-                    glassFrame.style.height = `${this.cardHeight}px`;
-                    
-                    // Image
-                    const img = document.createElement('img');
-                    img.src = url;
-                    img.alt = 'Gallery image';
-                    img.className = 'pointer-events-none h-full w-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-in-out';
-                    img.draggable = false;
-                    
-                    glassFrame.appendChild(img);
-                    face.appendChild(glassFrame);
-                    this.cylinder.appendChild(face);
+                    // 3D Transform
+                    face.style.transform = `rotateX(${angle}deg) translateZ(${radius}px)`;
+
+                    // Content
+                    face.innerHTML = `
+                        <div class="w-full h-full bg-white rounded-[20px] md:rounded-[24px] p-1.5 md:p-2 shadow-3d-heavy overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp" class="w-full h-full object-cover rounded-[16px] md:rounded-[18px] opacity-90 hover:opacity-100 transition-opacity" loading="lazy" alt="Gallery Image ${i + 1}">
+                        </div>
+                    `;
+
+                    this.el.appendChild(face);
                 });
             }
 
-            setupEventListeners() {
-                // Mouse & Touch events for dragging
-                const startDrag = (y) => {
+            startAutoSpin() {
+                this.el.classList.add('auto-spin');
+            }
+
+            stopAutoSpin() {
+                this.el.classList.remove('auto-spin');
+                const style = window.getComputedStyle(this.el);
+                this.el.style.transform = `rotateX(${this.rotation}deg)`;
+            }
+
+            addEvents() {
+                const onStart = (y) => {
                     this.isDragging = true;
                     this.startY = y;
-                    this.cylinder.classList.remove('gallery-spinning');
-                    
-                    // Maintain current rotation
-                    this.cylinder.style.transform = `rotateX(${this.rotation}deg)`;
+                    this.lastY = y;
+                    this.stopAutoSpin();
+                    cancelAnimationFrame(this.rafId);
                 };
 
-                const moveDrag = (y) => {
+                const onMove = (y) => {
                     if (!this.isDragging) return;
-                    const deltaY = y - this.startY;
-                    this.rotation += deltaY * this.dragFactor;
-                    this.cylinder.style.transform = `rotateX(${this.rotation}deg)`;
-                    this.startY = y;
+                    const delta = y - this.lastY;
+                    this.rotation -= delta * 0.5;
+                    this.el.style.transform = `rotateX(${this.rotation}deg)`;
+                    this.lastY = y;
+                    this.momentum = delta;
                 };
 
-                const endDrag = () => {
+                const onEnd = () => {
                     this.isDragging = false;
+                    this.inertia();
                 };
 
-                // Mouse
-                this.cylinder.addEventListener('mousedown', (e) => startDrag(e.clientY));
-                window.addEventListener('mousemove', (e) => moveDrag(e.clientY));
-                window.addEventListener('mouseup', endDrag);
+                this.el.parentElement.addEventListener('mousedown', e => onStart(e.clientY));
+                window.addEventListener('mousemove', e => onMove(e.clientY));
+                window.addEventListener('mouseup', onEnd);
 
-                // Touch
-                this.cylinder.addEventListener('touchstart', (e) => startDrag(e.touches[0].clientY));
-                window.addEventListener('touchmove', (e) => moveDrag(e.touches[0].clientY));
-                window.addEventListener('touchend', endDrag);
-
-                // Resize handler
+                this.el.parentElement.addEventListener('touchstart', e => onStart(e.touches[0].clientY), {passive: true});
+                window.addEventListener('touchmove', e => onMove(e.touches[0].clientY), {passive: false});
+                window.addEventListener('touchend', onEnd);
+                
+                // Debounced resize handler
+                let resizeTimer;
                 window.addEventListener('resize', () => {
-                    const wasSmall = this.isSmallScreen;
-                    this.isSmallScreen = window.innerWidth <= 640;
-                    if (wasSmall !== this.isSmallScreen) {
-                        this.updateDimensions();
-                        this.createGalleryFaces();
-                    }
+                   clearTimeout(resizeTimer);
+                   resizeTimer = setTimeout(() => this.buildFaces(), 100); 
                 });
+            }
+
+            inertia() {
+                if (Math.abs(this.momentum) > 0.1) {
+                    this.rotation -= this.momentum * 0.5;
+                    this.el.style.transform = `rotateX(${this.rotation}deg)`;
+                    this.momentum *= 0.95; 
+                    this.rafId = requestAnimationFrame(() => this.inertia());
+                }
             }
         }
 
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
-            new RollingGallery();
+            new CylinderGallery();
         });
     </script>
-
 </body></html>
