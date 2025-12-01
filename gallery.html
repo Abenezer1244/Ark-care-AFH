@@ -111,14 +111,48 @@ button, a[role="button"], .btn {
 .gallery-container {
 perspective: 2500px;
 overflow: hidden;
+max-width: 100%;
 }
 .gallery-cylinder {
 transform-style: preserve-3d;
 transition: transform 0.05s linear; /* Smooth drag */
 will-change: transform;
+max-width: 100%;
 }
 .gallery-face {
 backface-visibility: hidden;
+max-width: 100%;
+box-sizing: border-box;
+}
+.gallery-face > div {
+max-width: 100%;
+width: 100%;
+height: 100%;
+}
+.gallery-face img {
+max-width: 100%;
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: block;
+}
+/* Mobile gallery container adjustments */
+@media (min-width: 360px) and (max-width: 480px) {
+.gallery-container {
+height: 350px !important;
+perspective: 1500px;
+}
+}
+@media (max-width: 480px) {
+.gallery-container {
+perspective: 1500px;
+}
+}
+@media (max-width: 360px) {
+.gallery-container {
+height: 300px !important;
+perspective: 1200px;
+}
 }
 /* Custom 3D Shadow Class */
 .shadow-3d-heavy {
@@ -163,7 +197,7 @@ animation: spin-slow 120s linear infinite;
     </div>
 
     <!-- Compact Navigation -->
-    <nav class="fixed transition-all duration-300 z-50 w-full pt-4 pr-4 pb-4 pl-4 top-0 left-0 backdrop-blur-sm" id="navbar">
+    <nav class="fixed transition-all duration-300 z-[55] w-full pt-4 pr-4 pb-4 pl-4 top-0 left-0 backdrop-blur-sm" id="navbar">
       <div class="relative flex max-w-[1200px] mr-auto ml-auto pt-4 pr-6 pb-4 pl-6 items-center justify-between">
         <!-- Logo -->
         <a href="index.html" class="text-xl font-semibold text-stone-900 tracking-tight font-serif z-10 relative">
@@ -190,12 +224,12 @@ animation: spin-slow 120s linear infinite;
         </div>
 
         <!-- Right Side: CTA & Mobile Menu -->
-        <div class="flex items-center gap-4 z-10 relative">
+        <div class="flex items-center gap-4 z-[60] relative">
           <a href="contact.html" class="uppercase transition-transform active:scale-95 hidden text-[11px] hover:bg-stone-800 shadow-stone-900/20 md:block font-semibold text-white tracking-wide font-serif bg-black rounded-full px-8 py-3 shadow-lg">
             Schedule a Tour
           </a>
 
-          <button id="mobileMenuButton" class="block md:hidden text-stone-900 p-2 rounded-lg hover:bg-stone-100 transition-colors" aria-label="Toggle mobile menu" aria-expanded="false">
+          <button id="mobileMenuButton" class="block md:hidden text-stone-900 p-2 rounded-lg hover:bg-stone-100 transition-colors relative z-[60]" aria-label="Toggle mobile menu" aria-expanded="false">
             <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
               <path d="M4 5h16"></path>
               <path d="M4 12h16"></path>
@@ -238,7 +272,7 @@ animation: spin-slow 120s linear infinite;
         </div>
 
         <!-- 3D Cylinder Gallery -->
-        <div class="gallery-container md:h-[600px] flex animate-seq-3 md:mb-0 font-merriweather w-full h-[350px] sm:h-[400px] z-0 mb-8 relative items-center justify-center" id="galleryContainer">
+        <div class="gallery-container md:h-[600px] flex animate-seq-3 md:mb-0 font-merriweather w-full h-[300px] sm:h-[400px] z-0 mb-8 relative items-center justify-center overflow-hidden" id="galleryContainer" style="max-width: 100vw;">
             <!-- Gradients for smooth fade -->
             <div class="absolute inset-x-0 top-0 h-24 md:h-32 bg-gradient-to-b from-stone-50 to-transparent z-20 pointer-events-none"></div>
             <div class="absolute inset-x-0 bottom-0 h-24 md:h-32 bg-gradient-to-t from-stone-50 to-transparent z-20 pointer-events-none"></div>
@@ -618,16 +652,31 @@ animation: spin-slow 120s linear infinite;
                 const width = window.innerWidth;
                 let cardHeight, cardWidth, gap;
                 
-                if (width < 360) {
-                    // Very small screens (< 360px)
+                if (width < 320) {
+                    // Extra small screens (< 320px)
+                    cardHeight = 140;
+                    cardWidth = Math.min(220, width - 40); // Ensure it fits with padding
+                    gap = 12;
+                } else if (width < 360) {
+                    // Very small screens (320px - 359px)
                     cardHeight = 150;
-                    cardWidth = 250;
+                    cardWidth = Math.min(250, width - 40);
                     gap = 15;
-                } else if (width < 768) {
-                    // Mobile screens (360px - 767px)
-                    cardHeight = 180;
-                    cardWidth = 300;
+                } else if (width < 480) {
+                    // Small mobile screens (360px - 479px)
+                    cardHeight = 170;
+                    cardWidth = Math.min(280, width - 40);
+                    gap = 18;
+                } else if (width < 640) {
+                    // Medium mobile screens (480px - 639px)
+                    cardHeight = 190;
+                    cardWidth = Math.min(320, width - 40);
                     gap = 20;
+                } else if (width < 768) {
+                    // Large mobile screens (640px - 767px)
+                    cardHeight = 200;
+                    cardWidth = Math.min(350, width - 40);
+                    gap = 22;
                 } else {
                     // Desktop screens (>= 768px)
                     cardHeight = 220;
@@ -660,10 +709,14 @@ animation: spin-slow 120s linear infinite;
                     // 3D Transform
                     face.style.transform = `rotateX(${angle}deg) translateZ(${radius}px)`;
 
-                    // Content
+                    // Content with responsive padding
+                    const padding = width < 480 ? 'p-1' : width < 768 ? 'p-1.5' : 'p-2';
+                    const rounded = width < 480 ? 'rounded-[12px] md:rounded-[16px]' : 'rounded-[16px] md:rounded-[20px]';
+                    const innerRounded = width < 480 ? 'rounded-[10px] md:rounded-[14px]' : 'rounded-[14px] md:rounded-[16px]';
+                    
                     face.innerHTML = `
-                        <div class="w-full h-full bg-white rounded-[20px] md:rounded-[24px] p-1.5 md:p-2 shadow-3d-heavy overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
-                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp" class="w-full h-full object-cover rounded-[16px] md:rounded-[18px] opacity-90 hover:opacity-100 transition-opacity" loading="lazy" alt="Gallery Image ${i + 1}">
+                        <div class="w-full h-full bg-white ${rounded} ${padding} shadow-3d-heavy overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp" class="w-full h-full object-cover ${innerRounded} opacity-90 hover:opacity-100 transition-opacity" loading="lazy" alt="Gallery Image ${i + 1}" style="max-width: 100%; height: 100%;">
                         </div>
                     `;
 

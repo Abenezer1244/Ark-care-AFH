@@ -212,7 +212,7 @@ addUtilities({
 
     <div class="min-h-screen overflow-hidden max-w-[1600px] mr-auto ml-auto relative shadow-2xl">
     <!-- Compact Navigation -->
-    <nav class="fixed transition-all duration-300 z-50 w-full pt-4 pr-4 pb-4 pl-4 top-0 left-0 backdrop-blur-sm" id="navbar">
+    <nav class="fixed transition-all duration-300 z-[55] w-full pt-4 pr-4 pb-4 pl-4 top-0 left-0 backdrop-blur-sm" id="navbar">
       <div class="relative flex max-w-[1200px] mr-auto ml-auto pt-4 pr-6 pb-4 pl-6 items-center justify-between">
         <!-- Logo -->
         <a href="index.html" class="text-xl font-semibold text-stone-900 tracking-tight font-serif z-10 relative">
@@ -239,12 +239,12 @@ addUtilities({
         </div>
 
         <!-- Right Side: CTA & Mobile Menu -->
-        <div class="flex items-center gap-4 z-10 relative">
+        <div class="flex items-center gap-4 z-[60] relative">
           <a href="contact.html" class="uppercase transition-transform active:scale-95 hidden text-[11px] hover:bg-stone-800 shadow-stone-900/20 md:block font-semibold text-white tracking-wide font-serif bg-black rounded-full px-8 py-3 shadow-lg">
             Schedule a Tour
           </a>
 
-          <button id="mobileMenuButton" class="block md:hidden text-stone-900 p-2 rounded-lg hover:bg-stone-100 transition-colors" aria-label="Toggle mobile menu" aria-expanded="false">
+          <button id="mobileMenuButton" class="block md:hidden text-stone-900 p-2 rounded-lg hover:bg-stone-100 transition-colors relative z-[60]" aria-label="Toggle mobile menu" aria-expanded="false">
             <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
               <path d="M4 5h16"></path>
               <path d="M4 12h16"></path>
