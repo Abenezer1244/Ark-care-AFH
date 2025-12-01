@@ -123,49 +123,49 @@ addUtilities({
     <!-- Progress blur -->
 
     <div class="min-h-screen overflow-hidden max-w-[1600px] mr-auto ml-auto relative shadow-2xl">
-      <!-- Compact Navigation -->
-      <nav class="fixed transition-all duration-300 z-50 w-full pt-4 pr-4 pb-4 pl-4 top-0 left-0 backdrop-blur-sm" id="navbar">
-        <div class="relative flex max-w-[1200px] mr-auto ml-auto pt-4 pr-6 pb-4 pl-6 items-center justify-between">
-          <!-- Logo -->
-          <a href="index.html" class="text-xl font-semibold text-stone-900 tracking-tight font-serif z-10 relative">
-            Ark Care AFH
+    <!-- Compact Navigation -->
+    <nav class="fixed transition-all duration-300 z-50 w-full pt-4 pr-4 pb-4 pl-4 top-0 left-0 backdrop-blur-sm" id="navbar">
+      <div class="relative flex max-w-[1200px] mr-auto ml-auto pt-4 pr-6 pb-4 pl-6 items-center justify-between">
+        <!-- Logo -->
+        <a href="index.html" class="text-xl font-semibold text-stone-900 tracking-tight font-serif z-10 relative">
+          Ark Care AFH
+        </a>
+
+        <!-- Centered Navigation Pill -->
+        <div class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-8 bg-stone-100/80 backdrop-blur-md px-10 py-3 rounded-full border border-stone-200/50 shadow-sm z-0">
+          <a href="index.html" class="uppercase hover:text-stone-900 transition-colors text-[11px] text-xs font-bold text-stone-900 tracking-widest font-merriweather">
+            Home
+          </a>
+          <a href="about-us.html" class="uppercase hover:text-stone-900 transition-colors text-[11px] whitespace-nowrap text-xs font-bold text-stone-900 tracking-widest font-merriweather">
+            About Us
+          </a>
+          <a href="services.html" class="uppercase hover:text-stone-900 transition-colors text-[11px] text-xs font-bold text-stone-900 tracking-widest font-merriweather">
+            Services
+          </a>
+          <a href="gallery.html" class="uppercase hover:text-stone-900 transition-colors text-[11px] text-xs font-bold text-stone-900 tracking-widest font-merriweather">
+            Gallery
+          </a>
+          <a href="contact.html" class="uppercase hover:text-stone-900 transition-colors text-[11px] text-xs font-bold text-stone-900 tracking-widest font-merriweather">
+            Contact
+          </a>
+        </div>
+
+        <!-- Right Side: CTA & Mobile Menu -->
+        <div class="flex items-center gap-4 z-10 relative">
+          <a href="contact.html" class="uppercase transition-transform active:scale-95 hidden text-[11px] hover:bg-stone-800 shadow-stone-900/20 md:block font-semibold text-white tracking-wide font-serif bg-black rounded-full px-8 py-3 shadow-lg">
+            Schedule a Tour
           </a>
 
-          <!-- Centered Navigation Pill -->
-          <div class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-8 bg-stone-100/80 backdrop-blur-md px-10 py-3 rounded-full border border-stone-200/50 shadow-sm z-0">
-            <a href="index.html" class="uppercase hover:text-stone-900 transition-colors text-[11px] text-xs font-bold text-stone-900 tracking-widest font-merriweather">
-              Home
-            </a>
-            <a href="about-us.html" class="uppercase hover:text-stone-900 transition-colors text-[11px] whitespace-nowrap text-xs font-bold text-stone-900 tracking-widest font-merriweather">
-              About Us
-            </a>
-            <a href="services.html" class="uppercase hover:text-stone-900 transition-colors text-[11px] text-xs font-bold text-stone-900 tracking-widest font-merriweather">
-              Services
-            </a>
-            <a href="gallery.html" class="uppercase hover:text-stone-900 transition-colors text-[11px] text-xs font-bold text-stone-900 tracking-widest font-merriweather">
-              Gallery
-            </a>
-            <a href="contact.html" class="uppercase hover:text-stone-900 transition-colors text-[11px] text-xs font-bold text-stone-900 tracking-widest font-merriweather">
-              Contact
-            </a>
-          </div>
-
-          <!-- Right Side: CTA & Mobile Menu -->
-          <div class="flex items-center gap-4 z-10 relative">
-            <a href="contact.html" class="uppercase transition-transform active:scale-95 hidden text-[11px] hover:bg-stone-800 shadow-stone-900/20 md:block font-semibold text-white tracking-wide font-serif bg-black rounded-full px-8 py-3 shadow-lg">
-              Schedule a Tour
-            </a>
-
-            <button id="mobile-toggle" class="md:hidden text-stone-900 p-1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
-                <path d="M4 5h16"></path>
-                <path d="M4 12h16"></path>
-                <path d="M4 19h16"></path>
-              </svg>
-            </button>
-          </div>
+          <button id="mobile-toggle" class="md:hidden text-stone-900 p-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
+              <path d="M4 5h16"></path>
+              <path d="M4 12h16"></path>
+              <path d="M4 19h16"></path>
+            </svg>
+          </button>
         </div>
-      </nav>
+      </div>
+    </nav>
 
       <!-- Mobile Navigation Overlay -->
       <div id="mobile-menu" class="fixed inset-0 z-[60] bg-stone-50/95 backdrop-blur-xl translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col justify-center items-center">
