@@ -180,9 +180,13 @@
         * {
             max-width: 100%;
         }
-        img, iframe, video {
+        img, video {
             max-width: 100%;
             height: auto;
+        }
+        /* Keep Spline iframe full height */
+        .spline-container iframe {
+            height: 100% !important;
         }
     }
     
@@ -307,7 +311,11 @@
     
     
     <!-- Background (component) added by Aura -->
-    <div class="aura-background-component fixed top-0 w-full h-screen -z-10" data-alpha-mask="80" style="mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent)"><div class="spline-container absolute top-0 left-0 w-full h-full -z-10"><iframe src="https://my.spline.design/twistcopy-CPActtgUfoQoOToZfH4Pt18Q" frameborder="0" width="100%" height="100%"></iframe></div></div>
+    <div class="aura-background-component fixed top-0 w-full h-screen -z-10" data-alpha-mask="80" style="mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent)">
+        <div class="spline-container absolute top-0 left-0 w-full h-full -z-10">
+            <iframe src="https://my.spline.design/twistcopy-CPActtgUfoQoOToZfH4Pt18Q" frameborder="0" width="100%" height="100%" style="pointer-events: none;" allow="autoplay; fullscreen" loading="lazy"></iframe>
+        </div>
+    </div>
     
         <!-- Background Grain/Noise -->
         <div class="fixed top-0 left-0 right-0 h-[50vh] bg-gradient-to-b from-white/80 to-transparent -z-10"></div>
@@ -363,15 +371,15 @@
       </div>
       
       <!-- Mobile Menu Overlay -->
-      <div id="mobileMenu" class="fixed inset-0 bg-white/95 backdrop-blur-lg z-50 hidden md:hidden transform transition-all duration-300 ease-in-out">
+      <div id="mobileMenu" class="fixed inset-0 bg-white/30 backdrop-blur-xl z-50 hidden md:hidden transform transition-all duration-300 ease-in-out">
         <div class="flex flex-col h-full pt-24 px-6">
           <nav class="flex flex-col gap-6" role="navigation" aria-label="Mobile navigation">
-            <a href="index.html" class="text-2xl font-semibold text-stone-900 tracking-tight font-serif py-3 border-b border-stone-200">Home</a>
-            <a href="about-us.html" class="text-2xl font-semibold text-stone-900 tracking-tight font-serif py-3 border-b border-stone-200">About Us</a>
-            <a href="services.html" class="text-2xl font-semibold text-stone-900 tracking-tight font-serif py-3 border-b border-stone-200">Services</a>
-            <a href="gallery.html" class="text-2xl font-semibold text-stone-900 tracking-tight font-serif py-3 border-b border-stone-200">Gallery</a>
-            <a href="contact.html" class="text-2xl font-semibold text-stone-900 tracking-tight font-serif py-3 border-b border-stone-200">Contact</a>
-            <a href="contact.html" class="mt-4 uppercase text-xs font-bold text-white tracking-widest bg-black rounded-full px-8 py-4 text-center">Schedule a Tour</a>
+            <a href="index.html" class="text-2xl font-semibold text-stone-900 tracking-tight font-serif py-3 border-b border-stone-200/50 backdrop-blur-sm bg-white/20 rounded-lg px-4 -mx-4">Home</a>
+            <a href="about-us.html" class="text-2xl font-semibold text-stone-900 tracking-tight font-serif py-3 border-b border-stone-200/50 backdrop-blur-sm bg-white/20 rounded-lg px-4 -mx-4">About Us</a>
+            <a href="services.html" class="text-2xl font-semibold text-stone-900 tracking-tight font-serif py-3 border-b border-stone-200/50 backdrop-blur-sm bg-white/20 rounded-lg px-4 -mx-4">Services</a>
+            <a href="gallery.html" class="text-2xl font-semibold text-stone-900 tracking-tight font-serif py-3 border-b border-stone-200/50 backdrop-blur-sm bg-white/20 rounded-lg px-4 -mx-4">Gallery</a>
+            <a href="contact.html" class="text-2xl font-semibold text-stone-900 tracking-tight font-serif py-3 border-b border-stone-200/50 backdrop-blur-sm bg-white/20 rounded-lg px-4 -mx-4">Contact</a>
+            <a href="contact.html" class="mt-4 uppercase text-xs font-bold text-white tracking-widest bg-black/80 backdrop-blur-sm rounded-full px-8 py-4 text-center">Schedule a Tour</a>
           </nav>
         </div>
       </div>
@@ -1062,88 +1070,88 @@
         <!-- FAQ -->
         <section class="sm:px-6 lg:px-8 w-full max-w-4xl mr-auto ml-auto pr-4 pl-4">
       <div class="mt-10 text-center max-w-2xl mx-auto mb-8">
-        <span class="text-[10px] font-medium uppercase tracking-widest text-stone-500 mb-1 block">FAQ</span>
-        <h2 class="font-serif text-2xl md:text-3xl font-medium text-stone-900 tracking-tight mb-3">Common Questions</h2>
-        <p class="text-sm text-stone-600 font-light max-w-lg mx-auto leading-relaxed">
+        <span class="text-[10px] sm:text-xs font-medium uppercase tracking-widest text-stone-500 mb-1 block">FAQ</span>
+        <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl font-medium text-stone-900 tracking-tight mb-3">Common Questions</h2>
+        <p class="text-xs sm:text-sm text-stone-600 font-light max-w-lg mx-auto leading-relaxed px-2">
           Quick answers to help you make the best decision for your loved one.
         </p>
       </div>
     
-      <div class="mx-auto max-w-2xl space-y-2 mb-12">
+      <div class="mx-auto max-w-2xl space-y-3 sm:space-y-2 mb-12">
         <!-- FAQ Item 1 -->
         <details class="group bg-white border border-stone-200 rounded-lg overflow-hidden transition-all duration-300 hover:border-stone-300 hover:shadow-sm [&amp;_summary::-webkit-details-marker]:hidden">
-          <summary class="flex cursor-pointer list-none outline-none text-left opacity-100 py-2.5 px-4 items-center justify-between">
-            <h3 class="font-serif text-sm font-medium text-stone-900 pr-4">What is the admission process?</h3>
-            <span class="flex-shrink-0 ml-2 rounded-full bg-stone-100 p-0.5 text-stone-400 group-hover:bg-stone-200 group-hover:text-stone-600 transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-3.5 h-3.5 transition-transform duration-300 group-open:rotate-180"><path d="m6 9 6 6 6-6"></path></svg>
+          <summary class="flex cursor-pointer list-none outline-none text-left opacity-100 py-3 sm:py-2.5 px-4 sm:px-4 items-center justify-between gap-2">
+            <h3 class="font-serif text-base sm:text-sm font-medium text-stone-900 pr-2 sm:pr-4 flex-1 min-w-0">What is the admission process?</h3>
+            <span class="flex-shrink-0 rounded-full bg-stone-100 p-1 sm:p-0.5 text-stone-400 group-hover:bg-stone-200 group-hover:text-stone-600 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-4 h-4 sm:w-3.5 sm:h-3.5 transition-transform duration-300 group-open:rotate-180"><path d="m6 9 6 6 6-6"></path></svg>
             </span>
           </summary>
-          <div class="px-4 pb-3 pt-0 text-stone-600 leading-relaxed font-light text-xs">
+          <div class="px-4 pb-4 sm:pb-3 pt-0 text-stone-600 leading-relaxed font-light text-sm sm:text-xs">
             <p>Our admission process begins with a free consultation and tour. Following this, our registered nurse performs a comprehensive care assessment to develop a personalized care plan. We guide you through paperwork and coordinate with medical providers for a seamless transition.</p>
           </div>
         </details>
     
         <!-- FAQ Item 2 -->
         <details class="group bg-white border border-stone-200 rounded-lg overflow-hidden transition-all duration-300 hover:border-stone-300 hover:shadow-sm [&amp;_summary::-webkit-details-marker]:hidden">
-          <summary class="flex items-center justify-between py-2.5 px-4 cursor-pointer text-left list-none outline-none">
-            <h3 class="font-serif text-sm font-medium text-stone-900 pr-4">What services are included?</h3>
-            <span class="flex-shrink-0 ml-2 rounded-full bg-stone-100 p-0.5 text-stone-400 group-hover:bg-stone-200 group-hover:text-stone-600 transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-3.5 h-3.5 transition-transform duration-300 group-open:rotate-180"><path d="m6 9 6 6 6-6"></path></svg>
+          <summary class="flex items-center justify-between py-3 sm:py-2.5 px-4 sm:px-4 cursor-pointer text-left list-none outline-none gap-2">
+            <h3 class="font-serif text-base sm:text-sm font-medium text-stone-900 pr-2 sm:pr-4 flex-1 min-w-0">What services are included?</h3>
+            <span class="flex-shrink-0 rounded-full bg-stone-100 p-1 sm:p-0.5 text-stone-400 group-hover:bg-stone-200 group-hover:text-stone-600 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-4 h-4 sm:w-3.5 sm:h-3.5 transition-transform duration-300 group-open:rotate-180"><path d="m6 9 6 6 6-6"></path></svg>
             </span>
           </summary>
-          <div class="px-4 pb-3 pt-0 text-stone-600 leading-relaxed font-light text-xs">
+          <div class="px-4 pb-4 sm:pb-3 pt-0 text-stone-600 leading-relaxed font-light text-sm sm:text-xs">
             <p>We provide all-inclusive care: 24/7 supervision, medication management, home-cooked meals, housekeeping, and laundry. Our team assists with all ADLs including bathing, dressing, and mobility, plus appointment scheduling and healthcare coordination.</p>
           </div>
         </details>
     
         <!-- FAQ Item 3 -->
         <details class="group bg-white border border-stone-200 rounded-lg overflow-hidden transition-all duration-300 hover:border-stone-300 hover:shadow-sm [&amp;_summary::-webkit-details-marker]:hidden">
-          <summary class="flex items-center justify-between py-2.5 px-4 cursor-pointer text-left list-none outline-none">
-            <h3 class="font-serif text-sm font-medium text-stone-900 pr-4">Can family visit anytime?</h3>
-            <span class="flex-shrink-0 ml-2 rounded-full bg-stone-100 p-0.5 text-stone-400 group-hover:bg-stone-200 group-hover:text-stone-600 transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-3.5 h-3.5 transition-transform duration-300 group-open:rotate-180"><path d="m6 9 6 6 6-6"></path></svg>
+          <summary class="flex items-center justify-between py-3 sm:py-2.5 px-4 sm:px-4 cursor-pointer text-left list-none outline-none gap-2">
+            <h3 class="font-serif text-base sm:text-sm font-medium text-stone-900 pr-2 sm:pr-4 flex-1 min-w-0">Can family visit anytime?</h3>
+            <span class="flex-shrink-0 rounded-full bg-stone-100 p-1 sm:p-0.5 text-stone-400 group-hover:bg-stone-200 group-hover:text-stone-600 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-4 h-4 sm:w-3.5 sm:h-3.5 transition-transform duration-300 group-open:rotate-180"><path d="m6 9 6 6 6-6"></path></svg>
             </span>
           </summary>
-          <div class="px-4 pb-3 pt-0 text-stone-600 leading-relaxed font-light text-xs">
+          <div class="px-4 pb-4 sm:pb-3 pt-0 text-stone-600 leading-relaxed font-light text-sm sm:text-xs">
             <p>Absolutely. Maintaining strong family connections is vital. You are welcome to visit at any time. We maintain an open-door policy while asking for courtesy during late-night hours to respect residents' rest.</p>
           </div>
         </details>
     
         <!-- FAQ Item 4 -->
         <details class="group bg-white border border-stone-200 rounded-lg overflow-hidden transition-all duration-300 hover:border-stone-300 hover:shadow-sm [&amp;_summary::-webkit-details-marker]:hidden">
-          <summary class="flex cursor-pointer list-none outline-none text-left py-2.5 px-4 items-center justify-between">
-            <h3 class="font-serif text-sm font-medium text-stone-900 pr-4">Are you licensed?</h3>
-            <span class="flex-shrink-0 ml-2 rounded-full bg-stone-100 p-0.5 text-stone-400 group-hover:bg-stone-200 group-hover:text-stone-600 transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-3.5 h-3.5 transition-transform duration-300 group-open:rotate-180"><path d="m6 9 6 6 6-6"></path></svg>
+          <summary class="flex cursor-pointer list-none outline-none text-left py-3 sm:py-2.5 px-4 sm:px-4 items-center justify-between gap-2">
+            <h3 class="font-serif text-base sm:text-sm font-medium text-stone-900 pr-2 sm:pr-4 flex-1 min-w-0">Are you licensed?</h3>
+            <span class="flex-shrink-0 rounded-full bg-stone-100 p-1 sm:p-0.5 text-stone-400 group-hover:bg-stone-200 group-hover:text-stone-600 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-4 h-4 sm:w-3.5 sm:h-3.5 transition-transform duration-300 group-open:rotate-180"><path d="m6 9 6 6 6-6"></path></svg>
             </span>
           </summary>
-          <div class="px-4 pb-3 pt-0 text-stone-600 leading-relaxed font-light text-xs">
+          <div class="px-4 pb-4 sm:pb-3 pt-0 text-stone-600 leading-relaxed font-light text-sm sm:text-xs">
             <p>Yes, Ark Care AFH is fully licensed by the Washington State DSHS. We comply with all state regulations. Our home and staff undergo regular inspections and background checks to ensure the highest safety standards.</p>
           </div>
         </details>
     
         <!-- FAQ Item 5 -->
         <details class="group bg-white border border-stone-200 rounded-lg overflow-hidden transition-all duration-300 hover:border-stone-300 hover:shadow-sm [&amp;_summary::-webkit-details-marker]:hidden">
-          <summary class="flex items-center justify-between py-2.5 px-4 cursor-pointer text-left list-none outline-none">
-            <h3 class="font-serif text-sm font-medium text-stone-900 pr-4">What activities are offered?</h3>
-            <span class="flex-shrink-0 ml-2 rounded-full bg-stone-100 p-0.5 text-stone-400 group-hover:bg-stone-200 group-hover:text-stone-600 transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-3.5 h-3.5 transition-transform duration-300 group-open:rotate-180"><path d="m6 9 6 6 6-6"></path></svg>
+          <summary class="flex items-center justify-between py-3 sm:py-2.5 px-4 sm:px-4 cursor-pointer text-left list-none outline-none gap-2">
+            <h3 class="font-serif text-base sm:text-sm font-medium text-stone-900 pr-2 sm:pr-4 flex-1 min-w-0">What activities are offered?</h3>
+            <span class="flex-shrink-0 rounded-full bg-stone-100 p-1 sm:p-0.5 text-stone-400 group-hover:bg-stone-200 group-hover:text-stone-600 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-4 h-4 sm:w-3.5 sm:h-3.5 transition-transform duration-300 group-open:rotate-180"><path d="m6 9 6 6 6-6"></path></svg>
             </span>
           </summary>
-          <div class="px-4 pb-3 pt-0 text-stone-600 leading-relaxed font-light text-xs">
+          <div class="px-4 pb-4 sm:pb-3 pt-0 text-stone-600 leading-relaxed font-light text-sm sm:text-xs">
             <p>We tailor engagement to abilities and interests. Our calendar includes music therapy, gentle exercise, crafts, gardening, games, and movie nights. We also celebrate special occasions together as a family.</p>
           </div>
         </details>
     
         <!-- FAQ Item 6 -->
         <details class="group bg-white border border-stone-200 rounded-lg overflow-hidden transition-all duration-300 hover:border-stone-300 hover:shadow-sm [&amp;_summary::-webkit-details-marker]:hidden">
-          <summary class="flex items-center justify-between py-2.5 px-4 cursor-pointer text-left list-none outline-none">
-            <h3 class="font-serif text-sm font-medium text-stone-900 pr-4">How do we handle concerns?</h3>
-            <span class="flex-shrink-0 ml-2 rounded-full bg-stone-100 p-0.5 text-stone-400 group-hover:bg-stone-200 group-hover:text-stone-600 transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-3.5 h-3.5 transition-transform duration-300 group-open:rotate-180"><path d="m6 9 6 6 6-6"></path></svg>
+          <summary class="flex items-center justify-between py-3 sm:py-2.5 px-4 sm:px-4 cursor-pointer text-left list-none outline-none gap-2">
+            <h3 class="font-serif text-base sm:text-sm font-medium text-stone-900 pr-2 sm:pr-4 flex-1 min-w-0">How do we handle concerns?</h3>
+            <span class="flex-shrink-0 rounded-full bg-stone-100 p-1 sm:p-0.5 text-stone-400 group-hover:bg-stone-200 group-hover:text-stone-600 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-4 h-4 sm:w-3.5 sm:h-3.5 transition-transform duration-300 group-open:rotate-180"><path d="m6 9 6 6 6-6"></path></svg>
             </span>
           </summary>
-          <div class="px-4 pb-3 pt-0 text-stone-600 leading-relaxed font-light text-xs">
+          <div class="px-4 pb-4 sm:pb-3 pt-0 text-stone-600 leading-relaxed font-light text-sm sm:text-xs">
             <p>We have a strict open-door policy. Families have direct access to our manager 24/7. We take all feedback seriously and work immediately to address concerns for your peace of mind.</p>
           </div>
         </details>
