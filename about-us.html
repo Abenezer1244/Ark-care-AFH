@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth"><head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
 <title>About Us — Ark Care AFH | Compassionate Adult Family Home Care</title>
 <meta name="description" content="Learn about Ark Care AFH's mission, values, and commitment to providing compassionate adult family home care in Algona, Washington. State-licensed facility with experienced, caring staff.">
 <meta name="keywords" content="about Ark Care AFH, adult family home Algona, senior care mission, compassionate care, Washington State licensed AFH">
@@ -66,6 +66,45 @@ overflow-x: hidden;
 }
 h1, h2, h3, h4, h5, h6 { font-family: 'PT Serif', serif; }
 p, a, span, button, li, input, textarea { font-family: 'Playfair Display', serif; }
+
+/* Responsive Typography */
+@media (max-width: 640px) {
+    h1 { font-size: 2rem !important; }
+    h2 { font-size: 1.75rem !important; }
+    h3 { font-size: 1.5rem !important; }
+    .text-5xl { font-size: 2.5rem !important; }
+    .text-6xl { font-size: 3rem !important; }
+}
+
+/* Touch Target Improvements */
+button, a[role="button"], .btn {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+/* Mobile Menu Styles */
+#mobileMenu {
+    overscroll-behavior: contain;
+}
+
+/* Prevent horizontal scroll on mobile */
+@media (max-width: 768px) {
+    * {
+        max-width: 100%;
+    }
+    img, iframe, video {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Improved form inputs on mobile */
+@media (max-width: 640px) {
+    input, textarea, select {
+        font-size: 16px !important; /* Prevents zoom on iOS */
+    }
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
@@ -204,13 +243,31 @@ z-index: -1;
             Schedule a Tour
           </a>
 
-          <button class="md:hidden text-stone-900 p-1">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
+          <button id="mobileMenuButton" class="md:hidden text-stone-900 p-2 rounded-lg hover:bg-stone-100 transition-colors" aria-label="Toggle mobile menu" aria-expanded="false">
+            <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
               <path d="M4 5h16"></path>
               <path d="M4 12h16"></path>
               <path d="M4 19h16"></path>
             </svg>
+            <svg id="closeIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x hidden">
+              <path d="M18 6L6 18"></path>
+              <path d="M6 6l12 12"></path>
+            </svg>
           </button>
+        </div>
+      </div>
+      
+      <!-- Mobile Menu Overlay -->
+      <div id="mobileMenu" class="fixed inset-0 bg-white/95 backdrop-blur-lg z-50 hidden md:hidden transform transition-all duration-300 ease-in-out">
+        <div class="flex flex-col h-full pt-24 px-6">
+          <nav class="flex flex-col gap-6" role="navigation" aria-label="Mobile navigation">
+            <a href="index.html" class="text-2xl font-semibold text-stone-900 tracking-tight font-serif py-3 border-b border-stone-200">Home</a>
+            <a href="about-us.html" class="text-2xl font-semibold text-stone-900 tracking-tight font-serif py-3 border-b border-stone-200">About Us</a>
+            <a href="services.html" class="text-2xl font-semibold text-stone-900 tracking-tight font-serif py-3 border-b border-stone-200">Services</a>
+            <a href="gallery.html" class="text-2xl font-semibold text-stone-900 tracking-tight font-serif py-3 border-b border-stone-200">Gallery</a>
+            <a href="contact.html" class="text-2xl font-semibold text-stone-900 tracking-tight font-serif py-3 border-b border-stone-200">Contact</a>
+            <a href="contact.html" class="mt-4 uppercase text-xs font-bold text-white tracking-widest bg-black rounded-full px-8 py-4 text-center">Schedule a Tour</a>
+          </nav>
         </div>
       </div>
     </nav>
@@ -698,6 +755,53 @@ z-index: -1;
 
     <script>
       document.addEventListener('DOMContentLoaded', () => {
+        // --- Mobile Menu Toggle ---
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+        const closeIcon = document.getElementById('closeIcon');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                
+                if (isOpen) {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                } else {
+                    mobileMenu.classList.remove('hidden');
+                    menuIcon.classList.add('hidden');
+                    closeIcon.classList.remove('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'true');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+            
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                });
+            });
+            
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+        
         // --- 1. Flashlight Effect ---
         document.addEventListener('mousemove', (e) => {
             const cards = document.querySelectorAll('.flashlight-card');
@@ -760,5 +864,113 @@ z-index: -1;
           animation: slow-pan 10s ease-out forwards;
       }
     </style>
+  
+    <!-- Cookie Consent Banner -->
+    <div id="cookieConsent" class="fixed bottom-0 left-0 right-0 z-[100] bg-stone-900 text-white p-4 md:p-6 shadow-2xl transform translate-y-full transition-transform duration-300 ease-in-out" style="display: none;">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
+        <div class="flex-1">
+          <p class="text-sm md:text-base text-stone-200 leading-relaxed">
+            We use cookies to enhance your browsing experience and analyze site traffic. By clicking "Accept", you consent to our use of cookies. 
+            <a href="#" class="underline hover:text-white transition-colors">Learn more</a>
+          </p>
+        </div>
+        <div class="flex gap-3 w-full md:w-auto">
+          <button id="cookieDecline" class="px-6 py-2.5 text-sm font-semibold text-stone-300 hover:text-white border border-stone-700 rounded-lg transition-colors">
+            Decline
+          </button>
+          <button id="cookieAccept" class="px-6 py-2.5 text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-700 rounded-lg transition-colors">
+            Accept
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-6 right-6 z-50 bg-stone-900 text-white p-3 rounded-full shadow-lg hover:bg-stone-800 transition-all duration-300 opacity-0 pointer-events-none hover:scale-110" aria-label="Back to top">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up">
+        <path d="m18 15-6-6-6 6"></path>
+        <path d="M12 21V9"></path>
+      </svg>
+    </button>
+    
+    <script>
+        // Cookie Consent and Back to Top functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Cookie Consent ---
+            const cookieConsent = document.getElementById('cookieConsent');
+            const cookieAccept = document.getElementById('cookieAccept');
+            const cookieDecline = document.getElementById('cookieDecline');
+            
+            const cookieChoice = localStorage.getItem('cookieConsent');
+            
+            if (!cookieChoice) {
+                setTimeout(() => {
+                    cookieConsent.style.display = 'block';
+                    setTimeout(() => {
+                        cookieConsent.classList.remove('translate-y-full');
+                    }, 100);
+                }, 1000);
+            }
+            
+            if (cookieAccept) {
+                cookieAccept.addEventListener('click', () => {
+                    localStorage.setItem('cookieConsent', 'accepted');
+                    cookieConsent.classList.add('translate-y-full');
+                    setTimeout(() => {
+                        cookieConsent.style.display = 'none';
+                    }, 300);
+                });
+            }
+            
+            if (cookieDecline) {
+                cookieDecline.addEventListener('click', () => {
+                    localStorage.setItem('cookieConsent', 'declined');
+                    cookieConsent.classList.add('translate-y-full');
+                    setTimeout(() => {
+                        cookieConsent.style.display = 'none';
+                    }, 300);
+                    if (typeof gtag !== 'undefined') {
+                        window['ga-disable-G-XXXXXXXXXX'] = true;
+                    }
+                });
+            }
+            
+            // --- Back to Top Button ---
+            const backToTopBtn = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                    backToTopBtn.classList.add('opacity-100');
+                } else {
+                    backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                    backToTopBtn.classList.remove('opacity-100');
+                }
+            });
+            
+            if (backToTopBtn) {
+                backToTopBtn.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        });
+    </script>
+    
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/692d2da3c860c2197de65050/1jbc7khu1';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
   
 </body></html>
