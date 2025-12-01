@@ -112,17 +112,23 @@ button, a[role="button"], .btn {
 perspective: 2500px;
 overflow: hidden;
 max-width: 100%;
+position: relative;
+min-height: 300px;
 }
 .gallery-cylinder {
 transform-style: preserve-3d;
 transition: transform 0.05s linear; /* Smooth drag */
 will-change: transform;
 max-width: 100%;
+position: relative;
+width: 100%;
+height: 100%;
 }
 .gallery-face {
 backface-visibility: hidden;
 max-width: 100%;
 box-sizing: border-box;
+position: absolute;
 }
 .gallery-face > div {
 max-width: 100%;
@@ -616,7 +622,7 @@ animation: spin-slow 120s linear infinite;
                     
                     face.innerHTML = `
                         <div class="w-full h-full bg-white ${rounded} ${padding} shadow-3d-heavy overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
-                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp" class="w-full h-full object-cover ${innerRounded} opacity-90 hover:opacity-100 transition-opacity" loading="lazy" alt="Gallery Image ${i + 1}" style="max-width: 100%; height: 100%;">
+                            <img src="${url}" class="w-full h-full object-cover ${innerRounded} opacity-90 hover:opacity-100 transition-opacity" loading="lazy" alt="Gallery Image ${i + 1}" style="max-width: 100%; height: 100%;">
                         </div>
                     `;
 
