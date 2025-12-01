@@ -1471,19 +1471,6 @@
             });
         </script>
         
-        <!--Start of Tawk.to Script-->
-        <script type="text/javascript">
-        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-        (function(){
-        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-        s1.async=true;
-        s1.src='https://embed.tawk.to/692d2da3c860c2197de65050/1jbc7khu1';
-        s1.charset='UTF-8';
-        s1.setAttribute('crossorigin','*');
-        s0.parentNode.insertBefore(s1,s0);
-        })();
-        </script>
-        <!--End of Tawk.to Script-->
         <style>
             @keyframes fade-in-up {
                 from { opacity: 0; transform: translateY(20px); }
@@ -1493,4 +1480,364 @@
                 animation: fade-in-up 1s ease-out forwards;
             }
         </style>
+        
+        <!-- Custom Chat Widget -->
+        <div id="chatWidget" class="fixed bottom-6 right-6 z-50">
+            <!-- Chat Button -->
+            <button id="chatButton" class="w-14 h-14 bg-stone-900 text-white rounded-full shadow-lg hover:bg-stone-800 transition-all duration-300 hover:scale-110 flex items-center justify-center group" aria-label="Open chat">
+                <svg id="chatIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                </svg>
+                <svg id="closeIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x hidden">
+                    <path d="M18 6 6 18"></path>
+                    <path d="M6 6l12 12"></path>
+                </svg>
+                <!-- Notification Badge -->
+                <span class="absolute -top-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white animate-pulse"></span>
+            </button>
+            
+            <!-- Chat Window -->
+            <div id="chatWindow" class="hidden absolute bottom-20 right-0 w-[380px] max-w-[calc(100vw-2rem)] h-[580px] bg-white rounded-2xl shadow-2xl border border-stone-200 overflow-hidden transform transition-all duration-300 opacity-0 translate-y-4 flex flex-col">
+                <!-- Chat Header -->
+                <div class="bg-stone-900 text-white p-4 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-sm">Chat with Us</h3>
+                            <p class="text-xs text-stone-300">We'll respond as soon as possible</p>
+                        </div>
+                    </div>
+                    <button id="minimizeChat" class="text-stone-400 hover:text-white transition-colors" aria-label="Minimize chat">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus">
+                            <path d="M5 12h14"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Chat Content -->
+                <div class="flex flex-col h-[500px]">
+                    <!-- Messages Area -->
+                    <div id="chatMessages" class="flex-1 overflow-y-auto p-4 space-y-3 bg-stone-50">
+                        <!-- Welcome Message -->
+                        <div class="flex items-start gap-2">
+                            <div class="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle">
+                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                                </svg>
+                            </div>
+                            <div class="bg-white rounded-xl rounded-tl-none p-3 shadow-sm max-w-[85%]">
+                                <p class="text-sm text-stone-700 font-medium mb-1">Hello! 👋</p>
+                                <p class="text-xs text-stone-600">I'm here to help answer questions about Ark Care AFH. Ask me about our services, location, contact information, or anything else!</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Quick Action Buttons -->
+                        <div class="flex flex-wrap gap-2 px-10">
+                            <button class="quick-action-btn text-xs px-3 py-1.5 bg-white border border-stone-200 rounded-full hover:bg-stone-100 transition-colors text-stone-700" data-action="services">Our Services</button>
+                            <button class="quick-action-btn text-xs px-3 py-1.5 bg-white border border-stone-200 rounded-full hover:bg-stone-100 transition-colors text-stone-700" data-action="location">Location</button>
+                            <button class="quick-action-btn text-xs px-3 py-1.5 bg-white border border-stone-200 rounded-full hover:bg-stone-100 transition-colors text-stone-700" data-action="contact">Contact Info</button>
+                            <button class="quick-action-btn text-xs px-3 py-1.5 bg-white border border-stone-200 rounded-full hover:bg-stone-100 transition-colors text-stone-700" data-action="hours">Hours</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Input Area -->
+                    <div class="border-t border-stone-200 p-4 bg-white">
+                        <div id="chatFormContainer" class="hidden">
+                            <form id="chatForm" class="space-y-3" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                                <input type="hidden" name="_subject" value="New Chat Message from Website">
+                                <input type="hidden" name="_format" value="plain">
+                                <div id="chatFormStatus" class="hidden p-2 rounded-lg text-xs font-medium"></div>
+                                <input type="text" id="chatName" name="name" class="w-full bg-stone-50 border border-stone-200 rounded-lg px-3 py-2 text-xs text-stone-900 placeholder:text-stone-400 focus:bg-white focus:border-stone-900 focus:ring-1 focus:ring-stone-900 focus:outline-none transition-all" placeholder="Your Name" required>
+                                <input type="email" id="chatEmail" name="email" class="w-full bg-stone-50 border border-stone-200 rounded-lg px-3 py-2 text-xs text-stone-900 placeholder:text-stone-400 focus:bg-white focus:border-stone-900 focus:ring-1 focus:ring-stone-900 focus:outline-none transition-all" placeholder="Your Email" required>
+                                <textarea id="chatMessage" name="message" rows="2" class="w-full bg-stone-50 border border-stone-200 rounded-lg px-3 py-2 text-xs text-stone-900 placeholder:text-stone-400 focus:bg-white focus:border-stone-900 focus:ring-1 focus:ring-stone-900 focus:outline-none transition-all resize-none" placeholder="Your message..." required></textarea>
+                                <div class="flex gap-2">
+                                    <button type="submit" id="chatSubmit" class="flex-1 bg-stone-900 text-white py-2 rounded-lg font-semibold text-xs hover:bg-stone-800 transition-colors">Send</button>
+                                    <button type="button" id="cancelForm" class="px-4 py-2 text-xs text-stone-600 hover:text-stone-900 transition-colors">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div id="chatInputContainer" class="flex gap-2">
+                            <input type="text" id="chatInput" placeholder="Type your message..." class="flex-1 bg-stone-50 border border-stone-200 rounded-lg px-4 py-2.5 text-sm text-stone-900 placeholder:text-stone-400 focus:bg-white focus:border-stone-900 focus:ring-1 focus:ring-stone-900 focus:outline-none transition-all" autocomplete="off">
+                            <button id="sendMessage" class="bg-stone-900 text-white p-2.5 rounded-lg hover:bg-stone-800 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send">
+                                    <path d="m22 2-7 20-4-9-9-4Z"></path>
+                                    <path d="M22 2 11 13"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <style>
+            #chatWindow.show {
+                display: block;
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            @media (max-width: 640px) {
+                #chatWidget {
+                    bottom: 1rem;
+                    right: 1rem;
+                }
+                #chatWindow {
+                    width: calc(100vw - 2rem);
+                    height: calc(100vh - 8rem);
+                    right: 0;
+                    bottom: 4rem;
+                }
+            }
+        </style>
+        
+        <script>
+            // AI Chat Widget with Knowledge Base
+            document.addEventListener('DOMContentLoaded', () => {
+                const chatButton = document.getElementById('chatButton');
+                const chatWindow = document.getElementById('chatWindow');
+                const minimizeChat = document.getElementById('minimizeChat');
+                const chatIcon = document.getElementById('chatIcon');
+                const closeIcon = document.getElementById('closeIcon');
+                const chatMessages = document.getElementById('chatMessages');
+                const chatInput = document.getElementById('chatInput');
+                const sendMessage = document.getElementById('sendMessage');
+                const chatFormContainer = document.getElementById('chatFormContainer');
+                const chatInputContainer = document.getElementById('chatInputContainer');
+                const chatForm = document.getElementById('chatForm');
+                const cancelForm = document.getElementById('cancelForm');
+                
+                let isOpen = false;
+                
+                // Knowledge Base
+                const knowledgeBase = {
+                    services: {
+                        keywords: ['service', 'services', 'care', 'what do you offer', 'what services', 'offerings', 'programs'],
+                        response: 'We provide comprehensive adult family home services including:\n\n• 24/7 Professional Caregiver Support\n• Medication Management\n• Personal Care Assistance\n• Specialized Support for Mental Health\n• Dementia Care\n• Developmental Disabilities Support\n• HCS (Home and Community Services)\n• DDA Meaningful Day Programs\n• Nutritious Meal Planning\n• Social Activities & Engagement\n\nWould you like more details about any specific service?'
+                    },
+                    location: {
+                        keywords: ['location', 'address', 'where', 'located', 'find you', 'directions'],
+                        response: 'We are located at:\n\n📍 127 4th Ave N\nAlgona, WA 98001\n\nWe\'re in a quiet, safe neighborhood in Algona, Washington, providing easy access for visiting families. Would you like directions or to schedule a tour?'
+                    },
+                    contact: {
+                        keywords: ['contact', 'phone', 'email', 'call', 'reach', 'number', 'telephone'],
+                        response: 'You can reach us at:\n\n📞 Phone: (206) 455-3644\n📧 Email: contact@arkcare.local\n📍 Address: 127 4th Ave N, Algona, WA 98001\n\nWe\'re available 24/7 to answer your questions!'
+                    },
+                    hours: {
+                        keywords: ['hours', 'open', 'when', 'available', 'time', 'schedule'],
+                        response: 'We are available 24/7! Our facility provides round-the-clock care and support. You can call us anytime at (206) 455-3644 or schedule a tour at your convenience.'
+                    },
+                    certification: {
+                        keywords: ['licensed', 'certified', 'certification', 'license', 'accredited', 'medicaid', 'hipaa', 'dda', 'hcs'],
+                        response: 'Yes! We are fully licensed and certified:\n\n✅ Licensed Adult Family Home (AFH)\n✅ Washington State Department of Health\n✅ HIPAA Compliant\n✅ Medicaid Certified\n✅ HCS Provider\n✅ DDA Provider\n\nWe maintain the highest standards of care and compliance.'
+                    },
+                    tour: {
+                        keywords: ['tour', 'visit', 'see', 'schedule', 'appointment', 'view'],
+                        response: 'We\'d love to show you around! You can schedule a tour by:\n\n📞 Calling us at (206) 455-3644\n📧 Emailing contact@arkcare.local\n🌐 Visiting our contact page\n\nTours are available at your convenience. We look forward to meeting you!'
+                    },
+                    cost: {
+                        keywords: ['cost', 'price', 'fee', 'payment', 'afford', 'insurance', 'medicaid', 'medicare'],
+                        response: 'We accept Medicaid and work with various payment options. For specific pricing and payment information, please call us at (206) 455-3644 or email contact@arkcare.local. We\'re happy to discuss your options and answer any questions about coverage.'
+                    },
+                    mental: {
+                        keywords: ['mental health', 'mental', 'behavioral', 'psychiatric', 'anxiety', 'depression'],
+                        response: 'Yes! We provide specialized support for residents with mental health needs. Our trained staff offers compassionate care tailored to each individual\'s needs. We work closely with healthcare providers to ensure comprehensive support.'
+                    },
+                    dementia: {
+                        keywords: ['dementia', 'alzheimer', 'memory', 'cognitive'],
+                        response: 'We specialize in dementia care! Our facility provides:\n\n• Specialized memory care programs\n• Safe, secure environment\n• Trained staff experienced with dementia\n• Activities designed to maintain cognitive function\n• Personalized care plans\n\nWould you like to learn more about our dementia care services?'
+                    },
+                    developmental: {
+                        keywords: ['developmental', 'disability', 'disabilities', 'dd', 'special needs'],
+                        response: 'We provide specialized care for individuals with developmental disabilities. Our services include:\n\n• DDA Meaningful Day Programs\n• Personalized support plans\n• Life skills development\n• Community integration\n• 24/7 professional care\n\nWe\'re committed to supporting each resident\'s unique needs and goals.'
+                    }
+                };
+                
+                function toggleChat() {
+                    isOpen = !isOpen;
+                    if (isOpen) {
+                        chatWindow.classList.remove('hidden');
+                        setTimeout(() => {
+                            chatWindow.classList.add('show');
+                        }, 10);
+                        chatIcon.classList.add('hidden');
+                        closeIcon.classList.remove('hidden');
+                        chatInput.focus();
+                    } else {
+                        chatWindow.classList.remove('show');
+                        setTimeout(() => {
+                            chatWindow.classList.add('hidden');
+                        }, 300);
+                        chatIcon.classList.remove('hidden');
+                        closeIcon.classList.add('hidden');
+                    }
+                }
+                
+                function addMessage(text, isUser = false) {
+                    const messageDiv = document.createElement('div');
+                    messageDiv.className = `flex items-start gap-2 ${isUser ? 'flex-row-reverse' : ''}`;
+                    
+                    if (!isUser) {
+                        const avatar = document.createElement('div');
+                        avatar.className = 'w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center shrink-0';
+                        avatar.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>';
+                        messageDiv.appendChild(avatar);
+                    }
+                    
+                    const textDiv = document.createElement('div');
+                    textDiv.className = `rounded-xl p-3 shadow-sm max-w-[85%] ${isUser ? 'bg-stone-900 text-white rounded-tr-none' : 'bg-white text-stone-700 rounded-tl-none'}`;
+                    textDiv.innerHTML = `<p class="text-sm whitespace-pre-line">${text}</p>`;
+                    messageDiv.appendChild(textDiv);
+                    
+                    chatMessages.appendChild(messageDiv);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }
+                
+                function findAnswer(question) {
+                    const lowerQuestion = question.toLowerCase();
+                    
+                    for (const [key, data] of Object.entries(knowledgeBase)) {
+                        if (data.keywords.some(keyword => lowerQuestion.includes(keyword))) {
+                            return data.response;
+                        }
+                    }
+                    
+                    return null;
+                }
+                
+                function handleMessage(message) {
+                    addMessage(message, true);
+                    
+                    // Show typing indicator
+                    const typingDiv = document.createElement('div');
+                    typingDiv.id = 'typingIndicator';
+                    typingDiv.className = 'flex items-start gap-2';
+                    typingDiv.innerHTML = `
+                        <div class="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                            </svg>
+                        </div>
+                        <div class="bg-white rounded-xl rounded-tl-none p-3">
+                            <div class="flex gap-1">
+                                <div class="w-2 h-2 bg-stone-400 rounded-full animate-bounce" style="animation-delay: 0s"></div>
+                                <div class="w-2 h-2 bg-stone-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                                <div class="w-2 h-2 bg-stone-400 rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+                            </div>
+                        </div>
+                    `;
+                    chatMessages.appendChild(typingDiv);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                    
+                    setTimeout(() => {
+                        const answer = findAnswer(message);
+                        document.getElementById('typingIndicator')?.remove();
+                        
+                        if (answer) {
+                            addMessage(answer);
+                        } else {
+                            addMessage('I understand you\'re asking about: "' + message + '". While I can answer many questions about our services, location, and contact information, for more detailed inquiries, would you like to speak with our team directly? I can help you fill out a contact form!', false);
+                            setTimeout(() => {
+                                showContactForm(message);
+                            }, 2000);
+                        }
+                    }, 1000);
+                }
+                
+                function showContactForm(prefillMessage = '') {
+                    chatInputContainer.classList.add('hidden');
+                    chatFormContainer.classList.remove('hidden');
+                    if (prefillMessage && document.getElementById('chatMessage')) {
+                        document.getElementById('chatMessage').value = prefillMessage;
+                    }
+                }
+                
+                function hideContactForm() {
+                    chatFormContainer.classList.add('hidden');
+                    chatInputContainer.classList.remove('hidden');
+                    chatForm.reset();
+                }
+                
+                if (chatButton) chatButton.addEventListener('click', toggleChat);
+                if (minimizeChat) minimizeChat.addEventListener('click', toggleChat);
+                
+                // Quick action buttons
+                document.querySelectorAll('.quick-action-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const action = btn.dataset.action;
+                        const answer = knowledgeBase[action]?.response;
+                        if (answer) {
+                            addMessage(btn.textContent, true);
+                            setTimeout(() => {
+                                addMessage(answer);
+                            }, 500);
+                        }
+                    });
+                });
+                
+                // Send message
+                function sendChatMessage() {
+                    const message = chatInput.value.trim();
+                    if (message) {
+                        handleMessage(message);
+                        chatInput.value = '';
+                    }
+                }
+                
+                if (sendMessage) {
+                    sendMessage.addEventListener('click', sendChatMessage);
+                }
+                
+                if (chatInput) {
+                    chatInput.addEventListener('keypress', (e) => {
+                        if (e.key === 'Enter') {
+                            sendChatMessage();
+                        }
+                    });
+                }
+                
+                if (cancelForm) {
+                    cancelForm.addEventListener('click', hideContactForm);
+                }
+                
+                // Form submission
+                if (chatForm) {
+                    chatForm.addEventListener('submit', async (e) => {
+                        e.preventDefault();
+                        const formData = new FormData(chatForm);
+                        const submitButton = document.getElementById('chatSubmit');
+                        const originalText = submitButton.innerHTML;
+                        
+                        submitButton.disabled = true;
+                        submitButton.innerHTML = 'Sending...';
+                        
+                        try {
+                            const response = await fetch(chatForm.action, {
+                                method: 'POST',
+                                body: formData,
+                                headers: { 'Accept': 'application/json' }
+                            });
+                            
+                            if (response.ok) {
+                                addMessage('Thank you! Your message has been sent. We\'ll get back to you soon.', false);
+                                chatForm.reset();
+                                hideContactForm();
+                                setTimeout(() => toggleChat(), 3000);
+                            } else {
+                                throw new Error('Form submission failed');
+                            }
+                        } catch (error) {
+                            addMessage('Sorry, there was an error. Please call us at (206) 455-3644', false);
+                        } finally {
+                            submitButton.disabled = false;
+                            submitButton.innerHTML = originalText;
+                        }
+                    });
+                }
+            });
+        </script>
     </body></html>

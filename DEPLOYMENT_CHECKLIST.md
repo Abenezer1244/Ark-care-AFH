@@ -49,36 +49,48 @@ All upgrades have been successfully committed and pushed to GitHub.
    - LocalStorage persistence
    - Disables Google Analytics if declined
 
-8. **✅ Live Chat Widget**
-   - Tawk.to integration configured
-   - Real-time customer support
-   - Active on all pages
-
-9. **✅ Back-to-Top Button**
+8. **✅ Back-to-Top Button**
    - Smooth scroll to top
    - Appears after scrolling 300px
    - Responsive design
+
+9. **✅ AI-Powered Chat Widget**
+   - Intelligent conversational chat interface
+   - Knowledge base with website information
+   - Answers questions about services, location, contact info, hours, certifications, tours, costs, mental health, dementia, and developmental disabilities
+   - Quick action buttons for common questions
+   - Message history with typing indicators
+   - Falls back to contact form for complex queries
+   - Formspree integration for form submissions
+   - Smooth animations and responsive design
+   - Auto-closes after successful submission
 
 ---
 
 ## 🔧 REQUIRED: Actions Before Going Live
 
-### 1. Formspree Setup (CRITICAL - Form won't work without this)
+### 1. Formspree Setup (CRITICAL - Forms won't work without this)
 
-**Location:** `contact.html` line ~344
+**Location:** 
+- `contact.html` line ~448 (contact form)
+- All HTML files (chat widget forms)
 
 **Steps:**
 1. Go to https://formspree.io/
 2. Sign up for a free account
 3. Create a new form
 4. Copy your form endpoint URL (format: `https://formspree.io/f/YOUR_FORM_ID`)
-5. Replace `YOUR_FORM_ID` in `contact.html`:
-   ```html
-   <!-- Find this line and replace YOUR_FORM_ID -->
-   <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-   ```
+5. Replace `YOUR_FORM_ID` in:
+   - `contact.html` - Contact form (1 location)
+   - `index.html` - Chat widget form (1 location)
+   - `about-us.html` - Chat widget form (1 location)
+   - `services.html` - Chat widget form (1 location)
+   - `gallery.html` - Chat widget form (1 location)
+   - `contact.html` - Chat widget form (1 location)
 
-**Files to update:** `contact.html` (1 location)
+**Search for:** `YOUR_FORM_ID` and replace with your actual Formspree form ID
+
+**Note:** You can use the same Formspree form ID for both the contact form and chat widget, or create separate forms for better organization.
 
 ---
 
@@ -101,25 +113,7 @@ All upgrades have been successfully committed and pushed to GitHub.
 
 ---
 
-### 3. Tawk.to Live Chat Setup ✅ COMPLETED
-
-**Status:** Configured and active on all pages
-
-**Property ID:** `692d2da3c860c2197de65050`  
-**Widget ID:** `1jbc7khu1`
-
-**Files configured:**
-- ✅ `index.html`
-- ✅ `about-us.html`
-- ✅ `services.html`
-- ✅ `gallery.html`
-- ✅ `contact.html`
-
-**Note:** The live chat widget is now active. You can manage it through your Tawk.to dashboard at https://dashboard.tawk.to/
-
----
-
-### 4. Update Domain URLs (CRITICAL - SEO)
+### 3. Update Domain URLs (CRITICAL - SEO)
 
 **Current placeholder:** `arkcareafh.com`
 
@@ -148,7 +142,7 @@ After completing the above:
 - [ ] Verify Google Analytics is tracking
 - [ ] Test cookie consent banner (accept/decline)
 - [ ] Test back-to-top button functionality
-- [ ] Verify live chat widget appears (if configured)
+- [ ] Test AI chat widget (ask questions, quick actions, form fallback)
 - [ ] Test on different browsers
 - [ ] Submit sitemap to Google Search Console
 - [ ] Test form on mobile devices
@@ -177,5 +171,5 @@ If you need help with:
 ---
 
 **Last Updated:** January 2025  
-**Latest Commit:** Cookie consent, live chat, and back-to-top features added
+**Latest Commit:** AI-powered chat widget with knowledge base added to all pages
 
