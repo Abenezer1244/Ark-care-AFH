@@ -76,6 +76,18 @@ p, a, span, button, li, input, textarea { font-family: 'Playfair Display', serif
     .text-6xl { font-size: 3rem !important; }
 }
 
+/* Very small screens (< 360px) */
+@media (max-width: 360px) {
+    h1 { font-size: 1.75rem !important; }
+    h2 { font-size: 1.5rem !important; }
+    h3 { font-size: 1.25rem !important; }
+    .text-4xl { font-size: 1.75rem !important; }
+    .text-5xl { font-size: 2rem !important; }
+    .text-6xl { font-size: 2.5rem !important; }
+    .text-7xl { font-size: 3rem !important; }
+    .text-8xl { font-size: 3.5rem !important; }
+}
+
 /* Touch Target Improvements */
 button, a[role="button"], .btn {
     min-height: 44px;
@@ -205,7 +217,7 @@ z-index: -1;
   <body class="selection:bg-stone-800 selection:text-stone-50">
 
 <!-- Background (component) added by Aura -->
-<div class="aura-background-component fixed top-0 w-full h-screen -z-10" data-alpha-mask="80" style="; mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent)"><div class="spline-container absolute top-0 left-0 w-full h-full -z-10"><iframe src="https://my.spline.design/twistcopy-CPActtgUfoQoOToZfH4Pt18Q" frameborder="0" width="100%" height="100%"></iframe></div></div>
+<div class="aura-background-component fixed top-0 w-full h-screen -z-10" data-alpha-mask="80" style="mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent)"><div class="spline-container absolute top-0 left-0 w-full h-full -z-10"><iframe src="https://my.spline.design/twistcopy-CPActtgUfoQoOToZfH4Pt18Q" frameborder="0" width="100%" height="100%"></iframe></div></div>
     <!-- Background Grain/Noise -->
     
 
@@ -243,7 +255,7 @@ z-index: -1;
             Schedule a Tour
           </a>
 
-          <button id="mobileMenuButton" class="md:hidden text-stone-900 p-2 rounded-lg hover:bg-stone-100 transition-colors" aria-label="Toggle mobile menu" aria-expanded="false">
+          <button id="mobileMenuButton" class="block md:hidden text-stone-900 p-2 rounded-lg hover:bg-stone-100 transition-colors" aria-label="Toggle mobile menu" aria-expanded="false">
             <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
               <path d="M4 5h16"></path>
               <path d="M4 12h16"></path>
@@ -337,7 +349,7 @@ z-index: -1;
         <span class="text-stone-300 font-mono text-sm group-hover:text-stone-900 transition-colors">01</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-stone-400 group-hover:text-stone-900 transition-colors"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>
       </div>
-      <div class="">
+      <div>
         <h3 class="font-serif text-xl font-medium text-stone-900 mb-3">Compassion</h3>
         <p class="text-stone-500 text-base leading-relaxed max-w-sm group-hover:text-stone-800 transition-colors">
           We care deeply about well-being, treating each person with kindness, empathy, and a gentle touch.
@@ -351,7 +363,7 @@ z-index: -1;
         <span class="text-stone-300 font-mono text-sm group-hover:text-stone-900 transition-colors">02</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-stone-400 group-hover:text-stone-900 transition-colors"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg>
       </div>
-      <div class="">
+      <div>
         <h3 class="font-serif text-xl font-medium text-stone-900 mb-3">Excellence</h3>
         <p class="text-stone-500 text-base leading-relaxed max-w-sm group-hover:text-stone-800 transition-colors">
           Quality is our standard. We maintain the highest level of care, services, and facility standards.
@@ -365,7 +377,7 @@ z-index: -1;
         <span class="text-stone-300 font-mono text-sm group-hover:text-stone-900 transition-colors">03</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-stone-400 group-hover:text-stone-900 transition-colors"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
       </div>
-      <div class="">
+      <div>
         <h3 class="font-serif text-xl font-medium text-stone-900 mb-3">Respect</h3>
         <p class="text-stone-500 text-base leading-relaxed max-w-sm group-hover:text-stone-800 transition-colors">
           We honor the dignity and autonomy of each resident, respecting their individual choices and preferences.
@@ -427,7 +439,7 @@ z-index: -1;
           Our Story
         </h2>
         <div class="prose prose-stone mx-auto text-stone-600 text-lg leading-relaxed text-justify md:text-center space-y-6">
-          <p class="">
+          <p>
             Ark Care AFH is a licensed adult family home located in Algona,
             Washington, dedicated to providing compassionate, personalized care
             in a home-like environment. We specialize in caring for individuals
@@ -435,13 +447,13 @@ z-index: -1;
             disabilities, and those requiring specialized behavioral health
             support.
           </p>
-          <p class="">
+          <p>
             Our facility at 127 4th Ave N, Algona, WA 98001 was designed from
             the ground up to provide a safe, comfortable, and welcoming home. We
             carefully selected our location and designed our spaces to promote
             independence, dignity, and quality of life for our residents.
           </p>
-          <p class="">
+          <p>
             We offer comprehensive services under multiple programs including
             HCS (Home and Community Services), DDA Meaningful Day programs, and
             Expanded Community Services. Our specialized support includes care
@@ -515,9 +527,9 @@ z-index: -1;
               ensures the highest standards of care.
             </p>
             <ul class="text-xs text-stone-500 space-y-2 border-t border-stone-100 pt-4 font-medium">
-              <li class="">RN License</li>
-              <li class="">10+ years AFH experience</li>
-              <li class="">CPR/First Aid Certified</li>
+              <li>RN License</li>
+              <li>10+ years AFH experience</li>
+              <li>CPR/First Aid Certified</li>
             </ul>
           </div>
           <!-- Michelle -->
@@ -537,9 +549,9 @@ z-index: -1;
               respect.
             </p>
             <ul class="text-xs text-stone-500 space-y-2 border-t border-stone-100 pt-4 font-medium">
-              <li class="">HCA Certification</li>
-              <li class="">Dementia Care Specialist</li>
-              <li class="">CPR/First Aid</li>
+              <li>HCA Certification</li>
+              <li>Dementia Care Specialist</li>
+              <li>CPR/First Aid</li>
             </ul>
           </div>
           <!-- David -->
@@ -559,9 +571,9 @@ z-index: -1;
               specialized care.
             </p>
             <ul class="text-xs text-stone-500 space-y-2 border-t border-stone-100 pt-4 font-medium">
-              <li class="">HCA Certification</li>
-              <li class="">Physical Therapy Assistant</li>
-              <li class="">CPR/First Aid</li>
+              <li>HCA Certification</li>
+              <li>Physical Therapy Assistant</li>
+              <li>CPR/First Aid</li>
             </ul>
           </div>
         </div>
@@ -592,8 +604,8 @@ z-index: -1;
               access for visiting families.
             </p>
             <div class="space-y-1 text-xs font-semibold text-stone-800">
-              <p class="">127 4th Ave N</p>
-              <p class="">Algona, WA 98001</p>
+              <p>127 4th Ave N</p>
+              <p>Algona, WA 98001</p>
             </div>
           </div>
         </div>
@@ -643,52 +655,52 @@ z-index: -1;
                 </p>
               </div>
             </div>
-            <div class="">
+            <div>
               <h3 class="text-xl font-serif text-white mb-6">Quick Links</h3>
               <ul class="space-y-3 text-sm">
-                <li class="">
+                <li>
                   <a href="index.html" class="hover:text-white transition-colors">
                     Home
                   </a>
                 </li>
-                <li class="">
+                <li>
                   <a href="about-us.html" class="hover:text-white transition-colors">
                     About Us
                   </a>
                 </li>
-                <li class="">
+                <li>
                   <a href="services.html" class="hover:text-white transition-colors">
                     Services
                   </a>
                 </li>
-                <li class="">
+                <li>
                   <a href="gallery.html" class="hover:text-white transition-colors">
                     Gallery
                   </a>
                 </li>
-                <li class="">
+                <li>
                   <a href="contact.html" class="hover:text-white transition-colors">
                     Contact
                   </a>
                 </li>
               </ul>
             </div>
-            <div class="">
+            <div>
               <h3 class="text-xl font-serif text-white mb-6">Our Services</h3>
               <ul class="space-y-3 text-sm">
-                <li class=""><a href="services.html" class="hover:text-white transition-colors">24/7 Professional Care</a></li>
-                <li class=""><a href="services.html" class="hover:text-white transition-colors">Medication Management</a></li>
-                <li class=""><a href="services.html" class="hover:text-white transition-colors">Personal Care Assistance</a></li>
-                <li class=""><a href="services.html" class="hover:text-white transition-colors">Activities &amp; Engagement</a></li>
-                <li class=""><a href="services.html" class="hover:text-white transition-colors">Specialized Care Programs</a></li>
+                <li><a href="services.html" class="hover:text-white transition-colors">24/7 Professional Care</a></li>
+                <li><a href="services.html" class="hover:text-white transition-colors">Medication Management</a></li>
+                <li><a href="services.html" class="hover:text-white transition-colors">Personal Care Assistance</a></li>
+                <li><a href="services.html" class="hover:text-white transition-colors">Activities &amp; Engagement</a></li>
+                <li><a href="services.html" class="hover:text-white transition-colors">Specialized Care Programs</a></li>
               </ul>
             </div>
-            <div id="contact" class="">
+            <div id="contact">
               <h3 class="text-xl font-serif text-white mb-6">Contact Us</h3>
               <ul class="text-sm space-y-4">
                 <li class="flex gap-3">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="phone" class="lucide lucide-phone w-5 h-5 text-stone-500 shrink-0"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg>
-                  <div class="">
+                  <div>
                     <span class="block text-xs uppercase tracking-wider text-stone-500 mb-0.5">
                       Phone
                     </span>
@@ -699,7 +711,7 @@ z-index: -1;
                 </li>
                 <li class="flex gap-3">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="mail" class="lucide lucide-mail w-5 h-5 text-stone-500 shrink-0"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg>
-                  <div class="">
+                  <div>
                     <span class="block text-xs uppercase tracking-wider text-stone-500 mb-0.5">
                       Email
                     </span>
@@ -710,7 +722,7 @@ z-index: -1;
                 </li>
                 <li class="flex gap-3">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="map-pin" class="lucide lucide-map-pin w-5 h-5 text-stone-500 shrink-0"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                  <div class="">
+                  <div>
                     <span class="block text-xs uppercase tracking-wider text-stone-500 mb-0.5">
                       Address
                     </span>
@@ -721,7 +733,7 @@ z-index: -1;
                 </li>
                 <li class="flex gap-3">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="clock" class="lucide lucide-clock w-5 h-5 text-stone-500 shrink-0"><path d="M12 6v6l4 2"></path><circle cx="12" cy="12" r="10"></circle></svg>
-                  <div class="">
+                  <div>
                     <span class="block text-xs uppercase tracking-wider text-stone-500 mb-0.5">
                       Hours
                     </span>
@@ -733,7 +745,7 @@ z-index: -1;
           </div>
           <div class="flex flex-col md:flex-row gap-4 text-xs text-stone-500 border-stone-800 border-t pt-8 gap-x-4 gap-y-4 items-center justify-between">
             <div class="text-center md:text-left">
-              <p class="">© 2025 Ark Care AFH. All rights reserved.</p>
+              <p>© 2025 Ark Care AFH. All rights reserved.</p>
               <p class="mt-1">
                 State-licensed adult family home • Licensed in Washington State
               </p>

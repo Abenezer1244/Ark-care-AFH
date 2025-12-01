@@ -48,6 +48,18 @@ font-weight: 500;
     .text-8xl { font-size: 4rem !important; }
 }
 
+/* Very small screens (< 360px) */
+@media (max-width: 360px) {
+    h1 { font-size: 1.75rem !important; }
+    h2 { font-size: 1.5rem !important; }
+    h3 { font-size: 1.25rem !important; }
+    .text-4xl { font-size: 1.75rem !important; }
+    .text-5xl { font-size: 2rem !important; }
+    .text-6xl { font-size: 2.5rem !important; }
+    .text-7xl { font-size: 3rem !important; }
+    .text-8xl { font-size: 3.5rem !important; }
+}
+
 /* Touch Target Improvements */
 button, a[role="button"], .btn {
     min-height: 44px;
@@ -170,7 +182,7 @@ addUtilities({
 </style></head>
   <body class="bg-stone-50 text-stone-900 antialiased selection:bg-stone-200 selection:text-stone-900">
     <!-- Background (component) added by Aura -->
-    <div class="aura-background-component fixed top-0 w-full h-screen -z-10" data-alpha-mask="80" style="; mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent)">
+    <div class="aura-background-component fixed top-0 w-full h-screen -z-10" data-alpha-mask="80" style="mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent)">
       <div class="spline-container absolute top-0 left-0 w-full h-full -z-10">
         <iframe src="https://my.spline.design/twistcopy-CPActtgUfoQoOToZfH4Pt18Q" frameborder="0" width="100%" height="100%"></iframe>
       </div>
@@ -211,7 +223,7 @@ addUtilities({
             Schedule a Tour
           </a>
 
-          <button id="mobileMenuButton" class="md:hidden text-stone-900 p-2 rounded-lg hover:bg-stone-100 transition-colors" aria-label="Toggle mobile menu" aria-expanded="false">
+          <button id="mobileMenuButton" class="block md:hidden text-stone-900 p-2 rounded-lg hover:bg-stone-100 transition-colors" aria-label="Toggle mobile menu" aria-expanded="false">
             <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
               <path d="M4 5h16"></path>
               <path d="M4 12h16"></path>
@@ -359,7 +371,7 @@ addUtilities({
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="shield-check" class="lucide lucide-shield-check w-5 h-5"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>
                 </div>
               </div>
-              <div class="">
+              <div>
                 <h3 class="text-xl font-serif font-medium mb-2 text-stone-900 tracking-tight group-hover:text-stone-600 transition-colors">
                   24/7 Professional Care
                 </h3>
@@ -377,7 +389,7 @@ addUtilities({
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="pill" class="lucide lucide-pill w-5 h-5"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"></path><path d="m8.5 8.5 7 7"></path></svg>
                 </div>
               </div>
-              <div class="">
+              <div>
                 <h3 class="text-xl font-serif font-medium mb-2 text-stone-900 tracking-tight group-hover:text-stone-600 transition-colors">
                   Medication Management
                 </h3>
@@ -395,7 +407,7 @@ addUtilities({
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="heart" class="lucide lucide-heart w-5 h-5"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"></path></svg>
                 </div>
               </div>
-              <div class="">
+              <div>
                 <h3 class="text-xl font-serif font-medium mb-2 text-stone-900 tracking-tight group-hover:text-stone-600 transition-colors">
                   Personal Care &amp; Hygiene
                 </h3>
@@ -413,7 +425,7 @@ addUtilities({
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="utensils" class="lucide lucide-utensils w-5 h-5"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path><path d="M7 2v20"></path><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path></svg>
                 </div>
               </div>
-              <div class="">
+              <div>
                 <h3 class="text-xl font-serif font-medium mb-2 text-stone-900 tracking-tight group-hover:text-stone-600 transition-colors">
                   Meal Preparation
                 </h3>
@@ -431,7 +443,7 @@ addUtilities({
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="sun" class="lucide lucide-sun w-5 h-5"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
                 </div>
               </div>
-              <div class="">
+              <div>
                 <h3 class="text-xl font-serif font-medium mb-2 text-stone-900 tracking-tight group-hover:text-stone-600 transition-colors">
                   Recreational Activities
                 </h3>
@@ -449,7 +461,7 @@ addUtilities({
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="car" class="lucide lucide-car w-5 h-5"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path><circle cx="7" cy="17" r="2"></circle><path d="M9 17h6"></path><circle cx="17" cy="17" r="2"></circle></svg>
                 </div>
               </div>
-              <div class="">
+              <div>
                 <h3 class="text-xl font-serif font-medium mb-2 text-stone-900 tracking-tight group-hover:text-stone-600 transition-colors">
                   Transportation Services
                 </h3>
@@ -467,7 +479,7 @@ addUtilities({
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="sparkles" class="lucide lucide-sparkles w-5 h-5"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg>
                 </div>
               </div>
-              <div class="">
+              <div>
                 <h3 class="text-xl font-serif font-medium mb-2 text-stone-900 tracking-tight group-hover:text-stone-600 transition-colors">
                   Laundry &amp; Housekeeping
                 </h3>
@@ -485,7 +497,7 @@ addUtilities({
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="users" class="lucide lucide-users w-5 h-5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg>
                 </div>
               </div>
-              <div class="">
+              <div>
                 <h3 class="text-xl font-serif font-medium mb-2 text-stone-900 tracking-tight group-hover:text-stone-600 transition-colors">
                   Social Support
                 </h3>
@@ -751,7 +763,7 @@ addUtilities({
       <!-- Reduced py-24 to py-12 -->
       <section class="max-w-6xl mr-auto ml-auto pt-12 pr-6 pb-12 pl-6">
         <div class="text-center mb-10 animate-seq">
-          <p class="text-stone-400 text-[9px] font-medium uppercase tracking-widest mb-2 font-geist" style="">
+          <p class="text-stone-400 text-[9px] font-medium uppercase tracking-widest mb-2 font-geist">
             Our Philosophy
           </p>
           <h2 class="md:text-4xl text-3xl font-medium text-stone-900 font-merriweather">
@@ -765,7 +777,7 @@ addUtilities({
             <div class="mt-1">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="quote" class="lucide lucide-quote text-2xl text-stone-300 group-hover:text-stone-800 transition-colors"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
             </div>
-            <div class="">
+            <div>
               <h4 class="text-lg font-serif font-medium mb-1 font-geist">
                 Person-Centered Approach
               </h4>
@@ -799,9 +811,9 @@ addUtilities({
           <!-- 4. Text Right (Swapped) -->
           <div class="flex group rounded-xl px-4 py-4 shadow-[0_4px_6px_rgba(0,_0,_0,_0.049),_0_9.6px_7.6px_rgba(0,_0,_0,_0.069),_0_18px_14.3px_rgba(0,_0,_0,_0.086),_0_32px_25.6px_rgba(0,_0,_0,_0.103),_0_60px_47.8px_rgba(0,_0,_0,_0.123),_0_143px_114.3px_rgba(0,_0,_0,_0.172)] gap-x-4 gap-y-4 items-start">
             <div class="mt-1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="file-heart" class="lucide lucide-file-heart text-2xl text-stone-300 group-hover:text-stone-800 transition-colors"><path d="M13 22h5a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v7" class=""></path><path d="M14 2v5a1 1 0 0 0 1 1h5"></path><path d="M3.62 18.8A2.25 2.25 0 1 1 7 15.836a2.25 2.25 0 1 1 3.38 2.966l-2.626 2.856a1 1 0 0 1-1.507 0z"></path></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="file-heart" class="lucide lucide-file-heart text-2xl text-stone-300 group-hover:text-stone-800 transition-colors"><path d="M13 22h5a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v7"></path><path d="M14 2v5a1 1 0 0 0 1 1h5"></path><path d="M3.62 18.8A2.25 2.25 0 1 1 7 15.836a2.25 2.25 0 1 1 3.38 2.966l-2.626 2.856a1 1 0 0 1-1.507 0z"></path></svg>
             </div>
-            <div class="">
+            <div>
               <h4 class="text-lg font-serif font-medium mb-1 font-geist">
                 Personalized Care Plans
               </h4>
@@ -832,52 +844,52 @@ addUtilities({
                 </p>
               </div>
             </div>
-            <div class="">
+            <div>
               <h3 class="text-xl font-serif text-white mb-6">Quick Links</h3>
               <ul class="space-y-3 text-sm">
-                <li class="">
+                <li>
                   <a href="index.html" class="hover:text-white transition-colors">
                     Home
                   </a>
                 </li>
-                <li class="">
+                <li>
                   <a href="about-us.html" class="hover:text-white transition-colors">
                     About Us
                   </a>
                 </li>
-                <li class="">
+                <li>
                   <a href="services.html" class="hover:text-white transition-colors">
                     Services
                   </a>
                 </li>
-                <li class="">
+                <li>
                   <a href="gallery.html" class="hover:text-white transition-colors">
                     Gallery
                   </a>
                 </li>
-                <li class="">
+                <li>
                   <a href="contact.html" class="hover:text-white transition-colors">
                     Contact
                   </a>
                 </li>
               </ul>
             </div>
-            <div class="">
+            <div>
               <h3 class="text-xl font-serif text-white mb-6">Our Services</h3>
               <ul class="space-y-3 text-sm">
-                <li class=""><a href="services.html" class="hover:text-white transition-colors">24/7 Professional Care</a></li>
-                <li class=""><a href="services.html" class="hover:text-white transition-colors">Medication Management</a></li>
-                <li class=""><a href="services.html" class="hover:text-white transition-colors">Personal Care Assistance</a></li>
-                <li class=""><a href="services.html" class="hover:text-white transition-colors">Activities &amp; Engagement</a></li>
-                <li class=""><a href="services.html" class="hover:text-white transition-colors">Specialized Care Programs</a></li>
+                <li><a href="services.html" class="hover:text-white transition-colors">24/7 Professional Care</a></li>
+                <li><a href="services.html" class="hover:text-white transition-colors">Medication Management</a></li>
+                <li><a href="services.html" class="hover:text-white transition-colors">Personal Care Assistance</a></li>
+                <li><a href="services.html" class="hover:text-white transition-colors">Activities &amp; Engagement</a></li>
+                <li><a href="services.html" class="hover:text-white transition-colors">Specialized Care Programs</a></li>
               </ul>
             </div>
-            <div id="contact" class="">
+            <div id="contact">
               <h3 class="text-xl font-serif text-white mb-6">Contact Us</h3>
               <ul class="text-sm space-y-4">
                 <li class="flex gap-3">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="phone" class="lucide lucide-phone w-5 h-5 text-stone-500 shrink-0"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg>
-                  <div class="">
+                  <div>
                     <span class="block text-xs uppercase tracking-wider text-stone-500 mb-0.5">
                       Phone
                     </span>
@@ -888,7 +900,7 @@ addUtilities({
                 </li>
                 <li class="flex gap-3">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="mail" class="lucide lucide-mail w-5 h-5 text-stone-500 shrink-0"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg>
-                  <div class="">
+                  <div>
                     <span class="block text-xs uppercase tracking-wider text-stone-500 mb-0.5">
                       Email
                     </span>
@@ -899,7 +911,7 @@ addUtilities({
                 </li>
                 <li class="flex gap-3">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="map-pin" class="lucide lucide-map-pin w-5 h-5 text-stone-500 shrink-0"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                  <div class="">
+                  <div>
                     <span class="block text-xs uppercase tracking-wider text-stone-500 mb-0.5">
                       Address
                     </span>
@@ -910,7 +922,7 @@ addUtilities({
                 </li>
                 <li class="flex gap-3">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="clock" class="lucide lucide-clock w-5 h-5 text-stone-500 shrink-0"><path d="M12 6v6l4 2"></path><circle cx="12" cy="12" r="10"></circle></svg>
-                  <div class="">
+                  <div>
                     <span class="block text-xs uppercase tracking-wider text-stone-500 mb-0.5">
                       Hours
                     </span>
@@ -922,7 +934,7 @@ addUtilities({
           </div>
           <div class="flex flex-col md:flex-row gap-4 text-xs text-stone-500 border-stone-800 border-t pt-8 gap-x-4 gap-y-4 items-center justify-between">
             <div class="text-center md:text-left">
-              <p class="">© 2025 Ark Care AFH. All rights reserved.</p>
+              <p>© 2025 Ark Care AFH. All rights reserved.</p>
               <p class="mt-1">
                 State-licensed adult family home • Licensed in Washington State
               </p>
