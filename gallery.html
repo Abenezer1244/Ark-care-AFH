@@ -49,6 +49,9 @@ font-family: var(--font-body);
     .text-6xl { font-size: 2.5rem !important; }
     .text-7xl { font-size: 3rem !important; }
     .text-8xl { font-size: 3.5rem !important; }
+    /* Reduce navigation padding on very small screens */
+    nav { padding: 0.75rem !important; }
+    nav .max-w-\[1200px\] { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
 }
 
 /* Touch Target Improvements */
@@ -78,6 +81,25 @@ button, a[role="button"], .btn {
     input, textarea, select {
         font-size: 16px !important; /* Prevents zoom on iOS */
     }
+    /* Better mobile spacing */
+    section {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    /* Prevent text overflow */
+    h1, h2, h3 {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    /* Improve navigation on mobile */
+    nav a {
+        font-size: 0.7rem !important;
+    }
+    /* Reduce padding on mobile */
+    .pt-40 { padding-top: 6rem !important; }
+    .pb-20 { padding-bottom: 4rem !important; }
+    .pt-24 { padding-top: 4rem !important; }
+    .pb-24 { padding-bottom: 4rem !important; }
 }
 
 /* 3D Gallery Engine */

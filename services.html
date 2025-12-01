@@ -58,6 +58,9 @@ font-weight: 500;
     .text-6xl { font-size: 2.5rem !important; }
     .text-7xl { font-size: 3rem !important; }
     .text-8xl { font-size: 3.5rem !important; }
+    /* Reduce navigation padding on very small screens */
+    nav { padding: 0.75rem !important; }
+    nav .max-w-\[1200px\] { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
 }
 
 /* Touch Target Improvements */
@@ -86,6 +89,20 @@ button, a[role="button"], .btn {
 @media (max-width: 640px) {
     input, textarea, select {
         font-size: 16px !important; /* Prevents zoom on iOS */
+    }
+    /* Better mobile spacing */
+    section {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    /* Prevent text overflow */
+    h1, h2, h3 {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    /* Improve navigation on mobile */
+    nav a {
+        font-size: 0.7rem !important;
     }
 }
 
@@ -259,7 +276,7 @@ addUtilities({
         <div class="absolute inset-0 bg-gradient-to-t from-stone-100 via-stone-100/20 to-stone-100/10"></div>
 
         <div class="flex flex-col md:pb-16 text-center z-10 pb-10 absolute top-0 right-0 bottom-0 left-0 items-center justify-center">
-          <h1 class="animate-seq delay-100 leading-tight md:text-8xl z-10 text-5xl font-medium font-merriweather text-justify mb-6 relative bg-clip-text text-transparent bg-gradient-to-br from-stone-900 via-stone-700 to-stone-500">
+          <h1 class="animate-seq delay-100 leading-tight md:text-8xl z-10 text-5xl font-medium font-merriweather text-center md:text-justify mb-6 relative bg-clip-text text-transparent bg-gradient-to-br from-stone-900 via-stone-700 to-stone-500">
             Our Services
           </h1>
 

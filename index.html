@@ -159,6 +159,9 @@
         .text-6xl { font-size: 2.5rem !important; }
         .text-7xl { font-size: 3rem !important; }
         .text-8xl { font-size: 3.5rem !important; }
+        /* Reduce navigation padding on very small screens */
+        nav { padding: 0.75rem !important; }
+        nav .max-w-\[1200px\] { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
     }
     
     /* Touch Target Improvements */
@@ -188,6 +191,25 @@
         input, textarea, select {
             font-size: 16px !important; /* Prevents zoom on iOS */
         }
+        /* Better mobile spacing */
+        section {
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+        }
+        /* Prevent text overflow */
+        h1, h2, h3 {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        /* Improve navigation on mobile */
+        nav a {
+            font-size: 0.7rem !important;
+        }
+        /* Reduce padding on mobile */
+        .pt-40 { padding-top: 6rem !important; }
+        .pb-20 { padding-bottom: 4rem !important; }
+        .pt-24 { padding-top: 4rem !important; }
+        .pb-24 { padding-bottom: 4rem !important; }
     }
     /* Custom Scrollbar */
     ::-webkit-scrollbar { width: 6px; }
@@ -359,7 +381,7 @@
     <main id="main-content">
     
     <!-- Hero Section -->
-        <section class="min-h-screen flex flex-col md:pb-2 pt-40 pb-20 relative items-center">
+        <section class="min-h-screen flex flex-col md:pb-2 pt-32 md:pt-40 pb-16 md:pb-20 relative items-center">
             <!-- Abstract Decoration -->
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-stone-200/50 rounded-full blur-[100px] -z-20 opacity-60"></div>
     

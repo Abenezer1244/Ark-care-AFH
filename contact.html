@@ -150,6 +150,9 @@ p, a, span, button, li, input, textarea { font-family: 'Geist', sans-serif; }
     .text-6xl { font-size: 2.5rem !important; }
     .text-7xl { font-size: 3rem !important; }
     .text-8xl { font-size: 3.5rem !important; }
+    /* Reduce navigation padding on very small screens */
+    nav { padding: 0.75rem !important; }
+    nav .max-w-\[1200px\] { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
 }
 
 /* Touch Target Improvements */
@@ -179,6 +182,25 @@ button, a[role="button"], .btn {
     input, textarea, select {
         font-size: 16px !important; /* Prevents zoom on iOS */
     }
+    /* Better mobile spacing */
+    section {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    /* Prevent text overflow */
+    h1, h2, h3 {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    /* Improve navigation on mobile */
+    nav a {
+        font-size: 0.7rem !important;
+    }
+    /* Reduce padding on mobile */
+    .pt-40 { padding-top: 6rem !important; }
+    .pb-20 { padding-bottom: 4rem !important; }
+    .pt-24 { padding-top: 4rem !important; }
+    .pb-24 { padding-bottom: 4rem !important; }
 }
 
 /* Custom Scrollbar */
@@ -346,7 +368,7 @@ mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
     </nav>
 
     <!-- Compressed Hero -->
-    <section class="relative pt-40 pb-20 px-4 text-center overflow-hidden">
+    <section class="relative pt-32 md:pt-40 pb-16 md:pb-20 px-4 text-center overflow-hidden">
       <div class="absolute inset-0 z-0 hero-mask h-[28rem] md:h-[32rem]">
         <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?q=80&amp;w=2832&amp;auto=format&amp;fit=crop" alt="Ark Care AFH Facility - Contact Us" class="object-center opacity-70 w-full h-full object-cover backdrop-blur-md" loading="lazy">
       </div>
@@ -365,7 +387,7 @@ mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
     </section>
 
     <!-- Compact Main Content Grid -->
-    <section class="z-10 pt-24 pr-4 pb-24 pl-4 relative">
+    <section class="z-10 pt-16 md:pt-24 pr-4 pb-16 md:pb-24 pl-4 relative">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 max-w-[1200px] mr-auto ml-auto gap-x-12 gap-y-12 items-start">
     <!-- Left Column: Information & AFH Context -->
     <div class="space-y-12 pt-4">
