@@ -1,7 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ark Care AFH — Contact Us</title>
+<title>Contact Us — Ark Care AFH | Schedule a Tour or Get Information</title>
+<meta name="description" content="Contact Ark Care AFH in Algona, Washington. Call (206) 455-3644 or send a message to schedule a tour, learn about our services, or inquire about employment opportunities.">
+<meta name="keywords" content="contact Ark Care AFH, schedule tour, adult family home Algona, phone number, address, email">
+<link rel="canonical" href="https://arkcareafh.com/contact.html">
+
+<!-- Google Analytics 4 -->
+<!-- Replace G-XXXXXXXXXX with your actual Google Analytics 4 Measurement ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -204,7 +218,7 @@ mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
             Schedule a Tour
           </a>
 
-          <button class="md:hidden text-stone-900 p-1">
+          <button class="md:hidden text-stone-900 p-1" aria-label="Toggle mobile menu" aria-expanded="false" id="mobileMenuButton">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
               <path d="M4 5h16"></path>
               <path d="M4 12h16"></path>
@@ -218,7 +232,7 @@ mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
     <!-- Compressed Hero -->
     <section class="relative pt-40 pb-20 px-4 text-center overflow-hidden">
       <div class="absolute inset-0 z-0 hero-mask h-[28rem] md:h-[32rem]">
-        <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?q=80&amp;w=2832&amp;auto=format&amp;fit=crop" alt="Ark Care" class="object-center opacity-70 w-full h-full object-cover backdrop-blur-md">
+        <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?q=80&amp;w=2832&amp;auto=format&amp;fit=crop" alt="Ark Care AFH Facility - Contact Us" class="object-center opacity-70 w-full h-full object-cover backdrop-blur-md" loading="lazy">
       </div>
       <div class="relative z-10 max-w-2xl mx-auto space-y-4">
         <span class="inline-block py-2 px-4 rounded-full bg-white/50 backdrop-blur border border-stone-200 text-stone-600 text-xs font-bold uppercase tracking-widest mb-6 animate-fade-in-up shadow-sm">
@@ -269,7 +283,7 @@ mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
                 <div class="">
                     <h3 class="font-serif text-xl font-medium text-stone-900 tracking-tight">Location</h3>
                     <p class="text-stone-500 mt-1 text-base font-medium">127 4th Ave N, Algona, WA</p>
-                    <a href="#" class="text-stone-900 text-sm font-semibold underline decoration-stone-300 underline-offset-4 hover:decoration-stone-900 transition-all mt-1 inline-block">View on Map</a>
+                    <a href="#map-section" class="text-stone-900 text-sm font-semibold underline decoration-stone-300 underline-offset-4 hover:decoration-stone-900 transition-all mt-1 inline-block">View on Map</a>
                 </div>
             </div>
 
@@ -327,50 +341,55 @@ mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
             <p class="text-stone-500 text-sm leading-relaxed">Fill out the form below and we'll get back to you shortly.</p>
         </div>
         
-        <form class="space-y-6">
+        <form id="contactForm" class="space-y-6" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <!-- Formspree will require you to replace YOUR_FORM_ID with your actual form ID -->
+            <!-- Get your form ID at: https://formspree.io/ -->
+            
+            <div id="formStatus" class="hidden p-4 rounded-xl text-sm font-medium"></div>
+            
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="space-y-1.5 group">
-                    <label class="text-[11px] font-bold uppercase tracking-widest text-stone-500 group-focus-within:text-stone-900 transition-colors pl-1">Your Name</label>
-                    <input type="text" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-base font-serif text-stone-900 placeholder:text-stone-400 focus:bg-white focus:border-stone-900 focus:ring-1 focus:ring-stone-900 focus:outline-none transition-all shadow-sm" placeholder="John Smith" required="">
+                    <label for="name" class="text-[11px] font-bold uppercase tracking-widest text-stone-500 group-focus-within:text-stone-900 transition-colors pl-1">Your Name</label>
+                    <input type="text" id="name" name="name" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-base font-serif text-stone-900 placeholder:text-stone-400 focus:bg-white focus:border-stone-900 focus:ring-1 focus:ring-stone-900 focus:outline-none transition-all shadow-sm" placeholder="John Smith" required>
                 </div>
                 <div class="space-y-1.5 group">
-                    <label class="text-[11px] font-bold uppercase tracking-widest text-stone-500 group-focus-within:text-stone-900 transition-colors pl-1">Phone Number</label>
-                    <input type="tel" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-base font-serif text-stone-900 placeholder:text-stone-400 focus:bg-white focus:border-stone-900 focus:ring-1 focus:ring-stone-900 focus:outline-none transition-all shadow-sm" placeholder="(206) 555-0123">
+                    <label for="phone" class="text-[11px] font-bold uppercase tracking-widest text-stone-500 group-focus-within:text-stone-900 transition-colors pl-1">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-base font-serif text-stone-900 placeholder:text-stone-400 focus:bg-white focus:border-stone-900 focus:ring-1 focus:ring-stone-900 focus:outline-none transition-all shadow-sm" placeholder="(206) 555-0123">
                 </div>
             </div>
 
             <div class="space-y-1.5 group">
-                <label class="text-[11px] font-bold uppercase tracking-widest text-stone-500 group-focus-within:text-stone-900 transition-colors pl-1">Email Address</label>
-                <input type="email" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-base font-serif text-stone-900 placeholder:text-stone-400 focus:bg-white focus:border-stone-900 focus:ring-1 focus:ring-stone-900 focus:outline-none transition-all shadow-sm" placeholder="john@example.com" required="">
+                <label for="email" class="text-[11px] font-bold uppercase tracking-widest text-stone-500 group-focus-within:text-stone-900 transition-colors pl-1">Email Address</label>
+                <input type="email" id="email" name="email" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-base font-serif text-stone-900 placeholder:text-stone-400 focus:bg-white focus:border-stone-900 focus:ring-1 focus:ring-stone-900 focus:outline-none transition-all shadow-sm" placeholder="john@example.com" required>
             </div>
 
             <div class="space-y-3 pt-2">
                 <label class="text-[11px] font-bold uppercase tracking-widest text-stone-500 pl-1">I'm interested in</label>
                 <div class="flex flex-wrap gap-2">
                     <label class="cursor-pointer relative">
-                        <input type="radio" name="interest" class="peer sr-only" checked="">
+                        <input type="radio" name="interest" value="Schedule Tour" class="peer sr-only" checked>
                         <span class="inline-block px-4 py-2.5 rounded-full border border-stone-200 bg-white text-sm font-medium text-stone-600 transition-all hover:border-stone-400 peer-checked:bg-stone-900 peer-checked:text-white peer-checked:border-stone-900 peer-checked:shadow-md shadow-sm">Schedule Tour</span>
                     </label>
                     <label class="cursor-pointer relative">
-                        <input type="radio" name="interest" class="peer sr-only">
+                        <input type="radio" name="interest" value="Services Info" class="peer sr-only">
                         <span class="inline-block px-4 py-2.5 rounded-full border border-stone-200 bg-white text-sm font-medium text-stone-600 transition-all hover:border-stone-400 peer-checked:bg-stone-900 peer-checked:text-white peer-checked:border-stone-900 peer-checked:shadow-md shadow-sm">Services Info</span>
                     </label>
                     <label class="cursor-pointer relative">
-                        <input type="radio" name="interest" class="peer sr-only">
+                        <input type="radio" name="interest" value="Employment" class="peer sr-only">
                         <span class="inline-block px-4 py-2.5 rounded-full border border-stone-200 bg-white text-sm font-medium text-stone-600 transition-all hover:border-stone-400 peer-checked:bg-stone-900 peer-checked:text-white peer-checked:border-stone-900 peer-checked:shadow-md shadow-sm">Employment</span>
                     </label>
                 </div>
             </div>
 
             <div class="space-y-1.5 group">
-                <label class="text-[11px] font-bold uppercase tracking-widest text-stone-500 group-focus-within:text-stone-900 transition-colors pl-1">Message</label>
-                <textarea rows="4" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-base font-serif text-stone-900 placeholder:text-stone-400 resize-none focus:bg-white focus:border-stone-900 focus:ring-1 focus:ring-stone-900 focus:outline-none transition-all shadow-sm" placeholder="How can we help you?"></textarea>
+                <label for="message" class="text-[11px] font-bold uppercase tracking-widest text-stone-500 group-focus-within:text-stone-900 transition-colors pl-1">Message</label>
+                <textarea id="message" name="message" rows="4" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-base font-serif text-stone-900 placeholder:text-stone-400 resize-none focus:bg-white focus:border-stone-900 focus:ring-1 focus:ring-stone-900 focus:outline-none transition-all shadow-sm" placeholder="How can we help you?" required></textarea>
             </div>
 
             <div class="pt-4">
-                <button type="submit" class="w-full bg-stone-900 text-white rounded-xl py-4 px-6 text-xs font-bold uppercase tracking-widest hover:bg-stone-800 hover:scale-[1.01] active:scale-[0.99] transition-all shadow-lg hover:shadow-stone-900/20 flex items-center justify-center gap-2 group">
-                    <span class="">Send Message</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right group-hover:translate-x-1 transition-transform"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                <button type="submit" id="submitBtn" aria-label="Submit contact form" class="w-full bg-stone-900 text-white rounded-xl py-4 px-6 text-xs font-bold uppercase tracking-widest hover:bg-stone-800 hover:scale-[1.01] active:scale-[0.99] transition-all shadow-lg hover:shadow-stone-900/20 flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed">
+                    <span id="submitText">Send Message</span>
+                    <svg id="submitIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right group-hover:translate-x-1 transition-transform" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
                 </button>
                 <div class="flex items-center justify-center gap-1.5 mt-4 text-stone-400 opacity-80">
                     <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
@@ -378,9 +397,125 @@ mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
                 </div>
             </div>
         </form>
+        
+        <script>
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const submitBtn = document.getElementById('submitBtn');
+            const submitText = document.getElementById('submitText');
+            const submitIcon = document.getElementById('submitIcon');
+            const formStatus = document.getElementById('formStatus');
+            
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitText.textContent = 'Sending...';
+            submitIcon.style.display = 'none';
+            formStatus.classList.add('hidden');
+            
+            try {
+                const formData = new FormData(form);
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    formStatus.className = 'p-4 rounded-xl text-sm font-medium bg-emerald-50 text-emerald-800 border border-emerald-200';
+                    formStatus.textContent = 'Thank you! Your message has been sent successfully. We\'ll get back to you soon.';
+                    formStatus.classList.remove('hidden');
+                    form.reset();
+                } else {
+                    const data = await response.json();
+                    throw new Error(data.error || 'Something went wrong');
+                }
+            } catch (error) {
+                formStatus.className = 'p-4 rounded-xl text-sm font-medium bg-red-50 text-red-800 border border-red-200';
+                formStatus.textContent = 'Sorry, there was an error sending your message. Please try again or call us directly at (206) 455-3644.';
+                formStatus.classList.remove('hidden');
+            } finally {
+                submitBtn.disabled = false;
+                submitText.textContent = 'Send Message';
+                submitIcon.style.display = 'block';
+            }
+        });
+        </script>
     </div>
 </div>
 </div>
+    </section>
+
+    <!-- Google Maps Section -->
+    <section id="map-section" class="py-16 px-4 bg-stone-50">
+      <div class="max-w-[1200px] mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="font-serif text-4xl md:text-5xl font-medium text-stone-900 tracking-tight mb-4">
+            Visit Us
+          </h2>
+          <p class="text-stone-600 text-lg max-w-2xl mx-auto">
+            Located in a quiet, safe neighborhood in Algona, providing easy access for visiting families.
+          </p>
+        </div>
+        
+        <div class="rounded-2xl overflow-hidden shadow-xl border border-stone-200 bg-white">
+          <div class="aspect-video w-full">
+            <iframe 
+              src="https://maps.google.com/maps?q=127+4th+Ave+N,+Algona,+WA+98001&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Ark Care AFH Location - 127 4th Ave N, Algona, WA 98001"
+              aria-label="Interactive map showing Ark Care AFH location at 127 4th Ave N, Algona, WA 98001"
+              class="w-full h-full">
+            </iframe>
+          </div>
+          
+          <div class="p-6 md:p-8 bg-white border-t border-stone-100">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div>
+                <h3 class="font-serif text-xl font-medium text-stone-900 tracking-tight mb-2">
+                  Ark Care AFH
+                </h3>
+                <p class="text-stone-600 text-base">
+                  127 4th Ave N<br>
+                  Algona, WA 98001
+                </p>
+              </div>
+              <div class="flex flex-col sm:flex-row gap-3">
+                <a 
+                  href="https://www.google.com/maps/dir/?api=1&destination=127+4th+Ave+N,+Algona,+WA+98001" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-stone-900 text-white rounded-xl text-sm font-semibold hover:bg-stone-800 transition-colors shadow-sm"
+                  aria-label="Get directions to Ark Care AFH on Google Maps"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-navigation" aria-hidden="true">
+                    <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                  </svg>
+                  Get Directions
+                </a>
+                <a 
+                  href="tel:2064553644" 
+                  class="inline-flex items-center justify-center gap-2 px-6 py-3 border border-stone-300 text-stone-900 rounded-xl text-sm font-semibold hover:bg-stone-50 transition-colors"
+                  aria-label="Call Ark Care AFH at 206-455-3644"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone" aria-hidden="true">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 8 8 0 0 0 .5 2.11l-1.27 1.27a16 16 0 0 0 6 6l1.27-1.27a8 8 0 0 0 2.11.5 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                  Call Now
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
       <footer class="text-stone-400 bg-stone-900 rounded-none mt-12 pt-8 pb-8 font-geist" style="mask-image: linear-gradient(0deg, transparent, black 0%, black 100%, transparent); -webkit-mask-image: linear-gradient(0deg, transparent, black 0%, black 100%, transparent);">
