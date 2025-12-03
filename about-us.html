@@ -1,211 +1,181 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth"><head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-<title>About Us — Ark Care AFH | Compassionate Adult Family Home Care</title>
-<meta name="description" content="Learn about Ark Care AFH's mission, values, and commitment to providing compassionate adult family home care in Algona, Washington. State-licensed facility with experienced, caring staff.">
-<meta name="keywords" content="about Ark Care AFH, adult family home Algona, senior care mission, compassionate care, Washington State licensed AFH">
-<link rel="canonical" href="https://arkcareafh.com/about-us.html">
-
-<!-- Google Analytics 4 -->
-<!-- Replace G-XXXXXXXXXX with your actual Google Analytics 4 Measurement ID -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
-
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<!-- Tailwind -->
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - Ark Care</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<!-- Icons -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lucide@latest"></script>
-<!-- GSAP -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script>
-tailwind.config = {
-theme: {
-extend: {
-colors: {
-stone: {
-50: '#fafaf9',
-100: '#f5f5f4',
-200: '#e7e5e4',
-300: '#d6d3d1',
-400: '#a8a29e',
-500: '#78716c',
-600: '#57534e',
-700: '#44403c',
-800: '#292524',
-900: '#1c1917',
-},
-},
-fontFamily: {
-serif: ['"PT Serif"', 'serif'],
-body: ['"Playfair Display"', 'serif'],
-},
-boxShadow: {
-'3d': 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',
-'subtle': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
-'glow': '0 0 40px -10px rgba(255, 255, 255, 0.3)',
-}
-}
-}
-}
-</script>
 <style>
-body {
-background-color: #f5f5f4;
-color: #1c1917;
-overflow-x: hidden;
--webkit-font-smoothing: antialiased;
+body { font-family: 'Inter', sans-serif; }
+@property --gradient-angle {
+syntax: "<angle>";
+initial-value: 0deg;
+inherits: false;
 }
-h1, h2, h3, h4, h5, h6 { font-family: 'PT Serif', serif; }
-p, a, span, button, li, input, textarea { font-family: 'Playfair Display', serif; }
-
-/* Responsive Typography */
-@media (max-width: 640px) {
-    h1 { font-size: 2rem !important; }
-    h2 { font-size: 1.75rem !important; }
-    h3 { font-size: 1.5rem !important; }
-    .text-5xl { font-size: 2.5rem !important; }
-    .text-6xl { font-size: 3rem !important; }
+@property --gradient-angle-offset {
+syntax: "<angle>";
+initial-value: 0deg;
+inherits: false;
 }
-
-/* Very small screens (< 360px) */
-@media (max-width: 360px) {
-    h1 { font-size: 1.75rem !important; }
-    h2 { font-size: 1.5rem !important; }
-    h3 { font-size: 1.25rem !important; }
-    .text-4xl { font-size: 1.75rem !important; }
-    .text-5xl { font-size: 2rem !important; }
-    .text-6xl { font-size: 2.5rem !important; }
-    .text-7xl { font-size: 3rem !important; }
-    .text-8xl { font-size: 3.5rem !important; }
-    /* Reduce navigation padding on very small screens */
-    nav { padding: 0.75rem !important; }
-    nav .max-w-\[1200px\] { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
+@property --gradient-percent {
+syntax: "<percentage>";
+initial-value: 20%;
+inherits: false;
 }
-
-/* Touch Target Improvements */
-button, a[role="button"], .btn {
-    min-height: 44px;
-    min-width: 44px;
+@property --gradient-shine {
+syntax: "<color>";
+initial-value: #10b981;
+inherits: false;
 }
-
-/* Mobile Menu Styles */
-#mobileMenu {
-    overscroll-behavior: contain;
-}
-
-/* Prevent horizontal scroll on mobile */
-@media (max-width: 768px) {
-    * {
-        max-width: 100%;
-    }
-    img, video {
-        max-width: 100%;
-        height: auto;
-    }
-    /* Keep Spline iframe full height */
-    .spline-container iframe {
-        height: 100% !important;
-    }
-}
-
-/* Improved form inputs on mobile */
-@media (max-width: 640px) {
-    input, textarea, select {
-        font-size: 16px !important; /* Prevents zoom on iOS */
-    }
-    /* Better mobile spacing */
-    section {
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
-    }
-    /* Prevent text overflow */
-    h1, h2, h3 {
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-    }
-    /* Improve navigation on mobile */
-    nav a {
-        font-size: 0.7rem !important;
-    }
-    /* Reduce padding on mobile */
-    .pt-40 { padding-top: 6rem !important; }
-    .pb-20 { padding-bottom: 4rem !important; }
-    .pt-24 { padding-top: 4rem !important; }
-    .pb-24 { padding-bottom: 4rem !important; }
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #d6d3d1; border-radius: 10px; }
-/* Utilities */
-.glass-panel {
-background: rgba(255, 255, 255, 0.6);
-backdrop-filter: blur(12px);
--webkit-backdrop-filter: blur(12px);
-border: 1px solid rgba(255, 255, 255, 0.5);
-}
-.flashlight-card {
+.shiny-cta {
+--gradient-angle: 0deg;
+--gradient-angle-offset: 0deg;
+--gradient-percent: 20%;
+--gradient-shine: #10b981;
+--shadow-size: 2px;
 position: relative;
-background: rgba(255, 255, 255, 0.5);
 overflow: hidden;
-transition: border-color 0.3s;
+border-radius: 9999px;
+padding: 1rem 2rem;
+font-size: 1rem;
+line-height: 1.2;
+font-weight: 500;
+color: #ffffff;
+background: linear-gradient(#000000, #000000) padding-box,
+conic-gradient(
+from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
+transparent 0%,
+#059669 5%,
+var(--gradient-shine) 15%,
+#059669 30%,
+transparent 40%,
+transparent 100%
+) border-box;
+border: 2px solid transparent;
+box-shadow: inset 0 0 0 1px #1a1818;
+outline: none;
+transition: --gradient-angle-offset 800ms cubic-bezier(0.25, 1, 0.5, 1),
+--gradient-percent 800ms cubic-bezier(0.25, 1, 0.5, 1),
+--gradient-shine 800ms cubic-bezier(0.25, 1, 0.5, 1),
+box-shadow 0.3s;
+cursor: pointer;
+isolation: isolate;
+outline-offset: 4px;
+z-index: 0;
+animation: border-spin 2.5s linear infinite;
 }
-.flashlight-card::before {
-content: "";
-position: absolute;
-top: 0; left: 0; right: 0; bottom: 0;
-background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.8), transparent 40%);
-opacity: 0;
-transition: opacity 0.5s;
+@keyframes border-spin {
+to {
+--gradient-angle: 360deg;
+}
+}
+.shiny-cta:active {
+transform: translateY(1px);
+}
+.shiny-cta::before {
+content: '';
 pointer-events: none;
-z-index: 1;
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+z-index: 0;
+--size: calc(100% - 6px);
+--position: 2px;
+--space: 4px;
+width: var(--size);
+height: var(--size);
+background: radial-gradient(circle at var(--position) var(--position), white 0.5px, transparent 0) padding-box;
+background-size: var(--space) var(--space);
+background-repeat: space;
+mask-image: conic-gradient(
+from calc(var(--gradient-angle) + 45deg),
+black,
+transparent 10% 90%,
+black
+);
+border-radius: inherit;
+opacity: 0.4;
+pointer-events: none;
 }
-.flashlight-card:hover::before { opacity: 1; }
-.beam-btn {
+.shiny-cta::after {
+content: '';
+pointer-events: none;
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+z-index: 1;
+width: 100%;
+aspect-ratio: 1;
+background: linear-gradient(-50deg, transparent, #10b981, transparent);
+mask-image: radial-gradient(circle at bottom, transparent 40%, black);
+opacity: 0.6;
+animation: shimmer 4s linear infinite;
+animation-play-state: running;
+}
+.shiny-cta span {
 position: relative;
-overflow: hidden;
-background: #1c1917;
-color: #fff;
-z-index: 1;
+z-index: 2;
+display: inline-block;
 }
-.beam-btn::before {
+.shiny-cta span::before {
 content: '';
+pointer-events: none;
 position: absolute;
-top: 50%; left: 50%;
-width: 150%; height: 300%;
-background: conic-gradient(from 0deg, transparent 0 340deg, #fff 360deg);
-transform: translate(-50%, -50%) rotate(0deg);
-animation: rotate 4s linear infinite;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+z-index: -1;
+--size: calc(100% + 1rem);
+width: var(--size);
+height: var(--size);
+box-shadow: inset 0 -1ex 2rem 4px #059669;
 opacity: 0;
-transition: opacity 0.3s;
-z-index: -1;
-border-radius: 9999px;
+border-radius: inherit;
+transition: opacity 800ms cubic-bezier(0.25, 1, 0.5, 1);
+animation: breathe 4.5s linear infinite;
 }
-.beam-btn::after {
-content: '';
-position: absolute;
-inset: 1px;
-background: #000;
-border-radius: 9999px;
-z-index: -1;
+@keyframes shimmer {
+to {
+transform: translate(-50%, -50%) rotate(360deg);
 }
-.beam-btn:hover::before { opacity: 1; }
-@keyframes rotate { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(360deg); } }
-.marquee-container { overflow: hidden; white-space: nowrap; }
-.marquee-content { display: inline-block; animation: marquee 30s linear infinite; }
-@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+}
+@keyframes breathe {
+0%, 100% {
+transform: translate(-50%, -50%) scale(1);
+}
+50% {
+transform: translate(-50%, -50%) scale(1.20);
+}
+}
+@keyframes marquee-vertical {
+from {
+transform: translateY(0);
+}
+to {
+transform: translateY(-50%);
+}
+}
+.animate-marquee-vertical {
+animation: marquee-vertical 40s linear infinite;
+}
+.animate-marquee-vertical:hover {
+animation-play-state: paused;
+}
 </style>
-<link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist">
+<style>
+@keyframes fadeSlideIn{0%{opacity:0;transform:translateY(30px);filter:blur(8px)}100%{opacity:1;transform:translateY(0);filter:blur(0px)}}.animate-on-scroll{animation-play-state:paused!important}.animate-on-scroll.animate{animation-play-state:running!important}
+</style>
+<script>
+(function(){const once=true;if(!window.__inViewIO){window.__inViewIO=new IntersectionObserver((entries)=>{entries.forEach((entry)=>{if(entry.isIntersecting){entry.target.classList.add("animate");if(once)window.__inViewIO.unobserve(entry.target)}})},{threshold:0.2,rootMargin:"0px 0px -10% 0px"})}window.initInViewAnimations=function(selector=".animate-on-scroll"){document.querySelectorAll(selector).forEach((el)=>{window.__inViewIO.observe(el)})};document.addEventListener("DOMContentLoaded",()=>initInViewAnimations())})();
+</script>
+<style id="aura-editor-visibility-style">
+.invisible { visibility: hidden !important; }
+</style>
+<link id="all-fonts-link-font-instrument-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&amp;display=swap"><link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist">
 .font-geist { font-family: 'Geist', sans-serif !important; }
 </style><link id="all-fonts-link-font-roboto" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-roboto">
 .font-roboto { font-family: 'Roboto', sans-serif !important; }
@@ -215,7 +185,7 @@ z-index: -1;
 .font-poppins { font-family: 'Poppins', sans-serif !important; }
 </style><link id="all-fonts-link-font-playfair" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&amp;display=swap"><style id="all-fonts-style-font-playfair">
 .font-playfair { font-family: 'Playfair Display', serif !important; }
-</style><link id="all-fonts-link-font-instrument-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-instrument-serif">
+</style><style id="all-fonts-style-font-instrument-serif">
 .font-instrument-serif { font-family: 'Instrument Serif', serif !important; }
 </style><link id="all-fonts-link-font-merriweather" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap"><style id="all-fonts-style-font-merriweather">
 .font-merriweather { font-family: 'Merriweather', serif !important; }
@@ -239,1078 +209,508 @@ z-index: -1;
 .font-quicksand { font-family: 'Quicksand', sans-serif !important; }
 </style><link id="all-fonts-link-font-nunito" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-nunito">
 .font-nunito { font-family: 'Nunito', sans-serif !important; }
-</style></head>
-  <body class="selection:bg-stone-800 selection:text-stone-50">
-
-<!-- Background (component) added by Aura -->
-<div class="aura-background-component fixed top-0 w-full h-screen -z-10" data-alpha-mask="80" style="mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent)">
-    <div class="spline-container absolute top-0 left-0 w-full h-full -z-10">
-        <iframe src="https://my.spline.design/twistcopy-CPActtgUfoQoOToZfH4Pt18Q" frameborder="0" width="100%" height="100%" style="pointer-events: none;" allow="autoplay; fullscreen" loading="lazy"></iframe>
+</style><style id="border-gradient-shared-style">
+[style*="--border-gradient"]::before {
+content: "";
+position: absolute;
+inset: 0;
+padding: 1px;
+border-radius: var(--border-radius-before, inherit);
+-webkit-mask: linear-gradient(#fff 0 0) content-box,
+linear-gradient(#fff 0 0);
+-webkit-mask-composite: xor;
+mask-composite: exclude;
+background: var(--border-gradient);
+pointer-events: none;
+}</style></head>
+  <body class="overflow-x-hidden text-white bg-black font-sans selection:bg-emerald-500/30">
+    <!-- Background (component) -->
+    <div class="aura-background-component top-0 w-full -z-10 absolute h-[1000px]" data-alpha-mask="80" style="mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent)">
+      <div data-us-project="cqcLtDwfoHqqRPttBbQE" class="absolute top-0 left-0 -z-10 w-full h-full"></div>
+      <script type="text/javascript">
+        !function(){if(!window.UnicornStudio){window.UnicornStudio={isInitialized:!1};var i=document.createElement("script");i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js",i.onload=function(){window.UnicornStudio.isInitialized||(UnicornStudio.init(),window.UnicornStudio.isInitialized=!0)},(document.head || document.body).appendChild(i)}}();
+      </script>
     </div>
-</div>
-    <!-- Background Grain/Noise -->
-    
 
-    <!-- Navigation (Original Size) -->
-    <!-- Compact Navigation -->
-    <nav class="fixed transition-all duration-300 z-[55] w-full pt-4 pr-4 pb-4 pl-4 top-0 left-0 backdrop-blur-sm" id="navbar">
-      <div class="relative flex max-w-[1200px] mr-auto ml-auto pt-4 pr-6 pb-4 pl-6 items-center justify-between">
-        <!-- Logo -->
-        <a href="index.html" class="text-xl font-semibold text-stone-900 tracking-tight font-serif z-10 relative">
-          Ark Care AFH
-        </a>
-
-        <!-- Centered Navigation Pill -->
-        <div class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-8 bg-stone-100/80 backdrop-blur-md px-10 py-3 rounded-full border border-stone-200/50 shadow-sm z-0">
-          <a href="index.html" class="uppercase hover:text-stone-900 transition-colors text-[11px] text-xs font-bold text-stone-900 tracking-widest font-merriweather">
-            Home
+    <div class="min-h-screen relative">
+      <!-- Navigation -->
+      <nav class="z-50 border-white/5 border-b pt-4 pb-4 pl-6 pr-6 relative backdrop-blur-sm bg-black/50" style="">
+        <div class="flex max-w-7xl mr-auto ml-auto items-center justify-between">
+          <a href="#" class="inline-flex items-center gap-2">
+            <div class="h-6 w-6 bg-emerald-500 rounded-full flex items-center justify-center">
+              <span class="font-instrument-serif italic text-black font-bold text-sm">
+                A
+              </span>
+            </div>
+            <span class="uppercase text-lg font-bold text-white tracking-tight cursor-pointer" onclick="window.location.href='index.html'" role="button">
+              Ark Care
+            </span>
           </a>
-          <a href="about-us.html" class="uppercase hover:text-stone-900 transition-colors text-[11px] whitespace-nowrap text-xs font-bold text-stone-900 tracking-widest font-merriweather">
-            About Us
-          </a>
-          <a href="services.html" class="uppercase hover:text-stone-900 transition-colors text-[11px] text-xs font-bold text-stone-900 tracking-widest font-merriweather">
-            Services
-          </a>
-          <a href="gallery.html" class="uppercase hover:text-stone-900 transition-colors text-[11px] text-xs font-bold text-stone-900 tracking-widest font-merriweather">
-            Gallery
-          </a>
-          <a href="contact.html" class="uppercase hover:text-stone-900 transition-colors text-[11px] text-xs font-bold text-stone-900 tracking-widest font-merriweather">
-            Contact
-          </a>
-        </div>
-
-        <!-- Right Side: CTA & Mobile Menu -->
-        <div class="flex items-center gap-4 z-[60] relative">
-          <a href="contact.html" class="uppercase transition-transform active:scale-95 hidden text-[11px] hover:bg-stone-800 shadow-stone-900/20 md:block font-semibold text-white tracking-wide font-serif bg-black rounded-full px-8 py-3 shadow-lg">
-            Schedule a Tour
-          </a>
-
-          <button id="mobileMenuButton" class="block md:hidden text-stone-900 p-2 rounded-lg hover:bg-stone-100 transition-colors relative z-[60]" aria-label="Toggle mobile menu" aria-expanded="false">
-            <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
-              <path d="M4 5h16"></path>
-              <path d="M4 12h16"></path>
-              <path d="M4 19h16"></path>
-            </svg>
-            <svg id="closeIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x hidden">
-              <path d="M18 6L6 18"></path>
-              <path d="M6 6l12 12"></path>
-            </svg>
+          <div class="hidden md:flex space-x-8 text-sm font-normal text-zinc-400">
+            <a href="index.html" class="hover:text-white transition-colors">Home</a>
+            <a href="about-us.html" class="hover:text-white transition-colors">About Us</a>
+            <a href="services.html" class="hover:text-white transition-colors">Services</a>
+            <a href="gallery.html" class="hover:text-white transition-colors">Gallery</a>
+            <a href="contact-us.html" class="hover:text-white transition-colors">Contact Us</a>
+          </div>
+          <button class="hidden md:block px-4 py-2 rounded-full bg-white text-black text-sm font-medium hover:bg-zinc-200 transition-colors" style="">
+            Schedule Tour
+          </button>
+          <button class="md:hidden text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="menu" class="lucide lucide-menu w-6 h-6"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg>
           </button>
         </div>
-      </div>
-      
-      <!-- Mobile Menu Overlay -->
-      <div id="mobileMenu" class="fixed inset-0 bg-white/30 backdrop-blur-xl z-50 hidden md:hidden transform transition-all duration-300 ease-in-out">
-        <div class="flex flex-col h-full pt-24 px-6">
-          <nav class="flex flex-col gap-6" role="navigation" aria-label="Mobile navigation">
-            <a href="index.html" class="text-2xl font-semibold text-white tracking-tight font-serif py-3 border-b border-stone-700/50 backdrop-blur-sm bg-stone-900/90 rounded-lg px-4 -mx-4 hover:bg-stone-800/90 transition-colors">Home</a>
-            <a href="about-us.html" class="text-2xl font-semibold text-white tracking-tight font-serif py-3 border-b border-stone-700/50 backdrop-blur-sm bg-stone-900/90 rounded-lg px-4 -mx-4 hover:bg-stone-800/90 transition-colors">About Us</a>
-            <a href="services.html" class="text-2xl font-semibold text-white tracking-tight font-serif py-3 border-b border-stone-700/50 backdrop-blur-sm bg-stone-900/90 rounded-lg px-4 -mx-4 hover:bg-stone-800/90 transition-colors">Services</a>
-            <a href="gallery.html" class="text-2xl font-semibold text-white tracking-tight font-serif py-3 border-b border-stone-700/50 backdrop-blur-sm bg-stone-900/90 rounded-lg px-4 -mx-4 hover:bg-stone-800/90 transition-colors">Gallery</a>
-            <a href="contact.html" class="text-2xl font-semibold text-white tracking-tight font-serif py-3 border-b border-stone-700/50 backdrop-blur-sm bg-stone-900/90 rounded-lg px-4 -mx-4 hover:bg-stone-800/90 transition-colors">Contact</a>
-            <a href="contact.html" class="mt-4 uppercase text-xs font-bold text-white tracking-widest bg-black/90 backdrop-blur-sm rounded-full px-8 py-4 text-center hover:bg-black transition-colors">Schedule a Tour</a>
-          </nav>
+      </nav>
+
+      <!-- Hero Section -->
+      <main class="z-10 pt-32 pr-6 pb-24 pl-6 relative">
+        <div class="text-center max-w-5xl mr-auto ml-auto">
+          <div class="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-emerald-400"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span class="font-medium text-zinc-300 tracking-wide uppercase text-[11px]">
+              About Ark Care
+            </span>
+          </div>
+          <h1 class="text-5xl md:text-7xl font-semibold text-white tracking-tight mb-8 leading-[1.1]">
+            Driven by compassion,
+            <br>
+            <span class="text-emerald-500 font-instrument-serif italic">
+              defined by care.
+            </span>
+          </h1>
+          <p class="text-xl text-zinc-400 leading-relaxed max-w-2xl mx-auto mb-12">
+            We founded Ark Care with a simple promise: to treat every resident
+            not just as a patient, but as a beloved family member deserving of
+            dignity, joy, and comfort.
+          </p>
+          <div class="w-full h-[400px] rounded-3xl overflow-hidden relative border border-white/10">
+            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg" class="w-full h-full object-cover opacity-80" alt="Ark Care Interior">
+            <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full">
+  <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4734259a-bad7-422f-981e-ce01e79184f2_1600w.jpg" class="w-full h-full object-cover" alt="Senior receiving care">
+  <div class="bg-gradient-to-t from-black via-transparent to-transparent absolute inset-0"></div>
+</div>
+          </div>
         </div>
-      </div>
-    </nav>
+      </main>
+    </div>
 
-    <!-- Hero Section (Reduced) -->
-    <section class="relative h-[65vh] min-h-[500px] w-full flex flex-col items-center justify-center overflow-hidden">
-      <div class="absolute inset-0 z-0">
-        <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?q=80&amp;w=2068&amp;auto=format&amp;fit=crop" alt="Caregivers assisting residents at Ark Care AFH" class="w-full h-full object-cover object-center scale-105 animate-slow-pan" loading="lazy">
-        <div class="bg-white/60 absolute top-0 right-0 bottom-0 left-0 backdrop-blur-sm"></div>
-        <div class="bg-gradient-to-t from-[#f5f5f4] via-[#f5f5f4]/80 to-transparent h-[20vh] absolute right-0 bottom-0 left-0"></div>
-      </div>
+    <!-- Gallery Section -->
 
-      <div class="flex flex-col z-10 text-center w-full max-w-3xl mt-12 px-6 relative items-center justify-center">
-        
-        <!-- Animated Badge -->
-        
+    <!-- Features Grid -->
+    <section class="bg-zinc-950 z-10 border-white/5 border-t pt-24 pb-24 relative">
+      <div class="max-w-7xl mr-auto ml-auto pr-6 pl-6">
+        <div class="grid lg:grid-cols-2 gap-6 items-stretch">
+          <!-- Mission Card -->
+          <div class="group relative rounded-3xl bg-zinc-900/30 border border-white/5 p-8 lg:p-12 overflow-hidden hover:border-white/10 transition-colors duration-500">
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            
+            <div class="relative z-10">
+              <div class="w-12 h-12 rounded-xl bg-zinc-800/50 border border-white/5 flex items-center justify-center mb-8 text-zinc-400 group-hover:text-emerald-400 group-hover:bg-emerald-500/10 group-hover:border-emerald-500/20 transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-handshake">
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                  <path d="M12 5 9.04 2H6a3 3 0 0 0-3 3v2.24l5.46 4.73L12 14.5l3.54-2.53L21 7.24V5a3 3 0 0 0-3-3h-2.2z"></path>
+                </svg>
+              </div>
+              
+              <h3 class="text-2xl font-medium text-white mb-4 tracking-tight">Our Mission</h3>
+              
+              <div class="space-y-6 text-zinc-400 leading-relaxed">
+                <p class="">
+                  To provide a sanctuary where professional medical care meets the warmth of home. We strive to empower our residents, honoring their individual stories while ensuring their safety and well-being every single day.
+                </p>
+                <p>
+                  We believe that care is not just about medical attention, but about nurturing the human spirit. Our holistic approach integrates physical health, emotional comfort, and social connection to create a truly supportive environment.
+                </p>
+              </div>
 
-        <!-- Reduced Title -->
-        <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-stone-900 tracking-tight leading-[1.05] mb-5 max-w-2xl mx-auto opacity-0 animate-fade-in-up drop-shadow-sm" style="animation-delay: 0.2s; animation-fill-mode: forwards;">
-          About Ark Care AFH
-        </h1>
+              <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
+                  <span class="text-sm text-zinc-300 font-medium">Dignity First</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
+                  <span class="text-sm text-zinc-300 font-medium">Holistic Wellness</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
+                  <span class="text-sm text-zinc-300 font-medium">Family Partnership</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
+                  <span class="text-sm text-zinc-300 font-medium">Clinical Excellence</span>
+                </div>
+              </div>
+            </div>
+          </div>
 
-        <!-- Refined Description -->
-        <p class="font-body text-base md:text-lg text-stone-800 max-w-lg mx-auto mb-8 leading-relaxed font-normal opacity-0 animate-fade-in-up drop-shadow-sm" style="animation-delay: 0.3s; animation-fill-mode: forwards;">
-          Licensed adult family home providing personalized care in Algona,
-          Washington.
-        </p>
+          <!-- Vision Card -->
+          <div class="group relative rounded-3xl bg-zinc-900/30 border border-white/5 p-8 lg:p-12 overflow-hidden hover:border-white/10 transition-colors duration-500">
+            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 
-        <!-- Animated Button -->
-        <div class="flex flex-col sm:flex-row gap-4 opacity-0 animate-fade-in-up" style="animation-delay: 0.4s; animation-fill-mode: forwards;">
-          <a href="gallery.html" class="group text-[11px] uppercase hover:bg-stone-800 transition-all hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2 font-semibold text-stone-50 tracking-widest bg-stone-900 rounded-full pt-2.5 pr-5 pb-2.5 pl-6">VIEW GALLERY</a>
+            <div class="relative z-10">
+              <div class="w-12 h-12 rounded-xl bg-zinc-800/50 border border-white/5 flex items-center justify-center mb-8 text-zinc-400 group-hover:text-emerald-400 group-hover:bg-emerald-500/10 group-hover:border-emerald-500/20 transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles">
+                  <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path>
+                </svg>
+              </div>
+
+              <h3 class="text-2xl font-medium text-white mb-4 tracking-tight">Our Vision</h3>
+              
+              <div class="space-y-6 text-zinc-400 leading-relaxed">
+                <p class="">
+                  A future where assisted living celebrates life at every stage. We envision a community where age is not a limitation but a new chapter of connection, comfort, and dignified living.
+                </p>
+                <p class="">
+                  We aim to redefine the standard of senior care by pioneering innovative technologies and sustainable practices that enhance quality of life. Our goal is to build a legacy where every resident feels valued, heard, and deeply at home.
+                </p>
+              </div>
+
+              <div class="mt-10 border-t border-white/5 pt-8">
+                <div class="flex flex-col gap-4">
+                  <div class="flex items-start gap-4">
+                    <div class="w-6 h-6 rounded-full bg-white/5 flex items-center justify-center shrink-0 mt-0.5">
+                      <span class="text-xs text-emerald-400 font-medium">1</span>
+                    </div>
+                    <div class="">
+                      <h4 class="text-sm font-medium text-white mb-1">Innovation in Care</h4>
+                      <p class="text-xs text-zinc-500 leading-relaxed">Adopting smart health monitoring systems for proactive wellness.</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-4">
+                    <div class="w-6 h-6 rounded-full bg-white/5 flex items-center justify-center shrink-0 mt-0.5">
+                      <span class="text-xs text-emerald-400 font-medium">2</span>
+                    </div>
+                    <div class="">
+                      <h4 class="text-sm font-medium text-white mb-1">Sustainable Living</h4>
+                      <p class="text-xs text-zinc-500 leading-relaxed">Creating eco-friendly spaces that promote health and environmental responsibility.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Marquee (Reduced) -->
-
-    <!-- Bento Grid Services (Reduced) -->
-    <section class="px-6 pb-12" id="values">
-      <div class="max-w-6xl mr-auto ml-auto pt-16 pr-6 pb-16 pl-6">
-  <!-- Header Section (Compact) -->
-  <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-stone-200 pb-6">
-    <div class="max-w-2xl">
-      <div class="flex items-center gap-4 mb-3">
-        <span class="h-px w-8 bg-stone-300"></span>
-        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-stone-500">
-          Our Principles
-        </span>
-      </div>
-      <h2 class="font-serif text-4xl md:text-5xl font-normal text-stone-900 tracking-tight leading-[1.1]">
-        Core Values that define our care.
-      </h2>
-    </div>
-    <div class="mt-6 md:mt-0 max-w-md text-right hidden md:block">
-      <p class="text-stone-400 text-base leading-relaxed font-medium italic">
-        Built on a foundation of empathy, excellence, and respect for every individual.
-      </p>
-    </div>
+    <section class="py-24 bg-black relative z-10">
+      <div class="max-w-3xl mr-auto ml-auto pr-6 pl-6">
+  <div class="text-center mb-20 relative">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-emerald-500/20 blur-[100px] rounded-full pointer-events-none"></div>
+    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/5 text-emerald-400 text-[11px] font-medium tracking-widest uppercase mb-6 backdrop-blur-md">
+      <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+      History
+    </span>
+    <h2 class="text-4xl md:text-5xl font-semibold text-white mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">
+      Our Journey
+    </h2>
+    <p class="text-zinc-400 text-lg leading-relaxed max-w-lg mx-auto">
+      From a small family initiative to a leading care provider.
+    </p>
   </div>
 
-  <!-- Reduced Text-Only Grid -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-    
-    <!-- Item 01: Compassion -->
-    <div class="group flex flex-col items-start gap-4">
-      <div class="w-full flex justify-between items-center border-b border-stone-100 pb-3 group-hover:border-stone-400 transition-colors duration-500">
-        <span class="text-stone-300 font-mono text-sm group-hover:text-stone-900 transition-colors">01</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-stone-400 group-hover:text-stone-900 transition-colors"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>
+  <div class="relative space-y-8">
+    <!-- Gradient Timeline Line -->
+    <div class="absolute left-[20px] top-2 bottom-4 w-px bg-gradient-to-b from-emerald-500 via-emerald-500/20 to-zinc-800 -translate-x-1/2"></div>
+
+    <!-- 2018 Card -->
+    <div class="relative pl-16 group">
+      <div class="absolute left-0 top-1.5 h-10 w-10 rounded-full border border-zinc-800 bg-zinc-950 flex items-center justify-center z-10 group-hover:border-emerald-500/50 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.2)] transition-all duration-500">
+        <div class="h-2.5 w-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
       </div>
-      <div>
-        <h3 class="font-serif text-xl font-medium text-stone-900 mb-3">Compassion</h3>
-        <p class="text-stone-500 text-base leading-relaxed max-w-sm group-hover:text-stone-800 transition-colors">
-          We care deeply about well-being, treating each person with kindness, empathy, and a gentle touch.
+      
+      <div class="p-6 rounded-2xl bg-zinc-900/30 border border-white/5 hover:bg-zinc-900/60 hover:border-emerald-500/20 transition-all duration-300 backdrop-blur-sm group-hover:translate-x-1">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+          <h3 class="text-xl font-medium text-white tracking-tight">The Foundation</h3>
+          <span class="inline-flex items-center justify-center px-2.5 py-0.5 rounded text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/10 font-mono">2018</span>
+        </div>
+        <p class="text-zinc-400 text-sm leading-relaxed">
+          Ark Care was established by the Thompson family, converting their estate into a boutique care home with just 4 beds, driven by a personal need for better care options.
         </p>
       </div>
     </div>
 
-    <!-- Item 02: Excellence -->
-    <div class="group flex flex-col items-start gap-4">
-      <div class="w-full flex justify-between items-center border-b border-stone-100 pb-3 group-hover:border-stone-400 transition-colors duration-500">
-        <span class="text-stone-300 font-mono text-sm group-hover:text-stone-900 transition-colors">02</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-stone-400 group-hover:text-stone-900 transition-colors"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg>
+    <!-- 2020 Card -->
+    <div class="relative pl-16 group">
+      <div class="absolute left-0 top-1.5 h-10 w-10 rounded-full border border-zinc-800 bg-zinc-950 flex items-center justify-center z-10 group-hover:border-emerald-500/50 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.2)] transition-all duration-500">
+        <div class="h-2.5 w-2.5 rounded-full bg-zinc-700 group-hover:bg-emerald-500 transition-colors duration-300"></div>
       </div>
-      <div>
-        <h3 class="font-serif text-xl font-medium text-stone-900 mb-3">Excellence</h3>
-        <p class="text-stone-500 text-base leading-relaxed max-w-sm group-hover:text-stone-800 transition-colors">
-          Quality is our standard. We maintain the highest level of care, services, and facility standards.
+      
+      <div class="p-6 rounded-2xl bg-zinc-900/30 border border-white/5 hover:bg-zinc-900/60 hover:border-emerald-500/20 transition-all duration-300 backdrop-blur-sm group-hover:translate-x-1">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+          <h3 class="text-xl font-medium text-white tracking-tight">Expanding Horizons</h3>
+          <span class="inline-flex items-center justify-center px-2.5 py-0.5 rounded text-xs font-bold bg-zinc-800 text-zinc-400 border border-zinc-700 group-hover:text-zinc-300 transition-colors font-mono">2020</span>
+        </div>
+        <p class="text-zinc-400 text-sm leading-relaxed">
+          Amidst global challenges, we expanded our facility to accommodate 12 residents, introducing our signature 24/7 nursing rotation and smart health monitoring systems.
         </p>
       </div>
     </div>
 
-    <!-- Item 03: Respect -->
-    <div class="group flex flex-col items-start gap-4">
-      <div class="w-full flex justify-between items-center border-b border-stone-100 pb-3 group-hover:border-stone-400 transition-colors duration-500">
-        <span class="text-stone-300 font-mono text-sm group-hover:text-stone-900 transition-colors">03</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-stone-400 group-hover:text-stone-900 transition-colors"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+    <!-- 2023 Card -->
+    <div class="relative pl-16 group">
+      <div class="absolute left-0 top-1.5 h-10 w-10 rounded-full border border-zinc-800 bg-zinc-950 flex items-center justify-center z-10 group-hover:border-emerald-500/50 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.2)] transition-all duration-500">
+        <div class="h-2.5 w-2.5 rounded-full bg-zinc-700 group-hover:bg-emerald-500 transition-colors duration-300"></div>
       </div>
-      <div>
-        <h3 class="font-serif text-xl font-medium text-stone-900 mb-3">Respect</h3>
-        <p class="text-stone-500 text-base leading-relaxed max-w-sm group-hover:text-stone-800 transition-colors">
-          We honor the dignity and autonomy of each resident, respecting their individual choices and preferences.
+      
+      <div class="p-6 rounded-2xl bg-zinc-900/30 border border-white/5 hover:bg-zinc-900/60 hover:border-emerald-500/20 transition-all duration-300 backdrop-blur-sm group-hover:translate-x-1">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+          <h3 class="text-xl font-medium text-white tracking-tight">Community Excellence</h3>
+          <span class="inline-flex items-center justify-center px-2.5 py-0.5 rounded text-xs font-bold bg-zinc-800 text-zinc-400 border border-zinc-700 group-hover:text-zinc-300 transition-colors font-mono">2023</span>
+        </div>
+        <p class="text-zinc-400 text-sm leading-relaxed">
+          Recognized as the "Top Adult Family Home" in the region. We launched our community outreach program, integrating local youth and arts into our residents' daily lives.
         </p>
       </div>
     </div>
-
   </div>
 </div>
     </section>
 
-    <!-- Testimonial / Quote (Reduced) -->
-    <section class="py-12 bg-stone-900 relative overflow-hidden">
-      <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-16 relative z-10 scroll-trigger-item">
-        <div class="text-left">
-          <span class="text-stone-500 font-bold uppercase tracking-widest text-xs mb-3 block">
-            Purpose
-          </span>
-          <h3 class="font-serif text-3xl text-stone-100 mb-4 tracking-tight">
-            Our Mission
-          </h3>
-          <p class="text-stone-400 leading-relaxed text-sm">
-            At Ark Care AFH, we are dedicated to providing compassionate,
-            high-quality adult family home care that honors the dignity,
-            independence, and individual needs of each resident.
-          </p>
-          <p class="text-stone-400 leading-relaxed text-sm mt-4">
-            We create a warm, supportive home environment where residents
-            receive personalized care and meaningful engagement, supported by
-            trained, caring staff.
-          </p>
-        </div>
-        <div class="text-left">
-          <span class="text-stone-500 font-bold uppercase tracking-widest text-xs mb-3 block">
-            Future
-          </span>
-          <h3 class="font-serif text-3xl text-stone-100 mb-4 tracking-tight">
-            Our Vision
-          </h3>
-          <p class="text-stone-400 leading-relaxed text-sm">
-            We envision a future where every individual receives care that
-            promotes their well-being, respects their choices, and enables them
-            to live with dignity and purpose.
-          </p>
-          <p class="text-stone-400 leading-relaxed text-sm mt-4">
-            Our home is a place where quality care, professional expertise, and
-            genuine compassion come together to create the best possible
-            outcomes for our residents.
-          </p>
-        </div>
-      </div>
-    </section>
-    <section class="py-20 px-6 bg-white">
-      <div class="max-w-3xl mx-auto">
-        <span class="text-xs font-bold uppercase tracking-widest text-stone-500 mb-3 block text-center">
-          Our Journey
-        </span>
-        <h2 class="font-serif text-4xl md:text-5xl text-stone-900 mb-8 text-center tracking-tight">
-          Our Story
-        </h2>
-        <div class="prose prose-stone mx-auto text-stone-600 text-lg leading-relaxed text-justify md:text-center space-y-6">
-          <p>
-            Ark Care AFH is a licensed adult family home located in Algona,
-            Washington, dedicated to providing compassionate, personalized care
-            in a home-like environment. We specialize in caring for individuals
-            with diverse needs, including seniors, adults with developmental
-            disabilities, and those requiring specialized behavioral health
-            support.
-          </p>
-          <p>
-            Our facility at 127 4th Ave N, Algona, WA 98001 was designed from
-            the ground up to provide a safe, comfortable, and welcoming home. We
-            carefully selected our location and designed our spaces to promote
-            independence, dignity, and quality of life for our residents.
-          </p>
-          <p>
-            We offer comprehensive services under multiple programs including
-            HCS (Home and Community Services), DDA Meaningful Day programs, and
-            Expanded Community Services. Our specialized support includes care
-            for individuals with mental health needs, dementia support, and
-            developmental disability services.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Gallery Preview (Reduced) -->
-    <section class="overflow-hidden flex min-h-[350px] bg-stone-900 px-6 py-12 relative items-center justify-center">
-  <!-- Background Dot Pattern -->
-  <div class="absolute inset-0 pointer-events-none opacity-[0.15]" style="background-image: radial-gradient(#78716c 1px, transparent 1px); background-size: 32px 32px;"></div>
-  
-  <div class="max-w-4xl mx-auto text-center relative z-10">
-    <!-- Quote Icon -->
-    <div class="flex justify-center mb-6">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" class="text-stone-500 opacity-40">
-        <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path>
-        <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path>
-      </svg>
-    </div>
-    
-    <!-- Quote Text -->
-    <h2 class="font-serif text-2xl md:text-3xl lg:text-4xl font-normal text-white tracking-tight leading-tight mb-8 drop-shadow-sm">
-      "It’s not just a facility; it’s a family. The care my mother receives at Ark Care is beyond what we could have hoped for."
-    </h2>
-    
-    <!-- Attribution -->
-    <div class="flex items-center justify-center gap-4">
-      <div class="h-px w-8 bg-stone-800"></div>
-      <span class="text-[10px] font-semibold uppercase tracking-[0.2em] text-stone-500 font-sans">
-        Family Member of Resident
-      </span>
-      <div class="h-px w-8 bg-stone-800"></div>
-    </div>
-  </div>
-</section>
-    <section class="py-20 px-6 bg-stone-50">
-      <div class="max-w-[1400px] mx-auto">
+    <section class="py-24 bg-zinc-950 relative z-10 border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16">
-          <span class="text-xs font-bold uppercase tracking-widest text-stone-500 mb-2 block">
-            Our People
+          <span class="text-emerald-500 text-sm font-semibold tracking-widest uppercase">
+            Team
           </span>
-          <h2 class="font-serif text-4xl text-stone-900 tracking-tight">
-            Our Care Team
+          <h2 class="text-4xl md:text-5xl font-semibold text-white mt-3 mb-6 tracking-tight">
+            Our People
           </h2>
-          <p class="mt-4 text-stone-600 max-w-2xl mx-auto font-light">
-            Our team consists of trained, certified professionals who are
-            passionate about providing quality care. Every staff member is
-            committed to treating residents with dignity, respect, and
-            compassion.
+          <p class="text-zinc-400 text-lg max-w-2xl mx-auto">
+            It's not just about credentials; it's about character. Meet the
+            compassionate leaders guiding Ark Care.
           </p>
         </div>
         <div class="grid md:grid-cols-3 gap-8">
-          <!-- Sarah -->
-          <div class="scroll-trigger-item text-center bg-white border-stone-200 border rounded-xl pt-8 pr-8 pb-8 pl-8 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]">
-            <div class="w-20 h-20 bg-stone-100 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-serif text-stone-500 border border-stone-200">
-              SJ
-            </div>
-            <h3 class="font-serif text-2xl text-stone-900 tracking-tight">
-              Sarah Johnson
-            </h3>
-            <p class="text-[10px] font-bold uppercase tracking-widest text-stone-400 mb-4">
-              Owner &amp; Care Coordinator
-            </p>
-            <p class="text-sm text-stone-600 mb-6 leading-relaxed">
-              Sarah founded Ark Care AFH with a passion for providing quality,
-              compassionate care in a home setting. Her nursing background
-              ensures the highest standards of care.
-            </p>
-            <ul class="text-xs text-stone-500 space-y-2 border-t border-stone-100 pt-4 font-medium">
-              <li>RN License</li>
-              <li>10+ years AFH experience</li>
-              <li>CPR/First Aid Certified</li>
-            </ul>
-          </div>
-          <!-- Michelle -->
-          <div class="scroll-trigger-item text-center bg-white border-stone-200 border rounded-2xl pt-8 pr-8 pb-8 pl-8 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]" style="translate: none; rotate: none; scale: none; transform: translate(0px, 30px); opacity: 0;">
-            <div class="w-20 h-20 bg-stone-100 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-serif text-stone-500 border border-stone-200">
-              MC
-            </div>
-            <h3 class="font-serif text-2xl text-stone-900 tracking-tight">
-              Michelle Chen
-            </h3>
-            <p class="text-[10px] font-bold uppercase tracking-widest text-stone-400 mb-4">
-              Lead Caregiver
-            </p>
-            <p class="text-sm text-stone-600 mb-6 leading-relaxed">
-              Michelle brings 8 years of professional caregiving experience and
-              a genuine commitment to supporting residents with compassion and
-              respect.
-            </p>
-            <ul class="text-xs text-stone-500 space-y-2 border-t border-stone-100 pt-4 font-medium">
-              <li>HCA Certification</li>
-              <li>Dementia Care Specialist</li>
-              <li>CPR/First Aid</li>
-            </ul>
-          </div>
-          <!-- David -->
-          <div class="scroll-trigger-item text-center bg-white border-stone-200 border rounded-2xl pt-8 pr-8 pb-8 pl-8 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]" style="translate: none; rotate: none; scale: none; transform: translate(0px, 30px); opacity: 0;">
-            <div class="w-20 h-20 bg-stone-100 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-serif text-stone-500 border border-stone-200">
-              DM
-            </div>
-            <h3 class="font-serif text-2xl text-stone-900 tracking-tight">
-              David Martinez
-            </h3>
-            <p class="text-[10px] font-bold uppercase tracking-widest text-stone-400 mb-4">
-              Caregiver
-            </p>
-            <p class="text-sm text-stone-600 mb-6 leading-relaxed">
-              David is dedicated to helping residents maintain independence and
-              mobility. His background in rehabilitation support enables
-              specialized care.
-            </p>
-            <ul class="text-xs text-stone-500 space-y-2 border-t border-stone-100 pt-4 font-medium">
-              <li>HCA Certification</li>
-              <li>Physical Therapy Assistant</li>
-              <li>CPR/First Aid</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Location Map (Reduced) -->
-    <section class="py-8 px-6">
-      <div class="max-w-[1400px] mx-auto rounded-[1.5rem] overflow-hidden relative h-[280px] group border border-stone-200 shadow-subtle">
-        <div class="absolute inset-0 bg-stone-200 z-0">
-          <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&amp;w=2074&amp;auto=format&amp;fit=crop" alt="Ark Care AFH location in Algona, Washington" class="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy">
-        </div>
-        <div class="absolute inset-0 flex items-center justify-center z-10 p-4">
-          <div class="glass-panel p-6 rounded-xl max-w-sm w-full shadow-3d transform transition-transform group-hover:-translate-y-1">
-            <div class="flex items-start justify-between mb-2">
-              <h4 class="font-serif text-xl font-bold text-stone-900">
-                Visit Us
-              </h4>
-              <div class="p-1.5 bg-stone-900 rounded-full text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin">
-                  <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-              </div>
-            </div>
-            <p class="text-stone-600 text-sm mb-4">
-              Located in a quiet, safe neighborhood in Algona, providing easy
-              access for visiting families.
-            </p>
-            <div class="space-y-1 text-xs font-semibold text-stone-800">
-              <p>127 4th Ave N</p>
-              <p>Algona, WA 98001</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA (Reduced) -->
-    <section class="py-12 px-6 border-t border-stone-200 bg-white" id="contact">
-      <div class="max-w-3xl mx-auto text-center scroll-trigger-item">
-        <h2 class="font-serif text-4xl md:text-5xl font-normal text-stone-900 tracking-tight mb-4">
-          Ready to learn more?
-        </h2>
-        <p class="text-lg text-stone-600 font-light mb-8 max-w-xl mx-auto">
-          We are currently accepting new residents. Schedule a tour today.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-3 justify-center">
-          <a href="contact.html" class="beam-btn uppercase transition-transform active:scale-95 inline-flex items-center justify-center gap-2 text-xs font-bold tracking-widest rounded-full pt-3 pr-6 pb-3 pl-6">
-            Contact Us
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail">
-              <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-              <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
-            </svg>
-          </a>
-          <a href="tel:2064553644" class="px-6 py-3 rounded-full border border-stone-200 text-stone-900 text-xs font-bold tracking-widest uppercase hover:bg-stone-50 transition-colors inline-flex items-center justify-center gap-2">
-            (206) 455-3644
-          </a>
-        </div>
-      </div>
-    </section>
-
-      <footer class="text-stone-400 bg-stone-900 rounded-none mt-12 pt-8 pb-8 font-geist" style="mask-image: linear-gradient(0deg, transparent, black 0%, black 100%, transparent); -webkit-mask-image: linear-gradient(0deg, transparent, black 0%, black 100%, transparent);">
-        <div class="lg:px-8 text-xs font-normal max-w-full mr-auto ml-auto pr-6 pl-6">
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pt-3 pb-3 gap-x-12 gap-y-12">
-            <div class="space-y-6">
-              <a href="index.html" class="block">
-                <h2 class="text-5xl font-serif text-white tracking-tight md:text-2xl hover:text-stone-300 transition-colors">
-                  Ark Care AFH
-                </h2>
-              </a>
-              <div class="space-y-4">
-                <span class="inline-block px-3 py-1 border border-stone-800 rounded-full text-xs font-medium uppercase tracking-wider text-emerald-500">
-                  Licensed &amp; Certified
-                </span>
-                <p class="text-sm leading-relaxed max-w-xs">
-                  Providing compassionate, personalized adult family home care
-                  in Algona, Washington.
+          <div class="group">
+            <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-zinc-900 mb-6 relative">
+              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/c543a9e1-f226-4ced-80b0-feb8445a75b9_1600w.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale group-hover:grayscale-0" alt="Sarah Thompson">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <p class="text-white text-sm">
+                  "Care is personal to me. I built this place to be the home I'd
+                  want for my own parents."
                 </p>
               </div>
             </div>
-            <div>
-              <h3 class="text-xl font-serif text-white mb-6">Quick Links</h3>
-              <ul class="space-y-3 text-sm">
-                <li>
-                  <a href="index.html" class="hover:text-white transition-colors">
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a href="about-us.html" class="hover:text-white transition-colors">
-                    About Us
-                  </a>
-                </li>
-                <li>
-                  <a href="services.html" class="hover:text-white transition-colors">
-                    Services
-                  </a>
-                </li>
-                <li>
-                  <a href="gallery.html" class="hover:text-white transition-colors">
-                    Gallery
-                  </a>
-                </li>
-                <li>
-                  <a href="contact.html" class="hover:text-white transition-colors">
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 class="text-xl font-serif text-white mb-6">Our Services</h3>
-              <ul class="space-y-3 text-sm">
-                <li><a href="services.html" class="hover:text-white transition-colors">24/7 Professional Care</a></li>
-                <li><a href="services.html" class="hover:text-white transition-colors">Medication Management</a></li>
-                <li><a href="services.html" class="hover:text-white transition-colors">Personal Care Assistance</a></li>
-                <li><a href="services.html" class="hover:text-white transition-colors">Activities &amp; Engagement</a></li>
-                <li><a href="services.html" class="hover:text-white transition-colors">Specialized Care Programs</a></li>
-              </ul>
-            </div>
-            <div id="contact">
-              <h3 class="text-xl font-serif text-white mb-6">Contact Us</h3>
-              <ul class="text-sm space-y-4">
-                <li class="flex gap-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="phone" class="lucide lucide-phone w-5 h-5 text-stone-500 shrink-0"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg>
-                  <div>
-                    <span class="block text-xs uppercase tracking-wider text-stone-500 mb-0.5">
-                      Phone
-                    </span>
-                    <a href="tel:2064553644" class="text-white hover:text-stone-300 transition-colors">
-                      206 455 3644
-                    </a>
-                  </div>
-                </li>
-                <li class="flex gap-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="mail" class="lucide lucide-mail w-5 h-5 text-stone-500 shrink-0"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg>
-                  <div>
-                    <span class="block text-xs uppercase tracking-wider text-stone-500 mb-0.5">
-                      Email
-                    </span>
-                    <a href="mailto:contact@arkcare.local" class="text-white hover:text-stone-300 transition-colors">
-                      contact@arkcare.local
-                    </a>
-                  </div>
-                </li>
-                <li class="flex gap-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="map-pin" class="lucide lucide-map-pin w-5 h-5 text-stone-500 shrink-0"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                  <div>
-                    <span class="block text-xs uppercase tracking-wider text-stone-500 mb-0.5">
-                      Address
-                    </span>
-                    <span class="text-white">
-                      127 4th Ave N Algona, WA 98001
-                    </span>
-                  </div>
-                </li>
-                <li class="flex gap-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="clock" class="lucide lucide-clock w-5 h-5 text-stone-500 shrink-0"><path d="M12 6v6l4 2"></path><circle cx="12" cy="12" r="10"></circle></svg>
-                  <div>
-                    <span class="block text-xs uppercase tracking-wider text-stone-500 mb-0.5">
-                      Hours
-                    </span>
-                    <span class="text-white">Available 24/7</span>
-                  </div>
-                </li>
-              </ul>
-            </div>
+            <h3 class="text-xl font-medium text-white">Sarah Thompson</h3>
+            <p class="text-emerald-500 text-sm font-medium uppercase tracking-wide mt-1">
+              Executive Director
+            </p>
           </div>
-          <div class="flex flex-col md:flex-row gap-4 text-xs text-stone-500 border-stone-800 border-t pt-8 gap-x-4 gap-y-4 items-center justify-between">
-            <div class="text-center md:text-left">
-              <p>© 2025 Ark Care AFH. All rights reserved.</p>
-              <p class="mt-1">
-                State-licensed adult family home • Licensed in Washington State
-              </p>
+          <div class="group">
+            <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-zinc-900 mb-6 relative">
+              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/5bab247f-35d9-400d-a82b-fd87cfe913d2_1600w.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale group-hover:grayscale-0" alt="Dr. James Chen">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <p class="text-white text-sm">
+                  "Medical excellence requires a human touch. That's our
+                  philosophy."
+                </p>
+              </div>
             </div>
-            <div class="flex gap-6">
-              <a href="#" class="hover:text-white transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" class="hover:text-white transition-colors">
-                Terms of Service
-              </a>
-              <a href="#" class="hover:text-white transition-colors">
-                Accessibility
-              </a>
-            </div>
+            <h3 class="text-xl font-medium text-white">Dr. James Chen</h3>
+            <p class="text-emerald-500 text-sm font-medium uppercase tracking-wide mt-1">
+              Head of Medical Services
+            </p>
           </div>
-        </div>
-      </footer>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        // --- Mobile Menu Toggle ---
-        const mobileMenuButton = document.getElementById('mobileMenuButton');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const menuIcon = document.getElementById('menuIcon');
-        const closeIcon = document.getElementById('closeIcon');
-        
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', () => {
-                const isOpen = !mobileMenu.classList.contains('hidden');
-                
-                if (isOpen) {
-                    mobileMenu.classList.add('hidden');
-                    menuIcon.classList.remove('hidden');
-                    closeIcon.classList.add('hidden');
-                    mobileMenuButton.setAttribute('aria-expanded', 'false');
-                    document.body.style.overflow = '';
-                } else {
-                    mobileMenu.classList.remove('hidden');
-                    menuIcon.classList.add('hidden');
-                    closeIcon.classList.remove('hidden');
-                    mobileMenuButton.setAttribute('aria-expanded', 'true');
-                    document.body.style.overflow = 'hidden';
-                }
-            });
-            
-            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-            mobileMenuLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    menuIcon.classList.remove('hidden');
-                    closeIcon.classList.add('hidden');
-                    mobileMenuButton.setAttribute('aria-expanded', 'false');
-                    document.body.style.overflow = '';
-                });
-            });
-            
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                    menuIcon.classList.remove('hidden');
-                    closeIcon.classList.add('hidden');
-                    mobileMenuButton.setAttribute('aria-expanded', 'false');
-                    document.body.style.overflow = '';
-                }
-            });
-        }
-        
-        // --- 1. Flashlight Effect ---
-        document.addEventListener('mousemove', (e) => {
-            const cards = document.querySelectorAll('.flashlight-card');
-            cards.forEach(card => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                card.style.setProperty('--mouse-x', `${x}px`);
-                card.style.setProperty('--mouse-y', `${y}px`);
-            });
-        });
-
-        // --- 2. GSAP Animations ---
-        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-            gsap.registerPlugin(ScrollTrigger);
-
-            const triggerItems = document.querySelectorAll('.scroll-trigger-item');
-            triggerItems.forEach(item => {
-                // Clear any inline transform/opacity styles
-                item.style.transform = '';
-                item.style.opacity = '';
-                
-                gsap.fromTo(item,
-                    { opacity: 0, y: 30 },
-                    {
-                        opacity: 1,
-                        y: 0,
-                        duration: 0.8,
-                        ease: "power2.out",
-                        scrollTrigger: {
-                            trigger: item,
-                            start: "top 90%",
-                            toggleActions: "play none none reverse",
-                            once: true
-                        }
-                    }
-                );
-            });
-        }
-
-        // Initialize Icons
-        if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
-        }
-      });
-    </script>
-    <style>
-      @keyframes fade-in-up {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-      }
-      .animate-fade-in-up {
-          animation: fade-in-up 1s ease-out forwards;
-      }
-      @keyframes slow-pan {
-          from { transform: scale(1.05); }
-          to { transform: scale(1.0); }
-      }
-      .animate-slow-pan {
-          animation: slow-pan 10s ease-out forwards;
-      }
-    </style>
-  
-    <!-- Cookie Consent Banner -->
-    <div id="cookieConsent" class="fixed bottom-0 left-0 right-0 z-[100] bg-stone-900 text-white p-4 md:p-6 shadow-2xl transform translate-y-full transition-transform duration-300 ease-in-out" style="display: none;">
-      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
-        <div class="flex-1">
-          <p class="text-sm md:text-base text-stone-200 leading-relaxed">
-            We use cookies to enhance your browsing experience and analyze site traffic. By clicking "Accept", you consent to our use of cookies. 
-            <a href="#" class="underline hover:text-white transition-colors">Learn more</a>
-          </p>
-        </div>
-        <div class="flex gap-3 w-full md:w-auto">
-          <button id="cookieDecline" class="px-6 py-2.5 text-sm font-semibold text-stone-300 hover:text-white border border-stone-700 rounded-lg transition-colors">
-            Decline
-          </button>
-          <button id="cookieAccept" class="px-6 py-2.5 text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-700 rounded-lg transition-colors">
-            Accept
-          </button>
+          <div class="group">
+            <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-zinc-900 mb-6 relative">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&amp;w=800&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale group-hover:grayscale-0" alt="Maria Gonzalez">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <p class="text-white text-sm">
+                  "Joy is medicine. We ensure every day has moments of
+                  laughter."
+                </p>
+              </div>
+            </div>
+            <h3 class="text-xl font-medium text-white">Maria Gonzalez</h3>
+            <p class="text-emerald-500 text-sm font-medium uppercase tracking-wide mt-1">
+              Life Enrichment Coordinator
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-    
-    <!-- Back to Top Button -->
-    <button id="backToTop" class="fixed bottom-6 right-6 z-50 bg-stone-900 text-white p-3 rounded-full shadow-lg hover:bg-stone-800 transition-all duration-300 opacity-0 pointer-events-none hover:scale-110" aria-label="Back to top">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up">
-        <path d="m18 15-6-6-6 6"></path>
-        <path d="M12 21V9"></path>
-      </svg>
-    </button>
-    
-    <script>
-        // Cookie Consent and Back to Top functionality
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- Cookie Consent ---
-            const cookieConsent = document.getElementById('cookieConsent');
-            const cookieAccept = document.getElementById('cookieAccept');
-            const cookieDecline = document.getElementById('cookieDecline');
-            
-            const cookieChoice = localStorage.getItem('cookieConsent');
-            
-            if (!cookieChoice) {
-                setTimeout(() => {
-                    cookieConsent.style.display = 'block';
-                    setTimeout(() => {
-                        cookieConsent.classList.remove('translate-y-full');
-                    }, 100);
-                }, 1000);
-            }
-            
-            if (cookieAccept) {
-                cookieAccept.addEventListener('click', () => {
-                    localStorage.setItem('cookieConsent', 'accepted');
-                    cookieConsent.classList.add('translate-y-full');
-                    setTimeout(() => {
-                        cookieConsent.style.display = 'none';
-                    }, 300);
-                });
-            }
-            
-            if (cookieDecline) {
-                cookieDecline.addEventListener('click', () => {
-                    localStorage.setItem('cookieConsent', 'declined');
-                    cookieConsent.classList.add('translate-y-full');
-                    setTimeout(() => {
-                        cookieConsent.style.display = 'none';
-                    }, 300);
-                    if (typeof gtag !== 'undefined') {
-                        window['ga-disable-G-XXXXXXXXXX'] = true;
-                    }
-                });
-            }
-            
-            // --- Back to Top Button ---
-            const backToTopBtn = document.getElementById('backToTop');
-            
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
-                    backToTopBtn.classList.add('opacity-100');
-                } else {
-                    backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
-                    backToTopBtn.classList.remove('opacity-100');
-                }
-            });
-            
-            if (backToTopBtn) {
-                backToTopBtn.addEventListener('click', () => {
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                });
-            }
-        });
-    </script>
-    
-    <!-- Custom Chat Widget -->
-    <div id="chatWidget" class="fixed bottom-6 right-6 z-50">
-        <button id="chatButton" class="w-14 h-14 bg-stone-900 text-white rounded-full shadow-lg hover:bg-stone-800 transition-all duration-300 hover:scale-110 flex items-center justify-center group" aria-label="Open chat">
-            <svg id="chatIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle">
-                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-            </svg>
-            <svg id="closeIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x hidden">
-                <path d="M18 6 6 18"></path>
-                <path d="M6 6l12 12"></path>
-            </svg>
-            <span class="absolute -top-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white animate-pulse"></span>
-        </button>
-        <div id="chatWindow" class="hidden absolute bottom-20 right-0 w-[380px] max-w-[calc(100vw-2rem)] h-[580px] bg-white rounded-2xl shadow-2xl border border-stone-200 overflow-hidden transform transition-all duration-300 opacity-0 translate-y-4 flex flex-col">
-            <div class="bg-stone-900 text-white p-4 flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle">
-                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-                        </svg>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-sm">Chat with Us</h3>
-                        <p class="text-xs text-stone-300">We'll respond as soon as possible</p>
-                    </div>
-                </div>
-                <button id="minimizeChat" class="text-stone-400 hover:text-white transition-colors" aria-label="Minimize chat">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus">
-                        <path d="M5 12h14"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="flex flex-col h-[500px]">
-                <div id="chatMessages" class="flex-1 overflow-y-auto p-4 space-y-3 bg-stone-50">
-                    <div class="flex items-start gap-2">
-                        <div class="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center shrink-0">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle">
-                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-                            </svg>
-                        </div>
-                        <div class="bg-white rounded-xl rounded-tl-none p-3 shadow-sm max-w-[85%]">
-                            <p class="text-sm text-stone-700 font-medium mb-1">Hello! 👋</p>
-                            <p class="text-xs text-stone-600">I'm here to help answer questions about Ark Care AFH. Ask me about our services, location, contact information, or anything else!</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-wrap gap-2 px-10">
-                        <button class="quick-action-btn text-xs px-3 py-1.5 bg-white border border-stone-200 rounded-full hover:bg-stone-100 transition-colors text-stone-700" data-action="services">Our Services</button>
-                        <button class="quick-action-btn text-xs px-3 py-1.5 bg-white border border-stone-200 rounded-full hover:bg-stone-100 transition-colors text-stone-700" data-action="location">Location</button>
-                        <button class="quick-action-btn text-xs px-3 py-1.5 bg-white border border-stone-200 rounded-full hover:bg-stone-100 transition-colors text-stone-700" data-action="contact">Contact Info</button>
-                        <button class="quick-action-btn text-xs px-3 py-1.5 bg-white border border-stone-200 rounded-full hover:bg-stone-100 transition-colors text-stone-700" data-action="hours">Hours</button>
-                    </div>
-                </div>
-                <div class="border-t border-stone-200 p-4 bg-white">
-                    <div id="chatFormContainer" class="hidden">
-                        <form id="chatForm" class="space-y-3" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                            <input type="hidden" name="_subject" value="New Chat Message from Website">
-                            <input type="hidden" name="_format" value="plain">
-                            <div id="chatFormStatus" class="hidden p-2 rounded-lg text-xs font-medium"></div>
-                            <input type="text" id="chatName" name="name" class="w-full bg-stone-50 border border-stone-200 rounded-lg px-3 py-2 text-xs text-stone-900 placeholder:text-stone-400 focus:bg-white focus:border-stone-900 focus:ring-1 focus:ring-stone-900 focus:outline-none transition-all" placeholder="Your Name" required>
-                            <input type="email" id="chatEmail" name="email" class="w-full bg-stone-50 border border-stone-200 rounded-lg px-3 py-2 text-xs text-stone-900 placeholder:text-stone-400 focus:bg-white focus:border-stone-900 focus:ring-1 focus:ring-stone-900 focus:outline-none transition-all" placeholder="Your Email" required>
-                            <textarea id="chatMessage" name="message" rows="2" class="w-full bg-stone-50 border border-stone-200 rounded-lg px-3 py-2 text-xs text-stone-900 placeholder:text-stone-400 focus:bg-white focus:border-stone-900 focus:ring-1 focus:ring-stone-900 focus:outline-none transition-all resize-none" placeholder="Your message..." required></textarea>
-                            <div class="flex gap-2">
-                                <button type="submit" id="chatSubmit" class="flex-1 bg-stone-900 text-white py-2 rounded-lg font-semibold text-xs hover:bg-stone-800 transition-colors">Send</button>
-                                <button type="button" id="cancelForm" class="px-4 py-2 text-xs text-stone-600 hover:text-stone-900 transition-colors">Cancel</button>
-                            </div>
-                        </form>
-                    </div>
-                    <div id="chatInputContainer" class="flex gap-2">
-                        <input type="text" id="chatInput" placeholder="Type your message..." class="flex-1 bg-stone-50 border border-stone-200 rounded-lg px-4 py-2.5 text-sm text-stone-900 placeholder:text-stone-400 focus:bg-white focus:border-stone-900 focus:ring-1 focus:ring-stone-900 focus:outline-none transition-all" autocomplete="off">
-                        <button id="sendMessage" class="bg-stone-900 text-white p-2.5 rounded-lg hover:bg-stone-800 transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send">
-                                <path d="m22 2-7 20-4-9-9-4Z"></path>
-                                <path d="M22 2 11 13"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="py-24 relative z-10 bg-black overflow-hidden">
+      <div class="bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-emerald-900/20 via-black to-black absolute top-0 right-0 bottom-0 left-0"></div>
+      <div class="max-w-4xl mx-auto px-6 relative text-center">
+        <h2 class="text-5xl md:text-6xl font-semibold text-white tracking-tight mb-6">
+          Take action today
+        </h2>
+        <p class="text-xl text-zinc-400 mb-10 max-w-2xl mx-auto">
+          Give your loved one the care they deserve. Schedule a private tour of
+          our residence and meet our compassionate team.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <button class="px-8 py-4 rounded-full bg-white text-black font-medium hover:bg-zinc-200 transition-colors w-full sm:w-auto">
+            Schedule a Tour
+          </button>
+          <button class="hover:bg-zinc-800 transition-colors sm:w-auto font-medium text-white bg-zinc-900 w-full border-zinc-800 border rounded-full pt-4 pr-8 pb-4 pl-8 cursor-pointer" onclick="window.location.href='about-us.html'" role="button">About Us</button>
         </div>
-    </div>
-    <style>
-        #chatWindow.show {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
-        @media (max-width: 640px) {
-            #chatWidget {
-                bottom: 1rem;
-                right: 1rem;
-            }
-            #chatWindow {
-                width: calc(100vw - 2rem);
-                height: calc(100vh - 8rem);
-                right: 0;
-                bottom: 4rem;
-            }
-        }
-    </style>
+      </div>
+    </section>
+    <footer class="relative z-10 bg-black pt-20 pb-10 border-t border-white/10 font-sans">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          <div class="space-y-6">
+            <a href="#" class="inline-flex items-center gap-2">
+              <div class="h-6 w-6 bg-emerald-500 rounded-full flex items-center justify-center">
+                <span class="font-instrument-serif italic text-black font-bold text-sm">
+                  A
+                </span>
+              </div>
+              <span class="text-lg font-bold tracking-tight text-white uppercase">
+                Ark Care
+              </span>
+            </a>
+            <p class="text-zinc-400 text-sm leading-relaxed">
+              Redefining assisted living with professional medical oversight in
+              a warm, dignified home environment.
+            </p>
+            <div class="flex gap-4">
+              <a href="#" class="h-10 w-10 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 hover:bg-emerald-500 hover:text-white transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+              </a>
+              <a href="#" class="h-10 w-10 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 hover:bg-emerald-500 hover:text-white transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twitter">
+                  <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+                </svg>
+              </a>
+              <a href="#" class="h-10 w-10 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 hover:bg-emerald-500 hover:text-white transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="">
+            <h3 class="text-white font-medium mb-6">Services</h3>
+            <ul class="space-y-3 text-sm text-zinc-500">
+              <li class="">
+                <a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500/0 hover:bg-emerald-500 transition-colors"></span>
+                  Assisted Living
+                </a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500/0 hover:bg-emerald-500 transition-colors"></span>
+                  Memory Care
+                </a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500/0 hover:bg-emerald-500 transition-colors"></span>
+                  Respite Care
+                </a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500/0 hover:bg-emerald-500 transition-colors"></span>
+                  Hospice Coordination
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="">
+            <h3 class="text-white font-medium mb-6">Company</h3>
+            <ul class="space-y-3 text-sm text-zinc-500">
+              <li>
+                <a href="#" class="hover:text-emerald-400 transition-colors">
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-emerald-400 transition-colors">
+                  Our Team
+                </a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-emerald-400 transition-colors">
+                  Careers
+                </a>
+              </li>
+              <li class="">
+                <a href="#" class="hover:text-emerald-400 transition-colors">
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-white font-medium mb-6">Newsletter</h3>
+            <p class="text-zinc-500 text-sm mb-4">
+              Subscribe to our newsletter for updates and care tips.
+            </p>
+            <form class="flex flex-col gap-3">
+              <div class="relative">
+                <input type="email" placeholder="Enter your email" class="w-full bg-zinc-900 border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all">
+                <button type="submit" class="absolute right-1.5 top-1.5 p-1.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-md transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right">
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                  </svg>
+                </button>
+              </div>
+              <p class="text-[10px] text-zinc-600">
+                By subscribing, you agree to our Privacy Policy.
+              </p>
+            </form>
+          </div>
+        </div>
+
+        <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p class="text-zinc-500 text-sm">
+            © 2024 Ark Care Home. All rights reserved.
+          </p>
+          <div class="flex gap-6 text-sm text-zinc-500">
+            <a href="#" class="hover:text-white transition-colors">
+              Privacy Policy
+            </a>
+            <a href="#" class="hover:text-white transition-colors">
+              Terms of Service
+            </a>
+            <a href="#" class="hover:text-white transition-colors">
+              Cookie Policy
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const chatButton = document.getElementById('chatButton');
-            const chatWindow = document.getElementById('chatWindow');
-            const minimizeChat = document.getElementById('minimizeChat');
-            const chatIcon = document.getElementById('chatIcon');
-            const closeIcon = document.getElementById('closeIcon');
-            const chatMessages = document.getElementById('chatMessages');
-            const chatInput = document.getElementById('chatInput');
-            const sendMessage = document.getElementById('sendMessage');
-            const chatFormContainer = document.getElementById('chatFormContainer');
-            const chatInputContainer = document.getElementById('chatInputContainer');
-            const chatForm = document.getElementById('chatForm');
-            const cancelForm = document.getElementById('cancelForm');
-            let isOpen = false;
-            const knowledgeBase = {
-                services: {
-                    keywords: ['service', 'services', 'care', 'what do you offer', 'what services', 'offerings', 'programs'],
-                    response: 'We provide comprehensive adult family home services including:\n\n• 24/7 Professional Caregiver Support\n• Medication Management\n• Personal Care Assistance\n• Specialized Support for Mental Health\n• Dementia Care\n• Developmental Disabilities Support\n• HCS (Home and Community Services)\n• DDA Meaningful Day Programs\n• Nutritious Meal Planning\n• Social Activities & Engagement\n\nWould you like more details about any specific service?'
-                },
-                location: {
-                    keywords: ['location', 'address', 'where', 'located', 'find you', 'directions'],
-                    response: 'We are located at:\n\n📍 127 4th Ave N\nAlgona, WA 98001\n\nWe\'re in a quiet, safe neighborhood in Algona, Washington, providing easy access for visiting families. Would you like directions or to schedule a tour?'
-                },
-                contact: {
-                    keywords: ['contact', 'phone', 'email', 'call', 'reach', 'number', 'telephone'],
-                    response: 'You can reach us at:\n\n📞 Phone: (206) 455-3644\n📧 Email: contact@arkcare.local\n📍 Address: 127 4th Ave N, Algona, WA 98001\n\nWe\'re available 24/7 to answer your questions!'
-                },
-                hours: {
-                    keywords: ['hours', 'open', 'when', 'available', 'time', 'schedule'],
-                    response: 'We are available 24/7! Our facility provides round-the-clock care and support. You can call us anytime at (206) 455-3644 or schedule a tour at your convenience.'
-                },
-                certification: {
-                    keywords: ['licensed', 'certified', 'certification', 'license', 'accredited', 'medicaid', 'hipaa', 'dda', 'hcs'],
-                    response: 'Yes! We are fully licensed and certified:\n\n✅ Licensed Adult Family Home (AFH)\n✅ Washington State Department of Health\n✅ HIPAA Compliant\n✅ Medicaid Certified\n✅ HCS Provider\n✅ DDA Provider\n\nWe maintain the highest standards of care and compliance.'
-                },
-                tour: {
-                    keywords: ['tour', 'visit', 'see', 'schedule', 'appointment', 'view'],
-                    response: 'We\'d love to show you around! You can schedule a tour by:\n\n📞 Calling us at (206) 455-3644\n📧 Emailing contact@arkcare.local\n🌐 Visiting our contact page\n\nTours are available at your convenience. We look forward to meeting you!'
-                },
-                cost: {
-                    keywords: ['cost', 'price', 'fee', 'payment', 'afford', 'insurance', 'medicaid', 'medicare'],
-                    response: 'We accept Medicaid and work with various payment options. For specific pricing and payment information, please call us at (206) 455-3644 or email contact@arkcare.local. We\'re happy to discuss your options and answer any questions about coverage.'
-                },
-                mental: {
-                    keywords: ['mental health', 'mental', 'behavioral', 'psychiatric', 'anxiety', 'depression'],
-                    response: 'Yes! We provide specialized support for residents with mental health needs. Our trained staff offers compassionate care tailored to each individual\'s needs. We work closely with healthcare providers to ensure comprehensive support.'
-                },
-                dementia: {
-                    keywords: ['dementia', 'alzheimer', 'memory', 'cognitive'],
-                    response: 'We specialize in dementia care! Our facility provides:\n\n• Specialized memory care programs\n• Safe, secure environment\n• Trained staff experienced with dementia\n• Activities designed to maintain cognitive function\n• Personalized care plans\n\nWould you like to learn more about our dementia care services?'
-                },
-                developmental: {
-                    keywords: ['developmental', 'disability', 'disabilities', 'dd', 'special needs'],
-                    response: 'We provide specialized care for individuals with developmental disabilities. Our services include:\n\n• DDA Meaningful Day Programs\n• Personalized support plans\n• Life skills development\n• Community integration\n• 24/7 professional care\n\nWe\'re committed to supporting each resident\'s unique needs and goals.'
-                }
-            };
-            function toggleChat() {
-                isOpen = !isOpen;
-                if (isOpen) {
-                    chatWindow.classList.remove('hidden');
-                    setTimeout(() => {
-                        chatWindow.classList.add('show');
-                    }, 10);
-                    chatIcon.classList.add('hidden');
-                    closeIcon.classList.remove('hidden');
-                    chatInput.focus();
-                } else {
-                    chatWindow.classList.remove('show');
-                    setTimeout(() => {
-                        chatWindow.classList.add('hidden');
-                    }, 300);
-                    chatIcon.classList.remove('hidden');
-                    closeIcon.classList.add('hidden');
-                }
-            }
-            function addMessage(text, isUser = false) {
-                const messageDiv = document.createElement('div');
-                messageDiv.className = `flex items-start gap-2 ${isUser ? 'flex-row-reverse' : ''}`;
-                if (!isUser) {
-                    const avatar = document.createElement('div');
-                    avatar.className = 'w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center shrink-0';
-                    avatar.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>';
-                    messageDiv.appendChild(avatar);
-                }
-                const textDiv = document.createElement('div');
-                textDiv.className = `rounded-xl p-3 shadow-sm max-w-[85%] ${isUser ? 'bg-stone-900 text-white rounded-tr-none' : 'bg-white text-stone-700 rounded-tl-none'}`;
-                textDiv.innerHTML = `<p class="text-sm whitespace-pre-line">${text}</p>`;
-                messageDiv.appendChild(textDiv);
-                chatMessages.appendChild(messageDiv);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            }
-            function findAnswer(question) {
-                const lowerQuestion = question.toLowerCase();
-                for (const [key, data] of Object.entries(knowledgeBase)) {
-                    if (data.keywords.some(keyword => lowerQuestion.includes(keyword))) {
-                        return data.response;
-                    }
-                }
-                return null;
-            }
-            function handleMessage(message) {
-                addMessage(message, true);
-                const typingDiv = document.createElement('div');
-                typingDiv.id = 'typingIndicator';
-                typingDiv.className = 'flex items-start gap-2';
-                typingDiv.innerHTML = `
-                    <div class="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle">
-                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-                        </svg>
-                    </div>
-                    <div class="bg-white rounded-xl rounded-tl-none p-3">
-                        <div class="flex gap-1">
-                            <div class="w-2 h-2 bg-stone-400 rounded-full animate-bounce" style="animation-delay: 0s"></div>
-                            <div class="w-2 h-2 bg-stone-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
-                            <div class="w-2 h-2 bg-stone-400 rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
-                        </div>
-                    </div>
-                `;
-                chatMessages.appendChild(typingDiv);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-                setTimeout(() => {
-                    const answer = findAnswer(message);
-                    document.getElementById('typingIndicator')?.remove();
-                    if (answer) {
-                        addMessage(answer);
-                    } else {
-                        addMessage('I understand you\'re asking about: "' + message + '". While I can answer many questions about our services, location, and contact information, for more detailed inquiries, would you like to speak with our team directly? I can help you fill out a contact form!', false);
-                        setTimeout(() => {
-                            showContactForm(message);
-                        }, 2000);
-                    }
-                }, 1000);
-            }
-            function showContactForm(prefillMessage = '') {
-                chatInputContainer.classList.add('hidden');
-                chatFormContainer.classList.remove('hidden');
-                if (prefillMessage && document.getElementById('chatMessage')) {
-                    document.getElementById('chatMessage').value = prefillMessage;
-                }
-            }
-            function hideContactForm() {
-                chatFormContainer.classList.add('hidden');
-                chatInputContainer.classList.remove('hidden');
-                chatForm.reset();
-            }
-            if (chatButton) chatButton.addEventListener('click', toggleChat);
-            if (minimizeChat) minimizeChat.addEventListener('click', toggleChat);
-            document.querySelectorAll('.quick-action-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const action = btn.dataset.action;
-                    const answer = knowledgeBase[action]?.response;
-                    if (answer) {
-                        addMessage(btn.textContent, true);
-                        setTimeout(() => {
-                            addMessage(answer);
-                        }, 500);
-                    }
-                });
-            });
-            function sendChatMessage() {
-                const message = chatInput.value.trim();
-                if (message) {
-                    handleMessage(message);
-                    chatInput.value = '';
-                }
-            }
-            if (sendMessage) {
-                sendMessage.addEventListener('click', sendChatMessage);
-            }
-            if (chatInput) {
-                chatInput.addEventListener('keypress', (e) => {
-                    if (e.key === 'Enter') {
-                        sendChatMessage();
-                    }
-                });
-            }
-            if (cancelForm) {
-                cancelForm.addEventListener('click', hideContactForm);
-            }
-            if (chatForm) {
-                chatForm.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    const formData = new FormData(chatForm);
-                    const submitButton = document.getElementById('chatSubmit');
-                    const originalText = submitButton.innerHTML;
-                    submitButton.disabled = true;
-                    submitButton.innerHTML = 'Sending...';
-                    try {
-                        const response = await fetch(chatForm.action, {
-                            method: 'POST',
-                            body: formData,
-                            headers: { 'Accept': 'application/json' }
-                        });
-                        if (response.ok) {
-                            addMessage('Thank you! Your message has been sent. We\'ll get back to you soon.', false);
-                            chatForm.reset();
-                            hideContactForm();
-                            setTimeout(() => toggleChat(), 3000);
-                        } else {
-                            throw new Error('Form submission failed');
-                        }
-                    } catch (error) {
-                        addMessage('Sorry, there was an error. Please call us at (206) 455-3644', false);
-                    } finally {
-                        submitButton.disabled = false;
-                        submitButton.innerHTML = originalText;
-                    }
-                });
-            }
+      document.addEventListener('DOMContentLoaded', function() {
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Initialize Vanta Globe with adapted colors (softer, greener)
+        VANTA.GLOBE({
+          el: "#vanta-bg",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.00,
+          scaleMobile: 1.00,
+          color: 0x10b981,
+          color2: 0x059669,
+          size: 1.20,
+          backgroundColor: 0x000000
         });
+      });
     </script>
   
 </body></html>

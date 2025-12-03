@@ -1,1472 +1,914 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth"><head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-<title>Services — Ark Care AFH | 24/7 Professional Care & Support</title>
-<meta name="description" content="Comprehensive adult family home services including 24/7 professional care, medication management, personal care assistance, activities, and specialized care programs in Algona, Washington.">
-<meta name="keywords" content="adult family home services, 24/7 care, medication management, personal care assistance, specialized care programs, Algona Washington">
-<link rel="canonical" href="https://arkcareafh.com/services.html">
-
-<!-- Google Analytics 4 -->
-<!-- Replace G-XXXXXXXXXX with your actual Google Analytics 4 Measurement ID -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
-
-<!-- Tailwind -->
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ark Care - Premium Adult Family Home</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<!-- Icons -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lucide@latest"></script>
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <style>
-body {
-font-family: 'Geist', sans-serif;
-background-color: #f5f5f4; /* stone-100 */
-color: #1c1917; /* stone-900 */
--webkit-font-smoothing: antialiased;
+body { font-family: 'Inter', sans-serif; }
+@property --gradient-angle {
+syntax: "<angle>";
+initial-value: 0deg;
+inherits: false;
 }
-h1, h2, h3, h4, h5, h6 {
-font-family: 'PT Serif', serif;
-font-weight: 500;
+@property --gradient-angle-offset {
+syntax: "<angle>";
+initial-value: 0deg;
+inherits: false;
 }
-
-/* Responsive Typography */
-@media (max-width: 640px) {
-    h1 { font-size: 2rem !important; }
-    h2 { font-size: 1.75rem !important; }
-    h3 { font-size: 1.5rem !important; }
-    .text-5xl { font-size: 2.5rem !important; }
-    .text-6xl { font-size: 3rem !important; }
-    .text-7xl { font-size: 3.5rem !important; }
-    .text-8xl { font-size: 4rem !important; }
+@property --gradient-percent {
+syntax: "<percentage>";
+initial-value: 20%;
+inherits: false;
 }
-
-/* Very small screens (< 360px) */
-@media (max-width: 360px) {
-    h1 { font-size: 1.75rem !important; }
-    h2 { font-size: 1.5rem !important; }
-    h3 { font-size: 1.25rem !important; }
-    .text-4xl { font-size: 1.75rem !important; }
-    .text-5xl { font-size: 2rem !important; }
-    .text-6xl { font-size: 2.5rem !important; }
-    .text-7xl { font-size: 3rem !important; }
-    .text-8xl { font-size: 3.5rem !important; }
-    /* Reduce navigation padding on very small screens */
-    nav { padding: 0.75rem !important; }
-    nav .max-w-\[1200px\] { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
+@property --gradient-shine {
+syntax: "<color>";
+initial-value: #10b981;
+inherits: false;
 }
-
-/* Touch Target Improvements */
-button, a[role="button"], .btn {
-    min-height: 44px;
-    min-width: 44px;
-}
-
-/* Mobile Menu Styles */
-#mobileMenu {
-    overscroll-behavior: contain;
-}
-
-/* Prevent horizontal scroll on mobile */
-@media (max-width: 768px) {
-    * {
-        max-width: 100%;
-    }
-    img, video {
-        max-width: 100%;
-        height: auto;
-    }
-    /* Keep Spline iframe full height */
-    .spline-container iframe {
-        height: 100% !important;
-    }
-}
-
-/* Improved form inputs on mobile */
-@media (max-width: 640px) {
-    input, textarea, select {
-        font-size: 16px !important; /* Prevents zoom on iOS */
-    }
-    /* Better mobile spacing */
-    section {
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
-    }
-    /* Prevent text overflow */
-    h1, h2, h3 {
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-    }
-    /* Improve navigation on mobile */
-    nav a {
-        font-size: 0.7rem !important;
-    }
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #d6d3d1; border-radius: 10px; }
-/* Utilities */
-.glass-panel {
-background: rgba(255, 255, 255, 0.6);
-backdrop-filter: blur(12px);
--webkit-backdrop-filter: blur(12px);
-border: 1px solid rgba(255, 255, 255, 0.5);
-}
-.flashlight-card {
+.shiny-cta {
+--gradient-angle: 0deg;
+--gradient-angle-offset: 0deg;
+--gradient-percent: 20%;
+--gradient-shine: #10b981;
+--shadow-size: 2px;
 position: relative;
-background: rgba(255, 255, 255, 0.5);
 overflow: hidden;
-transition: border-color 0.3s;
+border-radius: 9999px;
+padding: 1rem 2rem;
+font-size: 1rem;
+line-height: 1.2;
+font-weight: 500;
+color: #ffffff;
+background: linear-gradient(#000000, #000000) padding-box,
+conic-gradient(
+from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
+transparent 0%,
+#059669 5%,
+var(--gradient-shine) 15%,
+#059669 30%,
+transparent 40%,
+transparent 100%
+) border-box;
+border: 2px solid transparent;
+box-shadow: inset 0 0 0 1px #1a1818;
+outline: none;
+transition: --gradient-angle-offset 800ms cubic-bezier(0.25, 1, 0.5, 1),
+--gradient-percent 800ms cubic-bezier(0.25, 1, 0.5, 1),
+--gradient-shine 800ms cubic-bezier(0.25, 1, 0.5, 1),
+box-shadow 0.3s;
+cursor: pointer;
+isolation: isolate;
+outline-offset: 4px;
+z-index: 0;
+animation: border-spin 2.5s linear infinite;
 }
-.flashlight-card::before {
-content: "";
-position: absolute;
-top: 0; left: 0; right: 0; bottom: 0;
-background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.8), transparent 40%);
-opacity: 0;
-transition: opacity 0.5s;
+@keyframes border-spin {
+to {
+--gradient-angle: 360deg;
+}
+}
+.shiny-cta:active {
+transform: translateY(1px);
+}
+.shiny-cta::before {
+content: '';
 pointer-events: none;
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+z-index: 0;
+--size: calc(100% - 6px);
+--position: 2px;
+--space: 4px;
+width: var(--size);
+height: var(--size);
+background: radial-gradient(circle at var(--position) var(--position), white 0.5px, transparent 0) padding-box;
+background-size: var(--space) var(--space);
+background-repeat: space;
+mask-image: conic-gradient(
+from calc(var(--gradient-angle) + 45deg),
+black,
+transparent 10% 90%,
+black
+);
+border-radius: inherit;
+opacity: 0.4;
+pointer-events: none;
+}
+.shiny-cta::after {
+content: '';
+pointer-events: none;
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
 z-index: 1;
+width: 100%;
+aspect-ratio: 1;
+background: linear-gradient(-50deg, transparent, #10b981, transparent);
+mask-image: radial-gradient(circle at bottom, transparent 40%, black);
+opacity: 0.6;
+animation: shimmer 4s linear infinite;
+animation-play-state: running;
 }
-.flashlight-card:hover::before { opacity: 1; }
-.feature-grid-bg {
-background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
-background-size: 40px 40px;
+.shiny-cta span {
+position: relative;
+z-index: 2;
+display: inline-block;
 }
-/* Animation Keyframes */
-@keyframes sequenceFade {
-from { opacity: 0; transform: translateY(20px) rotateX(5deg); }
-to { opacity: 1; transform: translateY(0) rotateX(0); }
-}
-.animate-seq {
+.shiny-cta span::before {
+content: '';
+pointer-events: none;
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+z-index: -1;
+--size: calc(100% + 1rem);
+width: var(--size);
+height: var(--size);
+box-shadow: inset 0 -1ex 2rem 4px #059669;
 opacity: 0;
-animation: sequenceFade 1.4s ease-in forwards;
-transform-style: preserve-3d;
+border-radius: inherit;
+transition: opacity 800ms cubic-bezier(0.25, 1, 0.5, 1);
+animation: breathe 4.5s linear infinite;
 }
-/* Stagger delays */
-.delay-100 { animation-delay: 100ms; }
-.delay-200 { animation-delay: 200ms; }
-.delay-300 { animation-delay: 300ms; }
+@keyframes shimmer {
+to {
+transform: translate(-50%, -50%) rotate(360deg);
+}
+}
+@keyframes breathe {
+0%, 100% {
+transform: translate(-50%, -50%) scale(1);
+}
+50% {
+transform: translate(-50%, -50%) scale(1.20);
+}
+}
+@keyframes marquee-vertical {
+from {
+transform: translateY(0);
+}
+to {
+transform: translateY(-50%);
+}
+}
+.animate-marquee-vertical {
+animation: marquee-vertical 40s linear infinite;
+}
+.animate-marquee-vertical:hover {
+animation-play-state: paused;
+}
+</style>
+<style>
+@keyframes fadeSlideIn{0%{opacity:0;transform:translateY(30px);filter:blur(8px)}100%{opacity:1;transform:translateY(0);filter:blur(0px)}}.animate-on-scroll{animation-play-state:paused!important}.animate-on-scroll.animate{animation-play-state:running!important}
 </style>
 <script>
+(function(){const once=true;if(!window.__inViewIO){window.__inViewIO=new IntersectionObserver((entries)=>{entries.forEach((entry)=>{if(entry.isIntersecting){entry.target.classList.add("animate");if(once)window.__inViewIO.unobserve(entry.target)}})},{threshold:0.2,rootMargin:"0px 0px -10% 0px"})}window.initInViewAnimations=function(selector=".animate-on-scroll"){document.querySelectorAll(selector).forEach((el)=>{window.__inViewIO.observe(el)})};document.addEventListener("DOMContentLoaded",()=>initInViewAnimations())})();
+</script>
+<style id="aura-editor-visibility-style">
+.invisible { visibility: hidden !important; }
+</style>
+<link id="all-fonts-link-font-instrument-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&amp;display=swap"><link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist">
+.font-geist { font-family: 'Geist', sans-serif !important; }
+</style><link id="all-fonts-link-font-roboto" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-roboto">
+.font-roboto { font-family: 'Roboto', sans-serif !important; }
+</style><link id="all-fonts-link-font-montserrat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-montserrat">
+.font-montserrat { font-family: 'Montserrat', sans-serif !important; }
+</style><link id="all-fonts-link-font-poppins" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-poppins">
+.font-poppins { font-family: 'Poppins', sans-serif !important; }
+</style><link id="all-fonts-link-font-playfair" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&amp;display=swap"><style id="all-fonts-style-font-playfair">
+.font-playfair { font-family: 'Playfair Display', serif !important; }
+</style><style id="all-fonts-style-font-instrument-serif">
+.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }
+</style><link id="all-fonts-link-font-merriweather" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap"><style id="all-fonts-style-font-merriweather">
+.font-merriweather { font-family: 'Merriweather', serif !important; }
+</style><link id="all-fonts-link-font-bricolage" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-bricolage">
+.font-bricolage { font-family: 'Bricolage Grotesque', sans-serif !important; }
+</style><link id="all-fonts-link-font-jakarta" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-jakarta">
+.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }
+</style><link id="all-fonts-link-font-manrope" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-manrope">
+.font-manrope { font-family: 'Manrope', sans-serif !important; }
+</style><link id="all-fonts-link-font-space-grotesk" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-space-grotesk">
+.font-space-grotesk { font-family: 'Space Grotesk', sans-serif !important; }
+</style><link id="all-fonts-link-font-work-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-work-sans">
+.font-work-sans { font-family: 'Work Sans', sans-serif !important; }
+</style><link id="all-fonts-link-font-pt-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-pt-serif">
+.font-pt-serif { font-family: 'PT Serif', serif !important; }
+</style><link id="all-fonts-link-font-geist-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist-mono">
+.font-geist-mono { font-family: 'Geist Mono', monospace !important; }
+</style><link id="all-fonts-link-font-space-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-space-mono">
+.font-space-mono { font-family: 'Space Mono', monospace !important; }
+</style><link id="all-fonts-link-font-quicksand" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-quicksand">
+.font-quicksand { font-family: 'Quicksand', sans-serif !important; }
+</style><link id="all-fonts-link-font-nunito" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-nunito">
+.font-nunito { font-family: 'Nunito', sans-serif !important; }
+</style><style id="border-gradient-shared-style">
+[style*="--border-gradient"]::before {
+content: "";
+position: absolute;
+inset: 0;
+padding: 1px;
+border-radius: var(--border-radius-before, inherit);
+-webkit-mask: linear-gradient(#fff 0 0) content-box,
+linear-gradient(#fff 0 0);
+-webkit-mask-composite: xor;
+mask-composite: exclude;
+background: var(--border-gradient);
+pointer-events: none;
+}</style>  <style>
+/* 3D Transform utilities */
+.rotate-x-0 { --tw-rotate-x: 0deg; transform: translate3d(var(--tw-translate-x, 0), var(--tw-translate-y, 0), var(--tw-translate-z, 0)) rotateX(var(--tw-rotate-x, 0)) rotateY(var(--tw-rotate-y, 0)) rotateZ(var(--tw-rotate-z, 0)) skewX(var(--tw-skew-x, 0)) skewY(var(--tw-skew-y, 0)) scaleX(var(--tw-scale-x, 1)) scaleY(var(--tw-scale-y, 1)) !important; }
+.rotate-x-5 { --tw-rotate-x: 5deg; transform: translate3d(var(--tw-translate-x, 0), var(--tw-translate-y, 0), var(--tw-translate-z, 0)) rotateX(var(--tw-rotate-x, 0)) rotateY(var(--tw-rotate-y, 0)) rotateZ(var(--tw-rotate-z, 0)) skewX(var(--tw-skew-x, 0)) skewY(var(--tw-skew-y, 0)) scaleX(var(--tw-scale-x, 1)) scaleY(var(--tw-scale-y, 1)) !important; }
+.rotate-y-0 { --tw-rotate-y: 0deg; transform: translate3d(var(--tw-translate-x, 0), var(--tw-translate-y, 0), var(--tw-translate-z, 0)) rotateX(var(--tw-rotate-x, 0)) rotateY(var(--tw-rotate-y, 0)) rotateZ(var(--tw-rotate-z, 0)) skewX(var(--tw-skew-x, 0)) skewY(var(--tw-skew-y, 0)) scaleX(var(--tw-scale-x, 1)) scaleY(var(--tw-scale-y, 1)) !important; }
+.rotate-y-5 { --tw-rotate-y: 5deg; transform: translate3d(var(--tw-translate-x, 0), var(--tw-translate-y, 0), var(--tw-translate-z, 0)) rotateX(var(--tw-rotate-x, 0)) rotateY(var(--tw-rotate-y, 0)) rotateZ(var(--tw-rotate-z, 0)) skewX(var(--tw-skew-x, 0)) skewY(var(--tw-skew-y, 0)) scaleX(var(--tw-scale-x, 1)) scaleY(var(--tw-scale-y, 1)) !important; }
+.perspective-dramatic { perspective: 100px !important; }
+</style>
+<script>
+// Configure Tailwind to include our custom 3D transform utilities
 tailwind.config = {
 theme: {
 extend: {
-colors: {
-stone: {
-50: '#fafaf9',
-100: '#f5f5f4',
-200: '#e7e5e4',
-300: '#d6d3d1',
-900: '#1c1917',
-}
-},
-fontFamily: {
-serif: ['"Playfair Display"', 'serif'],
-sans: ['"Inter"', 'sans-serif'],
-}
+// Add any custom theme extensions here if needed
 }
 },
 plugins: [
 function({ addUtilities }) {
+const rotateXUtilities = {};
+const rotateYUtilities = {};
+const rotateZUtilities = {};
+const rotateValues = [0, 5, 10, 15, 20, 30, 45, 75];
+// Generate rotate-x utilities
+rotateValues.forEach((value) => {
+rotateXUtilities[`.rotate-x-${value}`] = {
+'--tw-rotate-x': `${value}deg`,
+transform: `
+translate3d(var(--tw-translate-x, 0), var(--tw-translate-y, 0), var(--tw-translate-z, 0))
+rotateX(var(--tw-rotate-x, 0))
+rotateY(var(--tw-rotate-y, 0))
+rotateZ(var(--tw-rotate-z, 0))
+skewX(var(--tw-skew-x, 0))
+skewY(var(--tw-skew-y, 0))
+scaleX(var(--tw-scale-x, 1))
+scaleY(var(--tw-scale-y, 1))
+`.replace(/\\s+/g, ' ').trim(),
+};
+if (value !== 0) {
+rotateXUtilities[`.-rotate-x-${value}`] = {
+'--tw-rotate-x': `-${value}deg`,
+transform: `
+translate3d(var(--tw-translate-x, 0), var(--tw-translate-y, 0), var(--tw-translate-z, 0))
+rotateX(var(--tw-rotate-x, 0))
+rotateY(var(--tw-rotate-y, 0))
+rotateZ(var(--tw-rotate-z, 0))
+skewX(var(--tw-skew-x, 0))
+skewY(var(--tw-skew-y, 0))
+scaleX(var(--tw-scale-x, 1))
+scaleY(var(--tw-scale-y, 1))
+`.replace(/\\s+/g, ' ').trim(),
+};
+}
+});
+// Generate rotate-y utilities
+rotateValues.forEach((value) => {
+rotateYUtilities[`.rotate-y-${value}`] = {
+'--tw-rotate-y': `${value}deg`,
+transform: `
+translate3d(var(--tw-translate-x, 0), var(--tw-translate-y, 0), var(--tw-translate-z, 0))
+rotateX(var(--tw-rotate-x, 0))
+rotateY(var(--tw-rotate-y, 0))
+rotateZ(var(--tw-rotate-z, 0))
+skewX(var(--tw-skew-x, 0))
+skewY(var(--tw-skew-y, 0))
+scaleX(var(--tw-scale-x, 1))
+scaleY(var(--tw-scale-y, 1))
+`.replace(/\\s+/g, ' ').trim(),
+};
+if (value !== 0) {
+rotateYUtilities[`.-rotate-y-${value}`] = {
+'--tw-rotate-y': `-${value}deg`,
+transform: `
+translate3d(var(--tw-translate-x, 0), var(--tw-translate-y, 0), var(--tw-translate-z, 0))
+rotateX(var(--tw-rotate-x, 0))
+rotateY(var(--tw-rotate-y, 0))
+rotateZ(var(--tw-rotate-z, 0))
+skewX(var(--tw-skew-x, 0))
+skewY(var(--tw-skew-y, 0))
+scaleX(var(--tw-scale-x, 1))
+scaleY(var(--tw-scale-y, 1))
+`.replace(/\\s+/g, ' ').trim(),
+};
+}
+});
+// Generate rotate-z utilities
+rotateValues.forEach((value) => {
+rotateZUtilities[`.rotate-z-${value}`] = {
+'--tw-rotate-z': `${value}deg`,
+transform: `
+translate3d(var(--tw-translate-x, 0), var(--tw-translate-y, 0), var(--tw-translate-z, 0))
+rotateX(var(--tw-rotate-x, 0))
+rotateY(var(--tw-rotate-y, 0))
+rotateZ(var(--tw-rotate-z, 0))
+skewX(var(--tw-skew-x, 0))
+skewY(var(--tw-skew-y, 0))
+scaleX(var(--tw-scale-x, 1))
+scaleY(var(--tw-scale-y, 1))
+`.replace(/\\s+/g, ' ').trim(),
+};
+if (value !== 0) {
+rotateZUtilities[`.-rotate-z-${value}`] = {
+'--tw-rotate-z': `-${value}deg`,
+transform: `
+translate3d(var(--tw-translate-x, 0), var(--tw-translate-y, 0), var(--tw-translate-z, 0))
+rotateX(var(--tw-rotate-x, 0))
+rotateY(var(--tw-rotate-y, 0))
+rotateZ(var(--tw-rotate-z, 0))
+skewX(var(--tw-skew-x, 0))
+skewY(var(--tw-skew-y, 0))
+scaleX(var(--tw-scale-x, 1))
+scaleY(var(--tw-scale-y, 1))
+`.replace(/\\s+/g, ' ').trim(),
+};
+}
+});
+// Perspective utilities
+const perspectiveUtilities = {
+".perspective-none": { perspective: "none" },
+".perspective-dramatic": { perspective: "100px" },
+".perspective-near": { perspective: "300px" },
+".perspective-normal": { perspective: "500px" },
+".perspective-midrange": { perspective: "800px" },
+".perspective-distant": { perspective: "1200px" },
+};
+// Transform style utilities
+const transformStyleUtilities = {
+".transform-style-preserve-3d": { "transform-style": "preserve-3d" },
+".transform-style-flat": { "transform-style": "flat" },
+};
 addUtilities({
-'.rotate-y-0': { transform: 'rotateY(0deg)' },
-'.rotate-y-12': { transform: 'rotateY(12deg)' },
-'.-rotate-y-12': { transform: 'rotateY(-12deg)' },
-'.perspective-1000': { perspective: '1000px' },
-'.transform-style-3d': { transformStyle: 'preserve-3d' },
-'.backface-hidden': { backfaceVisibility: 'hidden' },
-})
+...rotateXUtilities,
+...rotateYUtilities,
+...rotateZUtilities,
+...perspectiveUtilities,
+...transformStyleUtilities,
+});
 }
 ]
 };
-</script>
-<meta name="disabled-font-classes" content="font-roboto,font-poppins,font-instrument-serif,font-bricolage,font-jakarta,font-space-grotesk,font-work-sans,font-pt-serif,font-space-mono,font-quicksand,font-nunito,font-geist-mono,font-montserrat,font-manrope">
-<link id="all-fonts-link-font-playfair" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&amp;display=swap"><style id="all-fonts-style-font-playfair">
-.font-playfair { font-family: 'Playfair Display', serif !important; }
-</style><link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist">
-.font-geist { font-family: 'Geist', sans-serif !important; }
-</style><link id="all-fonts-link-font-merriweather" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap"><style id="all-fonts-style-font-merriweather">
-.font-merriweather { font-family: 'Merriweather', serif !important; }
-</style>  <style>
-/* 3D Transform utilities */
-.rotate-y-0 { --tw-rotate-y: 0deg; transform: translate3d(var(--tw-translate-x, 0), var(--tw-translate-y, 0), var(--tw-translate-z, 0)) rotateX(var(--tw-rotate-x, 0)) rotateY(var(--tw-rotate-y, 0)) rotateZ(var(--tw-rotate-z, 0)) skewX(var(--tw-skew-x, 0)) skewY(var(--tw-skew-y, 0)) scaleX(var(--tw-scale-x, 1)) scaleY(var(--tw-scale-y, 1)) !important; }
-</style></head>
-  <body class="bg-stone-50 text-stone-900 antialiased selection:bg-stone-200 selection:text-stone-900">
-    <!-- Background (component) added by Aura -->
-    <div class="aura-background-component fixed top-0 w-full h-screen -z-10" data-alpha-mask="80" style="mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent)">
-      <div class="spline-container absolute top-0 left-0 w-full h-full -z-10">
-        <iframe src="https://my.spline.design/twistcopy-CPActtgUfoQoOToZfH4Pt18Q" frameborder="0" width="100%" height="100%" style="pointer-events: none;" allow="autoplay; fullscreen" loading="lazy"></iframe>
-      </div>
-    </div>
-    <!-- Progress blur -->
+</script></head>
+  <body class="overflow-x-hidden text-white bg-black font-sans selection:bg-emerald-500/30">
+    <!-- Background (component) -->
+    
 
-    <div class="min-h-screen overflow-hidden max-w-[1600px] mr-auto ml-auto relative shadow-2xl">
-    <!-- Compact Navigation -->
-    <nav class="fixed transition-all duration-300 z-[55] w-full pt-4 pr-4 pb-4 pl-4 top-0 left-0 backdrop-blur-sm" id="navbar">
-      <div class="relative flex max-w-[1200px] mr-auto ml-auto pt-4 pr-6 pb-4 pl-6 items-center justify-between">
-        <!-- Logo -->
-        <a href="index.html" class="text-xl font-semibold text-stone-900 tracking-tight font-serif z-10 relative">
-          Ark Care AFH
-        </a>
+<!-- Background (component) added by Aura -->
+<div class="aura-background-component top-0 w-full -z-10 absolute h-[1000px]" data-alpha-mask="80" style="mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent)"><div data-us-project="cqcLtDwfoHqqRPttBbQE" class="absolute top-0 left-0 -z-10 w-full h-full"></div>
+<script type="text/javascript">
+  !function(){if(!window.UnicornStudio){window.UnicornStudio={isInitialized:!1};var i=document.createElement("script");i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js",i.onload=function(){window.UnicornStudio.isInitialized||(UnicornStudio.init(),window.UnicornStudio.isInitialized=!0)},(document.head || document.body).appendChild(i)}}();
+</script></div>
 
-        <!-- Centered Navigation Pill -->
-        <div class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-8 bg-stone-100/80 backdrop-blur-md px-10 py-3 rounded-full border border-stone-200/50 shadow-sm z-0">
-          <a href="index.html" class="uppercase hover:text-stone-900 transition-colors text-[11px] text-xs font-bold text-stone-900 tracking-widest font-merriweather">
-              Home
-            </a>
-          <a href="about-us.html" class="uppercase hover:text-stone-900 transition-colors text-[11px] whitespace-nowrap text-xs font-bold text-stone-900 tracking-widest font-merriweather">
-              About Us
-            </a>
-          <a href="services.html" class="uppercase hover:text-stone-900 transition-colors text-[11px] text-xs font-bold text-stone-900 tracking-widest font-merriweather">
-              Services
-            </a>
-          <a href="gallery.html" class="uppercase hover:text-stone-900 transition-colors text-[11px] text-xs font-bold text-stone-900 tracking-widest font-merriweather">
-              Gallery
-            </a>
-          <a href="contact.html" class="uppercase hover:text-stone-900 transition-colors text-[11px] text-xs font-bold text-stone-900 tracking-widest font-merriweather">
-              Contact
-            </a>
-        </div>
-
-        <!-- Right Side: CTA & Mobile Menu -->
-        <div class="flex items-center gap-4 z-[60] relative">
-          <a href="contact.html" class="uppercase transition-transform active:scale-95 hidden text-[11px] hover:bg-stone-800 shadow-stone-900/20 md:block font-semibold text-white tracking-wide font-serif bg-black rounded-full px-8 py-3 shadow-lg">
-            Schedule a Tour
+    <div class="min-h-screen relative bg-black selection:bg-emerald-500/30 font-sans">
+      <!-- Navigation -->
+      <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-black/60 backdrop-blur-xl supports-[backdrop-filter]:bg-black/40">
+        <div class="flex h-20 max-w-7xl mr-auto ml-auto pr-6 pl-6 items-center justify-between">
+          <a href="#" class="flex items-center gap-2.5 group">
+            <div class="h-8 w-8 bg-emerald-500/10 border border-emerald-500/20 rounded-lg flex items-center justify-center group-hover:bg-emerald-500/20 transition-colors">
+              <span class="font-instrument-serif italic text-emerald-500 font-semibold text-lg">
+                A
+              </span>
+            </div>
+            <span class="uppercase group-hover:text-emerald-100 transition-colors cursor-pointer text-sm font-semibold text-white tracking-wide" onclick="window.location.href='index.html'" role="button">
+              Ark Care
+            </span>
           </a>
-
-          <button id="mobileMenuButton" class="block md:hidden text-stone-900 p-2 rounded-lg hover:bg-stone-100 transition-colors relative z-[60]" aria-label="Toggle mobile menu" aria-expanded="false">
-            <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
-              <path d="M4 5h16"></path>
-              <path d="M4 12h16"></path>
-              <path d="M4 19h16"></path>
-            </svg>
-            <svg id="closeIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x hidden">
-              <path d="M18 6L6 18"></path>
-              <path d="M6 6l12 12"></path>
-            </svg>
-          </button>
-        </div>
+          
+          <div class="hidden md:flex gap-8 text-sm font-normal text-zinc-400 gap-x-8 gap-y-8 items-center">
+            <a href="index.html" class="hover:text-white transition-colors">Home</a>
+            <a href="about-us.html" class="hover:text-white transition-colors">About Us</a>
+            <a href="services.html" class="">Services</a>
+            <a href="gallery.html" class="hover:text-white transition-colors">Gallery</a>
+            <a href="contact-us.html" class="hover:text-white transition-colors">Contact Us</a>
+          </div>
+          
+          <div class="flex items-center gap-4">
+            
+            <button class="px-5 py-2 rounded-full bg-white text-black text-sm font-semibold hover:bg-zinc-200 transition-colors flex items-center gap-2">
+              <span class="">Schedule Tour</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-up-right" class="lucide lucide-arrow-up-right opacity-50"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+            </button>
+            <button class="md:hidden text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="menu" class="lucide lucide-menu"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg>
+            </button>
+          </div>
         </div>
       </nav>
 
-      <!-- Mobile Menu Overlay -->
-      <div id="mobileMenu" class="fixed inset-0 bg-white/30 backdrop-blur-xl z-50 hidden md:hidden transform transition-all duration-300 ease-in-out">
-        <div class="flex flex-col h-full pt-24 px-6">
-          <nav class="flex flex-col gap-6" role="navigation" aria-label="Mobile navigation">
-            <a href="index.html" class="text-2xl font-semibold text-white tracking-tight font-serif py-3 border-b border-stone-700/50 backdrop-blur-sm bg-stone-900/90 rounded-lg px-4 -mx-4 hover:bg-stone-800/90 transition-colors">Home</a>
-            <a href="about-us.html" class="text-2xl font-semibold text-white tracking-tight font-serif py-3 border-b border-stone-700/50 backdrop-blur-sm bg-stone-900/90 rounded-lg px-4 -mx-4 hover:bg-stone-800/90 transition-colors">About Us</a>
-            <a href="services.html" class="text-2xl font-semibold text-white tracking-tight font-serif py-3 border-b border-stone-700/50 backdrop-blur-sm bg-stone-900/90 rounded-lg px-4 -mx-4 hover:bg-stone-800/90 transition-colors">Services</a>
-            <a href="gallery.html" class="text-2xl font-semibold text-white tracking-tight font-serif py-3 border-b border-stone-700/50 backdrop-blur-sm bg-stone-900/90 rounded-lg px-4 -mx-4 hover:bg-stone-800/90 transition-colors">Gallery</a>
-            <a href="contact.html" class="text-2xl font-semibold text-white tracking-tight font-serif py-3 border-b border-stone-700/50 backdrop-blur-sm bg-stone-900/90 rounded-lg px-4 -mx-4 hover:bg-stone-800/90 transition-colors">Contact</a>
-            <a href="contact.html" class="mt-4 uppercase text-xs font-bold text-white tracking-widest bg-black/90 backdrop-blur-sm rounded-full px-8 py-4 text-center hover:bg-black transition-colors">Schedule a Tour</a>
-          </nav>
-        </div>
-      </div>
-
       <!-- Hero Section -->
-      <!-- Reduced height significantly to 550px / 65vh -->
-      <header class="md:h-[550px] overflow-hidden group w-full h-[65vh] relative rounded-b-[2.5rem]">
-        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/2fa155af-7e80-4d83-8d2e-f4b63b002dfd_1600w.png" alt="Compassionate caregiver holding hands with resident" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2s] ease-in-out" loading="lazy">
-        <div class="absolute inset-0 bg-gradient-to-t from-stone-100 via-stone-100/20 to-stone-100/10"></div>
+      <main class="lg:pt-48 lg:pb-32 overflow-hidden pt-32 pr-6 pb-20 pl-6 relative">
+        <!-- Ambient Background Glows -->
+        <div class="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[800px] h-[800px] bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none mix-blend-screen"></div>
+        <div class="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[600px] h-[600px] bg-blue-500/5 blur-[100px] rounded-full pointer-events-none"></div>
 
-        <div class="flex flex-col md:pb-16 text-center z-10 pb-10 absolute top-0 right-0 bottom-0 left-0 items-center justify-center">
-          <h1 class="animate-seq delay-100 leading-tight md:text-8xl z-10 text-5xl font-medium font-merriweather text-center md:text-justify mb-6 relative bg-clip-text text-transparent bg-gradient-to-br from-stone-900 via-stone-700 to-stone-500">
-            Our Services
-          </h1>
+        <div class="z-10 grid lg:grid-cols-2 gap-16 lg:gap-24 max-w-7xl mr-auto ml-auto relative gap-x-16 gap-y-16 items-center">
+          
+          <!-- Content Left -->
+          <div class="flex flex-col items-start max-w-2xl">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-sm hover:border-emerald-500/30 transition-colors cursor-default">
+              <span class="flex h-1.5 w-1.5 relative">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+              </span>
+              <span class="text-xs font-medium text-emerald-300 uppercase tracking-wider">Premium Care Services</span>
+            </div>
 
-          <p class="leading-relaxed animate-seq delay-200 md:text-sm z-10 text-xs font-medium bg-clip-text text-transparent bg-gradient-to-b from-stone-900 to-stone-600 font-geist max-w-lg mt-0 pr-4 pl-4 relative">
-            Comprehensive services designed to support health, safety, and
-            quality of life. Including HCS, DDA Meaningful Day, and specialized
-            behavioral health support.
-          </p>
-        </div>
-      </header>
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-white mb-8 leading-[1.05]">
+              Elevating the
+              <span class="block text-zinc-500">standard of care.</span>
+            </h1>
 
-      <!-- Intro / Story Section -->
-      <!-- Reduced padding from py-32 to py-16 -->
-      <section class="md:py-16 md:px-16 max-w-8xl opacity-100 mix-blend-normal mr-auto ml-auto pt-12 pr-6 pb-12 pl-6" id="about">
-        <h2 class="leading-tight animate-seq delay-100 md:text-5xl text-3xl font-medium text-stone-900 tracking-tight font-merriweather text-center max-w-4xl mb-10">
-          Our Care Approach
-        </h2>
+            <p class="text-lg md:text-xl text-zinc-400 mb-10 leading-relaxed max-w-lg font-light">
+              We provide a comprehensive continuum of care that adapts to individual needs—blending clinical excellence with the <span class="text-zinc-200">warmth of home</span>.
+            </p>
 
-        <div class="grid grid-cols-1 animate-seq delay-200 lg:grid-cols-12 md:gap-8 font-merriweather text-center gap-x-12 gap-y-4 items-stretch">
-          <style>
-            @keyframes circulate-float-1 {
-              0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
-              33% { transform: translate3d(10px, -8px, 0) rotate(0.5deg); }
-              66% { transform: translate3d(-5px, 6px, 0) rotate(-0.5deg); }
-            }
-            @keyframes circulate-float-2 {
-              0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
-              33% { transform: translate3d(-10px, 8px, 0) rotate(-0.5deg); }
-              66% { transform: translate3d(5px, -6px, 0) rotate(0.5deg); }
-            }
-          </style>
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-16 w-full sm:w-auto">
+              <button class="hover:bg-emerald-500 transition-all flex group font-medium text-white bg-emerald-600 rounded-full pt-3.5 pr-8 pb-3.5 pl-8 shadow-[0_0_40px_-10px_rgba(16,185,129,0.3)] gap-x-2 gap-y-2 items-center justify-center" onclick="window.location.href='gallery.html'" role="button">View Gallery</button>
+              
+            </div>
 
-          <!-- Left Card -->
-          <div class="lg:col-span-5 relative h-[300px] lg:h-full rounded-[1.5rem] overflow-hidden group shadow-xl" style="animation: circulate-float-1 12s ease-in-out infinite; will-change: transform;">
-            <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?w=1600&amp;q=80" class="transition-transform duration-700 group-hover:scale-110 w-full h-full object-cover" alt="Professional nurse providing care to patient" loading="lazy">
-            <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-stone-900/80 via-stone-900/40 to-transparent text-left">
-              <h3 class="text-xl font-medium text-white font-serif tracking-tight">
-                24/7 Support
-              </h3>
+            <!-- Stats / Trust Indicators -->
+            <div class="grid grid-cols-3 gap-8 w-full border-t border-white/5 pt-8">
+              <div>
+                <div class="text-2xl font-semibold text-white mb-1 tracking-tight">24/7</div>
+                <div class="text-xs text-zinc-500 uppercase tracking-widest font-medium">Medical Staff</div>
+              </div>
+              <div class="">
+                <div class="text-2xl font-semibold text-white mb-1 tracking-tight">1:2</div>
+                <div class="text-xs text-zinc-500 uppercase tracking-widest font-medium">Care Ratio</div>
+              </div>
+              <div class="">
+                <div class="text-2xl font-semibold text-white mb-1 tracking-tight">100%</div>
+                <div class="text-xs text-zinc-500 uppercase tracking-widest font-medium">Personalized</div>
+              </div>
             </div>
           </div>
 
-          <!-- Right Card -->
-          <div class="flex flex-col lg:col-span-7 gap-x-6 gap-y-6 h-full">
-            <div class="flex flex-col transition-all hover:border-stone-300 text-center bg-white h-full border-stone-200 border rounded-[1.5rem] px-8 py-8 shadow-xl justify-center" style="animation: circulate-float-2 15s ease-in-out infinite; will-change: transform;">
-              <p class="text-[13px] leading-relaxed md:text-[14px] font-light text-stone-600 font-geist mb-8">
-                At Ark Care AFH, we believe in a person-centered care approach
-                that respects individuality and promotes independence. Our
-                services are designed around each resident's unique needs,
-                preferences, and goals. We work closely with families,
-                healthcare providers, and residents to develop comprehensive
-                care plans that ensure the highest quality of life possible. We
-                accept multiple programs including
-                <span class="text-stone-900 font-medium font-geist">HCS</span>
-                ,
-                <span class="text-stone-900 font-medium font-geist">
-                  DDA Meaningful Day Services
+          <!-- Visual Right -->
+          <div class="relative hidden lg:block h-[600px] w-full perspective-dramatic group">
+            <!-- Main Card Image -->
+            <div class="absolute inset-0 rounded-2xl overflow-hidden border border-white/10 bg-zinc-900/50 shadow-2xl rotate-y-5 rotate-x-5 transition-transform duration-700 ease-out group-hover:rotate-y-0 group-hover:rotate-x-0">
+               <img src="https://images.unsplash.com/photo-1640906152676-dace6710d24b?w=2160&amp;q=80" alt="Abstract Care Visual" class="w-full h-full object-cover opacity-80 mix-blend-overlay">
+               <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+               
+               <!-- Internal Card UI -->
+               <div class="absolute bottom-8 left-8 right-8 p-6 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md shadow-lg">
+                  <div class="flex items-center justify-between mb-4">
+                     <div>
+                        <div class="text-sm font-medium text-white">Holistic Wellness Plan</div>
+                        <div class="text-xs text-zinc-400 mt-1">Daily physical &amp; cognitive therapy</div>
+                     </div>
+                     <div class="h-8 w-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"></path></svg>
+                     </div>
+                  </div>
+                  <div class="w-full bg-white/10 rounded-full h-1.5 overflow-hidden">
+                     <div class="bg-emerald-500 h-1.5 rounded-full" style="width: 88%"></div>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Floating Decoration Card -->
+            <div class="absolute -top-4 -right-4 p-4 rounded-xl bg-zinc-900/90 border border-white/10 backdrop-blur-xl shadow-xl animate-[float_6s_ease-in-out_infinite] z-20">
+               <div class="flex items-center gap-3">
+                   <div class="h-8 w-8 rounded-full bg-emerald-500/10 flex items-center justify-center border border-emerald-500/20">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="shield-check" class="lucide lucide-shield-check text-emerald-500"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                   </div>
+                   <div>
+                       <div class="text-xs font-semibold text-white">Certified Care</div>
+                       <div class="text-[10px] text-zinc-500">State Licensed Home</div>
+                   </div>
+               </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Gallery Section -->
+
+    <!-- Features Grid -->
+    <section class="py-20 px-6 bg-zinc-950 border-t border-white/5">
+      <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center mb-24">
+        <div class="">
+          <h2 class="text-3xl font-semibold text-white mb-6">
+            Our Care Approach
+          </h2>
+          <p class="text-zinc-400 mb-6 leading-relaxed">
+            At Ark Care, we believe in a holistic approach that nurtures the
+            body, mind, and spirit. Owned and operated by a husband-and-wife
+            team (LPN and EMT), we provide a level of medical expertise rarely
+            found in traditional adult family homes.
+          </p>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3 text-zinc-300">
+              <div class="w-6 h-6 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              1 Caregiver to 2 Resident Ratio
+            </li>
+            <li class="flex items-center gap-3 text-zinc-300">
+              <div class="w-6 h-6 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              RN/LPN 24/7 On-Site
+            </li>
+            <li class="flex items-center gap-3 text-zinc-300">
+              <div class="w-6 h-6 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              Individualized Care Plans
+            </li>
+          </ul>
+        </div>
+        <div class="relative h-full min-h-[300px] bg-zinc-900 rounded-2xl p-8 border border-white/5 flex flex-col justify-center">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-zinc-800/50 rounded-xl p-6 flex flex-col justify-center items-center text-center">
+              <span class="text-4xl font-bold text-emerald-400 mb-2">24/7</span>
+              <span class="text-sm text-zinc-500">Medical Staff</span>
+            </div>
+            <div class="bg-zinc-800/50 rounded-xl p-6 flex flex-col justify-center items-center text-center">
+              <span class="text-4xl font-bold text-emerald-400 mb-2">1:2</span>
+              <span class="text-sm text-zinc-500">Staffing Ratio</span>
+            </div>
+            <div class="col-span-2 bg-zinc-800/50 rounded-xl p-6 flex flex-col justify-center items-center text-center">
+              <span class="text-xl font-medium text-white mb-2">
+                Vibrant Life Coordinator
+              </span>
+              <span class="text-sm text-zinc-500">
+                On-site for activities &amp; engagement
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-semibold text-white mb-12 text-center">
+          Our Services
+        </h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-zinc-900/50 p-6 rounded-2xl border border-white/5 hover:border-emerald-500/30 transition-colors">
+            <h3 class="text-emerald-400 font-medium mb-4 flex items-center gap-2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4.8 2.3A.3.3 0 1 0 4.5 2H12a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H4.5a.3.3 0 0 0-.3.3v2c0 1.1.9 2 2 2H12a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H4.5a.3.3 0 0 0-.3.3v2c0 1.1.9 2 2 2H12"></path>
+              </svg>
+              Clinical Care
+            </h3>
+            <ul class="space-y-2 text-sm text-zinc-400">
+              <li class="">Medication Management (RN Oversight)</li>
+              <li>Wound Care (Robust Team)</li>
+              <li>IV Therapy &amp; Blood Transfusions</li>
+              
+              
+              
+              
+              
+            </ul>
+          </div>
+          <div class="bg-zinc-900/50 p-6 rounded-2xl border border-white/5 hover:border-emerald-500/30 transition-colors">
+            <h3 class="text-emerald-400 font-medium mb-4 flex items-center gap-2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              Personal Support
+            </h3>
+            <ul class="space-y-2 text-sm text-zinc-400">
+              <li class="">Assistance with Daily Living (ADLs)</li>
+              <li class="">Bathing &amp; Grooming Assistance</li>
+              <li class="">In-House Hair &amp; Manicure Services</li>
+              
+              
+              
+              
+            </ul>
+          </div>
+          <div class="bg-zinc-900/50 p-6 rounded-2xl border border-white/5 hover:border-emerald-500/30 transition-colors">
+            <h3 class="text-emerald-400 font-medium mb-4 flex items-center gap-2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 12h20M2 12l5-5m-5 5 5 5"></path>
+              </svg>
+              Therapy &amp; Wellness
+            </h3>
+            <ul class="space-y-2 text-sm text-zinc-400">
+              <li>Physical, Occupational &amp; Speech Therapy</li>
+              <li>Music &amp; Pet Therapy</li>
+              <li>Aromatherapy</li>
+              
+              
+              
+              
+            </ul>
+          </div>
+        </div>
+        <div class="mt-8 text-center">
+          <details class="group inline-block text-left">
+            <summary class="cursor-pointer inline-flex items-center gap-2 text-sm font-medium text-zinc-300 hover:text-white transition-colors select-none">
+              View Full Service List
+              <svg class="w-4 h-4 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="mt-4 p-6 bg-zinc-900 rounded-xl border border-white/10 text-left grid sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-2 text-xs text-zinc-500">
+              <div>Adult Day Care &amp; Respite Care</div>
+              <div>Visual/Hearing Impaired Support</div>
+              <div>Transportation &amp; Outings (Bus)</div>
+              <div>Pharmacy Delivery &amp; Team</div>
+              <div>MD &amp; NP Visits On-Site</div>
+              <div>Podiatry &amp; Dental Hygiene On-Site</div>
+              <div>Computer Charting (Synkwise)</div>
+              <div>Assistance with VA Benefits</div>
+              <div>Church Visits &amp; Spiritual Support</div>
+              <div>Total Care for Quadriplegic</div>
+              <div>Electronic Medical Records</div>
+              <div>Cooking Therapy</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 px-6 bg-black border-t border-white/5">
+      <div class="max-w-7xl mx-auto mb-20">
+        <h2 class="text-3xl font-semibold text-white mb-10 text-center">
+          Our Specialties
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="p-6 rounded-xl bg-zinc-900 border border-white/5 hover:border-emerald-500/50 transition-colors">
+            <div class="text-emerald-400 mb-3 font-medium">Complex Care</div>
+            <p class="text-sm text-zinc-500">
+              Ventilator, Trach, TPN, and Central Line management by skilled
+              nurses.
+            </p>
+          </div>
+          <div class="p-6 rounded-xl bg-zinc-900 border border-white/5 hover:border-emerald-500/50 transition-colors">
+            <div class="text-emerald-400 mb-3 font-medium">Rehabilitation</div>
+            <p class="text-sm text-zinc-500">
+              Stroke, TBI, and post-op therapy provided in-house.
+            </p>
+          </div>
+          <div class="p-6 rounded-xl bg-zinc-900 border border-white/5 hover:border-emerald-500/50 transition-colors">
+            <div class="text-emerald-400 mb-3 font-medium">Palliative</div>
+            <p class="text-sm text-zinc-500">
+              Compassionate hospice and end-of-life care in a comfortable
+              setting.
+            </p>
+          </div>
+          <div class="p-6 rounded-xl bg-zinc-900 border border-white/5 hover:border-emerald-500/50 transition-colors">
+            <div class="text-emerald-400 mb-3 font-medium">Memory Care</div>
+            <p class="text-sm text-zinc-500">
+              Secure environment with specialized activities for cognitive
+              support.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16">
+        <div class="">
+          <h2 class="text-3xl font-semibold text-white mb-6">
+            Facility Amenities
+          </h2>
+          <ul class="grid grid-cols-2 gap-y-4 gap-x-4">
+            <li class="flex items-center gap-2 text-sm text-zinc-400">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              Private Rooms &amp; Patios
+            </li>
+            <li class="flex items-center gap-2 text-sm text-zinc-400">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              Scenic Views
+            </li>
+            <li class="flex items-center gap-2 text-sm text-zinc-400">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              Wheelchair Accessible
+            </li>
+            
+            
+            
+            
+            
+          </ul>
+        </div>
+        <div class="">
+          <h2 class="text-3xl font-semibold text-white mb-6">
+            Life &amp; Activities
+          </h2>
+          <p class="text-zinc-400 mb-6 text-sm">
+            Our on-site Activity Director ensures a vibrant community life.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-full bg-zinc-900 border border-white/10 text-xs text-zinc-300">
+              Holiday Celebrations
+            </span>
+            <span class="px-3 py-1 rounded-full bg-zinc-900 border border-white/10 text-xs text-zinc-300">
+              Live Music &amp; Recitals
+            </span>
+            <span class="px-3 py-1 rounded-full bg-zinc-900 border border-white/10 text-xs text-zinc-300">
+              Movie Nights
+            </span>
+            <span class="px-3 py-1 rounded-full bg-zinc-900 border border-white/10 text-xs text-zinc-300">
+              Gardening
+            </span>
+            <span class="px-3 py-1 rounded-full bg-zinc-900 border border-white/10 text-xs text-zinc-300">
+              Painting &amp; Arts
+            </span>
+            <span class="px-3 py-1 rounded-full bg-zinc-900 border border-white/10 text-xs text-zinc-300">
+              Bingo &amp; Games
+            </span>
+            <span class="px-3 py-1 rounded-full bg-zinc-900 border border-white/10 text-xs text-zinc-300">
+              Community Outings
+            </span>
+            <span class="px-3 py-1 rounded-full bg-zinc-900 border border-white/10 text-xs text-zinc-300">
+              Cooking Therapy
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 px-6 bg-zinc-950 border-t border-white/5 text-center">
+      <div class="max-w-3xl mx-auto">
+        <svg class="w-10 h-10 text-emerald-500 mx-auto mb-6 opacity-50" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M14.017 21L14.017 18C14.017 16.8954 13.1216 16 12.017 16H11.983C10.8784 16 9.983 16.8954 9.983 18L9.983 21H5V11.5438C5 10.8613 5.32317 10.22 5.86345 9.81429L12 5.20689L18.1365 9.81429C18.6768 10.22 19 10.8613 19 11.5438V21H14.017ZM12 2.15934L3.13655 8.81429C2.05615 9.62562 1.41113 10.9081 1.41113 12.2733V21C1.41113 22.1046 2.30656 23 3.41113 23H11.983C13.0876 23 13.983 22.1046 13.983 21H14.017C14.017 22.1046 14.9124 23 16.017 23H20.5889C21.6934 23 22.5889 22.1046 22.5889 21V12.2733C22.5889 10.9081 21.9439 9.62562 20.8635 8.81429L12 2.15934Z"></path>
+        </svg>
+        <h2 class="text-3xl font-semibold text-white mb-6">Our Philosophy</h2>
+        <p class="text-xl text-zinc-400 italic font-light mb-8">
+          "We treat every resident as if they were our own family, tailored to
+          meet unique needs with dignity and respect."
+        </p>
+        <p class="text-sm font-medium text-emerald-400 uppercase tracking-widest">
+          Owned &amp; Operated by LPN &amp; EMT Caregivers
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="relative z-10 bg-black pt-20 pb-10 border-t border-white/10 font-sans">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          <div class="space-y-6">
+            <a href="#" class="inline-flex items-center gap-2">
+              <div class="h-6 w-6 bg-emerald-500 rounded-full flex items-center justify-center">
+                <span class="font-instrument-serif italic text-black font-bold text-sm">
+                  A
                 </span>
-                ,
-                <span class="text-stone-900 font-medium font-geist">
-                  Expanded Community Services
-                </span>
-                , and
-                <span class="text-stone-900 font-medium font-geist">
-                  Specialized Behavior Support
-                </span>
-                .
-              </p>
-              <a href="contact.html" class="flex items-center gap-2 text-[11px] hover:bg-stone-800 transition-all group font-medium text-white font-geist bg-stone-900 w-fit rounded-full pt-2.5 pr-6 pb-2.5 pl-6 tracking-wide">
-                LEARN MORE
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right group-hover:translate-x-1 transition-transform w-[14px] h-[14px]">
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
+              </div>
+              <span class="text-lg font-bold tracking-tight text-white uppercase">
+                Ark Care
+              </span>
+            </a>
+            <p class="text-zinc-400 text-sm leading-relaxed">
+              Redefining assisted living with professional medical oversight in
+              a warm, dignified home environment.
+            </p>
+            <div class="flex gap-4">
+              <a href="#" class="h-10 w-10 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 hover:bg-emerald-500 hover:text-white transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+              </a>
+              <a href="#" class="h-10 w-10 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 hover:bg-emerald-500 hover:text-white transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twitter">
+                  <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+                </svg>
+              </a>
+              <a href="#" class="h-10 w-10 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 hover:bg-emerald-500 hover:text-white transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
                 </svg>
               </a>
             </div>
           </div>
-        </div>
-      </section>
 
-      <!-- Essential Services (Bento Grid) -->
-      <!-- Reduced py and card heights -->
-      <section class="feature-grid-bg md:pt-2 md:pb-1 bg-zinc-50 max-w-[1400px] mr-auto ml-auto pt-16 pr-6 pb-16 pl-6 relative" id="services">
-        <div class="md:px-12 md:pt-12 md:pb-12 z-10 bg-zinc-50 max-w-[1400px] mr-auto ml-auto pt-12 pr-6 pb-12 pl-6 relative">
-          <div class="animate-seq text-center mt-1 mb-20">
-            <span class="block text-[12px] font-medium uppercase tracking-widest text-stone-500 mb-3 font-geist">
-              Our Services
-            </span>
-            <h2 class="text-4xl md:text-5xl text-stone-900 font-medium font-merriweather tracking-tight">
-              Comprehensive Care Services
-            </h2>
-            <p class="mt-4 text-stone-600 max-w-2xl mx-auto font-geist text-lg">
-              Comprehensive services designed to support health, safety, and
-              quality of life.
+          <div class="">
+            <h3 class="text-white font-medium mb-6">Services</h3>
+            <ul class="space-y-3 text-sm text-zinc-500">
+              <li class="">
+                <a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500/0 hover:bg-emerald-500 transition-colors"></span>
+                  Assisted Living
+                </a>
+              </li>
+              <li class="">
+                <a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500/0 hover:bg-emerald-500 transition-colors"></span>
+                  Memory Care
+                </a>
+              </li>
+              <li class="">
+                <a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500/0 hover:bg-emerald-500 transition-colors"></span>
+                  Respite Care
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+
+          <div class="">
+            <h3 class="text-white font-medium mb-6">Company</h3>
+            <ul class="space-y-3 text-sm text-zinc-500">
+              <li class="">
+                <a href="#" class="hover:text-emerald-400 transition-colors">
+                  About Us
+                </a>
+              </li>
+              <li class="">
+                <a href="#" class="hover:text-emerald-400 transition-colors">
+                  Our Team
+                </a>
+              </li>
+              <li class="">
+                <a href="#" class="hover:text-emerald-400 transition-colors">
+                  Careers
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-white font-medium mb-6">Newsletter</h3>
+            <p class="text-zinc-500 text-sm mb-4">
+              Subscribe to our newsletter for updates and care tips.
             </p>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 animate-seq delay-200 gap-x-16 gap-y-12">
-            <!-- Item 1 -->
-            <div class="flex gap-6 items-start group">
-              <div class="shrink-0 mt-1">
-                <div class="w-12 h-12 rounded-full bg-stone-100 text-stone-900 flex items-center justify-center group-hover:bg-stone-900 group-hover:text-white transition-colors duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="shield-check" class="lucide lucide-shield-check w-5 h-5"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>
-                </div>
+            <form class="flex flex-col gap-3">
+              <div class="relative">
+                <input type="email" placeholder="Enter your email" class="w-full bg-zinc-900 border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all">
+                <button type="submit" class="absolute right-1.5 top-1.5 p-1.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-md transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right">
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                  </svg>
+                </button>
               </div>
-              <div>
-                <h3 class="text-xl font-serif font-medium mb-2 text-stone-900 tracking-tight group-hover:text-stone-600 transition-colors">
-                  24/7 Professional Care
-                </h3>
-                <p class="text-[14px] leading-relaxed text-stone-600 font-geist">
-                  Round-the-clock care and support from trained staff members
-                  available at all times.
-                </p>
-              </div>
-            </div>
-
-            <!-- Item 2 -->
-            <div class="flex gap-6 group gap-x-6 gap-y-6 items-start transition-all duration-300 ease-in-out hover:-translate-y-1">
-              <div class="shrink-0 mt-1">
-                <div class="w-12 h-12 rounded-full bg-stone-100 text-stone-900 flex items-center justify-center group-hover:bg-stone-900 group-hover:text-white transition-all duration-300 ease-in-out group-hover:scale-110 group-hover:rotate-6">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="pill" class="lucide lucide-pill w-5 h-5"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"></path><path d="m8.5 8.5 7 7"></path></svg>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-xl font-serif font-medium mb-2 text-stone-900 tracking-tight group-hover:text-stone-600 transition-colors">
-                  Medication Management
-                </h3>
-                <p class="text-[14px] leading-relaxed text-stone-600 font-geist">
-                  Professional medication administration, reminders, and
-                  prescription coordination.
-                </p>
-              </div>
-            </div>
-
-            <!-- Item 3 -->
-            <div class="flex gap-6 items-start group">
-              <div class="shrink-0 mt-1">
-                <div class="w-12 h-12 rounded-full bg-stone-100 text-stone-900 flex items-center justify-center group-hover:bg-stone-900 group-hover:text-white transition-colors duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="heart" class="lucide lucide-heart w-5 h-5"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"></path></svg>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-xl font-serif font-medium mb-2 text-stone-900 tracking-tight group-hover:text-stone-600 transition-colors">
-                  Personal Care &amp; Hygiene
-                </h3>
-                <p class="text-[14px] leading-relaxed text-stone-600 font-geist">
-                  Personalized assistance with daily living activities, bathing,
-                  dressing, and grooming.
-                </p>
-              </div>
-            </div>
-
-            <!-- Item 4 -->
-            <div class="flex gap-6 items-start group">
-              <div class="shrink-0 mt-1">
-                <div class="w-12 h-12 rounded-full bg-stone-100 text-stone-900 flex items-center justify-center group-hover:bg-stone-900 group-hover:text-white transition-colors duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="utensils" class="lucide lucide-utensils w-5 h-5"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path><path d="M7 2v20"></path><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path></svg>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-xl font-serif font-medium mb-2 text-stone-900 tracking-tight group-hover:text-stone-600 transition-colors">
-                  Meal Preparation
-                </h3>
-                <p class="text-[14px] leading-relaxed text-stone-600 font-geist">
-                  Balanced, nutritious meals prepared daily with dietary
-                  preferences considered.
-                </p>
-              </div>
-            </div>
-
-            <!-- Item 5 -->
-            <div class="flex gap-6 items-start group">
-              <div class="shrink-0 mt-1">
-                <div class="w-12 h-12 rounded-full bg-stone-100 text-stone-900 flex items-center justify-center group-hover:bg-stone-900 group-hover:text-white transition-colors duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="sun" class="lucide lucide-sun w-5 h-5"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-xl font-serif font-medium mb-2 text-stone-900 tracking-tight group-hover:text-stone-600 transition-colors">
-                  Recreational Activities
-                </h3>
-                <p class="text-[14px] leading-relaxed text-stone-600 font-geist">
-                  Engaging indoor and outdoor activities designed to promote
-                  physical and mental well-being.
-                </p>
-              </div>
-            </div>
-
-            <!-- Item 6 -->
-            <div class="flex gap-6 items-start group">
-              <div class="shrink-0 mt-1">
-                <div class="w-12 h-12 rounded-full bg-stone-100 text-stone-900 flex items-center justify-center group-hover:bg-stone-900 group-hover:text-white transition-colors duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="car" class="lucide lucide-car w-5 h-5"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path><circle cx="7" cy="17" r="2"></circle><path d="M9 17h6"></path><circle cx="17" cy="17" r="2"></circle></svg>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-xl font-serif font-medium mb-2 text-stone-900 tracking-tight group-hover:text-stone-600 transition-colors">
-                  Transportation Services
-                </h3>
-                <p class="text-[14px] leading-relaxed text-stone-600 font-geist">
-                  Assistance with transportation to medical appointments and
-                  community activities.
-                </p>
-              </div>
-            </div>
-
-            <!-- Item 7 -->
-            <div class="flex gap-6 items-start group">
-              <div class="shrink-0 mt-1">
-                <div class="w-12 h-12 rounded-full bg-stone-100 text-stone-900 flex items-center justify-center group-hover:bg-stone-900 group-hover:text-white transition-colors duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="sparkles" class="lucide lucide-sparkles w-5 h-5"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-xl font-serif font-medium mb-2 text-stone-900 tracking-tight group-hover:text-stone-600 transition-colors">
-                  Laundry &amp; Housekeeping
-                </h3>
-                <p class="text-[14px] leading-relaxed text-stone-600 font-geist">
-                  Regular laundry, room cleaning, and housekeeping to maintain a
-                  comfortable home.
-                </p>
-              </div>
-            </div>
-
-            <!-- Item 8 -->
-            <div class="flex gap-6 items-start group">
-              <div class="shrink-0 mt-1">
-                <div class="w-12 h-12 rounded-full bg-stone-100 text-stone-900 flex items-center justify-center group-hover:bg-stone-900 group-hover:text-white transition-colors duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="users" class="lucide lucide-users w-5 h-5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-xl font-serif font-medium mb-2 text-stone-900 tracking-tight group-hover:text-stone-600 transition-colors">
-                  Social Support
-                </h3>
-                <p class="text-[14px] leading-relaxed text-stone-600 font-geist">
-                  Compassionate support for emotional well-being, family
-                  coordination, and connection.
-                </p>
-              </div>
-            </div>
+              <p class="text-[10px] text-zinc-600">
+                By subscribing, you agree to our Privacy Policy.
+              </p>
+            </form>
           </div>
         </div>
-      </section>
 
-      <!-- Specialized Support (Icons Section) -->
-      <!-- Reduced py-20 to py-12 -->
-      <section class="max-w-7xl border-stone-200/50 border-b mr-auto ml-auto pt-16 pr-6 pb-16 pl-6 relative overflow-hidden" id="specialized">
-        <style>
-          @keyframes float3d {
-            0% { transform: perspective(1000px) rotateY(-3deg) translateY(0); }
-            100% { transform: perspective(1000px) rotateY(3deg) translateY(-10px); }
-          }
-        </style>
-        <div class="text-center mb-16 animate-seq">
-          <span class="block text-sm font-medium uppercase tracking-widest text-stone-500 mb-4 font-serif">
-            Our Specialties
-          </span>
-          <h3 class="md:text-6xl text-5xl font-medium text-stone-900 tracking-tight font-serif mb-4">
-            Specialized Support
-          </h3>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          <!-- Card 1 -->
-          <div class="bg-stone-100/50 backdrop-blur-md border border-stone-200/50 shadow-lg p-10 rounded-2xl flex flex-col items-center text-center group transition-all" style="animation: float3d 4s ease-in infinite alternate;">
-            <div class="flex bg-center text-stone-800 bg-white w-16 h-16 bg-[url(https://images.unsplash.com/photo-1536514498073-50e69d39c6cf?w=320&amp;q=80)] bg-cover border-stone-100 border rounded-full mb-6 shadow-sm items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="brain-circuit" class="lucide lucide-brain-circuit w-[32px] h-[32px]" data-icon-replaced="true" style="color: rgb(41, 37, 36); width: 32px; height: 32px"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"></path><path d="M9 13a4.5 4.5 0 0 0 3-4"></path><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"></path><path d="M3.477 10.896a4 4 0 0 1 .585-.396"></path><path d="M6 18a4 4 0 0 1-1.967-.516"></path><path d="M12 13h4"></path><path d="M12 18h6a2 2 0 0 1 2 2v1"></path><path d="M12 8h8"></path><path d="M16 8V5a2 2 0 0 1 2-2"></path><circle cx="16" cy="13" r=".5"></circle><circle cx="18" cy="3" r=".5"></circle><circle cx="20" cy="21" r=".5"></circle><circle cx="20" cy="8" r=".5"></circle></svg>
-            </div>
-            <h4 class="text-2xl font-medium mb-4 text-stone-900 font-serif tracking-tight">
-              Mental Health Support
-            </h4>
-            <p class="text-sm text-stone-600 leading-relaxed font-geist">
-              Specialized behavioral health support and services for individuals
-              with psychiatric or emotional needs.
-            </p>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="bg-stone-100/50 backdrop-blur-md border border-stone-200/50 shadow-lg p-10 rounded-2xl flex flex-col items-center text-center group transition-all" style="animation: float3d 4s ease-in infinite alternate; animation-delay: 0.5s;">
-            <div class="flex bg-center text-stone-800 bg-white w-16 h-16 bg-[url(https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=320&amp;q=80)] bg-cover border-stone-100 border rounded-full mb-6 shadow-sm items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="users" class="lucide lucide-users w-[32px] h-[32px]" data-icon-replaced="true" style="color: rgb(41, 37, 36); width: 32px; height: 32px"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg>
-            </div>
-            <h4 class="text-2xl font-medium mb-4 text-stone-900 font-serif tracking-tight">
-              Dementia Care
-            </h4>
-            <p class="text-sm text-stone-600 leading-relaxed font-geist">
-              Specialized care and support for individuals living with dementia
-              and cognitive decline in a safe environment.
-            </p>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="bg-stone-100/50 backdrop-blur-md border border-stone-200/50 shadow-lg p-10 rounded-2xl flex flex-col items-center text-center group transition-all" style="animation: float3d 4s ease-in infinite alternate; animation-delay: 1s;">
-            <div class="flex bg-center text-stone-800 bg-white w-16 h-16 bg-[url(https://images.unsplash.com/photo-1476108621677-3c620901b5e7?w=320&amp;q=80)] bg-cover border-stone-100 border rounded-full mb-6 shadow-sm items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="puzzle" class="lucide lucide-puzzle w-8 h-8"><path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z"></path></svg>
-            </div>
-            <h4 class="text-2xl font-medium mb-4 text-stone-900 font-serif tracking-tight">
-              Developmental Disabilities
-            </h4>
-            <p class="text-sm text-stone-600 leading-relaxed font-geist">
-              Comprehensive support for adults with intellectual and
-              developmental disabilities including life skills.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Facility Amenities -->
-      <!-- Reduced py-20 to py-12, image h-64 to h-40 -->
-      <section class="bg-stone-900 max-w-7xl rounded-3xl mr-auto ml-auto pt-20 pb-20 px-6 overflow-hidden relative">
-        <style>
-          @keyframes marquee-scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-          .animate-marquee {
-            animation: marquee-scroll 40s linear infinite;
-          }
-          .animate-marquee:hover {
-            animation-play-state: paused;
-          }
-        </style>
-
-        <div class="relative z-10 text-center mb-16">
-          <span class="block text-xs font-medium uppercase tracking-widest text-stone-400 mb-3 font-geist">
-            Facility
-          </span>
-          <h3 class="text-3xl md:text-5xl font-medium text-white tracking-tight font-merriweather">
-            Facility Amenities
-          </h3>
-        </div>
-
-        <div class="relative w-full overflow-hidden">
-          <!-- Gradient Masks -->
-          <div class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-stone-900 to-transparent z-10 pointer-events-none"></div>
-          <div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-stone-900 to-transparent z-10 pointer-events-none"></div>
-
-          <!-- Marquee Track -->
-          <div class="flex animate-marquee w-fit items-start">
-            <!-- Item Set 1 -->
-            <div class="flex gap-20 shrink-0 px-10">
-              <div class="w-72 space-y-4">
-                <div class="w-12 h-12 rounded-full bg-stone-800 border border-stone-700/50 flex items-center justify-center text-stone-200">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="bed-double" class="lucide lucide-bed-double w-5 h-5"><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"></path><path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"></path><path d="M12 4v6"></path><path d="M2 18h20"></path></svg>
-                </div>
-                <h4 class="text-lg font-medium text-white font-geist tracking-tight">
-                  Comfortable Living Spaces
-                </h4>
-                <p class="text-sm text-stone-400 font-geist leading-relaxed">
-                  Private bedrooms with personal décor options.
-                </p>
-              </div>
-
-              <div class="w-72 space-y-4">
-                <div class="flex text-stone-200 bg-stone-800 w-12 h-12 border-stone-700/50 border rounded-full items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="accessibility" class="lucide lucide-accessibility w-5 h-5"><circle cx="16" cy="4" r="1"></circle><path d="m18 19 1-7-6 1"></path><path d="m5 8 3-3 5.5 3-2.36 3.5"></path><path d="M4.24 14.5a5 5 0 0 0 6.88 6"></path><path d="M13.76 17.5a5 5 0 0 0-6.88-6"></path></svg>
-                </div>
-                <h4 class="text-lg font-medium text-white font-geist tracking-tight">
-                  Accessible Design
-                </h4>
-                <p class="text-sm text-stone-400 font-geist leading-relaxed">
-                  Facilities with grab bars, ramps, and safety features.
-                </p>
-              </div>
-
-              <div class="w-72 space-y-4">
-                <div class="w-12 h-12 rounded-full bg-stone-800 border border-stone-700/50 flex items-center justify-center text-stone-200">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="users" class="lucide lucide-users w-5 h-5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg>
-                </div>
-                <h4 class="text-lg font-medium text-white font-geist tracking-tight">
-                  Common Areas
-                </h4>
-                <p class="text-sm text-stone-400 font-geist leading-relaxed">
-                  Living room, dining area, and outdoor spaces.
-                </p>
-              </div>
-
-              <div class="w-72 space-y-4">
-                <div class="w-12 h-12 rounded-full bg-stone-800 border border-stone-700/50 flex items-center justify-center text-stone-200">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="shield-check" class="lucide lucide-shield-check w-5 h-5"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>
-                </div>
-                <h4 class="text-lg font-medium text-white font-geist tracking-tight">
-                  Safety Features
-                </h4>
-                <p class="text-sm text-stone-400 font-geist leading-relaxed">
-                  Security systems, fire safety, and emergency protocols.
-                </p>
-              </div>
-
-              <div class="w-72 space-y-4">
-                <div class="w-12 h-12 rounded-full bg-stone-800 border border-stone-700/50 flex items-center justify-center text-stone-200">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="wifi" class="lucide lucide-wifi w-5 h-5"><path d="M12 20h.01"></path><path d="M2 8.82a15 15 0 0 1 20 0"></path><path d="M5 12.859a10 10 0 0 1 14 0"></path><path d="M8.5 16.429a5 5 0 0 1 7 0"></path></svg>
-                </div>
-                <h4 class="text-lg font-medium text-white font-geist tracking-tight">
-                  Technology
-                </h4>
-                <p class="text-sm text-stone-400 font-geist leading-relaxed">
-                  WiFi access, TV, and modern conveniences.
-                </p>
-              </div>
-
-              <div class="w-72 space-y-4">
-                <div class="w-12 h-12 rounded-full bg-stone-800 border border-stone-700/50 flex items-center justify-center text-stone-200">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="briefcase" class="lucide lucide-briefcase w-5 h-5"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path><rect width="20" height="14" x="2" y="6" rx="2"></rect></svg>
-                </div>
-                <h4 class="text-lg font-medium text-white font-geist tracking-tight">
-                  Professional Environment
-                </h4>
-                <p class="text-sm text-stone-400 font-geist leading-relaxed">
-                  Clean, well-maintained facility with professional staffing.
-                </p>
-              </div>
-            </div>
-
-            <!-- Item Set 2 (Duplicate for Loop) -->
-            <div class="flex gap-20 shrink-0 px-10">
-              <div class="w-72 space-y-4">
-                <div class="w-12 h-12 rounded-full bg-stone-800 border border-stone-700/50 flex items-center justify-center text-stone-200">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="bed-double" class="lucide lucide-bed-double w-5 h-5"><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"></path><path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"></path><path d="M12 4v6"></path><path d="M2 18h20"></path></svg>
-                </div>
-                <h4 class="text-lg font-medium text-white font-geist tracking-tight">
-                  Comfortable Living Spaces
-                </h4>
-                <p class="text-sm text-stone-400 font-geist leading-relaxed">
-                  Private bedrooms with personal décor options.
-                </p>
-              </div>
-
-              <div class="w-72 space-y-4">
-                <div class="w-12 h-12 rounded-full bg-stone-800 border border-stone-700/50 flex items-center justify-center text-stone-200">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="accessibility" class="lucide lucide-accessibility w-5 h-5"><circle cx="16" cy="4" r="1"></circle><path d="m18 19 1-7-6 1"></path><path d="m5 8 3-3 5.5 3-2.36 3.5"></path><path d="M4.24 14.5a5 5 0 0 0 6.88 6"></path><path d="M13.76 17.5a5 5 0 0 0-6.88-6"></path></svg>
-                </div>
-                <h4 class="text-lg font-medium text-white font-geist tracking-tight">
-                  Accessible Design
-                </h4>
-                <p class="text-sm text-stone-400 font-geist leading-relaxed">
-                  Facilities with grab bars, ramps, and safety features.
-                </p>
-              </div>
-
-              <div class="w-72 space-y-4">
-                <div class="w-12 h-12 rounded-full bg-stone-800 border border-stone-700/50 flex items-center justify-center text-stone-200">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="users" class="lucide lucide-users w-5 h-5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg>
-                </div>
-                <h4 class="text-lg font-medium text-white font-geist tracking-tight">
-                  Common Areas
-                </h4>
-                <p class="text-sm text-stone-400 font-geist leading-relaxed">
-                  Living room, dining area, and outdoor spaces.
-                </p>
-              </div>
-
-              <div class="w-72 space-y-4">
-                <div class="w-12 h-12 rounded-full bg-stone-800 border border-stone-700/50 flex items-center justify-center text-stone-200">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="shield-check" class="lucide lucide-shield-check w-5 h-5"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>
-                </div>
-                <h4 class="text-lg font-medium text-white font-geist tracking-tight">
-                  Safety Features
-                </h4>
-                <p class="text-sm text-stone-400 font-geist leading-relaxed">
-                  Security systems, fire safety, and emergency protocols.
-                </p>
-              </div>
-
-              <div class="w-72 space-y-4">
-                <div class="w-12 h-12 rounded-full bg-stone-800 border border-stone-700/50 flex items-center justify-center text-stone-200">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="wifi" class="lucide lucide-wifi w-5 h-5"><path d="M12 20h.01"></path><path d="M2 8.82a15 15 0 0 1 20 0"></path><path d="M5 12.859a10 10 0 0 1 14 0"></path><path d="M8.5 16.429a5 5 0 0 1 7 0"></path></svg>
-                </div>
-                <h4 class="text-lg font-medium text-white font-geist tracking-tight">
-                  Technology
-                </h4>
-                <p class="text-sm text-stone-400 font-geist leading-relaxed">
-                  WiFi access, TV, and modern conveniences.
-                </p>
-              </div>
-
-              <div class="w-72 space-y-4">
-                <div class="w-12 h-12 rounded-full bg-stone-800 border border-stone-700/50 flex items-center justify-center text-stone-200">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="briefcase" class="lucide lucide-briefcase w-5 h-5"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path><rect width="20" height="14" x="2" y="6" rx="2"></rect></svg>
-                </div>
-                <h4 class="text-lg font-medium text-white font-geist tracking-tight">
-                  Professional Environment
-                </h4>
-                <p class="text-sm text-stone-400 font-geist leading-relaxed">
-                  Clean, well-maintained facility with professional staffing.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Approach -->
-      <!-- Reduced py-24 to py-12 -->
-      <section class="max-w-6xl mr-auto ml-auto pt-12 pr-6 pb-12 pl-6">
-        <div class="text-center mb-10 animate-seq">
-          <p class="text-stone-400 text-[9px] font-medium uppercase tracking-widest mb-2 font-geist">
-            Our Philosophy
+        <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p class="text-zinc-500 text-sm">
+            © 2024 Ark Care Home. All rights reserved.
           </p>
-          <h2 class="md:text-4xl text-3xl font-medium text-stone-900 font-merriweather">
-            A Community of Care
-          </h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center animate-seq delay-100">
-          <!-- 1. Text Left -->
-          <div class="flex group rounded-xl px-4 py-4 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)] gap-x-4 gap-y-4 items-start">
-            <div class="mt-1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="quote" class="lucide lucide-quote text-2xl text-stone-300 group-hover:text-stone-800 transition-colors"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
-            </div>
-            <div>
-              <h4 class="text-lg font-serif font-medium mb-1 font-geist">
-                Person-Centered Approach
-              </h4>
-              <p class="text-stone-500 text-[12px] leading-relaxed font-geist">
-                "Success isn't just about safety—it's about happiness. Our
-                services are designed around each resident's unique needs."
-              </p>
-            </div>
+          <div class="flex gap-6 text-sm text-zinc-500">
+            <a href="#" class="hover:text-white transition-colors">
+              Privacy Policy
+            </a>
+            <a href="#" class="hover:text-white transition-colors">
+              Terms of Service
+            </a>
+            <a href="#" class="hover:text-white transition-colors">
+              Cookie Policy
+            </a>
           </div>
-
-          <!-- 2. Image Right -->
-          <div class="h-40 w-full rounded-[1.5rem] overflow-hidden relative group shadow-lg">
-            <img src="https://images.unsplash.com/photo-1762955911431-4c44c7c3f408?w=1600&amp;q=80" class="transition-transform duration-500 group-hover:scale-105 w-full h-full object-cover" alt="Personalized care services at Ark Care AFH" loading="lazy">
-            <div class="absolute bottom-3 right-3 bg-white px-3 py-1.5 rounded-full shadow-lg">
-              <span class="text-[10px] font-bold text-stone-900 font-geist">
-                Compassion
-              </span>
-            </div>
-          </div>
-
-          <!-- 3. Image Left (Swapped) -->
-          <div class="h-40 w-full rounded-[1.5rem] overflow-hidden relative group shadow-lg">
-            <img src="https://imgs.search.brave.com/nsaCO5Wd3RVic0xx9E_ZJeQHTB7u09TaMP3LYbxfiP8/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMucGV4ZWxzLmNv/bS9waG90b3MvNzU1/MTY2Ny9wZXhlbHMt/cGhvdG8tNzU1MTY2/Ny5qcGVnP2F1dG89/Y29tcHJlc3MmY3M9/dGlueXNyZ2ImZHBy/PTEmdz01MDA?w=800&amp;q=80" class="transition-transform duration-500 group-hover:scale-105 object-repeat w-full h-full object-cover" alt="Community activities and engagement at Ark Care AFH" loading="lazy">
-            <div class="absolute bottom-3 right-3 bg-white px-3 py-1.5 rounded-full shadow-lg">
-              <span class="text-[10px] font-bold text-stone-900 font-geist">
-                Community
-              </span>
-            </div>
-          </div>
-
-          <!-- 4. Text Right (Swapped) -->
-          <div class="flex group rounded-xl px-4 py-4 shadow-[0_4px_6px_rgba(0,_0,_0,_0.049),_0_9.6px_7.6px_rgba(0,_0,_0,_0.069),_0_18px_14.3px_rgba(0,_0,_0,_0.086),_0_32px_25.6px_rgba(0,_0,_0,_0.103),_0_60px_47.8px_rgba(0,_0,_0,_0.123),_0_143px_114.3px_rgba(0,_0,_0,_0.172)] gap-x-4 gap-y-4 items-start">
-            <div class="mt-1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="file-heart" class="lucide lucide-file-heart text-2xl text-stone-300 group-hover:text-stone-800 transition-colors"><path d="M13 22h5a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v7"></path><path d="M14 2v5a1 1 0 0 0 1 1h5"></path><path d="M3.62 18.8A2.25 2.25 0 1 1 7 15.836a2.25 2.25 0 1 1 3.38 2.966l-2.626 2.856a1 1 0 0 1-1.507 0z"></path></svg>
-            </div>
-            <div>
-              <h4 class="text-lg font-serif font-medium mb-1 font-geist">
-                Personalized Care Plans
-              </h4>
-              <p class="text-stone-500 text-[12px] leading-relaxed font-geist">
-                "We work closely with families and healthcare providers to
-                develop comprehensive plans covering health goals."
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <footer class="text-stone-400 bg-stone-900 rounded-none mt-12 pt-8 pb-8 font-geist" style="mask-image: linear-gradient(0deg, transparent, black 0%, black 100%, transparent); -webkit-mask-image: linear-gradient(0deg, transparent, black 0%, black 100%, transparent);">
-        <div class="lg:px-8 text-xs font-normal max-w-full mr-auto ml-auto pr-6 pl-6">
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pt-3 pb-3 gap-x-12 gap-y-12">
-            <div class="space-y-6">
-              <a href="index.html" class="block">
-                <h2 class="text-5xl font-serif text-white tracking-tight md:text-2xl hover:text-stone-300 transition-colors">
-                Ark Care AFH
-              </h2>
-              </a>
-              <div class="space-y-4">
-                <span class="inline-block px-3 py-1 border border-stone-800 rounded-full text-xs font-medium uppercase tracking-wider text-emerald-500">
-                  Licensed &amp; Certified
-                </span>
-                <p class="text-sm leading-relaxed max-w-xs">
-                  Providing compassionate, personalized adult family home care
-                  in Algona, Washington.
-                </p>
-              </div>
-            </div>
-            <div>
-              <h3 class="text-xl font-serif text-white mb-6">Quick Links</h3>
-              <ul class="space-y-3 text-sm">
-                <li>
-                  <a href="index.html" class="hover:text-white transition-colors">
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a href="about-us.html" class="hover:text-white transition-colors">
-                    About Us
-                  </a>
-                </li>
-                <li>
-                  <a href="services.html" class="hover:text-white transition-colors">
-                    Services
-                  </a>
-                </li>
-                <li>
-                  <a href="gallery.html" class="hover:text-white transition-colors">
-                    Gallery
-                  </a>
-                </li>
-                <li>
-                  <a href="contact.html" class="hover:text-white transition-colors">
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 class="text-xl font-serif text-white mb-6">Our Services</h3>
-              <ul class="space-y-3 text-sm">
-                <li><a href="services.html" class="hover:text-white transition-colors">24/7 Professional Care</a></li>
-                <li><a href="services.html" class="hover:text-white transition-colors">Medication Management</a></li>
-                <li><a href="services.html" class="hover:text-white transition-colors">Personal Care Assistance</a></li>
-                <li><a href="services.html" class="hover:text-white transition-colors">Activities &amp; Engagement</a></li>
-                <li><a href="services.html" class="hover:text-white transition-colors">Specialized Care Programs</a></li>
-              </ul>
-            </div>
-            <div id="contact">
-              <h3 class="text-xl font-serif text-white mb-6">Contact Us</h3>
-              <ul class="text-sm space-y-4">
-                <li class="flex gap-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="phone" class="lucide lucide-phone w-5 h-5 text-stone-500 shrink-0"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg>
-                  <div>
-                    <span class="block text-xs uppercase tracking-wider text-stone-500 mb-0.5">
-                      Phone
-                    </span>
-                    <a href="tel:2064553644" class="text-white hover:text-stone-300 transition-colors">
-                      206 455 3644
-                    </a>
-                  </div>
-                </li>
-                <li class="flex gap-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="mail" class="lucide lucide-mail w-5 h-5 text-stone-500 shrink-0"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg>
-                  <div>
-                    <span class="block text-xs uppercase tracking-wider text-stone-500 mb-0.5">
-                      Email
-                    </span>
-                    <a href="mailto:contact@arkcare.local" class="text-white hover:text-stone-300 transition-colors">
-                      contact@arkcare.local
-                    </a>
-                  </div>
-                </li>
-                <li class="flex gap-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="map-pin" class="lucide lucide-map-pin w-5 h-5 text-stone-500 shrink-0"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                  <div>
-                    <span class="block text-xs uppercase tracking-wider text-stone-500 mb-0.5">
-                      Address
-                    </span>
-                    <span class="text-white">
-                      127 4th Ave N Algona, WA 98001
-                    </span>
-                  </div>
-                </li>
-                <li class="flex gap-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="clock" class="lucide lucide-clock w-5 h-5 text-stone-500 shrink-0"><path d="M12 6v6l4 2"></path><circle cx="12" cy="12" r="10"></circle></svg>
-                  <div>
-                    <span class="block text-xs uppercase tracking-wider text-stone-500 mb-0.5">
-                      Hours
-                    </span>
-                    <span class="text-white">Available 24/7</span>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="flex flex-col md:flex-row gap-4 text-xs text-stone-500 border-stone-800 border-t pt-8 gap-x-4 gap-y-4 items-center justify-between">
-            <div class="text-center md:text-left">
-              <p>© 2025 Ark Care AFH. All rights reserved.</p>
-              <p class="mt-1">
-                State-licensed adult family home • Licensed in Washington State
-              </p>
-            </div>
-            <div class="flex gap-6">
-              <a href="#" class="hover:text-white transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" class="hover:text-white transition-colors">
-                Terms of Service
-              </a>
-              <a href="#" class="hover:text-white transition-colors">
-                Accessibility
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-      // Init Icons
-        if (typeof lucide !== 'undefined') {
-      lucide.createIcons();
-        }
-
-          // Flashlight effect
-        document.addEventListener('mousemove', (e) => {
-          const cards = document.querySelectorAll('.flashlight-card');
-          cards.forEach(card => {
-                  const rect = card.getBoundingClientRect();
-                  const x = e.clientX - rect.left;
-                  const y = e.clientY - rect.top;
-                  card.style.setProperty('--mouse-x', `${x}px`);
-                  card.style.setProperty('--mouse-y', `${y}px`);
-          });
-        });
-
-        // GSAP ScrollTrigger for any scroll-trigger-item elements
-        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-          gsap.registerPlugin(ScrollTrigger);
-          
-          const triggerItems = document.querySelectorAll('.scroll-trigger-item');
-          triggerItems.forEach(item => {
-            item.style.transform = '';
-            item.style.opacity = '';
-            
-            gsap.fromTo(item,
-              { opacity: 0, y: 30 },
-              {
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
-                ease: "power2.out",
-                scrollTrigger: {
-                  trigger: item,
-                  start: "top 90%",
-                  once: true
-                }
-              }
-            );
-          });
-        }
-
-          // Mobile Menu Toggle
-        const mobileMenuButton = document.getElementById('mobileMenuButton');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const menuIcon = document.getElementById('menuIcon');
-        const closeIcon = document.getElementById('closeIcon');
-        
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', () => {
-                const isOpen = !mobileMenu.classList.contains('hidden');
-                
-                if (isOpen) {
-                    mobileMenu.classList.add('hidden');
-                    menuIcon.classList.remove('hidden');
-                    closeIcon.classList.add('hidden');
-                    mobileMenuButton.setAttribute('aria-expanded', 'false');
-                    document.body.style.overflow = '';
-              } else {
-                    mobileMenu.classList.remove('hidden');
-                    menuIcon.classList.add('hidden');
-                    closeIcon.classList.remove('hidden');
-                    mobileMenuButton.setAttribute('aria-expanded', 'true');
-                    document.body.style.overflow = 'hidden';
-                }
-            });
-            
-            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-            mobileMenuLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    menuIcon.classList.remove('hidden');
-                    closeIcon.classList.add('hidden');
-                    mobileMenuButton.setAttribute('aria-expanded', 'false');
-                    document.body.style.overflow = '';
-                });
-            });
-            
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                    menuIcon.classList.remove('hidden');
-                    closeIcon.classList.add('hidden');
-                    mobileMenuButton.setAttribute('aria-expanded', 'false');
-                    document.body.style.overflow = '';
-                }
-            });
-        }
-      });
-    </script>
-    
-    <!-- Cookie Consent Banner -->
-    <div id="cookieConsent" class="fixed bottom-0 left-0 right-0 z-[100] bg-stone-900 text-white p-4 md:p-6 shadow-2xl transform translate-y-full transition-transform duration-300 ease-in-out" style="display: none;">
-      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
-        <div class="flex-1">
-          <p class="text-sm md:text-base text-stone-200 leading-relaxed">
-            We use cookies to enhance your browsing experience and analyze site traffic. By clicking "Accept", you consent to our use of cookies. 
-            <a href="#" class="underline hover:text-white transition-colors">Learn more</a>
-          </p>
-        </div>
-        <div class="flex gap-3 w-full md:w-auto">
-          <button id="cookieDecline" class="px-6 py-2.5 text-sm font-semibold text-stone-300 hover:text-white border border-stone-700 rounded-lg transition-colors">
-            Decline
-          </button>
-          <button id="cookieAccept" class="px-6 py-2.5 text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-700 rounded-lg transition-colors">
-            Accept
-          </button>
         </div>
       </div>
-    </div>
-    
-    <!-- Back to Top Button -->
-    <button id="backToTop" class="fixed bottom-6 right-6 z-50 bg-stone-900 text-white p-3 rounded-full shadow-lg hover:bg-stone-800 transition-all duration-300 opacity-0 pointer-events-none hover:scale-110" aria-label="Back to top">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up">
-        <path d="m18 15-6-6-6 6"></path>
-        <path d="M12 21V9"></path>
-      </svg>
-    </button>
-    
+    </footer>
+
     <script>
-        // Cookie Consent and Back to Top functionality
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- Cookie Consent ---
-            const cookieConsent = document.getElementById('cookieConsent');
-            const cookieAccept = document.getElementById('cookieAccept');
-            const cookieDecline = document.getElementById('cookieDecline');
-            
-            const cookieChoice = localStorage.getItem('cookieConsent');
-            
-            if (!cookieChoice) {
-                setTimeout(() => {
-                    cookieConsent.style.display = 'block';
-                    setTimeout(() => {
-                        cookieConsent.classList.remove('translate-y-full');
-                    }, 100);
-                }, 1000);
-            }
-            
-            if (cookieAccept) {
-                cookieAccept.addEventListener('click', () => {
-                    localStorage.setItem('cookieConsent', 'accepted');
-                    cookieConsent.classList.add('translate-y-full');
-                    setTimeout(() => {
-                        cookieConsent.style.display = 'none';
-                    }, 300);
-                });
-            }
-            
-            if (cookieDecline) {
-                cookieDecline.addEventListener('click', () => {
-                    localStorage.setItem('cookieConsent', 'declined');
-                    cookieConsent.classList.add('translate-y-full');
-                    setTimeout(() => {
-                        cookieConsent.style.display = 'none';
-                    }, 300);
-                    if (typeof gtag !== 'undefined') {
-                        window['ga-disable-G-XXXXXXXXXX'] = true;
-                    }
-                });
-            }
-            
-            // --- Back to Top Button ---
-            const backToTopBtn = document.getElementById('backToTop');
-            
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
-                    backToTopBtn.classList.add('opacity-100');
-                } else {
-                    backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
-                    backToTopBtn.classList.remove('opacity-100');
-                }
-            });
-            
-            if (backToTopBtn) {
-                backToTopBtn.addEventListener('click', () => {
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                });
-            }
+      document.addEventListener('DOMContentLoaded', function() {
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Initialize Vanta Globe with adapted colors (softer, greener)
+        VANTA.GLOBE({
+          el: "#vanta-bg",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.00,
+          scaleMobile: 1.00,
+          color: 0x10b981,
+          color2: 0x059669,
+          size: 1.20,
+          backgroundColor: 0x000000
         });
-    </script>
-    
-    <!-- Custom Chat Widget -->
-    <div id="chatWidget" class="fixed bottom-6 right-6 z-50">
-        <button id="chatButton" class="w-14 h-14 bg-stone-900 text-white rounded-full shadow-lg hover:bg-stone-800 transition-all duration-300 hover:scale-110 flex items-center justify-center group" aria-label="Open chat">
-            <svg id="chatIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle">
-                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-            </svg>
-            <svg id="closeIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x hidden">
-                <path d="M18 6 6 18"></path>
-                <path d="M6 6l12 12"></path>
-            </svg>
-            <span class="absolute -top-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white animate-pulse"></span>
-        </button>
-        <div id="chatWindow" class="hidden absolute bottom-20 right-0 w-[380px] max-w-[calc(100vw-2rem)] h-[580px] bg-white rounded-2xl shadow-2xl border border-stone-200 overflow-hidden transform transition-all duration-300 opacity-0 translate-y-4 flex flex-col">
-            <div class="bg-stone-900 text-white p-4 flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle">
-                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-                        </svg>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-sm">Chat with Us</h3>
-                        <p class="text-xs text-stone-300">We'll respond as soon as possible</p>
-                    </div>
-                </div>
-                <button id="minimizeChat" class="text-stone-400 hover:text-white transition-colors" aria-label="Minimize chat">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus">
-                        <path d="M5 12h14"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="flex flex-col h-[500px]">
-                <div id="chatMessages" class="flex-1 overflow-y-auto p-4 space-y-3 bg-stone-50">
-                    <div class="flex items-start gap-2">
-                        <div class="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center shrink-0">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle">
-                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-                            </svg>
-                        </div>
-                        <div class="bg-white rounded-xl rounded-tl-none p-3 shadow-sm max-w-[85%]">
-                            <p class="text-sm text-stone-700 font-medium mb-1">Hello! 👋</p>
-                            <p class="text-xs text-stone-600">I'm here to help answer questions about Ark Care AFH. Ask me about our services, location, contact information, or anything else!</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-wrap gap-2 px-10">
-                        <button class="quick-action-btn text-xs px-3 py-1.5 bg-white border border-stone-200 rounded-full hover:bg-stone-100 transition-colors text-stone-700" data-action="services">Our Services</button>
-                        <button class="quick-action-btn text-xs px-3 py-1.5 bg-white border border-stone-200 rounded-full hover:bg-stone-100 transition-colors text-stone-700" data-action="location">Location</button>
-                        <button class="quick-action-btn text-xs px-3 py-1.5 bg-white border border-stone-200 rounded-full hover:bg-stone-100 transition-colors text-stone-700" data-action="contact">Contact Info</button>
-                        <button class="quick-action-btn text-xs px-3 py-1.5 bg-white border border-stone-200 rounded-full hover:bg-stone-100 transition-colors text-stone-700" data-action="hours">Hours</button>
-                    </div>
-                </div>
-                <div class="border-t border-stone-200 p-4 bg-white">
-                    <div id="chatFormContainer" class="hidden">
-                        <form id="chatForm" class="space-y-3" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                            <input type="hidden" name="_subject" value="New Chat Message from Website">
-                            <input type="hidden" name="_format" value="plain">
-                            <div id="chatFormStatus" class="hidden p-2 rounded-lg text-xs font-medium"></div>
-                            <input type="text" id="chatName" name="name" class="w-full bg-stone-50 border border-stone-200 rounded-lg px-3 py-2 text-xs text-stone-900 placeholder:text-stone-400 focus:bg-white focus:border-stone-900 focus:ring-1 focus:ring-stone-900 focus:outline-none transition-all" placeholder="Your Name" required>
-                            <input type="email" id="chatEmail" name="email" class="w-full bg-stone-50 border border-stone-200 rounded-lg px-3 py-2 text-xs text-stone-900 placeholder:text-stone-400 focus:bg-white focus:border-stone-900 focus:ring-1 focus:ring-stone-900 focus:outline-none transition-all" placeholder="Your Email" required>
-                            <textarea id="chatMessage" name="message" rows="2" class="w-full bg-stone-50 border border-stone-200 rounded-lg px-3 py-2 text-xs text-stone-900 placeholder:text-stone-400 focus:bg-white focus:border-stone-900 focus:ring-1 focus:ring-stone-900 focus:outline-none transition-all resize-none" placeholder="Your message..." required></textarea>
-                            <div class="flex gap-2">
-                                <button type="submit" id="chatSubmit" class="flex-1 bg-stone-900 text-white py-2 rounded-lg font-semibold text-xs hover:bg-stone-800 transition-colors">Send</button>
-                                <button type="button" id="cancelForm" class="px-4 py-2 text-xs text-stone-600 hover:text-stone-900 transition-colors">Cancel</button>
-                            </div>
-                        </form>
-                    </div>
-                    <div id="chatInputContainer" class="flex gap-2">
-                        <input type="text" id="chatInput" placeholder="Type your message..." class="flex-1 bg-stone-50 border border-stone-200 rounded-lg px-4 py-2.5 text-sm text-stone-900 placeholder:text-stone-400 focus:bg-white focus:border-stone-900 focus:ring-1 focus:ring-stone-900 focus:outline-none transition-all" autocomplete="off">
-                        <button id="sendMessage" class="bg-stone-900 text-white p-2.5 rounded-lg hover:bg-stone-800 transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send">
-                                <path d="m22 2-7 20-4-9-9-4Z"></path>
-                                <path d="M22 2 11 13"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <style>
-        #chatWindow.show {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
-        @media (max-width: 640px) {
-            #chatWidget {
-                bottom: 1rem;
-                right: 1rem;
-            }
-            #chatWindow {
-                width: calc(100vw - 2rem);
-                height: calc(100vh - 8rem);
-                right: 0;
-                bottom: 4rem;
-            }
-        }
-    </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const chatButton = document.getElementById('chatButton');
-            const chatWindow = document.getElementById('chatWindow');
-            const minimizeChat = document.getElementById('minimizeChat');
-            const chatIcon = document.getElementById('chatIcon');
-            const closeIcon = document.getElementById('closeIcon');
-            const chatMessages = document.getElementById('chatMessages');
-            const chatInput = document.getElementById('chatInput');
-            const sendMessage = document.getElementById('sendMessage');
-            const chatFormContainer = document.getElementById('chatFormContainer');
-            const chatInputContainer = document.getElementById('chatInputContainer');
-            const chatForm = document.getElementById('chatForm');
-            const cancelForm = document.getElementById('cancelForm');
-            let isOpen = false;
-            const knowledgeBase = {
-                services: {
-                    keywords: ['service', 'services', 'care', 'what do you offer', 'what services', 'offerings', 'programs'],
-                    response: 'We provide comprehensive adult family home services including:\n\n• 24/7 Professional Caregiver Support\n• Medication Management\n• Personal Care Assistance\n• Specialized Support for Mental Health\n• Dementia Care\n• Developmental Disabilities Support\n• HCS (Home and Community Services)\n• DDA Meaningful Day Programs\n• Nutritious Meal Planning\n• Social Activities & Engagement\n\nWould you like more details about any specific service?'
-                },
-                location: {
-                    keywords: ['location', 'address', 'where', 'located', 'find you', 'directions'],
-                    response: 'We are located at:\n\n📍 127 4th Ave N\nAlgona, WA 98001\n\nWe\'re in a quiet, safe neighborhood in Algona, Washington, providing easy access for visiting families. Would you like directions or to schedule a tour?'
-                },
-                contact: {
-                    keywords: ['contact', 'phone', 'email', 'call', 'reach', 'number', 'telephone'],
-                    response: 'You can reach us at:\n\n📞 Phone: (206) 455-3644\n📧 Email: contact@arkcare.local\n📍 Address: 127 4th Ave N, Algona, WA 98001\n\nWe\'re available 24/7 to answer your questions!'
-                },
-                hours: {
-                    keywords: ['hours', 'open', 'when', 'available', 'time', 'schedule'],
-                    response: 'We are available 24/7! Our facility provides round-the-clock care and support. You can call us anytime at (206) 455-3644 or schedule a tour at your convenience.'
-                },
-                certification: {
-                    keywords: ['licensed', 'certified', 'certification', 'license', 'accredited', 'medicaid', 'hipaa', 'dda', 'hcs'],
-                    response: 'Yes! We are fully licensed and certified:\n\n✅ Licensed Adult Family Home (AFH)\n✅ Washington State Department of Health\n✅ HIPAA Compliant\n✅ Medicaid Certified\n✅ HCS Provider\n✅ DDA Provider\n\nWe maintain the highest standards of care and compliance.'
-                },
-                tour: {
-                    keywords: ['tour', 'visit', 'see', 'schedule', 'appointment', 'view'],
-                    response: 'We\'d love to show you around! You can schedule a tour by:\n\n📞 Calling us at (206) 455-3644\n📧 Emailing contact@arkcare.local\n🌐 Visiting our contact page\n\nTours are available at your convenience. We look forward to meeting you!'
-                },
-                cost: {
-                    keywords: ['cost', 'price', 'fee', 'payment', 'afford', 'insurance', 'medicaid', 'medicare'],
-                    response: 'We accept Medicaid and work with various payment options. For specific pricing and payment information, please call us at (206) 455-3644 or email contact@arkcare.local. We\'re happy to discuss your options and answer any questions about coverage.'
-                },
-                mental: {
-                    keywords: ['mental health', 'mental', 'behavioral', 'psychiatric', 'anxiety', 'depression'],
-                    response: 'Yes! We provide specialized support for residents with mental health needs. Our trained staff offers compassionate care tailored to each individual\'s needs. We work closely with healthcare providers to ensure comprehensive support.'
-                },
-                dementia: {
-                    keywords: ['dementia', 'alzheimer', 'memory', 'cognitive'],
-                    response: 'We specialize in dementia care! Our facility provides:\n\n• Specialized memory care programs\n• Safe, secure environment\n• Trained staff experienced with dementia\n• Activities designed to maintain cognitive function\n• Personalized care plans\n\nWould you like to learn more about our dementia care services?'
-                },
-                developmental: {
-                    keywords: ['developmental', 'disability', 'disabilities', 'dd', 'special needs'],
-                    response: 'We provide specialized care for individuals with developmental disabilities. Our services include:\n\n• DDA Meaningful Day Programs\n• Personalized support plans\n• Life skills development\n• Community integration\n• 24/7 professional care\n\nWe\'re committed to supporting each resident\'s unique needs and goals.'
-                }
-            };
-            function toggleChat() {
-                isOpen = !isOpen;
-                if (isOpen) {
-                    chatWindow.classList.remove('hidden');
-                    setTimeout(() => {
-                        chatWindow.classList.add('show');
-                    }, 10);
-                    chatIcon.classList.add('hidden');
-                    closeIcon.classList.remove('hidden');
-                    chatInput.focus();
-                } else {
-                    chatWindow.classList.remove('show');
-                    setTimeout(() => {
-                        chatWindow.classList.add('hidden');
-                    }, 300);
-                    chatIcon.classList.remove('hidden');
-                    closeIcon.classList.add('hidden');
-                }
-            }
-            function addMessage(text, isUser = false) {
-                const messageDiv = document.createElement('div');
-                messageDiv.className = `flex items-start gap-2 ${isUser ? 'flex-row-reverse' : ''}`;
-                if (!isUser) {
-                    const avatar = document.createElement('div');
-                    avatar.className = 'w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center shrink-0';
-                    avatar.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>';
-                    messageDiv.appendChild(avatar);
-                }
-                const textDiv = document.createElement('div');
-                textDiv.className = `rounded-xl p-3 shadow-sm max-w-[85%] ${isUser ? 'bg-stone-900 text-white rounded-tr-none' : 'bg-white text-stone-700 rounded-tl-none'}`;
-                textDiv.innerHTML = `<p class="text-sm whitespace-pre-line">${text}</p>`;
-                messageDiv.appendChild(textDiv);
-                chatMessages.appendChild(messageDiv);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            }
-            function findAnswer(question) {
-                const lowerQuestion = question.toLowerCase();
-                for (const [key, data] of Object.entries(knowledgeBase)) {
-                    if (data.keywords.some(keyword => lowerQuestion.includes(keyword))) {
-                        return data.response;
-                    }
-                }
-                return null;
-            }
-            function handleMessage(message) {
-                addMessage(message, true);
-                const typingDiv = document.createElement('div');
-                typingDiv.id = 'typingIndicator';
-                typingDiv.className = 'flex items-start gap-2';
-                typingDiv.innerHTML = `
-                    <div class="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle">
-                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-                        </svg>
-                    </div>
-                    <div class="bg-white rounded-xl rounded-tl-none p-3">
-                        <div class="flex gap-1">
-                            <div class="w-2 h-2 bg-stone-400 rounded-full animate-bounce" style="animation-delay: 0s"></div>
-                            <div class="w-2 h-2 bg-stone-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
-                            <div class="w-2 h-2 bg-stone-400 rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
-                        </div>
-                    </div>
-                `;
-                chatMessages.appendChild(typingDiv);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-                setTimeout(() => {
-                    const answer = findAnswer(message);
-                    document.getElementById('typingIndicator')?.remove();
-                    if (answer) {
-                        addMessage(answer);
-                    } else {
-                        addMessage('I understand you\'re asking about: "' + message + '". While I can answer many questions about our services, location, and contact information, for more detailed inquiries, would you like to speak with our team directly? I can help you fill out a contact form!', false);
-                        setTimeout(() => {
-                            showContactForm(message);
-                        }, 2000);
-                    }
-                }, 1000);
-            }
-            function showContactForm(prefillMessage = '') {
-                chatInputContainer.classList.add('hidden');
-                chatFormContainer.classList.remove('hidden');
-                if (prefillMessage && document.getElementById('chatMessage')) {
-                    document.getElementById('chatMessage').value = prefillMessage;
-                }
-            }
-            function hideContactForm() {
-                chatFormContainer.classList.add('hidden');
-                chatInputContainer.classList.remove('hidden');
-                chatForm.reset();
-            }
-            if (chatButton) chatButton.addEventListener('click', toggleChat);
-            if (minimizeChat) minimizeChat.addEventListener('click', toggleChat);
-            document.querySelectorAll('.quick-action-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const action = btn.dataset.action;
-                    const answer = knowledgeBase[action]?.response;
-                    if (answer) {
-                        addMessage(btn.textContent, true);
-                        setTimeout(() => {
-                            addMessage(answer);
-                        }, 500);
-                    }
-                });
-            });
-            function sendChatMessage() {
-                const message = chatInput.value.trim();
-                if (message) {
-                    handleMessage(message);
-                    chatInput.value = '';
-                }
-            }
-            if (sendMessage) {
-                sendMessage.addEventListener('click', sendChatMessage);
-            }
-            if (chatInput) {
-                chatInput.addEventListener('keypress', (e) => {
-                    if (e.key === 'Enter') {
-                        sendChatMessage();
-                    }
-                });
-            }
-            if (cancelForm) {
-                cancelForm.addEventListener('click', hideContactForm);
-            }
-            if (chatForm) {
-                chatForm.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    const formData = new FormData(chatForm);
-                    const submitButton = document.getElementById('chatSubmit');
-                    const originalText = submitButton.innerHTML;
-                    submitButton.disabled = true;
-                    submitButton.innerHTML = 'Sending...';
-                    try {
-                        const response = await fetch(chatForm.action, {
-                            method: 'POST',
-                            body: formData,
-                            headers: { 'Accept': 'application/json' }
-                        });
-                        if (response.ok) {
-                            addMessage('Thank you! Your message has been sent. We\'ll get back to you soon.', false);
-                            chatForm.reset();
-                            hideContactForm();
-                            setTimeout(() => toggleChat(), 3000);
-                        } else {
-                            throw new Error('Form submission failed');
-                        }
-                    } catch (error) {
-                        addMessage('Sorry, there was an error. Please call us at (206) 455-3644', false);
-                    } finally {
-                        submitButton.disabled = false;
-                        submitButton.innerHTML = originalText;
-                    }
-                });
-            }
       });
     </script>
   
