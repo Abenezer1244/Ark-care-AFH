@@ -22,11 +22,24 @@
 
 <!-- Google Business Profile -->
 <link rel="canonical" href="https://arkcare.com/contact-us.html">
+
+<!-- Resource Hints for Performance -->
+<link rel="preconnect" href="https://cdn.tailwindcss.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<link rel="dns-prefetch" href="https://unpkg.com">
+
+<!-- Critical CSS and Scripts -->
+<!-- Note: Tailwind CDN is used for development. For production, consider using PostCSS plugin or Tailwind CLI -->
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
-<script src="https://unpkg.com/lucide@latest"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+
+<!-- Defer Heavy 3D Libraries (Not used on contact page but kept for consistency) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js" defer></script>
 <style>
 body { font-family: 'Inter', sans-serif; }
 @property --gradient-angle {
@@ -180,7 +193,7 @@ transform: translate(-50%, -50%) scale(1.20);
 <script>
 (function(){const once=true;if(!window.__inViewIO){window.__inViewIO=new IntersectionObserver((entries)=>{entries.forEach((entry)=>{if(entry.isIntersecting){entry.target.classList.add("animate");if(once)window.__inViewIO.unobserve(entry.target)}})},{threshold:0.2,rootMargin:"0px 0px -10% 0px"})}window.initInViewAnimations=function(selector=".animate-on-scroll"){document.querySelectorAll(selector).forEach((el)=>{window.__inViewIO.observe(el)})};document.addEventListener("DOMContentLoaded",()=>initInViewAnimations())})();
 </script>
-<link id="all-fonts-link-font-instrument-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&amp;display=swap"><link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist">.font-geist { font-family: 'Geist', sans-serif !important; }</style><link id="all-fonts-link-font-roboto" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-roboto">.font-roboto { font-family: 'Roboto', sans-serif !important; }</style><link id="all-fonts-link-font-montserrat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-montserrat">.font-montserrat { font-family: 'Montserrat', sans-serif !important; }</style><link id="all-fonts-link-font-poppins" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-poppins">.font-poppins { font-family: 'Poppins', sans-serif !important; }</style><link id="all-fonts-link-font-playfair" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&amp;display=swap"><style id="all-fonts-style-font-playfair">.font-playfair { font-family: 'Playfair Display', serif !important; }</style><style id="all-fonts-style-font-instrument-serif">.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }</style><link id="all-fonts-link-font-merriweather" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap"><style id="all-fonts-style-font-merriweather">.font-merriweather { font-family: 'Merriweather', serif !important; }</style><link id="all-fonts-link-font-bricolage" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-bricolage">.font-bricolage { font-family: 'Bricolage Grotesque', sans-serif !important; }</style><link id="all-fonts-link-font-jakarta" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-jakarta">.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }</style><link id="all-fonts-link-font-manrope" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-manrope">.font-manrope { font-family: 'Manrope', sans-serif !important; }</style><link id="all-fonts-link-font-space-grotesk" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-space-grotesk">.font-space-grotesk { font-family: 'Space Grotesk', sans-serif !important; }</style><link id="all-fonts-link-font-work-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-work-sans">.font-work-sans { font-family: 'Work Sans', sans-serif !important; }</style><link id="all-fonts-link-font-pt-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-pt-serif">.font-pt-serif { font-family: 'PT Serif', serif !important; }</style><link id="all-fonts-link-font-geist-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist-mono">.font-geist-mono { font-family: 'Geist Mono', monospace !important; }</style><link id="all-fonts-link-font-space-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-space-mono">.font-space-mono { font-family: 'Space Mono', monospace !important; }</style><link id="all-fonts-link-font-quicksand" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-quicksand">.font-quicksand { font-family: 'Quicksand', sans-serif !important; }</style><link id="all-fonts-link-font-nunito" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-nunito">.font-nunito { font-family: 'Nunito', sans-serif !important; }</style>
+<style id="all-fonts-style-font-instrument-serif">.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }</style>
 
 <!-- ContactPage Schema Markup -->
 <script type="application/ld+json">
@@ -621,6 +634,271 @@ transform: translate(-50%, -50%) scale(1.20);
           });
         }
       });
+    </script>
+
+    <!-- AI Chatbot Widget -->
+    <div id="chatbot-container" class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
+      <!-- Chat Button -->
+      <button id="chatbot-toggle" class="w-12 h-12 sm:w-14 sm:h-14 bg-emerald-500 hover:bg-emerald-600 rounded-full shadow-lg flex items-center justify-center text-white transition-all duration-300 hover:scale-110" aria-label="Open chat">
+        <svg id="chat-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 hidden">
+          <path d="M18 6 6 18"></path>
+          <path d="M6 6l12 12"></path>
+        </svg>
+      </button>
+
+      <!-- Chat Window -->
+      <div id="chatbot-window" class="hidden absolute bottom-20 right-0 w-[calc(100vw-3rem)] sm:w-96 h-[600px] max-h-[calc(100vh-8rem)] bg-zinc-900 border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden backdrop-blur-xl">
+        <!-- Chat Header -->
+        <div class="bg-emerald-500/20 border-b border-white/10 px-6 py-4 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-white font-semibold text-sm">Ark Care Assistant</h3>
+              <p class="text-emerald-300 text-xs">AI-powered support</p>
+            </div>
+          </div>
+          <button id="chatbot-minimize" class="text-zinc-400 hover:text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 6 6 18"></path>
+              <path d="M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Messages Container -->
+        <div id="chatbot-messages" class="flex-1 overflow-y-auto p-6 space-y-4 bg-zinc-950">
+          <!-- Welcome Message -->
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 bg-emerald-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-400">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <div class="bg-zinc-800/50 border border-white/5 rounded-lg px-4 py-3">
+                <p class="text-white text-sm">Hello! I'm your Ark Care assistant. How can I help you today? I can answer questions about our services, schedule tours, or provide information about assisted living.</p>
+              </div>
+              <p class="text-zinc-500 text-xs mt-1 ml-1">Just now</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Typing Indicator -->
+        <div id="chatbot-typing" class="hidden px-6 py-2">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 bg-emerald-500/20 rounded-full flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-400">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <div class="flex gap-1">
+              <div class="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style="animation-delay: 0s"></div>
+              <div class="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+              <div class="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="border-t border-white/10 p-4 bg-zinc-900">
+          <form id="chatbot-form" class="flex gap-2">
+            <input 
+              type="text" 
+              id="chatbot-input" 
+              placeholder="Type your message..." 
+              class="flex-1 bg-zinc-800/50 border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500/50 transition-all"
+              autocomplete="off"
+            >
+            <button 
+              type="submit" 
+              class="bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg px-4 py-2.5 transition-colors flex items-center justify-center"
+              aria-label="Send message"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m22 2-7 20-4-9-9-4Z"></path>
+                <path d="M22 2 11 13"></path>
+              </svg>
+            </button>
+          </form>
+          <p class="text-zinc-500 text-xs mt-2 text-center">Powered by AI • Responses may vary</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chatbot JavaScript -->
+    <script>
+      (function() {
+        const chatbotContainer = document.getElementById('chatbot-container');
+        const chatbotToggle = document.getElementById('chatbot-toggle');
+        const chatbotWindow = document.getElementById('chatbot-window');
+        const chatbotMinimize = document.getElementById('chatbot-minimize');
+        const chatbotForm = document.getElementById('chatbot-form');
+        const chatbotInput = document.getElementById('chatbot-input');
+        const chatbotMessages = document.getElementById('chatbot-messages');
+        const chatbotTyping = document.getElementById('chatbot-typing');
+        const chatIcon = document.getElementById('chat-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        let isOpen = false;
+
+        // Toggle chatbot
+        chatbotToggle.addEventListener('click', function() {
+          isOpen = !isOpen;
+          if (isOpen) {
+            chatbotWindow.classList.remove('hidden');
+            chatIcon.classList.add('hidden');
+            closeIcon.classList.remove('hidden');
+            chatbotInput.focus();
+          } else {
+            chatbotWindow.classList.add('hidden');
+            chatIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+          }
+        });
+
+        // Minimize chatbot
+        chatbotMinimize.addEventListener('click', function() {
+          isOpen = false;
+          chatbotWindow.classList.add('hidden');
+          chatIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+        });
+
+        // Add message to chat
+        function addMessage(text, isUser = false) {
+          const messageDiv = document.createElement('div');
+          messageDiv.className = `flex items-start gap-3 ${isUser ? 'flex-row-reverse' : ''}`;
+          
+          const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+          
+          messageDiv.innerHTML = `
+            ${!isUser ? `
+              <div class="w-8 h-8 bg-emerald-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-400">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                  <path d="M2 17l10 5 10-5"></path>
+                  <path d="M2 12l10 5 10-5"></path>
+                </svg>
+              </div>
+            ` : ''}
+            <div class="flex-1 ${isUser ? 'flex flex-col items-end' : ''}">
+              <div class="${isUser ? 'bg-emerald-500' : 'bg-zinc-800/50 border border-white/5'} rounded-lg px-4 py-3 max-w-[80%]">
+                <p class="text-white text-sm whitespace-pre-wrap">${text}</p>
+              </div>
+              <p class="text-zinc-500 text-xs mt-1 ${isUser ? 'mr-1' : 'ml-1'}">${timestamp}</p>
+            </div>
+            ${isUser ? `
+              <div class="w-8 h-8 bg-zinc-700 rounded-full flex items-center justify-center flex-shrink-0">
+                <span class="text-white text-xs font-semibold">U</span>
+              </div>
+            ` : ''}
+          `;
+          
+          chatbotMessages.appendChild(messageDiv);
+          chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        // Show typing indicator
+        function showTyping() {
+          chatbotTyping.classList.remove('hidden');
+          chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        // Hide typing indicator
+        function hideTyping() {
+          chatbotTyping.classList.add('hidden');
+        }
+
+        // Get AI response (can be integrated with OpenAI API)
+        async function getAIResponse(userMessage) {
+          // Simple keyword-based responses (can be replaced with actual AI API)
+          const lowerMessage = userMessage.toLowerCase();
+          
+          // Service-related queries
+          if (lowerMessage.includes('service') || lowerMessage.includes('care') || lowerMessage.includes('assisted living')) {
+            return "We offer comprehensive care services including Assisted Living, Memory Care, Respite Care, and Hospice Coordination. Our team provides personalized care plans tailored to each resident's needs. Would you like to learn more about a specific service?";
+          }
+          
+          if (lowerMessage.includes('memory care') || lowerMessage.includes('dementia') || lowerMessage.includes('alzheimer')) {
+            return "Our Memory Care program provides specialized support for residents with Alzheimer's, dementia, and other memory conditions. We offer a safe, structured environment with trained staff, cognitive activities, and personalized care plans. Would you like to schedule a tour to see our memory care facilities?";
+          }
+          
+          if (lowerMessage.includes('tour') || lowerMessage.includes('visit') || lowerMessage.includes('schedule')) {
+            return "I'd be happy to help you schedule a tour! You can contact us at (206) 455-3644 or fill out our contact form. We're located at 127 4th Ave N, Algona, WA 98001. What time works best for you?";
+          }
+          
+          if (lowerMessage.includes('price') || lowerMessage.includes('cost') || lowerMessage.includes('pricing') || lowerMessage.includes('fee')) {
+            return "Pricing varies based on the level of care needed and specific services required. I recommend speaking directly with our team for a personalized quote. Would you like me to connect you with someone who can provide detailed pricing information?";
+          }
+          
+          if (lowerMessage.includes('address') || lowerMessage.includes('location') || lowerMessage.includes('where')) {
+            return "We're located at 127 4th Ave N, Algona, WA 98001. You can reach us at (206) 455-3644. Would you like directions or to schedule a visit?";
+          }
+          
+          if (lowerMessage.includes('phone') || lowerMessage.includes('call') || lowerMessage.includes('contact')) {
+            return "You can reach us at (206) 455-3644. Our team is available to answer your questions and help you learn more about our services. You can also email us at info@arkcare.com or fill out our contact form on the website.";
+          }
+          
+          if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
+            return "Hello! I'm here to help you learn more about Ark Care. How can I assist you today?";
+          }
+          
+          if (lowerMessage.includes('respite') || lowerMessage.includes('temporary')) {
+            return "Our Respite Care services provide temporary care for your loved one, giving primary caregivers a break. This service is perfect for short-term stays and can help families during transitions. Would you like more information about our respite care options?";
+          }
+          
+          // Default response
+          return "Thank you for your question! For more detailed information, I recommend speaking with our team directly. You can call us at (206) 455-3644, email info@arkcare.com, or schedule a tour. Is there anything specific about our services you'd like to know more about?";
+        }
+
+        // Handle form submission
+        chatbotForm.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const userMessage = chatbotInput.value.trim();
+          
+          if (!userMessage) return;
+          
+          // Add user message
+          addMessage(userMessage, true);
+          chatbotInput.value = '';
+          
+          // Show typing indicator
+          showTyping();
+          
+          // Simulate AI thinking time
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          
+          // Get AI response
+          const aiResponse = await getAIResponse(userMessage);
+          
+          // Hide typing indicator
+          hideTyping();
+          
+          // Add AI response
+          addMessage(aiResponse, false);
+        });
+
+        // Enter key to send
+        chatbotInput.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            chatbotForm.dispatchEvent(new Event('submit'));
+          }
+        });
+      })();
     </script>
   
 </body></html>
