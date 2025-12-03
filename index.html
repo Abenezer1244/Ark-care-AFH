@@ -1,7 +1,27 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ark Care - Premium Adult Family Home</title>
+<title>Ark Care - Premium Adult Family Home | Compassionate Assisted Living</title>
+<meta name="description" content="Ark Care offers premium adult family home services with compassionate care in a loving family setting. Professional medical oversight, 24/7 care, and personalized attention for your loved ones.">
+<meta name="keywords" content="adult family home, assisted living, memory care, respite care, senior care, elderly care, Washington, Seattle">
+<meta name="author" content="Ark Care">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arkcare.com/">
+<meta property="og:title" content="Ark Care - Premium Adult Family Home | Compassionate Assisted Living">
+<meta property="og:description" content="Ark Care offers premium adult family home services with compassionate care in a loving family setting. Professional medical oversight, 24/7 care, and personalized attention.">
+<meta property="og:image" content="https://arkcare.com/images/og-image.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://arkcare.com/">
+<meta property="twitter:title" content="Ark Care - Premium Adult Family Home">
+<meta property="twitter:description" content="Compassionate assisted living in a loving family setting with professional medical oversight and 24/7 care.">
+<meta property="twitter:image" content="https://arkcare.com/images/twitter-image.jpg">
+
+<!-- Google Business Profile -->
+<link rel="canonical" href="https://arkcare.com/">
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
@@ -43,6 +63,8 @@ font-size: 1rem;
 line-height: 1.2;
 font-weight: 500;
 color: #ffffff;
+display: inline-block;
+text-decoration: none;
 background: linear-gradient(#000000, #000000) padding-box,
 conic-gradient(
 from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
@@ -188,7 +210,134 @@ linear-gradient(#fff 0 0);
 mask-composite: exclude;
 background: var(--border-gradient);
 pointer-events: none;
-}</style></head>
+}</style>
+
+<!-- Local Business Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://arkcare.com/#organization",
+  "name": "Ark Care",
+  "alternateName": "Ark Care Adult Family Home",
+  "description": "Premium adult family home providing compassionate assisted living services with professional medical oversight in a loving family setting.",
+  "url": "https://arkcare.com",
+  "logo": "https://arkcare.com/images/logo.png",
+  "image": "https://arkcare.com/images/og-image.jpg",
+  "telephone": "+1-206-455-3644",
+  "email": "info@arkcare.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "127 4th Ave N",
+    "addressLocality": "Algona",
+    "addressRegion": "WA",
+    "postalCode": "98001",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "47.28350377116194",
+    "longitude": "-122.25889642347786"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "00:00",
+      "closes": "23:59"
+    }
+  ],
+  "priceRange": "$$",
+  "servesCuisine": "American",
+  "amenityFeature": [
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "24/7 Care",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Memory Care",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Assisted Living",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Respite Care",
+      "value": true
+    }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/arkcare",
+    "https://www.google.com/maps?cid=YOUR_GOOGLE_BUSINESS_CID"
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "25"
+  }
+}
+</script>
+
+<!-- Service Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Adult Family Home Services",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Ark Care"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Algona"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Care Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Assisted Living",
+          "description": "Professional assistance with daily living activities"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Memory Care",
+          "description": "Specialized care for residents with memory conditions"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Respite Care",
+          "description": "Temporary care services for families"
+        }
+      }
+    ]
+  }
+}
+</script>
+</head>
   <body class="overflow-x-hidden text-white bg-black font-sans selection:bg-emerald-500/30">
     <!-- Background (component) -->
     <div class="aura-background-component top-0 w-full -z-10 absolute h-[1000px]" data-alpha-mask="80" style="mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent)">
@@ -200,7 +349,7 @@ pointer-events: none;
 
     <div class="min-h-screen relative">
       <!-- Navigation -->
-      <nav class="z-50 border-white/5 border-b pt-4 pb-4 pl-6 pr-6 relative backdrop-blur-sm bg-black/50" style="">
+      <nav class="z-50 border-white/5 border-b pt-4 pb-4 pl-4 pr-4 md:pl-6 md:pr-6 relative backdrop-blur-sm bg-black/50" style="">
         <div class="flex max-w-7xl mr-auto ml-auto items-center justify-between">
           <a href="index.html" class="inline-flex items-center gap-2">
             <div class="h-6 w-6 bg-emerald-500 rounded-full flex items-center justify-center">
@@ -208,27 +357,42 @@ pointer-events: none;
                 A
               </span>
             </div>
-            <span class="text-lg font-bold tracking-tight text-white uppercase">
+            <span class="text-base md:text-lg font-bold tracking-tight text-white uppercase">
               Ark Care
             </span>
           </a>
           <div class="hidden md:flex space-x-8 text-sm font-normal text-zinc-400">
+            <a href="index.html" class="hover:text-white transition-colors">Home</a>
             <a href="about-us.html" class="hover:text-white transition-colors">About Us</a>
             <a href="services.html" class="hover:text-white transition-colors">Services</a>
             <a href="gallery.html" class="hover:text-white transition-colors">Gallery</a>
             <a href="contact-us.html" class="hover:text-white transition-colors">Contact Us</a>
           </div>
-          <button class="hidden md:block hover:bg-zinc-200 transition-colors text-sm font-medium text-black bg-white rounded-full pt-2 pr-4 pb-2 pl-4" onclick="window.location.href='contact-us.html'" role="button">
+          <a href="contact-us.html" class="hidden md:block hover:bg-zinc-200 transition-colors text-sm font-medium text-black bg-white rounded-full pt-2 pr-4 pb-2 pl-4">
             Schedule Tour
+          </a>
+          <button id="mobile-menu-button" class="md:hidden text-white p-2" aria-label="Toggle menu">
+            <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu w-6 h-6"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg>
+            <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x w-6 h-6 hidden"><path d="M18 6 6 18"></path><path d="M6 6l12 12"></path></svg>
           </button>
-          <button class="md:hidden text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="menu" class="lucide lucide-menu w-6 h-6"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg>
-          </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-xl border-t border-white/5">
+          <div class="flex flex-col py-4 px-4 space-y-1">
+            <a href="index.html" class="px-4 py-3 text-base font-medium text-zinc-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Home</a>
+            <a href="about-us.html" class="px-4 py-3 text-base font-medium text-zinc-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors">About Us</a>
+            <a href="services.html" class="px-4 py-3 text-base font-medium text-zinc-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Services</a>
+            <a href="gallery.html" class="px-4 py-3 text-base font-medium text-zinc-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Gallery</a>
+            <a href="contact-us.html" class="px-4 py-3 text-base font-medium text-zinc-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Contact Us</a>
+            <a href="contact-us.html" class="mt-4 mx-4 px-4 py-3 text-base font-medium text-center text-black bg-white rounded-full hover:bg-zinc-200 transition-colors">
+              Schedule Tour
+            </a>
+          </div>
         </div>
       </nav>
 
       <!-- Hero Section -->
-      <main class="z-10 pt-20 pr-6 pb-20 pl-6 relative">
+      <main class="z-10 pt-16 md:pt-20 pr-4 pb-12 md:pb-20 pl-4 md:pl-6 md:pr-6 relative">
         <style>
           @keyframes fadeInSlide {
             0% {
@@ -278,35 +442,35 @@ pointer-events: none;
               </span>
             </div>
 
-            <h1 class="md:text-7xl lg:text-8xl leading-[1.05] text-5xl font-semibold tracking-tight text-center max-w-4xl mb-8">
-              <span class="animate-hero-element animate-title-1 block font-normal text-zinc-300" style="mask-image: linear-gradient(180deg, transparent, black 0%, black 65%, transparent); -webkit-mask-image: linear-gradient(180deg, transparent, black 0%, black 65%, transparent);">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.05] font-semibold tracking-tight text-center max-w-4xl mb-6 md:mb-8 px-4">
+              <span class="animate-hero-element animate-title-1 block font-normal text-zinc-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl" style="mask-image: linear-gradient(180deg, transparent, black 0%, black 65%, transparent); -webkit-mask-image: linear-gradient(180deg, transparent, black 0%, black 65%, transparent);">
                 Compassionate care in a
               </span>
-              <span class="animate-hero-element animate-title-2 block text-8xl font-normal italic font-instrument-serif py-2 text-white" style="mask-image: linear-gradient(280deg, transparent, black 0%, black 25%, transparent); -webkit-mask-image: linear-gradient(280deg, transparent, black 0%, black 25%, transparent);">
+              <span class="animate-hero-element animate-title-2 block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-normal italic font-instrument-serif py-2 text-white" style="mask-image: linear-gradient(280deg, transparent, black 0%, black 25%, transparent); -webkit-mask-image: linear-gradient(280deg, transparent, black 0%, black 25%, transparent);">
                 loving family setting
               </span>
             </h1>
 
-            <p class="md:text-xl leading-relaxed text-lg font-normal text-zinc-400 text-center max-w-2xl mb-12 animate-hero-element animate-description" style="">
+            <p class="text-base sm:text-lg md:text-xl leading-relaxed font-normal text-zinc-400 text-center max-w-2xl mb-8 md:mb-12 px-4 animate-hero-element animate-description" style="">
               Ark Care redefines assisted living by blending professional
               medical oversight with the warmth, dignity, and comfort of a true
               home environment.
             </p>
 
-            <div class="animate-hero-element animate-install mb-16 flex flex-col sm:flex-row gap-4 items-center">
-              <button class="shiny-cta" onclick="window.location.href='contact-us.html'" role="button">
+            <div class="animate-hero-element animate-install mb-12 md:mb-16 flex flex-col sm:flex-row gap-4 items-center px-4">
+              <a href="contact-us.html" class="shiny-cta">
                 <span class="">Schedule a Visit</span>
-              </button>
+              </a>
 
-              <div class="inline-flex hover:bg-zinc-800 transition-colors cursor-pointer group bg-zinc-900/80 border-white/10 border rounded-full pt-3 pr-5 pb-3 pl-5 backdrop-blur gap-x-3 gap-y-3 items-center" onclick="window.location.href='gallery.html'" role="button">
+              <a href="gallery.html" class="inline-flex hover:bg-zinc-800 transition-colors group bg-zinc-900/80 border-white/10 border rounded-full pt-3 pr-5 pb-3 pl-5 backdrop-blur gap-x-3 gap-y-3 items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="gallery-horizontal" class="lucide lucide-gallery-horizontal flex-shrink-0 group-hover:text-emerald-300 transition-colors w-[18px] h-[18px]" data-icon-set="lucide" data-icon-replaced="true" style="color: rgb(110, 231, 183); width: 18px; height: 18px;"><path d="M2 3v18"></path><rect width="12" height="18" x="6" y="3" rx="2"></rect><path d="M22 3v18"></path></svg>
                 <span class="group-hover:text-white/90 text-sm font-medium text-white">View Gallery</span>
-              </div>
+              </a>
             </div>
 
-            <div class="animate-hero-element animate-terminal w-full max-w-5xl mr-auto ml-auto relative">
-              <div class="overflow-hidden bg-zinc-900 rounded-2xl ring-white/10 ring-1 relative shadow-2xl" style="mask-image: linear-gradient(transparent, black 0%, black 50%, transparent);">
-                <div class="flex bg-zinc-900/80 border-white/10 border-b pt-3 pr-4 pb-3 pl-4 items-center justify-between" style="">
+            <div class="animate-hero-element animate-terminal w-full max-w-5xl mr-auto ml-auto relative px-4">
+              <div class="overflow-hidden bg-zinc-900 rounded-xl md:rounded-2xl ring-white/10 ring-1 relative shadow-2xl" style="mask-image: linear-gradient(transparent, black 0%, black 50%, transparent);">
+                <div class="flex bg-zinc-900/80 border-white/10 border-b pt-3 pr-3 md:pr-4 pb-3 pl-3 md:pl-4 items-center justify-between" style="">
                   <div class="flex items-center gap-2">
                     <div class="w-3 h-3 rounded-full bg-red-500/50" style=""></div>
                     <div class="w-3 h-3 rounded-full bg-yellow-500/50" style=""></div>
@@ -324,7 +488,7 @@ pointer-events: none;
                   <div class="w-16"></div>
                 </div>
 
-                <div class="min-h-[400px] text-sm bg-zinc-950 pt-6 pr-6 pb-6 pl-6 font-mono" style="">
+                <div class="min-h-[300px] md:min-h-[400px] text-xs md:text-sm bg-zinc-950 pt-4 md:pt-6 pr-4 md:pr-6 pb-4 md:pb-6 pl-4 md:pl-6 font-mono overflow-x-auto" style="">
                   <div class="flex items-center gap-2 mb-6 border-b border-white/5 pb-4">
                     <span class="text-emerald-500 font-bold" style="">
                       ACTIVE
@@ -473,7 +637,7 @@ pointer-events: none;
     <!-- Gallery Section -->
 
     <!-- Features Grid -->
-    <section class="[animation:fadeSlideIn_0.8s_ease-out_0.4s_both] animate-on-scroll z-10 bg-gradient-to-b from-zinc-950 to-black pt-16 pr-6 pb-16 pl-6 relative">
+    <section class="[animation:fadeSlideIn_0.8s_ease-out_0.4s_both] animate-on-scroll z-10 bg-gradient-to-b from-zinc-950 to-black pt-12 md:pt-16 pr-4 md:pr-6 pb-12 md:pb-16 pl-4 md:pl-6 relative">
       <div class="max-w-7xl mr-auto ml-auto">
         <div class="text-center mb-12">
           <span class="text-sm font-normal text-zinc-400 uppercase tracking-widest">
@@ -490,7 +654,7 @@ pointer-events: none;
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 gap-x-6 gap-y-6">
           <!-- Feature 1 -->
-          <div class="w-full h-[250px] rounded-[10px] p-[1px] relative" style="background: radial-gradient(circle 230px at 0% 0%, #10b981, #0c0d0d);">
+          <div class="w-full h-[220px] sm:h-[250px] rounded-[10px] p-[1px] relative" style="background: radial-gradient(circle 230px at 0% 0%, #10b981, #0c0d0d);">
             <div class="aspect-square z-[2] w-[5px] rounded-full absolute bg-emerald-400" style="box-shadow: #10b981 0px 0px 10px; right: 10%; top: 10%;"></div>
             <div class="z-[1] flex flex-col text-white w-full h-full border-[#202222] border rounded-[9px] pt-6 pr-6 pb-6 pl-6 relative items-center justify-center" style="background: radial-gradient(280px at 0% 0%, rgb(68, 68, 68), rgb(12, 13, 13));">
               <div class="blur-[60px] transform opacity-40 w-[220px] h-[45px] rounded-full absolute top-0 left-0 rotate-[40deg]" style="background-color: #10b981; box-shadow: #10b981 0px 0px 50px; transform-origin: 10% center"></div>
@@ -513,7 +677,7 @@ pointer-events: none;
           </div>
 
           <!-- Feature 2 -->
-          <div class="w-full h-[250px] rounded-[10px] p-[1px] relative" style="background: radial-gradient(circle 230px at 0% 0%, #10b981, #0c0d0d);">
+          <div class="w-full h-[220px] sm:h-[250px] rounded-[10px] p-[1px] relative" style="background: radial-gradient(circle 230px at 0% 0%, #10b981, #0c0d0d);">
             <div class="w-[5px] aspect-square absolute rounded-full z-[2] bg-emerald-400" style="box-shadow: #10b981 0px 0px 10px; right: 10%; top: 10%;"></div>
             <div class="z-[1] flex relative flex-col text-white w-full h-full border-[#202222] border rounded-[9px] items-center justify-center p-6" style="background: radial-gradient(280px at 0% 0%, rgb(68, 68, 68), rgb(12, 13, 13));">
               <div class="absolute blur-[60px] transform top-0 left-0 opacity-40 w-[220px] h-[45px] rounded-full rotate-[40deg]" style="background-color: #10b981; box-shadow: 0 0 50px #10b981; transform-origin: 10%"></div>
@@ -538,7 +702,7 @@ pointer-events: none;
           </div>
 
           <!-- Feature 3 -->
-          <div class="w-full h-[250px] rounded-[10px] p-[1px] relative" style="background: radial-gradient(circle 230px at 0% 0%, #10b981, #0c0d0d);">
+          <div class="w-full h-[220px] sm:h-[250px] rounded-[10px] p-[1px] relative" style="background: radial-gradient(circle 230px at 0% 0%, #10b981, #0c0d0d);">
             <div class="w-[5px] aspect-square absolute rounded-full z-[2] bg-emerald-400" style="box-shadow: #10b981 0px 0px 10px; right: 10%; top: 10%;"></div>
             <div class="z-[1] flex relative flex-col text-white w-full h-full border-[#202222] border rounded-[9px] items-center justify-center p-6" style="background: radial-gradient(280px at 0% 0%, rgb(68, 68, 68), rgb(12, 13, 13));">
               <div class="absolute blur-[60px] transform top-0 left-0 opacity-40 w-[220px] h-[45px] rounded-full rotate-[40deg]" style="background-color: #10b981; box-shadow: 0 0 50px #10b981; transform-origin: 10%"></div>
@@ -646,7 +810,7 @@ pointer-events: none;
       </div>
     </section>
 
-    <section class="relative z-10 px-6 py-16 bg-gradient-to-b from-black to-zinc-950 [animation:fadeSlideIn_0.8s_ease-out_0.2s_both] animate-on-scroll" style="">
+    <section class="relative z-10 px-4 md:px-6 py-12 md:py-16 bg-gradient-to-b from-black to-zinc-950 [animation:fadeSlideIn_0.8s_ease-out_0.2s_both] animate-on-scroll" style="">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16">
           <span class="text-sm font-normal text-zinc-400 uppercase tracking-widest">
@@ -788,10 +952,10 @@ pointer-events: none;
               </div>
             </div>
             <div class="border-t border-white/10 pt-6 mt-8" style="">
-              <button class="inline-flex hover:bg-zinc-200 transition text-sm font-medium text-black bg-white h-10 rounded-full pr-5 pl-5 shadow-lg gap-x-2 gap-y-2 items-center" onclick="window.location.href='contact-us.html'" role="button">
+              <a href="contact-us.html" class="inline-flex hover:bg-zinc-200 transition text-sm font-medium text-black bg-white h-10 rounded-full pr-5 pl-5 shadow-lg gap-x-2 gap-y-2 items-center">
                 Book a Consultation
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right w-4 h-4"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -1276,12 +1440,12 @@ pointer-events: none;
           our residence and meet our compassionate team.
         </p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button class="hover:bg-zinc-200 transition-colors sm:w-auto font-medium text-black bg-white w-full rounded-full pt-4 pr-8 pb-4 pl-8" onclick="window.location.href='about-us.html'" role="button">
+          <a href="contact-us.html" class="hover:bg-zinc-200 transition-colors sm:w-auto font-medium text-black bg-white w-full rounded-full pt-4 pr-8 pb-4 pl-8 text-center">
             Schedule a Tour
-          </button>
-          <button class="hover:bg-zinc-800 transition-colors sm:w-auto font-medium text-white bg-zinc-900 w-full border-zinc-800 border rounded-full pt-4 pr-8 pb-4 pl-8" onclick="window.location.href='contact-us.html'" role="button">
+          </a>
+          <a href="contact-us.html" class="hover:bg-zinc-800 transition-colors sm:w-auto font-medium text-white bg-zinc-900 w-full border-zinc-800 border rounded-full pt-4 pr-8 pb-4 pl-8 text-center">
             Contact Support
-          </button>
+          </a>
         </div>
       </div>
     </section>
@@ -1427,21 +1591,59 @@ pointer-events: none;
         // Initialize Lucide icons
         lucide.createIcons();
 
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        if (mobileMenuButton && mobileMenu) {
+          mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+            document.body.style.overflow = mobileMenu.classList.contains('hidden') ? '' : 'hidden';
+          });
+
+          // Close menu when clicking on a link
+          const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+          mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+              mobileMenu.classList.add('hidden');
+              menuIcon.classList.remove('hidden');
+              closeIcon.classList.add('hidden');
+              document.body.style.overflow = '';
+            });
+          });
+
+          // Close menu when clicking outside
+          document.addEventListener('click', function(event) {
+            if (!mobileMenuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
+              mobileMenu.classList.add('hidden');
+              menuIcon.classList.remove('hidden');
+              closeIcon.classList.add('hidden');
+              document.body.style.overflow = '';
+            }
+          });
+        }
+
         // Initialize Vanta Globe with adapted colors (softer, greener)
-        VANTA.GLOBE({
-          el: "#vanta-bg",
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 200.00,
-          minWidth: 200.00,
-          scale: 1.00,
-          scaleMobile: 1.00,
-          color: 0x10b981,
-          color2: 0x059669,
-          size: 1.20,
-          backgroundColor: 0x000000
-        });
+        if (typeof VANTA !== 'undefined') {
+          VANTA.GLOBE({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x10b981,
+            color2: 0x059669,
+            size: 1.20,
+            backgroundColor: 0x000000
+          });
+        }
       });
     </script>
   

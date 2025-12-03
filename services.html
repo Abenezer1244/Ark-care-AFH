@@ -1,7 +1,27 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ark Care - Premium Adult Family Home</title>
+<title>Services - Ark Care | Assisted Living, Memory Care & Respite Care</title>
+<meta name="description" content="Comprehensive care services at Ark Care including assisted living, memory care, respite care, and hospice coordination. Personalized care plans tailored to each resident's needs.">
+<meta name="keywords" content="assisted living services, memory care, respite care, hospice coordination, senior care services, adult family home services">
+<meta name="author" content="Ark Care">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arkcare.com/services.html">
+<meta property="og:title" content="Services - Ark Care | Assisted Living & Memory Care">
+<meta property="og:description" content="Comprehensive care services including assisted living, memory care, respite care, and hospice coordination with personalized care plans.">
+<meta property="og:image" content="https://arkcare.com/images/services-og-image.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://arkcare.com/services.html">
+<meta property="twitter:title" content="Services - Ark Care">
+<meta property="twitter:description" content="Assisted living, memory care, respite care, and hospice coordination services.">
+<meta property="twitter:image" content="https://arkcare.com/images/services-twitter-image.jpg">
+
+<!-- Google Business Profile -->
+<link rel="canonical" href="https://arkcare.com/services.html">
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
@@ -43,6 +63,8 @@ font-size: 1rem;
 line-height: 1.2;
 font-weight: 500;
 color: #ffffff;
+display: inline-block;
+text-decoration: none;
 background: linear-gradient(#000000, #000000) padding-box,
 conic-gradient(
 from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
@@ -361,7 +383,71 @@ addUtilities({
 }
 ]
 };
-</script></head>
+</script>
+
+<!-- Service Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Adult Family Home Services",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Ark Care",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "127 4th Ave N",
+      "addressLocality": "Algona",
+      "addressRegion": "WA",
+      "postalCode": "98001",
+      "addressCountry": "US"
+    }
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Algona"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Care Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Assisted Living",
+          "description": "Professional assistance with daily living activities in a home-like environment"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Memory Care",
+          "description": "Specialized care for residents with Alzheimer's, dementia, and other memory conditions"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Respite Care",
+          "description": "Temporary care services providing relief for primary caregivers"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Hospice Coordination",
+          "description": "Compassionate end-of-life care coordination and support"
+        }
+      }
+    ]
+  }
+}
+</script>
+</head>
   <body class="overflow-x-hidden text-white bg-black font-sans selection:bg-emerald-500/30">
     <!-- Background (component) -->
     
@@ -375,14 +461,14 @@ addUtilities({
     <div class="min-h-screen relative bg-black selection:bg-emerald-500/30 font-sans">
       <!-- Navigation -->
       <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-black/60 backdrop-blur-xl supports-[backdrop-filter]:bg-black/40">
-        <div class="flex h-20 max-w-7xl mr-auto ml-auto pr-6 pl-6 items-center justify-between">
-          <a href="index.html" class="flex items-center gap-2.5 group">
-            <div class="h-8 w-8 bg-emerald-500/10 border border-emerald-500/20 rounded-lg flex items-center justify-center group-hover:bg-emerald-500/20 transition-colors">
-              <span class="font-instrument-serif italic text-emerald-500 font-semibold text-lg">
+        <div class="flex h-16 md:h-20 max-w-7xl mr-auto ml-auto pr-4 pl-4 md:pr-6 md:pl-6 items-center justify-between">
+          <a href="index.html" class="flex items-center gap-2 md:gap-2.5 group">
+            <div class="h-6 w-6 md:h-8 md:w-8 bg-emerald-500/10 border border-emerald-500/20 rounded-lg flex items-center justify-center group-hover:bg-emerald-500/20 transition-colors">
+              <span class="font-instrument-serif italic text-emerald-500 font-semibold text-sm md:text-lg">
                 A
               </span>
             </div>
-            <span class="uppercase group-hover:text-emerald-100 transition-colors cursor-pointer text-sm font-semibold text-white tracking-wide" onclick="window.location.href='index.html'" role="button">
+            <span class="uppercase group-hover:text-emerald-100 transition-colors text-xs md:text-sm font-semibold text-white tracking-wide">
               Ark Care
             </span>
           </a>
@@ -395,15 +481,28 @@ addUtilities({
             <a href="contact-us.html" class="hover:text-white transition-colors">Contact Us</a>
           </div>
           
-          <div class="flex items-center gap-4">
-            
-            <button class="px-5 py-2 rounded-full bg-white text-black text-sm font-semibold hover:bg-zinc-200 transition-colors flex items-center gap-2">
+          <div class="flex items-center gap-2 md:gap-4">
+            <a href="contact-us.html" class="hidden md:flex px-5 py-2 rounded-full bg-white text-black text-sm font-semibold hover:bg-zinc-200 transition-colors items-center gap-2">
               <span class="">Schedule Tour</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-up-right" class="lucide lucide-arrow-up-right opacity-50"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+            </a>
+            <button id="mobile-menu-button" class="md:hidden text-white p-2" aria-label="Toggle menu">
+              <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu w-6 h-6"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg>
+              <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x w-6 h-6 hidden"><path d="M18 6 6 18"></path><path d="M6 6l12 12"></path></svg>
             </button>
-            <button class="md:hidden text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="menu" class="lucide lucide-menu"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg>
-            </button>
+          </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-xl border-t border-white/5">
+          <div class="flex flex-col py-4 px-4 space-y-1">
+            <a href="index.html" class="px-4 py-3 text-base font-medium text-zinc-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Home</a>
+            <a href="about-us.html" class="px-4 py-3 text-base font-medium text-zinc-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors">About Us</a>
+            <a href="services.html" class="px-4 py-3 text-base font-medium text-zinc-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Services</a>
+            <a href="gallery.html" class="px-4 py-3 text-base font-medium text-zinc-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Gallery</a>
+            <a href="contact-us.html" class="px-4 py-3 text-base font-medium text-zinc-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Contact Us</a>
+            <a href="contact-us.html" class="mt-4 mx-4 px-4 py-3 text-base font-medium text-center text-black bg-white rounded-full hover:bg-zinc-200 transition-colors">
+              Schedule Tour
+            </a>
           </div>
         </div>
       </nav>
@@ -436,7 +535,7 @@ addUtilities({
             </p>
 
             <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-16 w-full sm:w-auto">
-              <button class="hover:bg-emerald-500 transition-all flex group font-medium text-white bg-emerald-600 rounded-full pt-3.5 pr-8 pb-3.5 pl-8 shadow-[0_0_40px_-10px_rgba(16,185,129,0.3)] gap-x-2 gap-y-2 items-center justify-center" onclick="window.location.href='gallery.html'" role="button">View Gallery</button>
+              <a href="gallery.html" class="hover:bg-emerald-500 transition-all flex group font-medium text-white bg-emerald-600 rounded-full pt-3.5 pr-8 pb-3.5 pl-8 shadow-[0_0_40px_-10px_rgba(16,185,129,0.3)] gap-x-2 gap-y-2 items-center justify-center">View Gallery</a>
               
             </div>
 
@@ -894,21 +993,59 @@ addUtilities({
         // Initialize Lucide icons
         lucide.createIcons();
 
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        if (mobileMenuButton && mobileMenu) {
+          mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+            document.body.style.overflow = mobileMenu.classList.contains('hidden') ? '' : 'hidden';
+          });
+
+          // Close menu when clicking on a link
+          const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+          mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+              mobileMenu.classList.add('hidden');
+              menuIcon.classList.remove('hidden');
+              closeIcon.classList.add('hidden');
+              document.body.style.overflow = '';
+            });
+          });
+
+          // Close menu when clicking outside
+          document.addEventListener('click', function(event) {
+            if (!mobileMenuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
+              mobileMenu.classList.add('hidden');
+              menuIcon.classList.remove('hidden');
+              closeIcon.classList.add('hidden');
+              document.body.style.overflow = '';
+            }
+          });
+        }
+
         // Initialize Vanta Globe with adapted colors (softer, greener)
-        VANTA.GLOBE({
-          el: "#vanta-bg",
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 200.00,
-          minWidth: 200.00,
-          scale: 1.00,
-          scaleMobile: 1.00,
-          color: 0x10b981,
-          color2: 0x059669,
-          size: 1.20,
-          backgroundColor: 0x000000
-        });
+        if (typeof VANTA !== 'undefined') {
+          VANTA.GLOBE({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x10b981,
+            color2: 0x059669,
+            size: 1.20,
+            backgroundColor: 0x000000
+          });
+        }
       });
     </script>
   
