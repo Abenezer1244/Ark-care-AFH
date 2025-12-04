@@ -30,12 +30,15 @@
 <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 <link rel="dns-prefetch" href="https://unpkg.com">
+<link rel="dns-prefetch" href="https://api.emailjs.com">
 
 <!-- Critical CSS and Scripts -->
 <!-- Note: Tailwind CDN is used for development. For production, consider using PostCSS plugin or Tailwind CLI -->
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lucide@latest" defer></script>
+<!-- EmailJS for contact form -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <style>
 body { font-family: 'Inter', sans-serif; }
@@ -325,31 +328,56 @@ transform: translate(-50%, -50%) scale(1.20);
             <!-- Send a Message Form -->
             <div class="lg:col-span-7">
               <h3 class="text-2xl font-medium text-white mb-8 tracking-tight">Send a message</h3>
-              <form class="space-y-6">
+              
+              <!-- Success Message -->
+              <div id="form-success" class="hidden mb-6 p-4 bg-emerald-500/20 border border-emerald-500/50 rounded-lg">
+                <div class="flex items-center gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-400">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <p class="text-emerald-300 text-sm">Thank you! Your message has been sent successfully. We'll get back to you soon.</p>
+                </div>
+              </div>
+
+              <!-- Error Message -->
+              <div id="form-error" class="hidden mb-6 p-4 bg-red-500/20 border border-red-500/50 rounded-lg">
+                <div class="flex items-center gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-400">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                  </svg>
+                  <p class="text-red-300 text-sm">Something went wrong. Please try again or call us at (206) 455-3644.</p>
+                </div>
+              </div>
+
+              <form id="contact-form" class="space-y-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div class="group">
-                    <label class="block text-xs font-medium text-zinc-500 uppercase tracking-wider mb-2 group-focus-within:text-emerald-500 transition-colors">First Name</label>
-                    <input type="text" placeholder="Jane" class="w-full bg-zinc-900/50 border border-white/10 rounded-lg px-4 py-3.5 md:py-3 text-base md:text-sm text-white placeholder-zinc-700 focus:outline-none focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500/50 transition-all hover:bg-zinc-900">
+                    <label for="firstName" class="block text-xs font-medium text-zinc-500 uppercase tracking-wider mb-2 group-focus-within:text-emerald-500 transition-colors">First Name</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="Jane" required class="w-full bg-zinc-900/50 border border-white/10 rounded-lg px-4 py-3.5 md:py-3 text-base md:text-sm text-white placeholder-zinc-700 focus:outline-none focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500/50 transition-all hover:bg-zinc-900">
                   </div>
                   <div class="group">
-                    <label class="block text-xs font-medium text-zinc-500 uppercase tracking-wider mb-2 group-focus-within:text-emerald-500 transition-colors">Last Name</label>
-                    <input type="text" placeholder="Doe" class="w-full bg-zinc-900/50 border border-white/10 rounded-lg px-4 py-3.5 md:py-3 text-base md:text-sm text-white placeholder-zinc-700 focus:outline-none focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500/50 transition-all hover:bg-zinc-900">
+                    <label for="lastName" class="block text-xs font-medium text-zinc-500 uppercase tracking-wider mb-2 group-focus-within:text-emerald-500 transition-colors">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Doe" required class="w-full bg-zinc-900/50 border border-white/10 rounded-lg px-4 py-3.5 md:py-3 text-base md:text-sm text-white placeholder-zinc-700 focus:outline-none focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500/50 transition-all hover:bg-zinc-900">
                   </div>
                 </div>
 
                 <div class="group">
-                  <label class="block text-xs font-medium text-zinc-500 uppercase tracking-wider mb-2 group-focus-within:text-emerald-500 transition-colors">Email Address</label>
-                  <input type="email" placeholder="jane@example.com" class="w-full bg-zinc-900/50 border border-white/10 rounded-lg px-4 py-3.5 md:py-3 text-base md:text-sm text-white placeholder-zinc-700 focus:outline-none focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500/50 transition-all hover:bg-zinc-900">
+                  <label for="email" class="block text-xs font-medium text-zinc-500 uppercase tracking-wider mb-2 group-focus-within:text-emerald-500 transition-colors">Email Address</label>
+                  <input type="email" id="email" name="email" placeholder="jane@example.com" required class="w-full bg-zinc-900/50 border border-white/10 rounded-lg px-4 py-3.5 md:py-3 text-base md:text-sm text-white placeholder-zinc-700 focus:outline-none focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500/50 transition-all hover:bg-zinc-900">
                 </div>
 
                 <div class="group">
-                  <label class="block text-xs font-medium text-zinc-500 uppercase tracking-wider mb-2 group-focus-within:text-emerald-500 transition-colors">Topic</label>
+                  <label for="topic" class="block text-xs font-medium text-zinc-500 uppercase tracking-wider mb-2 group-focus-within:text-emerald-500 transition-colors">Topic</label>
                   <div class="relative">
-                    <select class="w-full bg-zinc-900/50 border border-white/10 rounded-lg px-4 py-3.5 md:py-3 text-base md:text-sm text-white focus:outline-none focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500/50 transition-all hover:bg-zinc-900 appearance-none">
-                      <option>Schedule a Tour</option>
-                      <option>Pricing Inquiry</option>
-                      <option>Career Opportunities</option>
-                      <option>General Question</option>
+                    <select id="topic" name="topic" required class="w-full bg-zinc-900/50 border border-white/10 rounded-lg px-4 py-3.5 md:py-3 text-base md:text-sm text-white focus:outline-none focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500/50 transition-all hover:bg-zinc-900 appearance-none">
+                      <option value="">Select a topic...</option>
+                      <option value="Schedule a Tour">Schedule a Tour</option>
+                      <option value="Pricing Inquiry">Pricing Inquiry</option>
+                      <option value="Career Opportunities">Career Opportunities</option>
+                      <option value="General Question">General Question</option>
                     </select>
                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-zinc-500">
                       <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -358,13 +386,14 @@ transform: translate(-50%, -50%) scale(1.20);
                 </div>
 
                 <div class="group">
-                  <label class="block text-xs font-medium text-zinc-500 uppercase tracking-wider mb-2 group-focus-within:text-emerald-500 transition-colors">Message</label>
-                  <textarea rows="4" placeholder="How can we help you?" class="w-full bg-zinc-900/50 border border-white/10 rounded-lg px-4 py-3.5 md:py-3 text-base md:text-sm text-white placeholder-zinc-700 focus:outline-none focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500/50 transition-all hover:bg-zinc-900 resize-none"></textarea>
+                  <label for="message" class="block text-xs font-medium text-zinc-500 uppercase tracking-wider mb-2 group-focus-within:text-emerald-500 transition-colors">Message</label>
+                  <textarea id="message" name="message" rows="4" placeholder="How can we help you?" required class="w-full bg-zinc-900/50 border border-white/10 rounded-lg px-4 py-3.5 md:py-3 text-base md:text-sm text-white placeholder-zinc-700 focus:outline-none focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500/50 transition-all hover:bg-zinc-900 resize-none"></textarea>
                 </div>
 
                 <div class="pt-2">
-                  <button type="button" class="shiny-cta w-full sm:w-auto min-h-[44px]">
-                    <span>Send Message</span>
+                  <button type="submit" id="submit-btn" class="shiny-cta w-full sm:w-auto min-h-[44px] disabled:opacity-50 disabled:cursor-not-allowed">
+                    <span id="submit-text">Send Message</span>
+                    <span id="submit-loading" class="hidden">Sending...</span>
                   </button>
                 </div>
               </form>
@@ -627,6 +656,127 @@ transform: translate(-50%, -50%) scale(1.20);
               menuIcon.classList.remove('hidden');
               closeIcon.classList.add('hidden');
               document.body.style.overflow = '';
+            }
+          });
+        }
+
+        // Initialize EmailJS when library is loaded
+        function initEmailJS() {
+          if (typeof emailjs !== 'undefined') {
+            // Replace 'YOUR_PUBLIC_KEY' with your EmailJS public key from https://www.emailjs.com/
+            emailjs.init("YOUR_PUBLIC_KEY");
+            return true;
+          }
+          return false;
+        }
+
+        // Wait for EmailJS to load
+        if (typeof emailjs === 'undefined') {
+          // Retry after a short delay if EmailJS hasn't loaded yet
+          setTimeout(() => {
+            if (typeof emailjs !== 'undefined') {
+              initEmailJS();
+            }
+          }, 1000);
+        } else {
+          initEmailJS();
+        }
+
+        // Contact Form Submission
+        const contactForm = document.getElementById('contact-form');
+        const formSuccess = document.getElementById('form-success');
+        const formError = document.getElementById('form-error');
+        const submitBtn = document.getElementById('submit-btn');
+        const submitText = document.getElementById('submit-text');
+        const submitLoading = document.getElementById('submit-loading');
+
+        if (contactForm) {
+          contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Hide previous messages
+            formSuccess.classList.add('hidden');
+            formError.classList.add('hidden');
+            
+            // Validate form
+            if (!contactForm.checkValidity()) {
+              contactForm.reportValidity();
+              return;
+            }
+            
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitText.classList.add('hidden');
+            submitLoading.classList.remove('hidden');
+
+            // Get form data
+            const formData = {
+              firstName: document.getElementById('firstName').value.trim(),
+              lastName: document.getElementById('lastName').value.trim(),
+              email: document.getElementById('email').value.trim(),
+              topic: document.getElementById('topic').value,
+              message: document.getElementById('message').value.trim()
+            };
+
+            try {
+              // Check if EmailJS is initialized
+              if (typeof emailjs === 'undefined') {
+                throw new Error('EmailJS library not loaded. Please check your internet connection.');
+              }
+
+              // Send email using EmailJS
+              // IMPORTANT: Replace these with your actual EmailJS credentials
+              // See CONTACT_FORM_SETUP.md for detailed instructions
+              const response = await emailjs.send(
+                'YOUR_SERVICE_ID',  // Replace with your EmailJS Service ID
+                'YOUR_TEMPLATE_ID', // Replace with your EmailJS Template ID
+                {
+                  from_name: `${formData.firstName} ${formData.lastName}`,
+                  from_email: formData.email,
+                  subject: `Contact Form: ${formData.topic}`,
+                  message: formData.message,
+                  topic: formData.topic,
+                  to_email: 'info@arkcare.com',
+                  business_name: 'Ark Care',
+                  reply_to: formData.email,
+                  date: new Date().toLocaleString()
+                }
+              );
+
+              // Success
+              if (response.status === 200) {
+                formSuccess.classList.remove('hidden');
+                contactForm.reset();
+                
+                // Scroll to success message
+                setTimeout(() => {
+                  formSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 100);
+              } else {
+                throw new Error('Email sending failed');
+              }
+            } catch (error) {
+              console.error('EmailJS Error:', error);
+              
+              // Show user-friendly error message
+              const errorMessage = formError.querySelector('p');
+              if (errorMessage) {
+                if (error.message.includes('YOUR_SERVICE_ID') || error.message.includes('YOUR_TEMPLATE_ID')) {
+                  errorMessage.textContent = 'Email service not configured. Please contact the website administrator or call us at (206) 455-3644.';
+                } else {
+                  errorMessage.textContent = `Unable to send message: ${error.message}. Please try again or call us at (206) 455-3644.`;
+                }
+              }
+              
+              formError.classList.remove('hidden');
+              setTimeout(() => {
+                formError.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+              }, 100);
+            } finally {
+              // Re-enable submit button
+              submitBtn.disabled = false;
+              submitText.classList.remove('hidden');
+              submitLoading.classList.add('hidden');
             }
           });
         }
